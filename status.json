@@ -2,7 +2,7 @@
   "telegram_offset": null,
   "posts": {
     "2026-11-10-test-121220": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "d359f44c14",
       "hash": "fad9ac9266a3a5d095310ea23f20904085f90451",
       "test": true,
@@ -11,7 +11,10 @@
       "bild": "14_text-oben.jpg",
       "thema": "Testlauf der Telegram-Verbindung",
       "hinweise": [],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-10T12:12:27+00:00",
+      "tg_foto": 3,
+      "tg_msg": 4
     }
   }
 }
