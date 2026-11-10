@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760124,
+  "telegram_offset": 972760131,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -105,7 +105,7 @@
       "entwurf": "2026-11-10-hundewelpen-grenzkontrolle"
     },
     "2026-11-10-themen-2": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "7577f08142",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen-2.json",
       "importiert": "2026-11-10T17:44:26+00:00",
@@ -140,7 +140,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-10T17:44:28+00:00",
-      "tg_msg": 21
+      "tg_msg": 21,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-10T20:08:22+00:00"
     }
   },
   "befehle_gesetzt": true,
