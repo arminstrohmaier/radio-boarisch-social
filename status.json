@@ -105,7 +105,7 @@
       "entwurf": "2026-11-10-hundewelpen-grenzkontrolle"
     },
     "2026-11-10-themen-2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "7577f08142",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen-2.json",
       "importiert": "2026-11-10T17:44:26+00:00",
@@ -138,7 +138,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-10T17:44:28+00:00",
+      "tg_msg": 21
     }
   },
   "befehle_gesetzt": true,
