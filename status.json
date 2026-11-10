@@ -2,7 +2,7 @@
   "telegram_offset": 972760118,
   "posts": {
     "2026-11-10-test-121220": {
-      "status": "freigegeben",
+      "status": "test_ok",
       "key": "d359f44c14",
       "hash": "fad9ac9266a3a5d095310ea23f20904085f90451",
       "test": true,
