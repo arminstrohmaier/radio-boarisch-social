@@ -15,6 +15,18 @@
       "gesendet": "2026-11-10T12:12:27+00:00",
       "tg_foto": 3,
       "tg_msg": 4
+    },
+    "2026-11-10-test-121353": {
+      "status": "neu",
+      "key": "9f89959898",
+      "hash": "8842fd8caa7006ae151a9ec87abb1aba83082156",
+      "test": true,
+      "herkunft": "testentwurf",
+      "importiert": "2026-11-10T12:13:53+00:00",
+      "bild": "05_text-oben.jpg",
+      "thema": "Testlauf der Telegram-Verbindung",
+      "hinweise": [],
+      "fehler": []
     }
   }
 }
