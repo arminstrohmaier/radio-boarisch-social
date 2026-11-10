@@ -1,0 +1,15 @@
+{
+  "id": "2026-11-10-test-121220",
+  "thema": "Testlauf der Telegram-Verbindung",
+  "ernst": false,
+  "hook": "🧪 Servus! Des is a Testpost vom Automaten.",
+  "text": "📻 Wenn du des liest, kommt der Entwurf sauber per Telegram an.",
+  "aufforderung": "👉 Drück auf Ja oder Nein – veröffentlicht wird beim Test nix.",
+  "bildtext": "Testlauf Automat",
+  "bild": "14_text-oben.jpg",
+  "quelle": {
+    "name": "Radio Boarisch",
+    "url": "https://radio-boarisch.de"
+  },
+  "recherche": "Test, keine Recherche."
+}
