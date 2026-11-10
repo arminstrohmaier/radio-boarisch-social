@@ -62,7 +62,7 @@
       "tg_msg": 17
     },
     "2026-11-10-christkindlesmarkt-augsburg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "b5ec84c173",
       "hash": "8aacfece1d2364dd46633b8da709e5903d3e74da",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-christkindlesmarkt-augsburg.json",
