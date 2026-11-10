@@ -4,7 +4,7 @@ name: Automat
 # Laeuft alle 10 Minuten; GitHub Actions ist fuer oeffentliche Repos kostenlos.
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "4,14,24,34,44,54 * * * *"   # nicht zur vollen Stunde: dort verwirft GitHub bei Last oft Laeufe
   push:
     branches-ignore: [redaktion]
     paths: ["entwuerfe/**", "themen/**", "rueckmeldungen/**"]
