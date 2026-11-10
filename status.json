@@ -175,6 +175,42 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-10T20:08:22+00:00",
       "entwurf": "2026-11-10-christkindlesmarkt-augsburg"
+    },
+    "2026-11-10-themen-3": {
+      "status": "neu",
+      "key": "7e946c2b72",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen-3.json",
+      "importiert": "2026-11-10T21:39:25+00:00",
+      "themen": [
+        {
+          "titel": "Regensburger Christkindlmarkt auf dem Neupfarrplatz ab 23. November",
+          "worum": "Der Markt läuft vom 23. November bis 23. Dezember; die Stadt hat dazu sogar ein eigenes Wimmelbuch zum Regensburger Christkindlmarkt.",
+          "quelle": {
+            "name": "Stadt Regensburg",
+            "url": "https://www.regensburg.de/christkindlmarkt"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "„Grüße aus dem unbekannten Regensburg“ – Postkarten um 1900",
+          "worum": "Neue Kabinettausstellung im Haus der Bayerischen Geschichte ab 10. Dezember: Domkletterer, blecherne Ecken und Kartoffelkriege auf alten Ansichtskarten, bis Oktober 2027.",
+          "quelle": {
+            "name": "Haus der Bayerischen Geschichte",
+            "url": "https://www.hdbg.de/ausstellungen/sonderausstellungen/gruesse-aus-dem-unbekannten-regensburg.html"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Auto setzt selbst den Notruf ab – Brand in Münchner Tiefgarage",
+          "worum": "Am 6. November meldete die automatische Notruffunktion eines Autos einen Fahrzeugbrand an die Feuerwehr München; das Auto stand in einer Tiefgarage, die Einsatzkräfte löschten unter Atemschutz. Blaulicht, sachlich.",
+          "quelle": {
+            "name": "Feuerwehr München",
+            "url": "https://www.presseportal.de/blaulicht/pm/131419/6385827"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -189,7 +225,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-10T20:41:00+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-10-themen-3"
     }
   ]
 }
