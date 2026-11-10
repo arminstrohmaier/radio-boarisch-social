@@ -17,7 +17,7 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import config, entwurf as E, render
+from . import config, entwurf as E, render, themen
 from .config import Settings
 from .meta import Meta, MetaFehler
 from .status import ABGESCHLOSSEN, Status, git_commit, inhalt_hash, jetzt, schluessel
@@ -32,7 +32,7 @@ def log(*a):
 
 # ---------------------------------------------------------------- Import
 
-def entwuerfe_finden(repo: Path) -> list[tuple[str, str, dict]]:
+def entwuerfe_finden(repo: Path, ordner: str = "entwuerfe") -> list[tuple[str, str, dict]]:
     """-> [(herkunft, dateiname, inhalt)] aus allen Remote-Branches und dem Arbeitsordner."""
     gefunden = []
 
@@ -43,7 +43,7 @@ def entwuerfe_finden(repo: Path) -> list[tuple[str, str, dict]]:
     for ref in refs:
         if ref in ("origin/HEAD", "origin/redaktion", "origin"):
             continue
-        for pfad in git("ls-tree", "--name-only", ref, "entwuerfe/").stdout.split():
+        for pfad in git("ls-tree", "--name-only", ref, f"{ordner}/").stdout.split():
             if not pfad.endswith(".json"):
                 continue
             r = git("show", f"{ref}:{pfad}")
@@ -51,13 +51,13 @@ def entwuerfe_finden(repo: Path) -> list[tuple[str, str, dict]]:
                 gefunden.append((ref.removeprefix("origin/"), pfad, json.loads(r.stdout)))
             except ValueError:
                 gefunden.append((ref.removeprefix("origin/"), pfad, {"_kaputt": True}))
-    lokal = repo / "entwuerfe"
+    lokal = repo / ordner
     if lokal.is_dir():
         for f in sorted(lokal.glob("*.json")):
             try:
-                gefunden.append(("arbeitsordner", f"entwuerfe/{f.name}", E.laden(f)))
+                gefunden.append(("arbeitsordner", f"{ordner}/{f.name}", E.laden(f)))
             except ValueError:
-                gefunden.append(("arbeitsordner", f"entwuerfe/{f.name}", {"_kaputt": True}))
+                gefunden.append(("arbeitsordner", f"{ordner}/{f.name}", {"_kaputt": True}))
     return gefunden
 
 
@@ -103,6 +103,7 @@ def importieren(st: Status, kandidaten, tg: Telegram | None, chat_id: str) -> in
             ordner.mkdir(parents=True, exist_ok=True)
             (ordner / "entwurf.json").write_text(json.dumps(e, indent=2, ensure_ascii=False) + "\n",
                                                  encoding="utf-8")
+            themen.entwurf_verknuepfen(st, e, pid)
             neu += 1
             log(f"importiert: {pid}")
         else:
@@ -173,6 +174,8 @@ def _knopf(st: Status, tg: Telegram, chat_id: str, cq: dict) -> int:
         log(f"Knopf von fremdem Chat ignoriert")
         return 0
     aktion, _, key = (cq.get("data") or "").partition(":")
+    if aktion == "t":
+        return themen.knopf(st, tg, chat_id, cq, key)
     pid = st.nach_schluessel(key)
     msg_id = cq.get("message", {}).get("message_id")
     if not pid:
@@ -226,7 +229,9 @@ def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
     if text.startswith("/status"):
         offen = [f"• {pid}: {p.get('status')}" for pid, p in st.posts.items()
                  if p.get("status") not in ABGESCHLOSSEN and p.get("status") != "ungueltig"]
-        tg.text(chat_id, "Offene Entwürfe:\n" + ("\n".join(offen) if offen else "keine"))
+        offen += [f"• Themen {tid}: {t.get('status')}" for tid, t in st.themen.items()
+                  if t.get("status") in ("neu", "gesendet", "gewaehlt")]
+        tg.text(chat_id, "Offen:\n" + ("\n".join(offen) if offen else "nichts"))
     elif text.startswith("/start") or text.startswith("/id"):
         tg.text(chat_id, "Servus! Der Automat ist eingerichtet. Entwürfe kommen hier mit "
                          "Ja/Nein-Knopf an. /status zeigt offene Entwürfe.")
@@ -347,8 +352,10 @@ def main(argv=None) -> int:
         if chat:
             if a.testentwurf:
                 log(f"Testentwurf: {testentwurf(st)}")
+            themen.importieren(st, entwuerfe_finden(Path(a.repo), "themen"), tg, chat, _veraltet)
             importieren(st, entwuerfe_finden(Path(a.repo)), tg, chat)
             st.speichern(); commit("Import")
+            themen.senden(st, tg, chat)
             senden(st, tg, chat)
             st.speichern(); commit("Entwuerfe gesendet")
         else:

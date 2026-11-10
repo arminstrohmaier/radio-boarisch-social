@@ -34,6 +34,11 @@ class Status:
             self.daten = {"telegram_offset": None, "posts": {}}
         self.daten.setdefault("posts", {})
         self.daten.setdefault("telegram_offset", None)
+        self.daten.setdefault("themen", {})
+
+    @property
+    def themen(self) -> dict:
+        return self.daten["themen"]
 
     @property
     def posts(self) -> dict:

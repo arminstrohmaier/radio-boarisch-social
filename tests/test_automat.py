@@ -247,3 +247,65 @@ def test_metacheck_mit_attrappe():
 def test_datum_bleibt_zusammen():
     from automat.render import _woerter
     assert _woerter("Markt ab 27. November") == ["Markt", "ab", "27. November"]
+
+
+THEMEN = {
+    "id": "2026-11-12-themen",
+    "themen": [
+        {"titel": "Christkindlmarkt Landshut", "worum": "Start am Donnerstag.",
+         "quelle": {"name": "Stadt Landshut", "url": "https://www.landshut.de/pm"}},
+        {"titel": "Volksmusiktag", "worum": "Programm steht.",
+         "quelle": {"name": "Veranstalter", "url": "https://example.org/pm"}},
+        {"titel": "Feuerwehr-Jubiläum", "worum": "150 Jahre.",
+         "quelle": {"name": "Feuerwehr", "url": "https://example.org/ff"}},
+    ],
+}
+
+
+def test_themen_wahl_und_entwurf(tmp_path):
+    from automat import themen
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
+    themen.senden(st, tg, "42")
+    t = st.themen[THEMEN["id"]]
+    assert t["status"] == "gesendet"
+    knoepfe = tg.gesendet[-1][3]
+    assert [k["callback_data"] for k in knoepfe[0]] == [f"t:{t['key']}:{i}" for i in (1, 2, 3)]
+    assert knoepfe[1][0]["callback_data"] == f"t:{t['key']}:0"
+    assert themen.offen(st, lambda _: False) == []
+
+    tg.klick(1, f"t:{t['key']}:2")
+    lauf.antworten(st, tg, "42")
+    assert t["status"] == "gewaehlt" and t["gewaehlt"] == 2
+    offen = themen.offen(st, lambda _: False)
+    assert offen[0]["thema_ref"] == "2026-11-12-themen#2" and offen[0]["titel"] == "Volksmusiktag"
+    tg.klick(2, f"t:{t['key']}:3")  # zweiter Klick aendert nichts
+    lauf.antworten(st, tg, "42")
+    assert t["gewaehlt"] == 2
+
+    einmal(st, tg, meta, s, [dict(BEISPIEL, thema_ref="2026-11-12-themen#2")])
+    assert t["status"] == "erledigt" and t["entwurf"] == BEISPIEL["id"]
+    assert st.posts[BEISPIEL["id"]]["status"] == "gesendet"
+    assert themen.offen(st, lambda _: False) == []
+
+
+def test_themen_keins_und_fremd(tmp_path):
+    from automat import themen
+    st, tg = Status(tmp_path), FakeTG()
+    themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
+    themen.senden(st, tg, "42")
+    key = st.themen[THEMEN["id"]]["key"]
+    tg.klick(1, f"t:{key}:1", chat="999")
+    lauf.antworten(st, tg, "42")
+    assert st.themen[THEMEN["id"]]["status"] == "gesendet"
+    tg.klick(2, f"t:{key}:0")
+    lauf.antworten(st, tg, "42")
+    assert st.themen[THEMEN["id"]]["status"] == "verworfen"
+
+
+def test_themen_pruefung():
+    from automat import themen
+    assert themen.pruefen(THEMEN) == []
+    kaputt = {"id": "2026-11-12-themen", "themen": [
+        {"titel": "x", "worum": "y", "quelle": {"name": "BR", "url": "https://www.br.de/x"}}]}
+    assert themen.pruefen(kaputt)

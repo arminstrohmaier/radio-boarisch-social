@@ -2,7 +2,7 @@ name: Tests
 on:
   push:
     branches-ignore: [redaktion]
-    paths: ["automat/**", "tests/**", "entwuerfe/**", "requirements.txt"]
+    paths: ["automat/**", "tests/**", "entwuerfe/**", "themen/**", "requirements.txt"]
   pull_request:
 jobs:
   pytest:
