@@ -14,6 +14,10 @@ on:
         description: "Testentwurf an Telegram schicken (bei Ja wird NICHTS veroeffentlicht)"
         type: boolean
         default: false
+      telegramcheck:
+        description: "Telegram-Verbindung pruefen (Ergebnis per Telegram)"
+        type: boolean
+        default: false
       metacheck:
         description: "Meta-Zugang pruefen (Ergebnis per Telegram, nichts wird veroeffentlicht)"
         type: boolean
@@ -51,6 +55,13 @@ jobs:
           else
             git worktree add --orphan -b redaktion redaktion
           fi
+
+      - name: Telegram pruefen
+        if: github.event_name == 'workflow_dispatch' && inputs.telegramcheck
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m automat.telegramcheck || true
 
       - name: Meta-Zugang pruefen
         if: github.event_name == 'workflow_dispatch' && inputs.metacheck

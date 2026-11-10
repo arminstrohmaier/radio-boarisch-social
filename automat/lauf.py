@@ -160,6 +160,7 @@ def senden(st: Status, tg: Telegram, chat_id: str) -> int:
 
 def antworten(st: Status, tg: Telegram, chat_id: str) -> int:
     updates = tg.updates(_offset(st))
+    log(f"Telegram: {len(updates)} neue Nachricht(en)/Knopfdrücke")
     n = 0
     for u in updates:
         st.daten["telegram_offset"] = u["update_id"] + 1

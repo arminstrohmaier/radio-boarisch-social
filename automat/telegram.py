@@ -63,6 +63,12 @@ class Telegram:
             raise TelegramFehler(f"Download: HTTP {r.status_code}")
         return r.content
 
+    def webhook_info(self) -> dict:
+        return self._call("getWebhookInfo")
+
+    def ich(self) -> dict:
+        return self._call("getMe")
+
     def befehle(self, liste: list[tuple[str, str]]):
         """Befehlsmenue im Telegram-Chat (Knopf "Menü" neben dem Eingabefeld)."""
         self._call("setMyCommands", commands=[{"command": c, "description": d} for c, d in liste])
