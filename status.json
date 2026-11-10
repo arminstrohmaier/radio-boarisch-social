@@ -46,11 +46,22 @@
       "tg_foto": 10,
       "tg_msg": 11,
       "entschieden": "2026-11-10T14:21:53+00:00"
+    },
+    "2026-11-10-hundewelpen-grenzkontrolle": {
+      "status": "neu",
+      "key": "4ee91793ef",
+      "hash": "12233e833937dc923a085031b2e18737383b995a",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-hundewelpen-grenzkontrolle.json",
+      "importiert": "2026-11-10T14:39:20+00:00",
+      "bild": "04_text-mitte.jpg",
+      "thema": "Bundespolizei stellt bei Grenzkontrolle 35 Hundewelpen und eine trächtige Hündin sicher",
+      "hinweise": [],
+      "fehler": []
     }
   },
   "themen": {
     "2026-11-10-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "99a61f688f",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen.json",
       "importiert": "2026-11-10T14:21:50+00:00",
@@ -87,7 +98,8 @@
       "gesendet": "2026-11-10T14:21:51+00:00",
       "tg_msg": 12,
       "gewaehlt": 3,
-      "entschieden": "2026-11-10T14:23:19+00:00"
+      "entschieden": "2026-11-10T14:23:19+00:00",
+      "entwurf": "2026-11-10-hundewelpen-grenzkontrolle"
     }
   },
   "befehle_gesetzt": true
