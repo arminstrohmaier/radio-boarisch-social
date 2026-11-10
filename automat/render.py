@@ -26,9 +26,20 @@ def textflaeche(dateiname: str) -> tuple[str, str]:
     return v, h
 
 
+def _woerter(text: str) -> list[str]:
+    """Trennt an Leerzeichen; ein Datum wie "27. November" bleibt zusammen."""
+    woerter = []
+    for w in re.split(r"[ \t\n]+", text.strip()):
+        if woerter and re.fullmatch(r"\d{1,2}\.", woerter[-1]):
+            woerter[-1] += "\u00a0" + w
+        elif w:
+            woerter.append(w)
+    return woerter
+
+
 def _umbrechen(draw, text, font, breite):
     zeilen, aktuell = [], ""
-    for wort in text.split():
+    for wort in _woerter(text):
         probe = f"{aktuell} {wort}".strip()
         if draw.textlength(probe, font=font) <= breite or not aktuell:
             aktuell = probe

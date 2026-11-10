@@ -242,3 +242,8 @@ def test_metacheck_mit_attrappe():
     ok, z = metacheck.pruefen(settings(), M())
     assert ok, z
     assert "mt" not in "\n".join(z)  # Token nie in der Ausgabe
+
+
+def test_datum_bleibt_zusammen():
+    from automat.render import _woerter
+    assert _woerter("Markt ab 27. November") == ["Markt", "ab", "27. November"]
