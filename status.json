@@ -1,8 +1,8 @@
 {
-  "telegram_offset": null,
+  "telegram_offset": 972760118,
   "posts": {
     "2026-11-10-test-121220": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "d359f44c14",
       "hash": "fad9ac9266a3a5d095310ea23f20904085f90451",
       "test": true,
@@ -14,7 +14,8 @@
       "fehler": [],
       "gesendet": "2026-11-10T12:12:27+00:00",
       "tg_foto": 3,
-      "tg_msg": 4
+      "tg_msg": 4,
+      "entschieden": "2026-11-10T12:13:58+00:00"
     },
     "2026-11-10-test-121353": {
       "status": "gesendet",
