@@ -60,6 +60,17 @@
       "gesendet": "2026-11-10T14:39:23+00:00",
       "tg_foto": 16,
       "tg_msg": 17
+    },
+    "2026-11-10-christkindlesmarkt-augsburg": {
+      "status": "neu",
+      "key": "b5ec84c173",
+      "hash": "8aacfece1d2364dd46633b8da709e5903d3e74da",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-christkindlesmarkt-augsburg.json",
+      "importiert": "2026-11-10T20:10:06+00:00",
+      "bild": "09_text-oben.jpg",
+      "thema": "Augsburger Christkindlesmarkt öffnet am Montag, 23. November",
+      "hinweise": [],
+      "fehler": []
     }
   },
   "themen": {
@@ -105,7 +116,7 @@
       "entwurf": "2026-11-10-hundewelpen-grenzkontrolle"
     },
     "2026-11-10-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "7577f08142",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen-2.json",
       "importiert": "2026-11-10T17:44:26+00:00",
@@ -142,7 +153,8 @@
       "gesendet": "2026-11-10T17:44:28+00:00",
       "tg_msg": 21,
       "gewaehlt": 1,
-      "entschieden": "2026-11-10T20:08:22+00:00"
+      "entschieden": "2026-11-10T20:08:22+00:00",
+      "entwurf": "2026-11-10-christkindlesmarkt-augsburg"
     }
   },
   "befehle_gesetzt": true,
