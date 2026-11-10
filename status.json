@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760118,
+  "telegram_offset": 972760120,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -33,7 +33,7 @@
       "tg_msg": 6
     },
     "2026-11-10-christkindlesmarkt-nuernberg": {
-      "status": "gesendet",
+      "status": "verworfen",
       "key": "e38ade8ed4",
       "hash": "1b8a4c0f85ec3147045151fd30534b354cbcadb4",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-christkindlesmarkt-nuernberg.json",
@@ -44,7 +44,8 @@
       "fehler": [],
       "gesendet": "2026-11-10T13:55:17+00:00",
       "tg_foto": 10,
-      "tg_msg": 11
+      "tg_msg": 11,
+      "entschieden": "2026-11-10T14:21:53+00:00"
     }
   },
   "themen": {
