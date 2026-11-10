@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-10-themen",
+  "themen": [
+    {
+      "titel": "Adventsmusik live vom Münchner Rathausbalkon",
+      "worum": "Ab Freitag, 20. November, spielen beim Christkindlmarkt am Marienplatz täglich Musikgruppen vom Rathausbalkon – zum Auftakt die Münchner Bläserbuben und die Blaskapelle Sauerlach, später u. a. der Ramersdorfer Dreigesang.",
+      "quelle": {"name": "Landeshauptstadt München, Referat für Arbeit und Wirtschaft", "url": "https://stadt.muenchen.de/dam/Home/Stadtverwaltung/Referat-fuer-Arbeit-und-Wirtschaft/presse/pm/PR-Meldungen-ChM/Uebersicht_Musikprogramm.pdf"},
+      "ernst": false
+    },
+    {
+      "titel": "Fotoausstellung „Menschen im Bayerischen Wald 1900–1950“ in Landshut",
+      "worum": "Knapp 50 historische Ansichtskarten zeigen Waidler bei der Arbeit und im Alltag – noch bis 11. Dezember im Staatsarchiv Landshut, Eintritt frei.",
+      "quelle": {"name": "Haus der Bayerischen Geschichte", "url": "https://www.hdbg.de/ausstellungen/sonderausstellungen/menschen-im-bayerischen-wald-1900-1950.html"},
+      "ernst": false
+    },
+    {
+      "titel": "35 Hundewelpen bei Grenzkontrolle bei Freilassing gerettet",
+      "worum": "Die Bundespolizei hat am Sonntag 35 Welpen und eine trächtige Hündin ohne Wasser und Futter in einem Auto entdeckt; die Tiere sind jetzt in Tierschutzeinrichtungen. Blaulicht – im Entwurf ohne Angaben zur Person des Fahrers, sachlicher Ton.",
+      "quelle": {"name": "Bundespolizeidirektion München", "url": "https://www.presseportal.de/blaulicht/pm/64017/6387432"},
+      "ernst": false
+    }
+  ]
+}
