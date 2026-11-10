@@ -48,7 +48,7 @@ class Settings:
             meta_token=_env("META_PAGE_TOKEN"),
             meta_page_id=_env("META_PAGE_ID"),
             meta_ig_user_id=_env("META_IG_USER_ID"),
-            meta_api_version=_env("META_API_VERSION") or "v24.0",
+            meta_api_version=_env("META_API_VERSION") or "v27.0",
             public_base_url=_env("PUBLIC_BASE_URL")
             or f"https://raw.githubusercontent.com/{repo}/{branch}",
         )

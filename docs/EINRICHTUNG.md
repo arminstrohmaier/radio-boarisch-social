@@ -113,7 +113,7 @@ Solange Teil B fehlt, gilt: Bei **Ja** schickt der Bot den Hinweis „bitte von 
 
 Fehlt `META_PAGE_ID`, wird nur auf Instagram gepostet; fehlt `META_IG_USER_ID`, nur auf Facebook.
 
-Optional (kein Secret): unter **Variables** → `META_API_VERSION`, z. B. `v24.0`. Nur nötig, wenn
+Optional (kein Secret): unter **Variables** → `META_API_VERSION`, z. B. `v27.0`. Nur nötig, wenn
 Meta die voreingestellte Version abschaltet (der Bot meldet dann einen Fehler).
 
 ### B3a. Zugang prüfen (ohne zu posten)

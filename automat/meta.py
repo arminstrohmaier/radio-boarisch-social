@@ -22,7 +22,7 @@ class MetaFehler(RuntimeError):
 
 
 class Meta:
-    def __init__(self, token: str, version: str = "v24.0", timeout: int = 60, warte=time.sleep):
+    def __init__(self, token: str, version: str = "v27.0", timeout: int = 60, warte=time.sleep):
         self._token = token
         self._basis = f"https://graph.facebook.com/{version}/"
         self._timeout = timeout

@@ -120,7 +120,7 @@ class FakeMeta:
 
 def settings(meta=True):
     return Settings("tok", "42", "mt" if meta else "", "page" if meta else "",
-                    "igu" if meta else "", "v24.0", "https://raw.example/redaktion")
+                    "igu" if meta else "", "v27.0", "https://raw.example/redaktion")
 
 
 def einmal(st, tg, meta, s, entwuerfe=()):
