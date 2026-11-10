@@ -116,6 +116,14 @@ Fehlt `META_PAGE_ID`, wird nur auf Instagram gepostet; fehlt `META_IG_USER_ID`, 
 Optional (kein Secret): unter **Variables** → `META_API_VERSION`, z. B. `v24.0`. Nur nötig, wenn
 Meta die voreingestellte Version abschaltet (der Bot meldet dann einen Fehler).
 
+### B3a. Zugang prüfen (ohne zu posten)
+
+**Actions** → **Automat** → **Run workflow** → Haken bei **Meta-Zugang pruefen** → **Run workflow**.
+Nach 1–2 Minuten schickt dir der Bot in Telegram das Ergebnis: Token-Typ, Ablaufdatum („nie“),
+Berechtigungen, Name der Seite, Instagram-Konto. Der Token selbst wird nirgends angezeigt.
+Ein schon vorhandener Token, der nicht abläuft (Seiten-Token oder System-User-Token aus dem
+Business-Manager), funktioniert auch – die Prüfung zeigt, ob er passt.
+
 ### B4. Erster echter Post
 
 Der nächste Entwurf, den du mit **Ja** freigibst, wird veröffentlicht. Der Bot antwortet mit den

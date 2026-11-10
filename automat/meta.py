@@ -28,8 +28,8 @@ class Meta:
         self._timeout = timeout
         self._warte = warte
 
-    def _req(self, methode: str, pfad: str, **params):
-        params["access_token"] = self._token
+    def _req(self, methode: str, pfad: str, token: str | None = None, **params):
+        params["access_token"] = token or self._token
         try:
             if methode == "GET":
                 r = requests.get(self._basis + pfad, params=params, timeout=self._timeout)
@@ -67,7 +67,19 @@ class Meta:
             pass
         return {"id": mid, "link": link}
 
+    def seiten_token(self, page_id: str) -> str:
+        """Seiten-Token aus einem Nutzer- oder System-User-Token ableiten."""
+        t = self._req("GET", page_id, fields="access_token").get("access_token")
+        if not t:
+            raise MetaFehler("kein access_token fuer die Seite (Admin-Rechte/Berechtigungen?)")
+        return t
+
     def facebook(self, page_id: str, image_url: str, caption: str) -> dict:
-        r = self._req("POST", f"{page_id}/photos", url=image_url, message=caption, published="true")
+        try:
+            token = self.seiten_token(page_id)
+        except MetaFehler:
+            token = None  # ist vermutlich schon ein Seiten-Token
+        r = self._req("POST", f"{page_id}/photos", token=token, url=image_url, message=caption,
+                      published="true")
         pid = r.get("post_id") or r.get("id")
         return {"id": pid, "link": f"https://www.facebook.com/{pid}" if pid else ""}

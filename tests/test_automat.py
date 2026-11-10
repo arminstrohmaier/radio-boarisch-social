@@ -221,3 +221,24 @@ def test_veraltet(tmp_path):
 def test_beispieldatei_ist_gueltig():
     e = json.loads((Path(__file__).parent.parent / "docs" / "beispiel-entwurf.json").read_text())
     assert E.pruefen(e).ok
+
+
+def test_metacheck_mit_attrappe():
+    from automat import metacheck
+
+    class M:
+        def _req(self, methode, pfad, **p):
+            if pfad == "debug_token":
+                return {"data": {"is_valid": True, "type": "PAGE", "expires_at": 0,
+                                 "scopes": sorted(metacheck.NOETIG_IG | metacheck.NOETIG_FB)}}
+            if pfad == "page":
+                return {"name": "Radio Boarisch", "instagram_business_account": {"id": "igu"}}
+            if pfad == "igu":
+                return {"username": "radioboarisch"}
+            if pfad.endswith("content_publishing_limit"):
+                return {"data": [{"quota_usage": 0, "config": {"quota_total": 100}}]}
+            raise AssertionError(pfad)
+
+    ok, z = metacheck.pruefen(settings(), M())
+    assert ok, z
+    assert "mt" not in "\n".join(z)  # Token nie in der Ausgabe
