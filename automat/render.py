@@ -51,8 +51,11 @@ def _umbrechen(draw, text, font, breite):
     return zeilen
 
 
-def rendern(bild: str, bildtext: str, ziel: Path) -> Path:
-    img = Image.open(config.POOL_DIR / bild).convert("RGB")
+def rendern(bild: str, bildtext: str, ziel: Path, quelle: Path | None = None,
+            lage: str | None = None) -> Path:
+    """bild: Dateiname im Pool; bei eigenen Bildern quelle = Pfad und lage = Textflaeche
+    (z. B. "unten", "obenlinks"). Leerer bildtext: Bild ohne Text."""
+    img = Image.open(quelle or (config.POOL_DIR / bild)).convert("RGB")
     # auf 4:5 zuschneiden und auf 1080x1350 bringen
     w, h = img.size
     soll_h = round(w * 5 / 4)
@@ -65,8 +68,12 @@ def rendern(bild: str, bildtext: str, ziel: Path) -> Path:
         img = img.crop((links, 0, links + soll_w, h))
     img = img.resize(ZIEL, Image.LANCZOS)
     W, H = ZIEL
+    if not bildtext.strip():
+        ziel.parent.mkdir(parents=True, exist_ok=True)
+        img.save(ziel, "JPEG", quality=90, optimize=True)
+        return ziel
 
-    v, hz = textflaeche(bild)
+    v, hz = textflaeche(f"text-{lage}" if lage else bild)
     spalte = hz != "mitte"
     max_breite = int(W * 0.60) if spalte else W - 2 * RAND
     max_zeilen = 6 if spalte else 4

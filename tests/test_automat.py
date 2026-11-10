@@ -419,3 +419,58 @@ def test_themenanforderung_und_hinweis_getrennt(tmp_path):
     themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
     arten = [o["art"] for o in themen.offen(st, lambda _: False)]
     assert arten == ["hinweis"]  # Themenlauf erledigt, Hinweis bleibt offen
+
+
+def _jpeg_mit_gps() -> bytes:
+    import io
+    from PIL import Image
+    img = Image.new("RGB", (1600, 1200), (120, 90, 60))
+    exif = Image.Exif()
+    exif[0x010F] = "Handyhersteller"           # Make
+    exif[0x8825] = {2: (48.0, 8.0, 0.0)}        # GPS-Block
+    b = io.BytesIO()
+    img.save(b, "JPEG", exif=exif.tobytes())
+    return b.getvalue()
+
+
+def test_foto_hinweis_ohne_metadaten_und_entwurf(tmp_path):
+    from PIL import Image
+    from automat import themen
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    tg.datei = lambda fid: _jpeg_mit_gps()
+    tg.queue.append({"update_id": 1, "message": {
+        "message_id": 7, "caption": "Kirta in Dachau", "chat": {"id": 42, "type": "private"},
+        "photo": [{"file_id": "klein", "file_size": 10}, {"file_id": "gross", "file_size": 99}]}})
+    lauf.antworten(st, tg, "42")
+    h = themen.offen(st, lambda _: False)[0]
+    assert h["art"] == "hinweis" and h["bild_feld"].startswith("eigen:")
+    gespeichert = Image.open(h["eigenes_foto"])
+    assert not gespeichert.getexif()            # Metadaten entfernt
+    e = dict(BEISPIEL, bild=h["bild_feld"], bildtext_lage="unten", hinweis_ref=h["hinweis_ref"])
+    assert E.pruefen(e).ok
+    cap = E.caption(e)
+    assert cap.endswith("Bild: Radio Boarisch.") and "KI-generiert" not in cap
+    einmal(st, tg, meta, s, [e])
+    p = st.posts[e["id"]]
+    assert p["status"] == "gesendet" and Image.open(st.bild(e["id"])).size == (1080, 1350)
+
+
+def test_foto_ohne_unterschrift_wird_nachgefragt(tmp_path):
+    st, tg = Status(tmp_path), FakeTG()
+    tg.queue.append({"update_id": 1, "message": {"message_id": 7, "chat": {"id": 42, "type": "private"},
+                                                 "photo": [{"file_id": "x"}]}})
+    lauf.antworten(st, tg, "42")
+    assert "Bildunterschrift" in tg.gesendet[-1][2]
+    assert not st.daten.get("anforderungen")
+
+
+def test_eigenes_foto_fehlt(tmp_path):
+    st, tg = Status(tmp_path), FakeTG()
+    e = dict(BEISPIEL, bild="eigen:gibtsnicht", bildtext_lage="unten")
+    lauf.importieren(st, [("b", "entwuerfe/x.json", e)], tg, "42")
+    assert st.posts[e["id"]]["status"] == "ungueltig"
+
+
+def test_eigenes_foto_ohne_bildtext():
+    e = dict(BEISPIEL, bild="eigen:abc", bildtext="")
+    assert E.pruefen(e).ok

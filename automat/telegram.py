@@ -13,6 +13,7 @@ class TelegramFehler(RuntimeError):
 class Telegram:
     def __init__(self, token: str, timeout: int = 30):
         self._basis = f"https://api.telegram.org/bot{token}/"
+        self._datei_basis = f"https://api.telegram.org/file/bot{token}/"
         self._timeout = timeout
 
     def _call(self, methode: str, files=None, **params):
@@ -50,6 +51,17 @@ class Telegram:
         if antwort_auf:
             p["reply_parameters"] = {"message_id": antwort_auf, "allow_sending_without_reply": True}
         return self._call("sendMessage", **p)
+
+    def datei(self, file_id: str) -> bytes:
+        """Laedt eine Datei (z. B. ein Foto) herunter, die dem Bot geschickt wurde."""
+        pfad = self._call("getFile", file_id=file_id)["file_path"]
+        try:
+            r = requests.get(self._datei_basis + pfad, timeout=self._timeout)
+        except requests.RequestException as ex:
+            raise TelegramFehler(f"Download: Netzwerkfehler {type(ex).__name__}") from None
+        if r.status_code != 200:
+            raise TelegramFehler(f"Download: HTTP {r.status_code}")
+        return r.content
 
     def befehle(self, liste: list[tuple[str, str]]):
         """Befehlsmenue im Telegram-Chat (Knopf "Menü" neben dem Eingabefeld)."""

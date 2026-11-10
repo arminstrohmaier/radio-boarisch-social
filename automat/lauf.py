@@ -93,6 +93,8 @@ def importieren(st: Status, kandidaten, tg: Telegram | None, chat_id: str) -> in
             p = E.Pruefung(fehler=["Datei ist kein gueltiges JSON"])
         else:
             p = E.pruefen(e, st.zuletzt_genutzte_bilder(ausser=pid))
+            if E.ist_eigen(e) and not hinweise.eigenes_bild(st, e):
+                p.fehler.append(f"eigenes Foto {e['bild']} nicht gefunden")
         eintrag = {"status": "neu" if p.ok else "ungueltig", "key": schluessel(pid), "hash": h,
                    "herkunft": f"{herkunft}:{pfad}", "importiert": jetzt(),
                    "bild": e.get("bild"), "thema": e.get("thema", ""),
@@ -139,7 +141,8 @@ def senden(st: Status, tg: Telegram, chat_id: str) -> int:
         if p.get("status") != "neu":
             continue
         e = st.entwurf(pid)
-        bild = render.rendern(e["bild"], e["bildtext"], st.bild(pid))
+        bild = render.rendern(e["bild"], e.get("bildtext", ""), st.bild(pid),
+                              quelle=hinweise.eigenes_bild(st, e), lage=e.get("bildtext_lage"))
         cap = E.caption(e)
         foto = tg.foto(chat_id, bild, caption=f"Entwurf {pid}")
         knoepfe = [[{"text": "✅ Ja, veröffentlichen", "callback_data": f"ja:{p['key']}"},
@@ -221,6 +224,15 @@ def _knopf(st: Status, tg: Telegram, chat_id: str, cq: dict) -> int:
     return 0
 
 
+def _foto_id(m: dict) -> str | None:
+    if m.get("photo"):
+        return max(m["photo"], key=lambda f: f.get("file_size") or f.get("width", 0))["file_id"]
+    d = m.get("document") or {}
+    if str(d.get("mime_type", "")).startswith("image/"):
+        return d["file_id"]
+    return None
+
+
 def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
     text = (m.get("text") or "").strip().lower()
     chat = str(m.get("chat", {}).get("id", ""))
@@ -233,6 +245,21 @@ def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
         return
     if chat != chat_id:
         return  # fremde Chats ignorieren
+    foto = _foto_id(m)
+    if foto:
+        unterschrift = (m.get("caption") or "").strip()
+        if not unterschrift:
+            tg.text(chat_id, "📷 Schönes Bild! Schick es bitte nochmal mit ein paar Stichwörtern "
+                    "oder einem Link als Bildunterschrift, dann weiß ich, worum es geht.",
+                    antwort_auf=m.get("message_id"))
+            return
+        try:
+            daten = tg.datei(foto)
+        except TelegramFehler as ex:
+            tg.text(chat_id, f"⚠️ Das Bild konnte ich nicht laden ({ex}). Bitte nochmal schicken.")
+            return
+        hinweise.aufnehmen(st, tg, chat_id, unterschrift, m.get("message_id"), bild=daten)
+        return
     if text.startswith("/status"):
         offen = [f"• {pid}: {p.get('status')}" for pid, p in st.posts.items()
                  if p.get("status") not in ABGESCHLOSSEN and p.get("status") != "ungueltig"]

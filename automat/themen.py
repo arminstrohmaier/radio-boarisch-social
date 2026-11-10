@@ -155,8 +155,13 @@ def offen(st, veraltet) -> list[dict]:
     anf = [a for a in st.daten.get("anforderungen", []) if a.get("status") == "offen"]
     aus = [{"art": "themenlauf", "angefordert": a["zeit"]}
            for a in anf if a.get("art") == "themenlauf"][:1]
-    aus += [{"art": "hinweis", "hinweis_ref": a["id"], "text": a["text"], "angefordert": a["zeit"]}
-            for a in anf if a.get("art") == "hinweis"]
+    for a in anf:
+        if a.get("art") == "hinweis":
+            h = {"art": "hinweis", "hinweis_ref": a["id"], "text": a["text"], "angefordert": a["zeit"]}
+            if a.get("bild"):
+                h["eigenes_foto"] = str(st.ordner / a["bild"])
+                h["bild_feld"] = f"eigen:{a['id']}"
+            aus.append(h)
     for tid, t in st.themen.items():
         if t.get("status") == "gewaehlt" and not veraltet(tid):
             n = t["gewaehlt"]

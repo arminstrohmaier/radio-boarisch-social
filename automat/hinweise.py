@@ -10,19 +10,47 @@ Der Automat schickt die Rueckmeldung per Telegram und schliesst den Hinweis.
 """
 from __future__ import annotations
 
+import io
+
+from PIL import Image, ImageOps
+
 from .status import jetzt, schluessel
 
 MAX_LAENGE = 1000
+MAX_KANTE = 2048
 
 
-def aufnehmen(st, tg, chat_id: str, text: str, msg_id: int | None = None):
+def bild_speichern(st, hid: str, daten: bytes) -> str:
+    """Speichert ein Foto ohne Metadaten (kein GPS, keine Kameradaten) im Status-Branch."""
+    img = ImageOps.exif_transpose(Image.open(io.BytesIO(daten))).convert("RGB")
+    img.thumbnail((MAX_KANTE, MAX_KANTE))
+    rel = f"eigene_bilder/{hid}.jpg"
+    ziel = st.ordner / rel
+    ziel.parent.mkdir(parents=True, exist_ok=True)
+    img.save(ziel, "JPEG", quality=92)  # ohne exif=… -> keine Metadaten
+    return rel
+
+
+def eigenes_bild(st, entwurf: dict):
+    """Pfad zum eigenen Foto eines Entwurfs ("bild": "eigen:<kennung>") oder None."""
+    hid = str(entwurf.get("bild", "")).partition(":")[2]
+    pfad = st.ordner / "eigene_bilder" / f"{hid}.jpg"
+    return pfad if hid and pfad.is_file() else None
+
+
+def aufnehmen(st, tg, chat_id: str, text: str, msg_id: int | None = None,
+              bild: bytes | None = None):
     text = text.strip()[:MAX_LAENGE]
-    hid = schluessel(f"{jetzt()}-{text}")
-    st.daten.setdefault("anforderungen", []).append(
-        {"art": "hinweis", "id": hid, "text": text, "zeit": jetzt(), "status": "offen"})
+    hid = schluessel(f"{jetzt()}-{text}-{msg_id}")
+    eintrag = {"art": "hinweis", "id": hid, "text": text, "zeit": jetzt(), "status": "offen"}
+    if bild is not None:
+        eintrag["bild"] = bild_speichern(st, hid, bild)
+    st.daten.setdefault("anforderungen", []).append(eintrag)
+    zusatz = (" Dein Foto schau ich mir dabei an und nehm es für den Post, wenn es passt."
+              if bild is not None else "")
     tg.text(chat_id, "📝 Notiert. Ich recherchiere dazu in der nächsten stündlichen Runde "
-            "(zur Minute :37, zwischen 6 und 22 Uhr). Finde ich eine Primärquelle, kommt "
-            "direkt der fertige Entwurf zum Freigeben – sonst sag ich dir kurz, warum nicht.",
+            "(zur Minute :37, zwischen 6 und 22 Uhr)." + zusatz + " Finde ich eine Primärquelle, "
+            "kommt direkt der fertige Entwurf zum Freigeben – sonst sag ich dir kurz, warum nicht.",
             [[{"text": "❌ Doch nicht", "callback_data": f"h:{hid}"}]], antwort_auf=msg_id)
 
 

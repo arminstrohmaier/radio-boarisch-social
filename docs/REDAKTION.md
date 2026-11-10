@@ -72,6 +72,15 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    `{"id": "<dateiname ohne .json>", "hinweis_ref": "<kennung>", "text": "zwei, drei Sätze: was gefunden, warum kein Entwurf"}`.
    Der Automat schickt das per Telegram. Committen („Rückmeldung: …“) und pushen.
    Ist der Hinweis offensichtlich kein Themenhinweis (z. B. „danke“), kurze Rückmeldung genauso.
+4. **Mit Foto** (`automat.offen` zeigt `eigenes_foto` und `bild_feld`): das Foto mit dem
+   Read-Werkzeug **ansehen**. Verwenden, wenn es zum Thema passt und keine Regel verletzt:
+   keine erkennbaren Personen (Gesichter), keine Kinder, keine Kennzeichen, bei Blaulicht gar
+   keine Menschen, keine fremden Logos oder Plakate im Vordergrund. Dann im Entwurf
+   `"bild": "<bild_feld>"` und `"bildtext_lage"` (freie Fläche im Foto: `oben`, `unten`, `mitte`,
+   `linksunten` …). `bildtext` darf leer sein, wenn Text das Foto stören würde. Die Caption
+   endet dann automatisch mit „Bild: Radio Boarisch.“ statt der KI-Zeile.
+   Passt das Foto nicht oder verletzt es eine Regel: Pool-Bild nehmen und in `recherche`
+   begründen, warum das Foto nicht verwendet wurde.
 
 ### Stufe 2 – Entwurf zum gewählten Thema
 

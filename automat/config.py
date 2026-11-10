@@ -11,6 +11,8 @@ FONT_PATH = REPO_ROOT / "assets" / "fonts" / "DejaVuSans-Bold.ttf"
 SIGNATUR = "Radio Boarisch · Klingt nach Dahoam."
 FESTE_HASHTAGS = ["#RadioBoarisch", "#KlingtNachDahoam"]
 KI_ZEILE = "Bild: KI-generiert."
+EIGEN_ZEILE = "Bild: Radio Boarisch."   # eigenes Foto des Betreibers (Betreiberentscheidung 10.11.2026)
+EIGEN_PREFIX = "eigen:"
 
 # Die Pool-Bilder sind vorab erstellt und KI-generiert (06 §10.3).
 POOL_IST_KI = True

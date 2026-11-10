@@ -11,7 +11,10 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
   text          Tatsachen in eigenen Worten (Kern der Caption)
   aufforderung  kurze Aufforderung am Schluss (bei ernst leer lassen)
   bildtext      kurz, kommt auf das Bild
-  bild          Dateiname aus pool/, z. B. "03_text-oben.jpg"
+  bild          Dateiname aus pool/, z. B. "03_text-oben.jpg" – oder bei einem Foto,
+                das der Betreiber per Telegram geschickt hat: "eigen:<hinweis-kennung>"
+  bildtext_lage nur bei eigenem Foto: freie Textflaeche, z. B. "unten", "oben", "mitte",
+                "linksunten" (Claude sieht sich das Foto an); bildtext darf dann leer sein
   quelle        {"name": "...", "url": "https://..."}  Primaerquelle
   hashtags      zusaetzliche Hashtags, bis zu 10 (die festen kommen automatisch)
   erwaehnungen  verlinkte Konten (optional, max. 5), je
@@ -102,6 +105,13 @@ def erwaehnungszeile(e: dict, kanal: str) -> str:
     return ("Mehr bei: " + ", ".join(namen)) if namen else ""
 
 
+LAGE_RE = re.compile(r"^(oben|unten|mitte|links|rechts)(oben|unten|links|rechts|mitte)?$")
+
+
+def ist_eigen(e: dict) -> bool:
+    return str(e.get("bild", "")).startswith(config.EIGEN_PREFIX)
+
+
 def caption(e: dict, kanal: str = "instagram") -> str:
     """Setzt die Caption nach Raster 10.3 zusammen (kanal: instagram oder facebook)."""
     q = e["quelle"]
@@ -116,7 +126,9 @@ def caption(e: dict, kanal: str = "instagram") -> str:
     tags = hashtags(e)
     if tags:
         teile.append(" ".join(tags))
-    if config.POOL_IST_KI:
+    if ist_eigen(e):
+        teile.append(config.EIGEN_ZEILE)
+    elif config.POOL_IST_KI:
         teile.append(config.KI_ZEILE)
     return "\n\n".join(teile)
 
@@ -124,6 +136,8 @@ def caption(e: dict, kanal: str = "instagram") -> str:
 def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None) -> Pruefung:
     p = Pruefung()
     for f in PFLICHTFELDER:
+        if f == "bildtext" and ist_eigen(e) and "bildtext" in e:
+            continue
         if not e.get(f):
             p.fehler.append(f"Pflichtfeld fehlt: {f}")
     if p.fehler:
@@ -133,7 +147,10 @@ def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None) -> Pruefu
         p.fehler.append("id muss 'JJJJ-MM-TT-stichwort' sein (klein, Bindestriche, max. 80 Zeichen)")
 
     bild = e["bild"]
-    if "/" in bild or not (config.POOL_DIR / bild).is_file():
+    if ist_eigen(e):
+        if not LAGE_RE.match(str(e.get("bildtext_lage") or "")) and (e.get("bildtext") or "").strip():
+            p.fehler.append("eigenes Foto: bildtext_lage fehlt (z. B. unten, oben, mitte, linksunten)")
+    elif "/" in bild or not (config.POOL_DIR / bild).is_file():
         p.fehler.append(f"Bild '{bild}' liegt nicht in pool/")
 
     q = e["quelle"]
