@@ -1,0 +1,61 @@
+name: Automat
+
+# Halbautomatik D-083: Entwurf -> Telegram (Ja/Nein) -> Meta Graph API.
+# Laeuft alle 10 Minuten; GitHub Actions ist fuer oeffentliche Repos kostenlos.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  push:
+    branches-ignore: [redaktion]
+    paths: ["entwuerfe/**"]
+  workflow_dispatch:
+    inputs:
+      testentwurf:
+        description: "Testentwurf an Telegram schicken (bei Ja wird NICHTS veroeffentlicht)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: automat
+  cancel-in-progress: false
+
+jobs:
+  lauf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # alle Branches, damit Entwuerfe von jedem Branch importiert werden
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Status-Branch 'redaktion' holen
+        run: |
+          git config --global user.name "radio-boarisch-automat"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin redaktion >/dev/null; then
+            git worktree add --detach redaktion origin/redaktion
+          else
+            git worktree add --orphan -b redaktion redaktion
+          fi
+
+      - name: Durchlauf
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+          META_API_VERSION: ${{ vars.META_API_VERSION }}
+        run: |
+          python -m automat.lauf --status redaktion --commit \
+            ${{ github.event_name == 'workflow_dispatch' && inputs.testentwurf && '--testentwurf' || '' }}

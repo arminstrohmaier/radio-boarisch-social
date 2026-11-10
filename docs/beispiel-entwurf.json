@@ -1,0 +1,19 @@
+{
+  "id": "2026-11-12-christkindlmarkt-landshut",
+  "thema": "BEISPIEL – Christkindlmarkt Landshut öffnet (erfundene Daten, nur Formatvorlage)",
+  "ernst": false,
+  "hook": "🎄 Servus Landshut, da Christkindlmarkt sperrt auf!",
+  "text": "📅 Ab Donnerstag auf der Freyung.\n🕯️ Täglich ab 11 Uhr, am Wochenende bis 21 Uhr.",
+  "aufforderung": "👉 Wer von eich geht hin? Schreibt's uns in d'Kommentare!",
+  "bildtext": "Christkindlmarkt Landshut ab Donnerstag",
+  "bild": "05_text-oben.jpg",
+  "quelle": {
+    "name": "Stadt Landshut",
+    "url": "https://www.landshut.de/"
+  },
+  "hashtags": [
+    "Landshut",
+    "Christkindlmarkt"
+  ],
+  "recherche": "Auslöser: Hinweis BR. Primärquelle: Pressemitteilung der Stadt vom … Quellenregister: Behörde, Standard (nur Tatsachen, eigene Worte, kein Foto)."
+}

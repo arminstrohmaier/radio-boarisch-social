@@ -1,0 +1,20 @@
+name: Tests
+on:
+  push:
+    branches-ignore: [redaktion]
+    paths: ["automat/**", "tests/**", "entwuerfe/**", "requirements.txt"]
+  pull_request:
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt pytest
+      - run: python -m pytest -q
+      - name: Entwuerfe pruefen
+        run: |
+          shopt -s nullglob
+          for f in entwuerfe/*.json; do python -m automat.pruefen "$f"; done
