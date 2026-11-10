@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-10-themen-2",
+  "themen": [
+    {
+      "titel": "Augsburger Christkindlesmarkt öffnet am 23. November",
+      "worum": "Oberbürgermeister Florian Freund eröffnet den Markt am Rathausplatz am Montag, 23. November, um 18 Uhr; er läuft bis Heiligabend. Erstmals erwähnt wurde der Markt 1498.",
+      "quelle": {"name": "Stadt Augsburg", "url": "https://www.augsburg.de/freizeit/feste-und-maerkte/christkindlesmarkt"},
+      "ernst": false
+    },
+    {
+      "titel": "„Kathrein stellt den Tanz ein“ – Kathreintanz im Hofbräuhaus",
+      "worum": "Der Brauch zum Namenstag der heiligen Katharina (25. November) beendet die Tanzsaison vor dem Advent; in München veranstaltet ihn das Kulturreferat mit dem Hofbräuhaus in drei Sälen. Den Termin 2026 nennt die Stadtseite noch nicht – im Entwurf nur, wenn er sich an einer Primärquelle bestätigen lässt, sonst als Brauchtums-Post ohne Termin.",
+      "quelle": {"name": "Landeshauptstadt München (muenchen.de)", "url": "https://www.muenchen.de/veranstaltungen/brauchtum/kathreintanz"},
+      "ernst": false
+    },
+    {
+      "titel": "Feuerwehr München befreit Kater aus gekipptem Fenster",
+      "worum": "Am 3. November steckte in Moosach ein Kater im gekippten Fenster im dritten Stock fest; die Feuerwehr holte ihn über eine Schiebleiter heraus und brachte ihn in eine Kleintierklinik. Blaulicht, leichter Ton.",
+      "quelle": {"name": "Feuerwehr München", "url": "https://www.presseportal.de/blaulicht/pm/131419/6383602"},
+      "ernst": false
+    }
+  ]
+}
