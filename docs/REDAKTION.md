@@ -69,6 +69,15 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    (z. B. `"2026-11-11-themen#2"`). `id` mit dem heutigen Datum.
    Quellenzeile, Signatur, feste Hashtags und „Bild: KI-generiert.“ **nicht** selbst schreiben.
    Ins Feld `recherche`: Auslöser, Primärquelle mit Datum, Quellenregister-Eintrag.
+   **Hashtags** (Betreiberentscheidung 10.11.2026): zusätzlich zu den festen **bis zu 10**, nur
+   passende – Ort, Landkreis/Region (z. B. #Landshut #Niederbayern), Thema, Anlass, ggf. der
+   offizielle Hashtag des Veranstalters. Keine Allerwelts-Tags (#love #instagood), keine
+   Wiederholungen. Ernste Meldungen: keine.
+   **Verlinken** (`erwaehnungen`, max. 5): offizielle Konten von Veranstalter, Verein, Behörde,
+   Künstler, Ort. Nur, wenn das Instagram-Konto **auf der eigenen Website der Organisation**
+   verlinkt ist – diese Seite kommt in `beleg`. Nicht raten. Ohne belegtes Konto nur `name`
+   (erscheint dann auf beiden Kanälen als Text). **Nie Privatpersonen, nie Minderjährige**, bei
+   Blaulicht höchstens die Behörde.
    Hält das Thema der Prüfung nicht stand (Quelle nicht belastbar, Regelverstoß): keinen Entwurf,
    stattdessen kurz begründen – der Betreiber bekommt dann beim nächsten Themenlauf neue Vorschläge.
 3. Prüfen: `python -m automat.pruefen entwuerfe/<id>.json --status /tmp/redaktion` muss **OK** sein.

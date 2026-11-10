@@ -329,3 +329,37 @@ def test_themen_anfordern(tmp_path):
     # neue Themendatei erledigt die Anforderung
     themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
     assert themen.offen(st, lambda _: False) == []
+
+
+def test_erwaehnungen_instagram_mit_at_facebook_mit_name(tmp_path):
+    e = dict(BEISPIEL, erwaehnungen=[{"name": "Stadt Landshut", "instagram": "@stadtlandshut",
+                                     "beleg": "https://www.landshut.de/"}])
+    assert E.pruefen(e).ok
+    assert "Mehr bei: @stadtlandshut" in E.caption(e, "instagram")
+    assert "Mehr bei: Stadt Landshut" in E.caption(e, "facebook")
+    assert "@" not in E.caption(e, "facebook")
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [e])
+    tg.klick(1, f"ja:{st.posts[e['id']]['key']}")
+    einmal(st, tg, meta, s)
+    ig, fb = meta.calls
+    assert "@stadtlandshut" in ig[3] and "@stadtlandshut" not in fb[3]
+
+
+def test_erwaehnungen_pruefung():
+    ohne_beleg = dict(BEISPIEL, erwaehnungen=[{"name": "X", "instagram": "x_y"}])
+    assert not E.pruefen(ohne_beleg).ok
+    kaputt = dict(BEISPIEL, erwaehnungen=[{"name": "X", "instagram": "ungültig konto",
+                                          "beleg": "https://x.de"}])
+    assert not E.pruefen(kaputt).ok
+    nur_name = dict(BEISPIEL, erwaehnungen=[{"name": "Trachtenverein X"}])
+    assert E.pruefen(nur_name).ok
+
+
+def test_hashtag_grenzen():
+    viele = dict(BEISPIEL, hashtags=[f"Tag{i}" for i in range(11)])
+    assert not E.pruefen(viele).ok
+    zehn = dict(BEISPIEL, hashtags=[f"Tag{i}" for i in range(10)])
+    assert E.pruefen(zehn).ok
+    wenige = dict(BEISPIEL, hashtags=["Landshut"])
+    assert any("zusaetzliche Hashtags" in h for h in E.pruefen(wenige).hinweise)

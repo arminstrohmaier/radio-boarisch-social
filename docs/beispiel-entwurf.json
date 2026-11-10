@@ -13,7 +13,19 @@
   },
   "hashtags": [
     "Landshut",
-    "Christkindlmarkt"
+    "Niederbayern",
+    "Christkindlmarkt",
+    "Weihnachtsmarkt",
+    "Advent",
+    "Adventszeit",
+    "Freyung"
   ],
-  "recherche": "Auslöser: Hinweis BR. Primärquelle: Pressemitteilung der Stadt vom … Quellenregister: Behörde, Standard (nur Tatsachen, eigene Worte, kein Foto)."
+  "recherche": "Auslöser: Hinweis BR. Primärquelle: Pressemitteilung der Stadt vom … Quellenregister: Behörde, Standard (nur Tatsachen, eigene Worte, kein Foto).",
+  "erwaehnungen": [
+    {
+      "name": "Stadt Landshut",
+      "instagram": "stadt.landshut",
+      "beleg": "https://www.landshut.de/"
+    }
+  ]
 }

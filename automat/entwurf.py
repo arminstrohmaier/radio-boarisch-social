@@ -13,7 +13,13 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
   bildtext      kurz, kommt auf das Bild
   bild          Dateiname aus pool/, z. B. "03_text-oben.jpg"
   quelle        {"name": "...", "url": "https://..."}  Primaerquelle
-  hashtags      zusaetzliche Hashtags (optional, die festen kommen automatisch)
+  hashtags      zusaetzliche Hashtags, bis zu 10 (die festen kommen automatisch)
+  erwaehnungen  verlinkte Konten (optional, max. 5), je
+                {"name": "Stadt Nürnberg", "instagram": "stadtnuernberg",
+                 "beleg": "https://... (Seite, auf der das Konto offiziell verlinkt ist)"}
+                Instagram: "@konto" in der Caption; Facebook: der Name als Text.
+                Nur Organisationen, Vereine, Veranstalter, Behoerden, Kuenstler –
+                nie Privatpersonen, nie Minderjaehrige.
   recherche     Notiz fuer den Betreiber: Ausloeser, Primaerquelle,
                 Quellenregister-Pruefung (wird nicht veroeffentlicht)
 
@@ -51,7 +57,10 @@ ZUSAGEN = [r"\bläuft (bald|demnächst|ab)\b", r"\bin unserer rotation\b",
            r"\bspielen wir (bald|demnächst|ab)\b", r"\bexklusiv\b"]
 
 IG_CAPTION_MAX = 2200
-IG_HASHTAG_MAX = 30
+IG_HASHTAG_MAX = 30          # harte Grenze von Instagram
+HASHTAGS_EXTRA_MAX = 10      # Betreiberentscheidung 10.11.2026: 2 feste + bis zu 10
+ERWAEHNUNGEN_MAX = 5
+IG_KONTO_RE = re.compile(r"^[A-Za-z0-9._]{1,30}$")
 BILDTEXT_MAX = 70
 
 PFLICHTFELDER = ["id", "thema", "hook", "text", "bildtext", "bild", "quelle"]
@@ -85,12 +94,23 @@ def hashtags(e: dict) -> list[str]:
     return tags
 
 
-def caption(e: dict) -> str:
-    """Setzt die Caption nach Raster 10.3 zusammen."""
+def erwaehnungszeile(e: dict, kanal: str) -> str:
+    namen = []
+    for m in e.get("erwaehnungen") or []:
+        konto = (m.get("instagram") or "").lstrip("@").strip()
+        namen.append(f"@{konto}" if kanal == "instagram" and konto else m["name"].strip())
+    return ("Mehr bei: " + ", ".join(namen)) if namen else ""
+
+
+def caption(e: dict, kanal: str = "instagram") -> str:
+    """Setzt die Caption nach Raster 10.3 zusammen (kanal: instagram oder facebook)."""
     q = e["quelle"]
     teile = [e["hook"].strip(), e["text"].strip()]
     if not e.get("ernst") and (e.get("aufforderung") or "").strip():
         teile.append(e["aufforderung"].strip())
+    zeile = erwaehnungszeile(e, kanal)
+    if zeile:
+        teile.append(zeile)
     teile.append(f"Quelle: {q['name'].strip()}, {q['url'].strip()}")
     teile.append(config.SIGNATUR)
     tags = hashtags(e)
@@ -171,8 +191,30 @@ def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None) -> Pruefu
     cap = caption(e)
     if len(cap) > IG_CAPTION_MAX:
         p.fehler.append(f"Caption zu lang fuer Instagram ({len(cap)} > {IG_CAPTION_MAX})")
-    if len(hashtags(e)) > IG_HASHTAG_MAX:
-        p.fehler.append(f"zu viele Hashtags (max. {IG_HASHTAG_MAX})")
+    extra = len(hashtags(e)) - len(config.FESTE_HASHTAGS)
+    if len(hashtags(e)) > IG_HASHTAG_MAX or extra > HASHTAGS_EXTRA_MAX:
+        p.fehler.append(f"zu viele Hashtags (max. {HASHTAGS_EXTRA_MAX} zusaetzlich zu den festen)")
+    elif not e.get("ernst") and extra < 5:
+        p.hinweise.append(f"nur {extra} zusaetzliche Hashtags – bis zu {HASHTAGS_EXTRA_MAX} passende "
+                          "(Ort, Region, Thema, Anlass) sind erwuenscht")
+
+    erw = e.get("erwaehnungen") or []
+    if not isinstance(erw, list) or len(erw) > ERWAEHNUNGEN_MAX:
+        p.fehler.append(f"erwaehnungen: Liste mit hoechstens {ERWAEHNUNGEN_MAX} Eintraegen")
+        erw = []
+    for m in erw:
+        if not (m.get("name") or "").strip():
+            p.fehler.append("Erwaehnung ohne name")
+            continue
+        konto = (m.get("instagram") or "").lstrip("@")
+        if konto and not IG_KONTO_RE.match(konto):
+            p.fehler.append(f"ungueltiges Instagram-Konto: {m.get('instagram')}")
+        b = urlparse(m.get("beleg") or "")
+        if konto and (b.scheme not in ("http", "https") or not b.netloc):
+            p.fehler.append(f"Erwaehnung {m['name']}: 'beleg' fehlt (Seite, auf der @{konto} "
+                            "offiziell verlinkt ist)")
+    if len(caption(e, "facebook")) > IG_CAPTION_MAX:
+        p.fehler.append("Facebook-Caption zu lang")
 
     if zuletzt_genutzte_bilder and bild in zuletzt_genutzte_bilder:
         p.fehler.append(f"Bild {bild} wurde in den letzten Posts schon verwendet – anderes waehlen")

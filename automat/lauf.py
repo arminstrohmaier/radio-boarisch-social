@@ -122,6 +122,10 @@ def vorschau_text(e: dict, cap: str, hinweise: list[str], test: bool) -> str:
              "────────────", cap, "────────────"]
     if e.get("recherche"):
         teile.append(f"🔎 Recherche: {e['recherche']}")
+    if e.get("erwaehnungen"):
+        teile.append("🔗 Verlinkt (Instagram mit @, Facebook als Name): " + ", ".join(
+            f"{m['name']}" + (f" = @{m['instagram'].lstrip('@')}" if m.get("instagram") else "")
+            for m in e["erwaehnungen"]))
     if hinweise:
         teile.append("Hinweise der Prüfung:\n" + "\n".join(f"• {h}" for h in hinweise))
     teile.append("Veröffentlichen auf Instagram und Facebook?")
@@ -259,14 +263,15 @@ def posten(st: Status, s: Settings, tg: Telegram, meta: Meta | None, commit) -> 
                     "von Hand posten: Bild und Text stehen oben.", antwort_auf=p.get("tg_msg"))
             continue
         e = st.entwurf(pid)
-        cap = E.caption(e)
+        cap = E.caption(e, "instagram")
+        cap_fb = E.caption(e, "facebook")
         url = f"{s.public_base_url}/posts/{pid}/bild.jpg"
         kanaele = p.setdefault("kanaele", {})
         ziele = []
         if s.meta_ig_user_id:
             ziele.append(("instagram", lambda: meta.instagram(s.meta_ig_user_id, url, cap)))
         if s.meta_page_id:
-            ziele.append(("facebook", lambda: meta.facebook(s.meta_page_id, url, cap)))
+            ziele.append(("facebook", lambda: meta.facebook(s.meta_page_id, url, cap_fb)))
         for name, aufruf in ziele:
             k = kanaele.setdefault(name, {"status": "offen", "versuche": 0})
             if k["status"] == "ok":
