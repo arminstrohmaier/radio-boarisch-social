@@ -17,7 +17,7 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import config, entwurf as E, render, themen
+from . import config, entwurf as E, hinweise, render, themen
 from .config import Settings
 from .meta import Meta, MetaFehler
 from .status import ABGESCHLOSSEN, Status, git_commit, inhalt_hash, jetzt, schluessel
@@ -104,6 +104,7 @@ def importieren(st: Status, kandidaten, tg: Telegram | None, chat_id: str) -> in
             (ordner / "entwurf.json").write_text(json.dumps(e, indent=2, ensure_ascii=False) + "\n",
                                                  encoding="utf-8")
             themen.entwurf_verknuepfen(st, e, pid)
+            hinweise.entwurf_verknuepfen(st, e, pid)
             neu += 1
             log(f"importiert: {pid}")
         else:
@@ -180,6 +181,8 @@ def _knopf(st: Status, tg: Telegram, chat_id: str, cq: dict) -> int:
     aktion, _, key = (cq.get("data") or "").partition(":")
     if aktion == "t":
         return themen.knopf(st, tg, chat_id, cq, key)
+    if aktion == "h":
+        return hinweise.knopf(st, tg, chat_id, cq, key)
     pid = st.nach_schluessel(key)
     msg_id = cq.get("message", {}).get("message_id")
     if not pid:
@@ -235,12 +238,17 @@ def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
                  if p.get("status") not in ABGESCHLOSSEN and p.get("status") != "ungueltig"]
         offen += [f"• Themen {tid}: {t.get('status')}" for tid, t in st.themen.items()
                   if t.get("status") in ("neu", "gesendet", "gewaehlt")]
+        offen += [f"• Hinweis „{a['text'][:60]}“: in Arbeit" for a in st.daten.get("anforderungen", [])
+                  if a.get("art") == "hinweis" and a.get("status") == "offen"]
         tg.text(chat_id, "Offen:\n" + ("\n".join(offen) if offen else "nichts"))
     elif text.startswith("/themen"):
         tg.text(chat_id, themen.anfordern(st))
+    elif text and not text.startswith("/"):
+        hinweise.aufnehmen(st, tg, chat_id, m.get("text") or "", m.get("message_id"))
     elif text.startswith("/start") or text.startswith("/id") or text.startswith("/hilfe"):
         tg.text(chat_id, "Servus! Der Automat ist eingerichtet.\n\n"
                          "/themen – drei neue Themenvorschläge außer der Reihe anfordern\n"
+                         "Stichwörter oder ein Link (einfach als Nachricht) – ich mach einen Entwurf draus\n"
                          "/status – offene Themen und Entwürfe anzeigen")
 
 
@@ -362,6 +370,7 @@ def main(argv=None) -> int:
                 log(f"Testentwurf: {testentwurf(st)}")
             themen.importieren(st, entwuerfe_finden(Path(a.repo), "themen"), tg, chat, _veraltet)
             importieren(st, entwuerfe_finden(Path(a.repo)), tg, chat)
+            hinweise.rueckmeldungen(st, entwuerfe_finden(Path(a.repo), "rueckmeldungen"), tg, chat)
             st.speichern(); commit("Import")
             themen.senden(st, tg, chat)
             senden(st, tg, chat)

@@ -363,3 +363,59 @@ def test_hashtag_grenzen():
     assert E.pruefen(zehn).ok
     wenige = dict(BEISPIEL, hashtags=["Landshut"])
     assert any("zusaetzliche Hashtags" in h for h in E.pruefen(wenige).hinweise)
+
+
+def _msg(uid, text, chat=42):
+    return {"update_id": uid, "message": {"message_id": 500 + uid, "text": text,
+                                          "chat": {"id": chat, "type": "private"}}}
+
+
+def test_hinweis_wird_entwurf(tmp_path):
+    from automat import themen
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    tg.queue.append(_msg(1, "Leonhardiritt Bad Tölz https://www.br.de/x"))
+    lauf.antworten(st, tg, "42")
+    assert "Notiert" in tg.gesendet[-1][2]
+    offen = themen.offen(st, lambda _: False)
+    assert offen[0]["art"] == "hinweis" and "Leonhardiritt" in offen[0]["text"]
+    ref = offen[0]["hinweis_ref"]
+    einmal(st, tg, meta, s, [dict(BEISPIEL, hinweis_ref=ref)])
+    assert themen.offen(st, lambda _: False) == []
+    assert st.posts[BEISPIEL["id"]]["status"] == "gesendet"
+
+
+def test_hinweis_rueckmeldung_und_abbrechen(tmp_path):
+    from automat import hinweise, themen
+    st, tg = Status(tmp_path), FakeTG()
+    tg.queue += [_msg(1, "Gerücht über irgendwas"), _msg(2, "danke")]
+    lauf.antworten(st, tg, "42")
+    a1, a2 = [a for a in st.daten["anforderungen"] if a["art"] == "hinweis"]
+    hinweise.rueckmeldungen(st, [("b", "rueckmeldungen/x.json",
+                                 {"id": "r1", "hinweis_ref": a1["id"], "text": "Keine Primärquelle."})], tg, "42")
+    assert a1["status"] == "ohne_entwurf" and "Keine Primärquelle" in tg.gesendet[-1][2]
+    hinweise.rueckmeldungen(st, [("b", "rueckmeldungen/x.json",
+                                 {"id": "r1", "hinweis_ref": a1["id"], "text": "x"})], tg, "42")
+    assert sum("Keine Primärquelle" in g[2] for g in tg.gesendet if g[0] == "text") == 1
+    tg.klick(3, f"h:{a2['id']}")
+    lauf.antworten(st, tg, "42")
+    assert a2["status"] == "verworfen"
+    assert themen.offen(st, lambda _: False) == []
+
+
+def test_hinweis_nur_vom_betreiber(tmp_path):
+    from automat import themen
+    st, tg = Status(tmp_path), FakeTG()
+    tg.queue.append(_msg(1, "fremder Hinweis", chat=999))
+    lauf.antworten(st, tg, "42")
+    assert themen.offen(st, lambda _: False) == [] and not tg.gesendet
+
+
+def test_themenanforderung_und_hinweis_getrennt(tmp_path):
+    from automat import themen
+    st, tg = Status(tmp_path), FakeTG()
+    tg.queue += [_msg(1, "Stichwort Kirta"), _msg(2, "/themen")]
+    lauf.antworten(st, tg, "42")
+    assert "Angefordert" in tg.gesendet[-1][2]
+    themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
+    arten = [o["art"] for o in themen.offen(st, lambda _: False)]
+    assert arten == ["hinweis"]  # Themenlauf erledigt, Hinweis bleibt offen

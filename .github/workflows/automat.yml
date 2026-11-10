@@ -7,7 +7,7 @@ on:
     - cron: "*/10 * * * *"
   push:
     branches-ignore: [redaktion]
-    paths: ["entwuerfe/**", "themen/**"]
+    paths: ["entwuerfe/**", "themen/**", "rueckmeldungen/**"]
   workflow_dispatch:
     inputs:
       testentwurf:

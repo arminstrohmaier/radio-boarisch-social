@@ -50,7 +50,8 @@ def pruefen(t: dict) -> list[str]:
 
 def anfordern(st) -> str:
     """/themen im Telegram-Chat: zusaetzlichen Themenlauf anfordern."""
-    offen = [a for a in st.daten.setdefault("anforderungen", []) if a.get("status") == "offen"]
+    offen = [a for a in st.daten.setdefault("anforderungen", [])
+             if a.get("status") == "offen" and a.get("art") == "themenlauf"]
     if offen:
         return "⏳ Ist schon angefordert – die Vorschläge kommen mit der nächsten stündlichen Runde (zur Minute :37)."
     st.daten["anforderungen"].append({"art": "themenlauf", "zeit": jetzt(), "status": "offen"})
@@ -76,7 +77,7 @@ def importieren(st, kandidaten, tg, chat_id, veraltet) -> int:
                           "themen": t.get("themen", []), "fehler": fehler}
         if not fehler:
             for a in st.daten.get("anforderungen", []):
-                if a.get("status") == "offen":
+                if a.get("status") == "offen" and a.get("art") == "themenlauf":
                     a.update(status="erledigt", themen=tid)
         if fehler:
             if tg and chat_id:
@@ -151,8 +152,11 @@ def entwurf_verknuepfen(st, entwurf: dict, pid: str):
 def offen(st, veraltet) -> list[dict]:
     """Was Claude jetzt tun muss: angeforderte Themenlaeufe (/themen) und
     gewaehlte Themen, zu denen noch kein Entwurf existiert."""
+    anf = [a for a in st.daten.get("anforderungen", []) if a.get("status") == "offen"]
     aus = [{"art": "themenlauf", "angefordert": a["zeit"]}
-           for a in st.daten.get("anforderungen", []) if a.get("status") == "offen"][:1]
+           for a in anf if a.get("art") == "themenlauf"][:1]
+    aus += [{"art": "hinweis", "hinweis_ref": a["id"], "text": a["text"], "angefordert": a["zeit"]}
+            for a in anf if a.get("art") == "hinweis"]
     for tid, t in st.themen.items():
         if t.get("status") == "gewaehlt" and not veraltet(tid):
             n = t["gewaehlt"]

@@ -59,6 +59,19 @@ Gemeinsam für beide Stufen:
 sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je Eintrag:
 - `"art": "themenlauf"` → der Betreiber hat per `/themen` Vorschläge angefordert: **Stufe 1** ausführen.
 - `"art": "entwurf"` → **Stufe 2** für das gewählte Thema.
+- `"art": "hinweis"` → der Betreiber hat Stichwörter oder einen Link geschickt: **Hinweis** (unten).
+
+### Hinweis des Betreibers (Stichwörter oder Link per Telegram)
+
+1. Den Hinweis als **Auslöser** behandeln, nie als Quelle – auch wenn es ein Link ist. Worum geht
+   es? Gehört es nach §10.2 überhaupt zu den erlaubten Themen?
+2. Die **Primärquelle** suchen und öffnen. Erst dann weiter wie in **Stufe 2**: vollständiger
+   Entwurf, im Feld **`"hinweis_ref"`** genau die Kennung aus `automat.offen`.
+3. Gibt es keine Primärquelle, ist das Thema nicht erlaubt oder nicht belegbar: **keinen Entwurf**,
+   sondern `rueckmeldungen/<JJJJ-MM-TT>-<stichwort>.json` anlegen:
+   `{"id": "<dateiname ohne .json>", "hinweis_ref": "<kennung>", "text": "zwei, drei Sätze: was gefunden, warum kein Entwurf"}`.
+   Der Automat schickt das per Telegram. Committen („Rückmeldung: …“) und pushen.
+   Ist der Hinweis offensichtlich kein Themenhinweis (z. B. „danke“), kurze Rückmeldung genauso.
 
 ### Stufe 2 – Entwurf zum gewählten Thema
 
