@@ -177,7 +177,7 @@
       "entwurf": "2026-11-10-christkindlesmarkt-augsburg"
     },
     "2026-11-10-themen-3": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "7e946c2b72",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen-3.json",
       "importiert": "2026-11-10T21:39:25+00:00",
@@ -210,7 +210,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-10T21:39:27+00:00",
+      "tg_msg": 33
     }
   },
   "befehle_gesetzt": true,
