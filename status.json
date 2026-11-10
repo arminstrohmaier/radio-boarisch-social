@@ -62,7 +62,7 @@
       "tg_msg": 17
     },
     "2026-11-10-christkindlesmarkt-augsburg": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "b5ec84c173",
       "hash": "8aacfece1d2364dd46633b8da709e5903d3e74da",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-christkindlesmarkt-augsburg.json",
@@ -70,7 +70,10 @@
       "bild": "09_text-oben.jpg",
       "thema": "Augsburger Christkindlesmarkt öffnet am Montag, 23. November",
       "hinweise": [],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-10T20:10:09+00:00",
+      "tg_foto": 27,
+      "tg_msg": 28
     }
   },
   "themen": {
