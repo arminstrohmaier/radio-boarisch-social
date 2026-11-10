@@ -48,6 +48,16 @@ def pruefen(t: dict) -> list[str]:
     return fehler
 
 
+def anfordern(st) -> str:
+    """/themen im Telegram-Chat: zusaetzlichen Themenlauf anfordern."""
+    offen = [a for a in st.daten.setdefault("anforderungen", []) if a.get("status") == "offen"]
+    if offen:
+        return "⏳ Ist schon angefordert – die Vorschläge kommen mit der nächsten stündlichen Runde (zur Minute :37)."
+    st.daten["anforderungen"].append({"art": "themenlauf", "zeit": jetzt(), "status": "offen"})
+    return ("👍 Angefordert. Drei neue Themenvorschläge kommen mit der nächsten stündlichen Runde "
+            "(zur Minute :37, zwischen 6 und 22 Uhr), meist innerhalb einer guten Stunde.")
+
+
 def importieren(st, kandidaten, tg, chat_id, veraltet) -> int:
     neu = 0
     for herkunft, pfad, t in kandidaten:
@@ -64,6 +74,10 @@ def importieren(st, kandidaten, tg, chat_id, veraltet) -> int:
         st.themen[tid] = {"status": "neu" if not fehler else "ungueltig", "key": schluessel(tid),
                           "herkunft": f"{herkunft}:{pfad}", "importiert": jetzt(),
                           "themen": t.get("themen", []), "fehler": fehler}
+        if not fehler:
+            for a in st.daten.get("anforderungen", []):
+                if a.get("status") == "offen":
+                    a.update(status="erledigt", themen=tid)
         if fehler:
             if tg and chat_id:
                 tg.text(chat_id, f"⚠️ Themenvorschlag abgelehnt (Regelpruefung): {tid}\n\n"
@@ -135,10 +149,12 @@ def entwurf_verknuepfen(st, entwurf: dict, pid: str):
 
 
 def offen(st, veraltet) -> list[dict]:
-    """Gewaehlte Themen, zu denen noch kein Entwurf existiert."""
-    aus = []
+    """Was Claude jetzt tun muss: angeforderte Themenlaeufe (/themen) und
+    gewaehlte Themen, zu denen noch kein Entwurf existiert."""
+    aus = [{"art": "themenlauf", "angefordert": a["zeit"]}
+           for a in st.daten.get("anforderungen", []) if a.get("status") == "offen"][:1]
     for tid, t in st.themen.items():
         if t.get("status") == "gewaehlt" and not veraltet(tid):
             n = t["gewaehlt"]
-            aus.append({"thema_ref": f"{tid}#{n}", **t["themen"][n - 1]})
+            aus.append({"art": "entwurf", "thema_ref": f"{tid}#{n}", **t["themen"][n - 1]})
     return aus

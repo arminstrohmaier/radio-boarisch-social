@@ -39,7 +39,7 @@ Gemeinsam für beide Stufen:
 - Committen und pushen auf den Arbeitsbranch (der Automat holt Dateien von allen Branches).
   Keine anderen Dateien ändern, nie nach main, nie selbst veröffentlichen.
 
-### Stufe 1 – Themenlauf (Mo/Mi/Fr früh)
+### Stufe 1 – Themenlauf (Mo/Mi/Fr früh, außerdem auf Anforderung per /themen)
 
 1. **Drei** verschiedene, aktuelle Themen aus Bayern nach §10.2 suchen. Nicht dieselben wie in
    den letzten Posts oder Themenvorschlägen (`status.json`).
@@ -47,24 +47,30 @@ Gemeinsam für beide Stufen:
    und dass das Thema dort steht. Noch **nicht** ausrecherchieren oder formulieren.
    Ohne Primärquelle fällt ein Thema weg. Findest du weniger als drei, schick weniger; findest du
    keins, lege nichts an und begründe kurz.
-3. `themen/<JJJJ-MM-TT>-themen.json` anlegen (Format: Kopf von `automat/themen.py`):
+3. `themen/<JJJJ-MM-TT>-themen.json` anlegen (gibt es die Datei für heute schon:
+   `…-themen-2.json`, `…-themen-3.json` usw., `id` entsprechend) (Format: Kopf von `automat/themen.py`):
    je Thema `titel` (kurz), `worum` (ein bis zwei Sätze), `quelle` {name, url}, `ernst` (true/false).
 4. Committen („Themen: <Datum>“) und pushen. Der Automat schickt die Themen per Telegram mit den
    Knöpfen 1 / 2 / 3 / Keins.
 
-### Stufe 2 – Entwurfslauf (stündlich, nur wenn ein Thema gewählt ist)
+### Stündliche Runde (6:37–22:37 Uhr)
 
-1. `python -m automat.offen --status /tmp/redaktion` ausführen. Ausgabe `[]`: **nichts zu tun,
-   sofort beenden** (keine Recherche, kein Commit, keine lange Antwort).
-2. Sonst zum gewählten Thema den vollständigen Entwurf schreiben: Primärquelle gründlich lesen,
+`python -m automat.offen --status /tmp/redaktion` ausführen. Ausgabe `[]`: **nichts zu tun,
+sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je Eintrag:
+- `"art": "themenlauf"` → der Betreiber hat per `/themen` Vorschläge angefordert: **Stufe 1** ausführen.
+- `"art": "entwurf"` → **Stufe 2** für das gewählte Thema.
+
+### Stufe 2 – Entwurf zum gewählten Thema
+
+1. Zum gewählten Thema den vollständigen Entwurf schreiben: Primärquelle gründlich lesen,
    Fakten dort prüfen, Entwurf nach Raster.
-3. `entwuerfe/<JJJJ-MM-TT>-<stichwort>.json` anlegen (Format: `docs/beispiel-entwurf.json`) und
+2. `entwuerfe/<JJJJ-MM-TT>-<stichwort>.json` anlegen (Format: `docs/beispiel-entwurf.json`) und
    das Feld **`"thema_ref"`** genau so übernehmen, wie `automat.offen` es ausgibt
    (z. B. `"2026-11-11-themen#2"`). `id` mit dem heutigen Datum.
    Quellenzeile, Signatur, feste Hashtags und „Bild: KI-generiert.“ **nicht** selbst schreiben.
    Ins Feld `recherche`: Auslöser, Primärquelle mit Datum, Quellenregister-Eintrag.
    Hält das Thema der Prüfung nicht stand (Quelle nicht belastbar, Regelverstoß): keinen Entwurf,
    stattdessen kurz begründen – der Betreiber bekommt dann beim nächsten Themenlauf neue Vorschläge.
-4. Prüfen: `python -m automat.pruefen entwuerfe/<id>.json --status /tmp/redaktion` muss **OK** sein.
-5. Committen („Entwurf: <thema>“) und pushen. Der Automat schickt den Entwurf per Telegram mit
+3. Prüfen: `python -m automat.pruefen entwuerfe/<id>.json --status /tmp/redaktion` muss **OK** sein.
+4. Committen („Entwurf: <thema>“) und pushen. Der Automat schickt den Entwurf per Telegram mit
    Ja/Nein. Veröffentlicht wird nur nach **Ja**.

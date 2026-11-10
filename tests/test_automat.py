@@ -278,7 +278,7 @@ def test_themen_wahl_und_entwurf(tmp_path):
     lauf.antworten(st, tg, "42")
     assert t["status"] == "gewaehlt" and t["gewaehlt"] == 2
     offen = themen.offen(st, lambda _: False)
-    assert offen[0]["thema_ref"] == "2026-11-12-themen#2" and offen[0]["titel"] == "Volksmusiktag"
+    assert offen[0]["art"] == "entwurf" and offen[0]["thema_ref"] == "2026-11-12-themen#2" and offen[0]["titel"] == "Volksmusiktag"
     tg.klick(2, f"t:{t['key']}:3")  # zweiter Klick aendert nichts
     lauf.antworten(st, tg, "42")
     assert t["gewaehlt"] == 2
@@ -309,3 +309,23 @@ def test_themen_pruefung():
     kaputt = {"id": "2026-11-12-themen", "themen": [
         {"titel": "x", "worum": "y", "quelle": {"name": "BR", "url": "https://www.br.de/x"}}]}
     assert themen.pruefen(kaputt)
+
+
+def test_themen_anfordern(tmp_path):
+    from automat import themen
+    st, tg = Status(tmp_path), FakeTG()
+    tg.queue.append({"update_id": 1, "message": {"text": "/themen", "chat": {"id": 42, "type": "private"}}})
+    lauf.antworten(st, tg, "42")
+    assert "Angefordert" in tg.gesendet[-1][2]
+    tg.queue.append({"update_id": 2, "message": {"text": "/themen", "chat": {"id": 42, "type": "private"}}})
+    lauf.antworten(st, tg, "42")
+    assert "schon angefordert" in tg.gesendet[-1][2]
+    assert themen.offen(st, lambda _: False)[0]["art"] == "themenlauf"
+    # fremder Chat kann nichts anfordern
+    st2 = Status(tmp_path / "b")
+    tg.queue = [{"update_id": 3, "message": {"text": "/themen", "chat": {"id": 7, "type": "private"}}}]
+    lauf.antworten(st2, tg, "42")
+    assert themen.offen(st2, lambda _: False) == []
+    # neue Themendatei erledigt die Anforderung
+    themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
+    assert themen.offen(st, lambda _: False) == []

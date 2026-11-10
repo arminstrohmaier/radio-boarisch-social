@@ -232,9 +232,12 @@ def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
         offen += [f"• Themen {tid}: {t.get('status')}" for tid, t in st.themen.items()
                   if t.get("status") in ("neu", "gesendet", "gewaehlt")]
         tg.text(chat_id, "Offen:\n" + ("\n".join(offen) if offen else "nichts"))
-    elif text.startswith("/start") or text.startswith("/id"):
-        tg.text(chat_id, "Servus! Der Automat ist eingerichtet. Entwürfe kommen hier mit "
-                         "Ja/Nein-Knopf an. /status zeigt offene Entwürfe.")
+    elif text.startswith("/themen"):
+        tg.text(chat_id, themen.anfordern(st))
+    elif text.startswith("/start") or text.startswith("/id") or text.startswith("/hilfe"):
+        tg.text(chat_id, "Servus! Der Automat ist eingerichtet.\n\n"
+                         "/themen – drei neue Themenvorschläge außer der Reihe anfordern\n"
+                         "/status – offene Themen und Entwürfe anzeigen")
 
 
 # ---------------------------------------------------------------- Posten
@@ -362,6 +365,13 @@ def main(argv=None) -> int:
             log("::warning::TELEGRAM_CHAT_ID fehlt – schreib dem Bot /start, er antwortet mit der ID.")
         antworten(st, tg, chat)
         st.speichern(); commit("Telegram-Antworten")
+        if not st.daten.get("befehle_gesetzt"):
+            try:
+                tg.befehle([("themen", "Drei neue Themenvorschläge anfordern"),
+                            ("status", "Offene Themen und Entwürfe anzeigen")])
+                st.daten["befehle_gesetzt"] = True
+            except TelegramFehler:
+                pass
         if chat:
             tg.updates(_offset(st))  # bestaetigt verarbeitete Updates bei Telegram
             posten(st, s, tg, meta, commit)

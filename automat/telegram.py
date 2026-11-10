@@ -51,6 +51,10 @@ class Telegram:
             p["reply_parameters"] = {"message_id": antwort_auf, "allow_sending_without_reply": True}
         return self._call("sendMessage", **p)
 
+    def befehle(self, liste: list[tuple[str, str]]):
+        """Befehlsmenue im Telegram-Chat (Knopf "Menü" neben dem Eingabefeld)."""
+        self._call("setMyCommands", commands=[{"command": c, "description": d} for c, d in liste])
+
     def knoepfe_weg(self, chat_id: str, message_id: int):
         try:
             self._call("editMessageReplyMarkup", chat_id=chat_id, message_id=message_id,
