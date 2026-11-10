@@ -49,7 +49,7 @@
   },
   "themen": {
     "2026-11-10-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "99a61f688f",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen.json",
       "importiert": "2026-11-10T14:21:50+00:00",
@@ -82,7 +82,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-10T14:21:51+00:00",
+      "tg_msg": 12
     }
   }
 }
