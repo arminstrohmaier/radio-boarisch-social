@@ -33,7 +33,7 @@
       "tg_msg": 6
     },
     "2026-11-10-christkindlesmarkt-nuernberg": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "e38ade8ed4",
       "hash": "1b8a4c0f85ec3147045151fd30534b354cbcadb4",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-christkindlesmarkt-nuernberg.json",
@@ -41,7 +41,10 @@
       "bild": "18_text-oben.jpg",
       "thema": "Nürnberger Christkindlesmarkt öffnet am Freitag, 27. November",
       "hinweise": [],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-10T13:55:17+00:00",
+      "tg_foto": 10,
+      "tg_msg": 11
     }
   }
 }
