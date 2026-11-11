@@ -562,3 +562,53 @@ def test_bildgen_probiert_aufrufformen(monkeypatch, tmp_path):
                               zugangsdaten=("k", "t"))
     assert aufrufe == ["json", "form"] and aufruf.startswith("form:width,height")
     assert Image.open(tmp_path / "y.jpg").size == (1080, 1350)
+
+
+MOTIV = dict(BEISPIEL, bildmotiv="A Bavarian old town square in winter dusk, wide calm sky above.",
+             bildtext_lage="oben")
+
+
+def test_ki_bild_wird_verwendet(tmp_path, monkeypatch):
+    from PIL import Image
+    from automat import bildgen
+    erzeugt = []
+    def ki_bild(motiv, ziel):
+        erzeugt.append(motiv)
+        Image.new("RGB", (1080, 1350), (10, 20, 30)).save(ziel)
+        return "json"
+    monkeypatch.setattr(bildgen, "konfiguriert", lambda: True)
+    monkeypatch.setattr(bildgen, "ki_bild", ki_bild)
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [MOTIV])
+    p = st.posts[MOTIV["id"]]
+    assert erzeugt == [MOTIV["bildmotiv"]] and "KI-Bild (lucid-origin)" in p["bildherkunft"]
+    assert Image.open(st.bild(MOTIV["id"])).size == (1080, 1350)
+    assert "lucid-origin" in tg.gesendet[0][2]
+    assert E.caption(MOTIV).endswith("Bild: KI-generiert.")
+
+
+def test_ki_bild_faellt_auf_pool_zurueck(tmp_path, monkeypatch):
+    from automat import bildgen
+    def kaputt(motiv, ziel):
+        raise bildgen.BildFehler("HTTP 429: Kontingent")
+    monkeypatch.setattr(bildgen, "konfiguriert", lambda: True)
+    monkeypatch.setattr(bildgen, "ki_bild", kaputt)
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [MOTIV])
+    p = st.posts[MOTIV["id"]]
+    assert p["status"] == "gesendet" and st.bild(MOTIV["id"]).is_file()
+    assert p["bildherkunft"].startswith("Bild: Pool 05_text-oben.jpg") and "429" in p["bildherkunft"]
+
+
+def test_ki_bild_ohne_secrets_pool(tmp_path, monkeypatch):
+    monkeypatch.delenv("CLOUDFLARE_ACCOUNT_ID", raising=False)
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [MOTIV])
+    assert "Cloudflare-Secrets fehlen" in st.posts[MOTIV["id"]]["bildherkunft"]
+
+
+def test_bildmotiv_pruefung():
+    assert E.pruefen(MOTIV).ok
+    assert not E.pruefen(dict(MOTIV, bildtext_lage="")).ok
+    assert not E.pruefen(dict(MOTIV, bildmotiv="kurz")).ok
+    assert not E.pruefen(dict(MOTIV, bild="gibtsnicht.jpg")).ok  # Pool-Rueckfall bleibt Pflicht

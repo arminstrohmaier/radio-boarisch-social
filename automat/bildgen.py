@@ -40,6 +40,11 @@ VERGLEICH = [
 ]
 # Modelle mit freier Bildgroesse erzeugen gleich 4:5; klein gehalten wegen des Kontingents.
 GROESSE = (896, 1120)
+
+# Betrieb (Betreiberentscheidung 11.11.2026 nach Modellvergleich): Leonardo Lucid Origin,
+# direkt in 4:5. Faellt es aus, nimmt der Automat das Pool-Bild aus dem Entwurf.
+PRODUKTIV = "@cf/leonardo/lucid-origin"
+PRODUKTIV_GROESSE = (1088, 1360)
 ZIEL = (1080, 1350)
 
 # Wird an jedes Motiv angehaengt: die Bildregel in Worten, die FLUX versteht.
@@ -164,11 +169,11 @@ def _senden(konto, token, modell, art, felder) -> Image.Image:
     return _bild_aus_antwort(r)
 
 
-def varianten(modell: str, text: str) -> list[tuple[str, dict]]:
+def varianten(modell: str, text: str, groesse=GROESSE) -> list[tuple[str, dict]]:
     """Moegliche Aufrufformen; die erste, die das Modell annimmt, gilt."""
     if modell == MODELL:
         return [("json", {"prompt": text, "steps": 8})]
-    b, h = GROESSE
+    b, h = groesse
     return [
         ("json", {"prompt": text, "width": b, "height": h}),
         ("form", {"prompt": text, "width": b, "height": h}),
@@ -178,12 +183,12 @@ def varianten(modell: str, text: str) -> list[tuple[str, dict]]:
 
 
 def erzeugen(motiv: str, ziel: Path, seed: int | None = None, modell: str = MODELL,
-             zugangsdaten: tuple[str, str] | None = None) -> str:
+             zugangsdaten: tuple[str, str] | None = None, groesse=GROESSE) -> str:
     """Erzeugt ein Bild zum Motiv, speichert es als 1080x1350-JPEG und gibt die
     verwendete Aufrufform zurueck. seed wird nicht gesendet (flux-1-schnell lehnt ihn ab)."""
     konto, token = zugangsdaten or zugang()
     letzter = None
-    for art, felder in varianten(modell, prompt(motiv)):
+    for art, felder in varianten(modell, prompt(motiv), groesse):
         try:
             roh = _senden(konto, token, modell, art, felder)
         except EingabeFehler as e:
@@ -193,6 +198,19 @@ def erzeugen(motiv: str, ziel: Path, seed: int | None = None, modell: str = MODE
         auf_4_5(roh).save(ziel, "JPEG", quality=90, optimize=True)
         return f"{art}:{','.join(k for k in felder if k != 'prompt') or 'nur prompt'}; roh {roh.size[0]}x{roh.size[1]}"
     raise letzter or BildFehler("keine Aufrufform passt")
+
+
+def konfiguriert() -> bool:
+    try:
+        zugang()
+        return True
+    except BildFehler:
+        return False
+
+
+def ki_bild(motiv: str, ziel: Path) -> str:
+    """Bild fuer einen Beitrag mit dem Betriebsmodell (1080x1350 JPEG ohne Bildtext)."""
+    return erzeugen(motiv, ziel, modell=PRODUKTIV, groesse=PRODUKTIV_GROESSE)
 
 
 def modelle_im_konto(z) -> list[str] | None:
@@ -262,10 +280,20 @@ def main(argv=None) -> int:
     ap.add_argument("--test", type=Path, metavar="ORDNER", help="die 5 Testbilder erzeugen")
     ap.add_argument("--vergleich", type=Path, metavar="ORDNER",
                     help="die 5 Testmotive mit mehreren Modellen, je Modell ein Unterordner")
+    ap.add_argument("--betrieb", type=Path, metavar="ORDNER",
+                    help="Probe des Betriebswegs: Beispielentwurf -> KI-Bild -> Bildtext")
     ap.add_argument("--motiv", help="ein einzelnes Motiv (englisch)")
     ap.add_argument("--ziel", type=Path, help="Zieldatei fuer --motiv")
     a = ap.parse_args(argv)
     try:
+        if a.betrieb:
+            from . import config, render
+            e = json.loads((config.REPO_ROOT / "docs" / "beispiel-entwurf.json").read_text("utf-8"))
+            roh = a.betrieb / "ki-roh.jpg"
+            print(ki_bild(e["bildmotiv"], roh))
+            print(render.rendern("", e["bildtext"], a.betrieb / "bild.jpg", quelle=roh,
+                                 lage=e["bildtext_lage"]))
+            return 0
         if a.vergleich:
             return vergleich(a.vergleich)
         if a.test:

@@ -26,8 +26,19 @@ Kurzfassung (Stand V1.2, 28.10.2026, mit Betreiberentscheidungen bis 10.11.2026)
 - **Ton sonst lebendig:** eine Zeile, ein Emoji als Gliederung; bayerische Anrede und Wendungen
   („Servus“, „grias eich“), lesbar, kein künstlicher Dialekt; kurze Aufforderung am Schluss.
   Keine Superlative über das eigene Programm, keine Ausrufezeichenketten.
-- **Keine Musik, keine Fremdbilder.** Bild nur aus `pool/`; Dateiname nennt die freie Textfläche.
-  Bild passend zur Stimmung wählen und **nicht** eines der zuletzt genutzten.
+- **Keine Musik, keine Fremdbilder.** Jeder Beitrag bekommt ein **eigenes KI-Bild**
+  (Betreiberentscheidung 11.11.2026, Leonardo Lucid Origin über Cloudflare): Feld `bildmotiv`
+  (englisch, 1–3 Sätze, konkreter Ort/Situation zum Thema, dokumentarisch, Tageszeit, Wetter,
+  und wo die ruhige freie Fläche für den Bildtext liegt, z. B. „calm empty sky across the upper
+  third“) plus `bildtext_lage` passend dazu (`oben`, `mitte`, `unten` …). Nichts beschreiben, was
+  die Bildregel 06 §10.3 verbietet: keine Menschen im Vordergrund, keine Gesichter, keine Tracht,
+  keine Schrift/Schilder/Logos, kein Postkartenkitsch; keine echten, erkennbaren Gebäude
+  vortäuschen (z. B. nicht „Landshuter Martinskirche“, sondern „a Gothic brick church tower“).
+  Die Bildregel hängt der Automat selbst an. Bei Blaulicht: keine Unfallszene, sondern ein
+  ruhiges, neutrales Motiv (Straße, Landschaft).
+  **Zusätzlich Pflicht:** `bild` aus `pool/` als Rückfall, falls die Erzeugung scheitert
+  (Dateiname nennt die freie Textfläche; nicht eines der zuletzt genutzten).
+  Bei eigenem Foto des Betreibers kein `bildmotiv`.
 - **Takt:** 3 Posts pro Woche. Pro Lauf **genau ein** Entwurf.
 
 ## Ablauf in zwei Stufen (Betreiberentscheidung vom 10.11.2026)
@@ -90,6 +101,7 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    das Feld **`"thema_ref"`** genau so übernehmen, wie `automat.offen` es ausgibt
    (z. B. `"2026-11-11-themen#2"`). `id` mit dem heutigen Datum.
    Quellenzeile, Signatur, feste Hashtags und „Bild: KI-generiert.“ **nicht** selbst schreiben.
+   `bildmotiv` und `bildtext_lage` für das KI-Bild, `bild` als Pool-Rückfall (siehe oben).
    Ins Feld `recherche`: Auslöser, Primärquelle mit Datum, Quellenregister-Eintrag.
    **Hashtags** (Betreiberentscheidung 10.11.2026): zusätzlich zu den festen **bis zu 10**, nur
    passende – Ort, Landkreis/Region (z. B. #Landshut #Niederbayern), Thema, Anlass, ggf. der

@@ -12,9 +12,15 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
   aufforderung  kurze Aufforderung am Schluss (bei ernst leer lassen)
   bildtext      kurz, kommt auf das Bild
   bild          Dateiname aus pool/, z. B. "03_text-oben.jpg" – oder bei einem Foto,
-                das der Betreiber per Telegram geschickt hat: "eigen:<hinweis-kennung>"
-  bildtext_lage nur bei eigenem Foto: freie Textflaeche, z. B. "unten", "oben", "mitte",
-                "linksunten" (Claude sieht sich das Foto an); bildtext darf dann leer sein
+                das der Betreiber per Telegram geschickt hat: "eigen:<hinweis-kennung>".
+                Bei bildmotiv ist das Pool-Bild der Rueckfall, falls die Erzeugung scheitert.
+  bildmotiv     optional, englisch: Motivbeschreibung fuer das KI-Bild dieses Beitrags
+                (Cloudflare Workers AI, Leonardo Lucid Origin). Die Bildregel 06 §10.3
+                (dokumentarisch, ohne Schrift, Logos, Tracht, Kitsch, Gesichter) haengt der
+                Automat selbst an. Die freie Flaeche fuer den Bildtext ins Motiv schreiben
+                ("calm empty sky in the upper third") und in bildtext_lage angeben.
+  bildtext_lage bei eigenem Foto oder bildmotiv: freie Textflaeche, z. B. "unten", "oben",
+                "mitte", "linksunten"; bei eigenem Foto darf bildtext leer sein
   quelle        {"name": "...", "url": "https://..."}  Primaerquelle
   hashtags      zusaetzliche Hashtags, bis zu 10 (die festen kommen automatisch)
   erwaehnungen  verlinkte Konten (optional, max. 5), je
@@ -65,6 +71,7 @@ HASHTAGS_EXTRA_MAX = 10      # Betreiberentscheidung 10.11.2026: 2 feste + bis z
 ERWAEHNUNGEN_MAX = 5
 IG_KONTO_RE = re.compile(r"^[A-Za-z0-9._]{1,30}$")
 BILDTEXT_MAX = 70
+BILDMOTIV_MAX = 800
 
 PFLICHTFELDER = ["id", "thema", "hook", "text", "bildtext", "bild", "quelle"]
 
@@ -163,6 +170,13 @@ def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None) -> Pruefu
         host = u.netloc.lower().split(":")[0]
         if any(host == d or host.endswith("." + d) for d in AUSLOESER_DOMAINS):
             p.fehler.append(f"{host} ist nur Ausloeser, nie Quelle (10.3) – Primaerquelle suchen")
+
+    motiv = e.get("bildmotiv")
+    if motiv is not None and not ist_eigen(e):
+        if not isinstance(motiv, str) or not 20 <= len(motiv.strip()) <= BILDMOTIV_MAX:
+            p.fehler.append(f"bildmotiv: 20 bis {BILDMOTIV_MAX} Zeichen Motivbeschreibung (englisch)")
+        if not LAGE_RE.match(str(e.get("bildtext_lage") or "")):
+            p.fehler.append("bildmotiv: bildtext_lage fehlt (oben, unten, mitte, linksunten …)")
 
     bt = e["bildtext"].strip()
     if len(bt) > BILDTEXT_MAX:
