@@ -469,3 +469,7 @@ def main(argv=None) -> int:
             time.sleep(15)
         erster = False
     return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

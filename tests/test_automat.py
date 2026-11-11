@@ -486,3 +486,15 @@ def test_dauerlauf_wiederholt_und_endet(tmp_path, monkeypatch):
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "42")
     assert lauf.main(["--status", str(tmp_path), "--dauer", "1"]) == 0
     assert len(aufrufe) >= 2 and all(w is not None and w <= 25 for w in aufrufe)
+
+
+def test_programm_startet_als_modul():
+    """Schutz vor dem Fehler vom 11.11.: ohne __main__-Block lief der Automat stumm leer."""
+    import os
+    import subprocess
+    import sys
+    env = {k: v for k, v in os.environ.items() if not k.startswith(("TELEGRAM", "META"))}
+    r = subprocess.run([sys.executable, "-m", "automat.lauf", "--status", "/nonexistent-xyz"],
+                       capture_output=True, text=True, env=env,
+                       cwd=Path(__file__).parent.parent)
+    assert "TELEGRAM_BOT_TOKEN fehlt" in r.stdout
