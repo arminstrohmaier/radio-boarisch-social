@@ -213,6 +213,42 @@
       "fehler": [],
       "gesendet": "2026-11-10T21:39:27+00:00",
       "tg_msg": 33
+    },
+    "2026-11-11-themen": {
+      "status": "neu",
+      "key": "ff8b0859a4",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-11-themen.json",
+      "importiert": "2026-11-11T06:24:12+00:00",
+      "themen": [
+        {
+          "titel": "Bayerischer Kunstpreis für das Volksmusikfestival „drumherum“ in Regen",
+          "worum": "Das Volksmusikspektakel, das alle zwei Jahre Regen zum Klingen bringt, wird in der Kategorie Programm ausgezeichnet – gewürdigt wird auch Roland Pongratz, der es seit der Premiere 1998 prägt. Verleihung am 12. November.",
+          "quelle": {
+            "name": "Bayerisches Staatsministerium für Wissenschaft und Kunst",
+            "url": "https://www.stmwk.bayern.de/pressemitteilung/13069/nr-95-vom-29-10-2026.html"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Kunstpreis für das Luftmuseum Amberg und die Kunstpartner Adlmannstein",
+          "worum": "Wilhelm Koch (Luftmuseum Amberg, EUROPA-TEMPEL in Etsdorf) wird als Kulturbotschafter ausgezeichnet, Wilma Rapf-Karikari und Ingo Kübler in Adlmannstein in der Kategorie Besonderer Ort. Verleihung ebenfalls am 12. November.",
+          "quelle": {
+            "name": "Bayerisches Staatsministerium für Wissenschaft und Kunst",
+            "url": "https://www.stmwk.bayern.de/pressemitteilung/13073/nr-99-vom-06-11-2026.html"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Bayerischer Bibliothekspreis für Dachau und Untermeitingen",
+          "worum": "Die Stadtbücherei Dachau bekommt den Hauptpreis, die Gemeindebücherei Untermeitingen den Sonderpreis – von der Artothek im Altenheim bis zu ersten Programmierversuchen mit Robotern.",
+          "quelle": {
+            "name": "Bayerisches Staatsministerium für Wissenschaft und Kunst",
+            "url": "https://www.stmwk.bayern.de/pressemitteilung/13068/nr-94-vom-27-10-2026.html"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
