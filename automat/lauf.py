@@ -167,8 +167,13 @@ def antworten(st: Status, tg: Telegram, chat_id: str, warten: int = 0) -> int:
     for u in updates:
         st.daten["telegram_offset"] = u["update_id"] + 1
         if "callback_query" in u:
+            daten = (u["callback_query"].get("data") or "")
+            log(f"  Knopf: {daten.split(':')[0]} ({daten.rsplit(':', 1)[-1] if daten.startswith('t:') else '-'})")
             n += _knopf(st, tg, chat_id, u["callback_query"])
         elif "message" in u:
+            txt = (u["message"].get("text") or "").strip()
+            log("  Nachricht: " + (txt.split()[0] if txt.startswith("/") else
+                                    "Foto" if u["message"].get("photo") else "Text/Hinweis"))
             _nachricht(st, tg, chat_id, u["message"])
     return n
 

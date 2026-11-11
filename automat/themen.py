@@ -113,10 +113,12 @@ def knopf(st, tg, chat_id, cq, key_nr: str) -> int:
     msg_id = cq.get("message", {}).get("message_id")
     tid = next((i for i, t in st.themen.items() if t.get("key") == key), None)
     if not tid:
+        print(f"  -> Themenvorschlag unbekannt", flush=True)
         tg.callback_antwort(cq["id"], "Themenvorschlag unbekannt.")
         return 0
     t = st.themen[tid]
     if t.get("status") != "gesendet":
+        print(f"  -> {tid} schon entschieden ({t.get('status')})", flush=True)
         tg.callback_antwort(cq["id"], f"Schon entschieden: {t.get('status')}")
         tg.knoepfe_weg(chat_id, msg_id)
         return 0
@@ -133,6 +135,7 @@ def knopf(st, tg, chat_id, cq, key_nr: str) -> int:
         return 1
     if not 1 <= n <= len(t["themen"]):
         return 0
+    print(f"  -> {tid}: Thema {n} gewaehlt", flush=True)
     t.update(status="gewaehlt", gewaehlt=n, entschieden=jetzt())
     tg.callback_antwort(cq["id"], f"Thema {n} gewählt.")
     tg.text(chat_id, f"👍 Thema {n} gewählt: {t['themen'][n - 1]['titel']}\n"
