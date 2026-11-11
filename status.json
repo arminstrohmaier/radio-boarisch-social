@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760147,
+  "telegram_offset": 972760148,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -124,7 +124,7 @@
       }
     },
     "2026-11-11-gruesse-regensburg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "63a50765b3",
       "hash": "eee0e3674c405a405697b8fd17a418ab978262fd",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-gruesse-regensburg.json",
@@ -135,7 +135,8 @@
       "fehler": [],
       "gesendet": "2026-11-11T06:53:04+00:00",
       "tg_foto": 43,
-      "tg_msg": 44
+      "tg_msg": 44,
+      "entschieden": "2026-11-11T06:58:43+00:00"
     }
   },
   "themen": {
