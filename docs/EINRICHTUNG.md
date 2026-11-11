@@ -146,54 +146,12 @@ lässt sich über die Schnittstelle nicht setzen (06 §10.3: nur „wenn die App
 
 ---
 
-## Teil C – Taktgeber (falls GitHub den 10-Minuten-Takt auslässt)
+## Teil C – Taktgeber: nicht mehr nötig
 
-GitHub startet geplante Abläufe nicht zuverlässig; bei diesem Repo kamen sie gar nicht. Ein
-kostenloser externer Taktgeber startet den Automaten stattdessen alle 5 Minuten über die
-offizielle GitHub-Schnittstelle.
+Der Automat läuft seit 11.11.2026 als Kette von Dauerläufen: Jeder Lauf lauscht bis zu
+340 Minuten auf Telegram (Klicks werden in Sekunden verarbeitet) und startet am Ende selbst
+seinen Nachfolger. Ein externer Taktgeber (cron-job.org) wird nicht gebraucht.
 
-### C1. GitHub-Token nur für diesen Zweck
-
-1. https://github.com/settings/personal-access-tokens/new öffnen
-   (GitHub → dein Profilbild → **Settings** → **Developer settings** → **Personal access tokens**
-   → **Fine-grained tokens** → **Generate new token**).
-2. **Token name:** `Taktgeber Automat`.
-3. **Expiration:** die längste angebotene Laufzeit wählen und dir das Datum notieren
-   (vor Ablauf neu erzeugen und in C2 austauschen).
-4. **Repository access:** **Only select repositories** → `radio-boarisch-social`.
-5. **Permissions** → **Repository permissions** → **Actions:** **Read and write**.
-   Sonst nichts ändern.
-6. **Generate token** → Token kopieren (beginnt mit `github_pat_`). Nicht in den Chat.
-
-Der Token darf nur Abläufe in diesem einen Repo starten oder abbrechen – keinen Code ändern,
-nichts veröffentlichen.
-
-### C2. Taktgeber bei cron-job.org (kostenlos)
-
-1. https://cron-job.org → **Sign up** (kostenlos) → anmelden.
-2. **Cronjobs** → **Create cronjob**.
-3. **Title:** `Radio Boarisch Automat`
-4. **URL:**
-   ```
-   https://api.github.com/repos/arminstrohmaier/radio-boarisch-social/actions/workflows/automat.yml/dispatches
-   ```
-5. **Execution schedule:** **Every 5 minutes**.
-6. Reiter **Advanced**:
-   - **Request method:** `POST`
-   - **Headers** – vier Einträge hinzufügen:
-
-     | Key | Value |
-     |---|---|
-     | `Accept` | `application/vnd.github+json` |
-     | `Authorization` | `Bearer ` und direkt danach dein Token aus C1 |
-     | `X-GitHub-Api-Version` | `2022-11-28` |
-     | `Content-Type` | `application/json` |
-
-   - **Request body:**
-     ```
-     {"ref":"main"}
-     ```
-7. **Create** bzw. **Save**. Mit **Test run** prüfen: Antwort **204** heißt alles richtig.
-   (401 = Token falsch kopiert, 403/404 = Berechtigung oder Repo-Auswahl in C1 prüfen.)
-
-Danach siehst du auf GitHub unter **Actions** → **Automat** alle 5 Minuten einen Lauf.
+Kontrolle: **Actions** → **Automat** – dort sollte immer ein Lauf „in progress“ sein.
+Reißt die Kette ab (z. B. nach einem Fehler), startet die stündliche Claude-Runde sie neu.
+Von Hand: **Run workflow** → bei **dauer** `340` eintragen → **Run workflow**.

@@ -1,13 +1,14 @@
 name: Automat
 
 # Halbautomatik D-083: Entwurf -> Telegram (Ja/Nein) -> Meta Graph API.
-# Laeuft alle 10 Minuten; GitHub Actions ist fuer oeffentliche Repos kostenlos.
+#
+# Betrieb als Kette von Dauerlaeufen: Jeder Lauf lauscht bis zu 340 Minuten per
+# Long-Polling auf Telegram (Klicks in Sekunden), holt neue Entwuerfe/Themen selbst von
+# allen Branches und startet am Ende seinen Nachfolger. Bewusst KEIN push- und KEIN
+# schedule-Ausloeser: GitHub haelt pro concurrency-Gruppe nur einen wartenden Lauf und
+# hat den wartenden Dauerlauf durch solche Kurzlaeufe verdraengt (11.11.2026).
+# Reisst die Kette ab, startet die stuendliche Claude-Runde sie neu.
 on:
-  schedule:
-    - cron: "4,14,24,34,44,54 * * * *"   # nicht zur vollen Stunde: dort verwirft GitHub bei Last oft Laeufe
-  push:
-    branches-ignore: [redaktion]
-    paths: ["entwuerfe/**", "themen/**", "rueckmeldungen/**"]
   workflow_dispatch:
     inputs:
       testentwurf:
@@ -29,6 +30,7 @@ on:
 
 permissions:
   contents: write
+  actions: write   # Nachfolger-Lauf starten
 
 concurrency:
   group: automat
@@ -37,7 +39,7 @@ concurrency:
 jobs:
   lauf:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
         with:
@@ -89,3 +91,9 @@ jobs:
         run: |
           python -m automat.lauf --status redaktion --commit --dauer "${{ inputs.dauer || 0 }}" \
             ${{ github.event_name == 'workflow_dispatch' && inputs.testentwurf && '--testentwurf' || '' }}
+
+      - name: Nachfolger starten (Kette)
+        if: ${{ success() && inputs.dauer && inputs.dauer != '0' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run automat.yml --repo "${{ github.repository }}" --ref main -f dauer="${{ inputs.dauer }}"
