@@ -27,6 +27,7 @@ HAUSSTIL = (
     "blank walls, bare wood, clean facades."
 )
 
+# Betreiberentscheidung 11.11.2026: Menschen erlaubt, nie erkennbar; Blaulicht/Nachruf ohne.
 MENSCHEN = (
     "People, if any, appear small in the middle distance or seen from behind, faces turned "
     "away or hidden in shadow, adults in ordinary present-day clothes such as jeans, rain "

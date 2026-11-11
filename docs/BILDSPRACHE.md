@@ -88,7 +88,8 @@ Hausstil, Menschenregel und freie Textfläche setzt der Automat selbst dazu
 - **Echte Personen nie.** Bei Künstlern zeigen wir Instrument, Bühne, Proberaum – nicht die
   Person. Musiker höchstens als Silhouette von hinten.
 - **Menschen nur, wenn sie das Bild brauchen** – klein, von hinten, Gesicht abgewandt,
-  Alltagskleidung. Bei `blaulicht` und `nachruf` setzt der Automat das Bild menschenleer.
+  Alltagskleidung, nur Erwachsene. Bei `blaulicht` und `nachruf` setzt der Automat das Bild
+  menschenleer (Betreiberentscheidung vom 11.11.2026).
 - **Den Moment am Rand wählen:** Aufbau, Vorbereitung, kurz vor Beginn, danach. Das wirkt
   echt und vermeidet Gedränge mit Gesichtern.
 - **Nicht nennen, auch nicht verneint:** Dirndl, Lederhosen, Tracht/costume, Edelweiß,
