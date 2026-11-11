@@ -323,7 +323,7 @@
       "entwurf": "2026-11-11-drumherum-kunstpreis"
     },
     "2026-11-11-themen-2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "838e0f0340",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-11-themen-2.json",
       "importiert": "2026-11-11T07:39:46+00:00",
@@ -356,7 +356,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-11T07:39:48+00:00",
+      "tg_msg": 55
     }
   },
   "befehle_gesetzt": true,
