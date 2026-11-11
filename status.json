@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760159,
+  "telegram_offset": 972760160,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -157,7 +157,7 @@
       }
     },
     "2026-11-11-weihnachtsmarkt-wuerzburg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "4ba533eb47",
       "hash": "86063eed4c39ddcea27e853bdba12c9a4bab7672",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-weihnachtsmarkt-wuerzburg.json",
@@ -168,7 +168,8 @@
       "fehler": [],
       "gesendet": "2026-11-11T10:39:06+00:00",
       "tg_foto": 60,
-      "tg_msg": 61
+      "tg_msg": 61,
+      "entschieden": "2026-11-11T10:54:22+00:00"
     }
   },
   "themen": {
