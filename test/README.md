@@ -1,6 +1,8 @@
-# Bildtest FLUX.1 schnell (LOP 127, Schritt 1)
+# Bildtest Workers AI (LOP 127, Schritt 1)
 
-Die Bilder hier erzeugt der Workflow **Bildtest** (`automat/bildgen.py --test test/`).
+Die Bilder erzeugt der Workflow **Bildtest** (`automat/bildgen.py --vergleich test/`):
+je Modell ein Unterordner mit denselben 5 Motiven, Übersicht in `vergleich.json`.
+Ein erneuter Lauf erzeugt nur fehlende Bilder (z. B. nach leerem Tageskontingent).
 Prüfen nach 06 §10.3: dokumentarisch, fotorealistisch, 4:5, keine Schrift, keine Logos,
 keine Tracht, kein Kitsch, keine erkennbaren Gesichter; freie Fläche für den Bildtext
 (laut Dateiname, wie im Pool).

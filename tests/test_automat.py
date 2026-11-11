@@ -519,8 +519,10 @@ def test_bildgen_4_5_und_antwort(monkeypatch, tmp_path):
         gesendet.update(url=url, body=json, auth=headers["Authorization"])
         return Antwort()
     monkeypatch.setattr(bildgen.requests, "post", post)
-    ziel = bildgen.erzeugen("A lake.", tmp_path / "x.jpg", seed=1, zugangsdaten=("konto", "tok"))
+    ziel = tmp_path / "x.jpg"
+    bildgen.erzeugen("A lake.", ziel, seed=1, zugangsdaten=("konto", "tok"))
     assert Image.open(ziel).size == (1080, 1350)
+    assert "seed" not in gesendet["body"]
     assert gesendet["url"].endswith("/accounts/konto/ai/run/@cf/black-forest-labs/flux-1-schnell")
     assert gesendet["body"]["steps"] <= 8 and "lettering" in gesendet["body"]["prompt"]
     assert gesendet["auth"] == "Bearer tok"
@@ -532,3 +534,31 @@ def test_bildgen_ohne_secrets(monkeypatch):
     monkeypatch.delenv("CLOUDFLARE_API_TOKEN", raising=False)
     with pytest.raises(bildgen.BildFehler, match="Secret fehlt"):
         bildgen.zugang()
+
+
+def test_bildgen_probiert_aufrufformen(monkeypatch, tmp_path):
+    import io
+    from PIL import Image
+    from automat import bildgen
+
+    buf = io.BytesIO()
+    Image.new("RGB", (896, 1120)).save(buf, "JPEG")
+
+    class Antwort:
+        def __init__(self, code, art, inhalt=b""):
+            self.status_code, self.ok, self.content = code, code < 400, inhalt
+            self.headers, self.text = {"content-type": art}, ""
+        def json(self):
+            return {"success": False, "errors": [{"message": "expects multipart"}]}
+
+    aufrufe = []
+    def post(url, timeout, headers, json=None, files=None):
+        aufrufe.append("form" if files else "json")
+        if files:
+            return Antwort(200, "image/jpeg", buf.getvalue())
+        return Antwort(400, "application/json")
+    monkeypatch.setattr(bildgen.requests, "post", post)
+    aufruf = bildgen.erzeugen("A lake.", tmp_path / "y.jpg", modell="@cf/x/flux-2-dev",
+                              zugangsdaten=("k", "t"))
+    assert aufrufe == ["json", "form"] and aufruf.startswith("form:width,height")
+    assert Image.open(tmp_path / "y.jpg").size == (1080, 1350)

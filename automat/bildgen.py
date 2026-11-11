@@ -9,7 +9,8 @@ Textflaeche liegt deshalb immer oben oder unten (links/rechts faellt beim Zuschn
 Secrets (nur als GitHub-Actions-Secrets): CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN
 (Berechtigung "Workers AI: Read & Edit" bzw. "Workers AI – Bearbeiten").
 
-Bildtest (Schritt 1):  python -m automat.bildgen --test test/
+Bildtest (Schritt 1):  python -m automat.bildgen --test test/flux-1-schnell/
+Modellvergleich:       python -m automat.bildgen --vergleich test/
 """
 from __future__ import annotations
 
@@ -25,7 +26,20 @@ import requests
 from PIL import Image
 
 MODELL = "@cf/black-forest-labs/flux-1-schnell"
-API = "https://api.cloudflare.com/client/v4/accounts/{konto}/ai/run/" + MODELL
+KONTO_API = "https://api.cloudflare.com/client/v4/accounts/{konto}/ai"
+API = KONTO_API + "/run/" + MODELL
+
+# Modellvergleich: in dieser Reihenfolge, soweit im Konto verfuegbar (vermutlich guenstige
+# zuerst, damit das Tageskontingent fuer moeglichst viele reicht). Weitere flux-2-* kommen dazu.
+VERGLEICH = [
+    "@cf/black-forest-labs/flux-2-klein-4b",
+    "@cf/black-forest-labs/flux-2-klein-9b",
+    "@cf/black-forest-labs/flux-2-dev",
+    "@cf/leonardo/phoenix-1.0",
+    "@cf/leonardo/lucid-origin",
+]
+# Modelle mit freier Bildgroesse erzeugen gleich 4:5; klein gehalten wegen des Kontingents.
+GROESSE = (896, 1120)
 ZIEL = (1080, 1350)
 
 # Wird an jedes Motiv angehaengt: die Bildregel in Worten, die FLUX versteht.
@@ -108,66 +122,155 @@ def auf_4_5(img: Image.Image) -> Image.Image:
     return img.resize(ZIEL, Image.LANCZOS)
 
 
+def _fehlertext(r: requests.Response) -> str:
+    try:
+        daten = r.json()
+        return "; ".join(str(f.get("message", f)) for f in daten.get("errors", [])) or r.text[:300]
+    except ValueError:
+        return r.text[:300]
+
+
 def _bild_aus_antwort(r: requests.Response) -> Image.Image:
     art = r.headers.get("content-type", "")
-    if art.startswith("image/"):
+    if r.ok and art.startswith("image/"):
         return Image.open(io.BytesIO(r.content))
     try:
         daten = r.json()
     except ValueError:
         raise BildFehler(f"HTTP {r.status_code}, unerwartete Antwort ({art})")
     if not r.ok or not daten.get("success", True):
-        fehler = "; ".join(str(f.get("message", f)) for f in daten.get("errors", [])) or r.text[:300]
-        raise BildFehler(f"HTTP {r.status_code}: {fehler}")
-    b64 = (daten.get("result") or {}).get("image")
+        raise BildFehler(f"HTTP {r.status_code}: {_fehlertext(r)}")
+    erg = daten.get("result", daten)
+    b64 = erg if isinstance(erg, str) else (erg or {}).get("image")
     if not b64:
         raise BildFehler("Antwort enthaelt kein Bild")
     return Image.open(io.BytesIO(base64.b64decode(b64)))
 
 
-def erzeugen(motiv: str, ziel: Path, seed: int | None = None, steps: int = 8,
-             zugangsdaten: tuple[str, str] | None = None) -> Path:
-    """Erzeugt ein Bild zum Motiv und speichert es als 1080x1350-JPEG."""
+class EingabeFehler(BildFehler):
+    """HTTP 400: das Modell erwartet andere Parameter."""
+
+
+def _senden(konto, token, modell, art, felder) -> Image.Image:
+    url = f"{KONTO_API.format(konto=konto)}/run/{modell}"
+    kopf = {"Authorization": f"Bearer {token}"}
+    if art == "form":
+        r = requests.post(url, files={k: (None, str(v)) for k, v in felder.items()},
+                          timeout=180, headers=kopf)
+    else:
+        r = requests.post(url, json=felder, timeout=180, headers=kopf)
+    if r.status_code == 400:
+        raise EingabeFehler(f"HTTP 400: {_fehlertext(r)}")
+    return _bild_aus_antwort(r)
+
+
+def varianten(modell: str, text: str) -> list[tuple[str, dict]]:
+    """Moegliche Aufrufformen; die erste, die das Modell annimmt, gilt."""
+    if modell == MODELL:
+        return [("json", {"prompt": text, "steps": 8})]
+    b, h = GROESSE
+    return [
+        ("json", {"prompt": text, "width": b, "height": h}),
+        ("form", {"prompt": text, "width": b, "height": h}),
+        ("json", {"prompt": text}),
+        ("form", {"prompt": text}),
+    ]
+
+
+def erzeugen(motiv: str, ziel: Path, seed: int | None = None, modell: str = MODELL,
+             zugangsdaten: tuple[str, str] | None = None) -> str:
+    """Erzeugt ein Bild zum Motiv, speichert es als 1080x1350-JPEG und gibt die
+    verwendete Aufrufform zurueck. seed wird nicht gesendet (flux-1-schnell lehnt ihn ab)."""
     konto, token = zugangsdaten or zugang()
-    # seed nimmt die Workers-AI-Schnittstelle nicht an (HTTP 400, 11.11.2026);
-    # das Argument bleibt nur fuers Protokoll.
-    body = {"prompt": prompt(motiv), "steps": steps}
-    r = requests.post(API.format(konto=konto), json=body, timeout=120,
-                      headers={"Authorization": f"Bearer {token}"})
-    roh = _bild_aus_antwort(r)
-    ziel.parent.mkdir(parents=True, exist_ok=True)
-    auf_4_5(roh).save(ziel, "JPEG", quality=90, optimize=True)
-    return ziel
+    letzter = None
+    for art, felder in varianten(modell, prompt(motiv)):
+        try:
+            roh = _senden(konto, token, modell, art, felder)
+        except EingabeFehler as e:
+            letzter = e
+            continue
+        ziel.parent.mkdir(parents=True, exist_ok=True)
+        auf_4_5(roh).save(ziel, "JPEG", quality=90, optimize=True)
+        return f"{art}:{','.join(k for k in felder if k != 'prompt') or 'nur prompt'}; roh {roh.size[0]}x{roh.size[1]}"
+    raise letzter or BildFehler("keine Aufrufform passt")
 
 
-def bildtest(ordner: Path) -> int:
-    z = zugang()
-    protokoll, fehler = [], 0
+def modelle_im_konto(z) -> list[str] | None:
+    konto, token = z
+    try:
+        r = requests.get(f"{KONTO_API.format(konto=konto)}/models/search",
+                         params={"task": "Text-to-Image", "per_page": 100}, timeout=60,
+                         headers={"Authorization": f"Bearer {token}"})
+        r.raise_for_status()
+        return sorted(m["name"] for m in r.json().get("result", []))
+    except (requests.RequestException, ValueError, KeyError, TypeError) as e:
+        print(f"Modellliste nicht abrufbar ({e}), nehme feste Liste", file=sys.stderr)
+        return None
+
+
+def bildtest(ordner: Path, modell: str = MODELL, z=None) -> dict:
+    """5 Testmotive mit einem Modell; vorhandene Bilder werden nicht neu erzeugt
+    (ein erneuter Lauf macht nach leerem Tageskontingent dort weiter)."""
+    z = z or zugang()
+    protokoll = []
     for m in TESTMOTIVE:
         ziel = ordner / m["datei"]
+        eintrag = {"datei": m["datei"], "prompt": prompt(m["motiv"])}
+        if ziel.exists():
+            protokoll.append({**eintrag, "ok": True, "aufruf": "schon vorhanden"})
+            continue
         try:
-            erzeugen(m["motiv"], ziel, seed=m["seed"], zugangsdaten=z)
-            print(f"OK     {ziel}")
-            protokoll.append({**m, "prompt": prompt(m["motiv"]), "ok": True})
+            aufruf = erzeugen(m["motiv"], ziel, modell=modell, zugangsdaten=z)
+            print(f"OK     {ziel}  ({aufruf})")
+            protokoll.append({**eintrag, "ok": True, "aufruf": aufruf})
         except (BildFehler, requests.RequestException) as e:
-            fehler += 1
             print(f"FEHLER {ziel}: {e}", file=sys.stderr)
-            protokoll.append({**m, "prompt": prompt(m["motiv"]), "ok": False, "fehler": str(e)})
+            protokoll.append({**eintrag, "ok": False, "fehler": str(e)})
+            # Derselbe Fehler kaeme bei jedem Motiv wieder (Parameter, Kontingent, Rechte):
+            # Modell abbrechen, Kontingent sparen.
+            break
+    ergebnis = {"modell": modell, "bilder": protokoll}
+    ordner.mkdir(parents=True, exist_ok=True)
     (ordner / "prompts.json").write_text(
-        json.dumps({"modell": MODELL, "steps": 8, "bilder": protokoll}, ensure_ascii=False, indent=2)
-        + "\n", encoding="utf-8")
-    return 1 if fehler == len(TESTMOTIVE) else 0
+        json.dumps(ergebnis, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return ergebnis
+
+
+def vergleich(ordner: Path) -> int:
+    z = zugang()
+    vorhanden = modelle_im_konto(z)
+    if vorhanden is None:
+        auswahl = VERGLEICH
+    else:
+        auswahl = [m for m in VERGLEICH if m in vorhanden]
+        auswahl += [m for m in vorhanden if "flux-2" in m and m not in auswahl]
+    print("Text-to-Image im Konto:", vorhanden)
+    print("Vergleich mit:", auswahl)
+    uebersicht = {"im_konto": vorhanden, "verglichen": {}}
+    for modell in [MODELL] + auswahl:
+        erg = bildtest(ordner / modell.split("/")[-1], modell, z)
+        ok = sum(b["ok"] for b in erg["bilder"])
+        uebersicht["verglichen"][modell] = f"{ok}/{len(TESTMOTIVE)} Bilder"
+    (ordner / "vergleich.json").write_text(
+        json.dumps(uebersicht, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(uebersicht["verglichen"], ensure_ascii=False, indent=2))
+    return 0
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--test", type=Path, metavar="ORDNER", help="die 5 Testbilder erzeugen")
+    ap.add_argument("--vergleich", type=Path, metavar="ORDNER",
+                    help="die 5 Testmotive mit mehreren Modellen, je Modell ein Unterordner")
     ap.add_argument("--motiv", help="ein einzelnes Motiv (englisch)")
     ap.add_argument("--ziel", type=Path, help="Zieldatei fuer --motiv")
     a = ap.parse_args(argv)
     try:
+        if a.vergleich:
+            return vergleich(a.vergleich)
         if a.test:
-            return bildtest(a.test)
+            ok = sum(b["ok"] for b in bildtest(a.test)["bilder"])
+            return 0 if ok else 1
         if a.motiv and a.ziel:
             print(erzeugen(a.motiv, a.ziel))
             return 0

@@ -160,7 +160,7 @@ Von Hand: **Run workflow** → bei **dauer** `340` eintragen → **Run workflow*
 
 ## Teil D – Bilderzeugung mit Cloudflare Workers AI (Bildtest, LOP 127 Schritt 1)
 
-Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, ein Bild braucht grob 60 → weit mehr als nötig).
+Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, FLUX.1 schnell braucht grob 100 pro Bild, die besseren Modelle deutlich mehr → weit mehr als nötig).
 Modell: `@cf/black-forest-labs/flux-1-schnell`. Code: `automat/bildgen.py`.
 
 ### D1. Konto und Werte holen
