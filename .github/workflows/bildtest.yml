@@ -8,7 +8,7 @@ name: Bildtest
 on:
   push:
     branches-ignore: [main, redaktion]
-    paths: [".github/workflows/bildtest.yml", "automat/bildgen.py"]
+    paths: [".github/workflows/bildtest.yml", "automat/bildgen.py", "automat/bildsprache.py", "docs/bildsprache-muster.json"]
   workflow_dispatch:
 
 permissions:
@@ -40,11 +40,11 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: python -m automat.bildgen --vergleich test/
 
-      - name: Betriebsweg pruefen (Lucid Origin + Bildtext)
+      - name: Betriebsweg pruefen (Lucid Origin, Bildsprache-Muster, Bildtext)
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: test -f test/betrieb/bild.jpg || python -m automat.bildgen --betrieb test/betrieb/
+        run: python -m automat.bildgen --betrieb test/betrieb/
 
       - name: Nach test/ committen
         run: |

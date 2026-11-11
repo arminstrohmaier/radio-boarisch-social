@@ -581,7 +581,8 @@ def test_ki_bild_wird_verwendet(tmp_path, monkeypatch):
     st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
     einmal(st, tg, meta, s, [MOTIV])
     p = st.posts[MOTIV["id"]]
-    assert erzeugt == [MOTIV["bildmotiv"]] and "KI-Bild (lucid-origin)" in p["bildherkunft"]
+    assert len(erzeugt) == 1 and erzeugt[0].startswith(MOTIV["bildmotiv"])
+    assert "KI-Bild (lucid-origin)" in p["bildherkunft"]
     assert Image.open(st.bild(MOTIV["id"])).size == (1080, 1350)
     assert "lucid-origin" in tg.gesendet[0][2]
     assert E.caption(MOTIV).endswith("Bild: KI-generiert.")
@@ -612,3 +613,45 @@ def test_bildmotiv_pruefung():
     assert not E.pruefen(dict(MOTIV, bildtext_lage="")).ok
     assert not E.pruefen(dict(MOTIV, bildmotiv="kurz")).ok
     assert not E.pruefen(dict(MOTIV, bild="gibtsnicht.jpg")).ok  # Pool-Rueckfall bleibt Pflicht
+
+
+def test_bildsprache_muster_und_beispiel_gueltig():
+    from automat import bildsprache as B
+    muster = json.loads(Path("docs/bildsprache-muster.json").read_text(encoding="utf-8"))
+    assert {m["bild_ki"]["art"] for m in muster} == set(B.ARTEN)
+    for m in muster:
+        assert B.pruefen(m["bild_ki"]) == ([], []), m["name"]
+        assert len(B.prompt(m["bild_ki"])) <= B.PROMPT_MAX
+
+
+def test_bildsprache_verbote_auch_verneint():
+    from automat import bildsprache as B
+    b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
+    for wort in ["a woman in a dirndl", "without any signs", "blue and white flags",
+                 "smiling faces", "children playing", "picturesque postcard view", "no logos"]:
+        f, _ = B.pruefen(dict(b, motiv=b["motiv"] + " " + wort))
+        assert f, wort
+    assert B.pruefen(dict(b, aufbau="schief"))[0]
+    assert "golden hour" not in B.prompt(b) and B.HAUSSTIL in B.prompt(b)
+
+
+def test_bildsprache_menschenleer_bei_blaulicht():
+    from automat import bildsprache as B
+    b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
+    assert B.MENSCHENLEER in B.prompt(dict(b, art="blaulicht"))
+    assert B.MENSCHEN in B.prompt(b)
+
+
+def test_bildsprache_kein_post_wie_der_vorige(tmp_path):
+    e1 = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))
+    e1["id"] = "2026-11-12-eins"
+    e2 = dict(e1, id="2026-11-12-zwei", bild="06_text-rechts.jpg")
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [e1])
+    einmal(st, tg, meta, s, [e2])
+    f = st.posts["2026-11-12-zwei"]["fehler"]
+    assert any("aufbau" in x for x in f) and any("farbwelt" in x for x in f)
+    e3 = dict(e2, id="2026-11-12-drei", bild_ki=dict(e1["bild_ki"], aufbau="weite",
+                                                      farbwelt="frost white, slate blue"))
+    einmal(st, tg, meta, s, [e3])
+    assert st.posts["2026-11-12-drei"]["status"] == "gesendet"

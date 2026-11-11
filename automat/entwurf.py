@@ -14,7 +14,10 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
   bild          Dateiname aus pool/, z. B. "03_text-oben.jpg" – oder bei einem Foto,
                 das der Betreiber per Telegram geschickt hat: "eigen:<hinweis-kennung>".
                 Bei bildmotiv ist das Pool-Bild der Rueckfall, falls die Erzeugung scheitert.
-  bildmotiv     optional, englisch: Motivbeschreibung fuer das KI-Bild dieses Beitrags
+  bild_ki       KI-Bild in Bausteinen nach docs/BILDSPRACHE.md (art, region, motiv, umgebung,
+                heute, licht, farbwelt, aufbau, lage); daraus baut automat/bildsprache.py
+                den Prompt. Ersetzt bildmotiv.
+  bildmotiv     alt, optional, englisch: Motivbeschreibung fuer das KI-Bild dieses Beitrags
                 (Cloudflare Workers AI, Leonardo Lucid Origin). Die Bildregel 06 §10.3
                 (dokumentarisch, ohne Schrift, Logos, Tracht, Kitsch, Gesichter) haengt der
                 Automat selbst an. Die freie Flaeche fuer den Bildtext ins Motiv schreiben
@@ -43,7 +46,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urlparse
 
-from . import config
+from . import bildsprache, config
 
 ID_RE = re.compile(r"^20\d\d-\d\d-\d\d-[a-z0-9]+(?:-[a-z0-9]+)*$")
 HASHTAG_RE = re.compile(r"^#[0-9A-Za-zÄÖÜäöüß_]+$")
@@ -140,7 +143,8 @@ def caption(e: dict, kanal: str = "instagram") -> str:
     return "\n\n".join(teile)
 
 
-def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None) -> Pruefung:
+def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None,
+            zuletzt_bildsprache: list[dict] | None = None) -> Pruefung:
     p = Pruefung()
     for f in PFLICHTFELDER:
         if f == "bildtext" and ist_eigen(e) and "bildtext" in e:
@@ -171,8 +175,12 @@ def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None) -> Pruefu
         if any(host == d or host.endswith("." + d) for d in AUSLOESER_DOMAINS):
             p.fehler.append(f"{host} ist nur Ausloeser, nie Quelle (10.3) – Primaerquelle suchen")
 
+    if e.get("bild_ki") is not None and not ist_eigen(e):
+        f_, h_ = bildsprache.pruefen(e["bild_ki"], zuletzt_bildsprache)
+        p.fehler += f_
+        p.hinweise += h_
     motiv = e.get("bildmotiv")
-    if motiv is not None and not ist_eigen(e):
+    if motiv is not None and not ist_eigen(e) and e.get("bild_ki") is None:
         if not isinstance(motiv, str) or not 20 <= len(motiv.strip()) <= BILDMOTIV_MAX:
             p.fehler.append(f"bildmotiv: 20 bis {BILDMOTIV_MAX} Zeichen Motivbeschreibung (englisch)")
         if not LAGE_RE.match(str(e.get("bildtext_lage") or "")):

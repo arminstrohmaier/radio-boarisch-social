@@ -20,8 +20,12 @@ def main(argv=None) -> int:
     ap.add_argument("--bild", help="gerendertes Bild hierhin schreiben")
     a = ap.parse_args(argv)
     e = E.laden(Path(a.datei))
-    zuletzt = Status(Path(a.status)).zuletzt_genutzte_bilder(ausser=e.get("id")) if a.status else []
-    p = E.pruefen(e, zuletzt)
+    st = Status(Path(a.status)) if a.status else None
+    zuletzt = st.zuletzt_genutzte_bilder(ausser=e.get("id")) if st else []
+    p = E.pruefen(e, zuletzt, st.zuletzt_bildsprache(ausser=e.get("id")) if st else [])
+    if p.ok and isinstance(e.get("bild_ki"), dict):
+        from . import bildsprache
+        print("=== Bild-Prompt ===\n" + bildsprache.prompt(e["bild_ki"]))
     if p.ok:
         print("=== Caption ===\n" + E.caption(e) + "\n===============")
         if a.bild:

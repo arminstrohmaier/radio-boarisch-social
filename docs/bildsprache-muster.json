@@ -1,0 +1,130 @@
+[
+  {
+    "name": "musik-konzert",
+    "fuer": "Konzertankündigung, neue Platte, Künstlerportrait ohne Person",
+    "bildtext": "Neues Album aus Niederbayern",
+    "bild_ki": {
+      "art": "musik",
+      "region": "niederbayern",
+      "aufbau": "rahmen",
+      "lage": "oben",
+      "motiv": "A tuba and a trumpet resting on two wooden chairs at the side of a small stage, a guitar case open on the floor, cables coiled beside a monitor speaker.",
+      "umgebung": "The hall of a village inn converted for a concert, wooden floorboards, a vaulted plastered ceiling, rows of folding chairs.",
+      "heute": "Modern LED stage spotlights on a metal truss, a laptop on a small mixing desk, a power strip taped to the floor.",
+      "licht": "Evening soundcheck, warm amber stage light against the cool blue dusk from a side window.",
+      "farbwelt": "amber, deep blue, brass gold, dark wood"
+    }
+  },
+  {
+    "name": "veranstaltung-volksfest",
+    "fuer": "Volksfest, Dult, Stadtfest, Markt",
+    "bildtext": "Die Dult sperrt auf",
+    "bild_ki": {
+      "art": "veranstaltung",
+      "region": "oberpfalz",
+      "aufbau": "diagonale",
+      "lage": "oben",
+      "motiv": "Long rows of wooden beer-garden tables and benches under old chestnut trees, freshly wiped, one table already set with glasses turned upside down.",
+      "umgebung": "A fairground at the edge of an Upper Palatinate town, gravel ground, a Ferris wheel half visible behind the trees.",
+      "heute": "Strings of modern LED festoon lights, a mobile cash register stand, bicycles and an e-bike parked at the fence.",
+      "licht": "Late afternoon in early autumn just before opening, low sun filtered through leaves, long soft shadows.",
+      "farbwelt": "chestnut green, warm ochre gravel, pale gold light"
+    }
+  },
+  {
+    "name": "brauchtum-christkindlmarkt",
+    "fuer": "Christkindlmarkt, Advent, Kirta, Brauchtumstermin",
+    "bildtext": "Christkindlmarkt ab Donnerstag",
+    "bild_ki": {
+      "art": "brauchtum",
+      "region": "schwaben",
+      "aufbau": "detail",
+      "lage": "oben",
+      "motiv": "Hands in fingerless gloves arranging small hand-carved wooden figures and beeswax candles on the counter of a simple wooden market stall.",
+      "umgebung": "A Christmas market on a town square in Bavarian Swabia, plastered houses with stepped gables in the soft background.",
+      "heute": "A card payment terminal on the counter, a modern camping heater beside the stall.",
+      "licht": "Blue hour in December, light snow, warm tungsten bulbs inside the stall.",
+      "farbwelt": "honey beeswax, dark green fir, cold evening blue"
+    }
+  },
+  {
+    "name": "kultur-theater",
+    "fuer": "Theater, Museum, Ausstellung, Lesung, Volksbühne",
+    "bildtext": "Premiere in der Volksbühne",
+    "bild_ki": {
+      "art": "kultur",
+      "region": "mittelfranken",
+      "aufbau": "zentral",
+      "lage": "oben",
+      "motiv": "An empty small theatre stage with a single wooden table and two chairs, a coat hanging over one chair, a work light on a stand in the middle.",
+      "umgebung": "A community theatre inside an old sandstone barn in Middle Franconia, exposed beams, red-brown sandstone walls.",
+      "heute": "A modern black lighting rig above the stage, a tablet with the script lying on the table.",
+      "licht": "Rehearsal light, one cool white work lamp and warm spill from the wings.",
+      "farbwelt": "sandstone red, charcoal black, cool white"
+    }
+  },
+  {
+    "name": "meldung-landschaft",
+    "fuer": "neutrale Meldung, Wetter, Natur, Region allgemein",
+    "bildtext": "Hopfenernte ist eingebracht",
+    "bild_ki": {
+      "art": "meldung",
+      "region": "niederbayern",
+      "aufbau": "weite",
+      "lage": "oben",
+      "motiv": "A harvested hop garden with tall bare wooden poles and wires in long straight rows, a single tractor small in the distance.",
+      "umgebung": "The rolling Hallertau hill country, a small village with a church tower on the next hill, patches of forest.",
+      "heute": "Solar panels on the roof of a large modern farm building, a wind turbine far on the horizon.",
+      "licht": "Overcast September morning, soft even light, a thin haze in the valleys.",
+      "farbwelt": "pale straw, sage green, silver grey sky"
+    }
+  },
+  {
+    "name": "sender-radio",
+    "fuer": "Neuigkeiten von Radio Boarisch, Programm, Mitmachen",
+    "bildtext": "Servus, da is Radio Boarisch",
+    "bild_ki": {
+      "art": "sender",
+      "region": "oberbayern",
+      "aufbau": "untersicht",
+      "lage": "oben",
+      "motiv": "A studio microphone on a boom arm in the foreground, a pair of closed-back headphones hanging from it, a small mixing console below.",
+      "umgebung": "A compact radio studio built into the attic of an Upper Bavarian farmhouse, sloped wooden ceiling, acoustic panels in natural felt.",
+      "heute": "A flat-screen monitor showing an audio waveform, a modern desk lamp, a houseplant on the windowsill.",
+      "licht": "Winter afternoon, bright snowy daylight through a roof window mixed with a warm desk lamp.",
+      "farbwelt": "light spruce wood, felt grey, soft white"
+    }
+  },
+  {
+    "name": "blaulicht-neutral",
+    "fuer": "Blaulicht (keine Menschen, keine Einsatzszene)",
+    "bildtext": "Polizei sucht Zeugen",
+    "bild_ki": {
+      "art": "blaulicht",
+      "region": "oberfranken",
+      "aufbau": "zentral",
+      "lage": "oben",
+      "motiv": "An empty country road leading straight into a wooded valley, wet asphalt with a white edge line, a guard rail along one side.",
+      "umgebung": "A narrow valley in Franconian Switzerland, limestone rocks between the trees, a half-timbered village far away.",
+      "heute": "A modern reflective road post and a small speed camera housing at the roadside.",
+      "licht": "Grey November dusk after rain, cool diffuse light, the first lights in the distant village.",
+      "farbwelt": "slate grey, dark spruce green, faint cold blue"
+    }
+  },
+  {
+    "name": "nachruf-still",
+    "fuer": "Nachruf, ernste Meldung (ohne Dialekt, Emojis, Hashtags)",
+    "bildtext": "",
+    "bild_ki": {
+      "art": "nachruf",
+      "region": "bayern",
+      "aufbau": "gegenlicht",
+      "lage": "oben",
+      "motiv": "A diatonic button accordion resting closed on an old wooden chair beside a window.",
+      "umgebung": "A plain parlour with whitewashed walls and a worn wooden floor.",
+      "heute": "A simple modern floor lamp, switched off, beside the chair.",
+      "licht": "Quiet overcast late afternoon, soft light through a thin curtain.",
+      "farbwelt": "muted ivory, faded walnut, soft grey"
+    }
+  }
+]

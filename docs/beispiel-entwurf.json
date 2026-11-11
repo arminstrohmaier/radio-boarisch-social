@@ -7,8 +7,17 @@
   "aufforderung": "👉 Wer von eich geht hin? Schreibt's uns in d'Kommentare!",
   "bildtext": "Christkindlmarkt Landshut ab Donnerstag",
   "bild": "05_text-oben.jpg",
-  "bildmotiv": "An old town street in Lower Bavaria on an early winter evening, a few simple wooden market stalls with warm string lights, wet cobblestones, gabled houses, calm dusky sky across the upper third of the image.",
-  "bildtext_lage": "oben",
+  "bild_ki": {
+    "art": "brauchtum",
+    "region": "niederbayern",
+    "aufbau": "aufsicht",
+    "lage": "oben",
+    "motiv": "A row of simple wooden market stalls being opened in the morning, shutters folded up, a vendor seen from behind hanging fir branches over a counter.",
+    "umgebung": "The long street market square of a Lower Bavarian old town, colourful plastered gabled facades, a tall Gothic brick church tower at the end of the square.",
+    "heute": "A small electric delivery van parked between the stalls, extension cables and modern LED light strings.",
+    "licht": "Grey late-November morning, soft diffuse light, damp cobblestones.",
+    "farbwelt": "fir green, terracotta, pale stone grey"
+  },
   "quelle": {
     "name": "Stadt Landshut",
     "url": "https://www.landshut.de/"

@@ -18,7 +18,7 @@ import time
 from datetime import date, timedelta
 from pathlib import Path
 
-from . import bildgen, config, entwurf as E, hinweise, render, themen
+from . import bildgen, bildsprache, config, entwurf as E, hinweise, render, themen
 from .config import Settings
 from .meta import Meta, MetaFehler
 from .status import ABGESCHLOSSEN, Status, git_commit, inhalt_hash, jetzt, schluessel
@@ -93,13 +93,15 @@ def importieren(st: Status, kandidaten, tg: Telegram | None, chat_id: str) -> in
         if e.get("_kaputt"):
             p = E.Pruefung(fehler=["Datei ist kein gueltiges JSON"])
         else:
-            p = E.pruefen(e, st.zuletzt_genutzte_bilder(ausser=pid))
+            p = E.pruefen(e, st.zuletzt_genutzte_bilder(ausser=pid), st.zuletzt_bildsprache(ausser=pid))
             if E.ist_eigen(e) and not hinweise.eigenes_bild(st, e):
                 p.fehler.append(f"eigenes Foto {e['bild']} nicht gefunden")
         eintrag = {"status": "neu" if p.ok else "ungueltig", "key": schluessel(pid), "hash": h,
                    "herkunft": f"{herkunft}:{pfad}", "importiert": jetzt(),
                    "bild": e.get("bild"), "thema": e.get("thema", ""),
                    "hinweise": p.hinweise, "fehler": p.fehler}
+        if isinstance(e.get("bild_ki"), dict):
+            eintrag["bild_ki"] = {k: e["bild_ki"].get(k) for k in ("aufbau", "farbwelt")}
         st.posts[pid] = eintrag
         if p.ok:
             ordner = st.post_ordner(pid)
@@ -140,7 +142,12 @@ def bild_bauen(st: Status, pid: str, e: dict) -> tuple[Path, str]:
     """Rendert das Post-Bild. Mit bildmotiv: eigenes KI-Bild (Lucid Origin), sonst bzw. bei
     jedem Fehler das Pool-Bild aus e["bild"]. -> (Pfad, Herkunft fuer den Betreiber)."""
     eigen = hinweise.eigenes_bild(st, e)
-    motiv = (e.get("bildmotiv") or "").strip()
+    if isinstance(e.get("bild_ki"), dict):
+        motiv = bildsprache.prompt(e["bild_ki"])
+    elif (e.get("bildmotiv") or "").strip():
+        motiv = bildsprache.einfach(e["bildmotiv"])
+    else:
+        motiv = ""
     if motiv and not eigen:
         if not bildgen.konfiguriert():
             grund = "Cloudflare-Secrets fehlen"
@@ -148,10 +155,16 @@ def bild_bauen(st: Status, pid: str, e: dict) -> tuple[Path, str]:
             roh = st.post_ordner(pid) / "ki-roh.jpg"
             try:
                 if not roh.is_file():
+                    (st.post_ordner(pid) / "ki-prompt.txt").write_text(motiv + "\n", encoding="utf-8")
                     bildgen.ki_bild(motiv, roh)
+                lage = (e.get("bild_ki") or {}).get("lage") if isinstance(e.get("bild_ki"), dict) else None
                 bild = render.rendern("", e.get("bildtext", ""), st.bild(pid), quelle=roh,
-                                      lage=e.get("bildtext_lage") or "oben")
-                return bild, f"Bild: eigenes KI-Bild ({bildgen.PRODUKTIV.split('/')[-1]})"
+                                      lage=lage or e.get("bildtext_lage") or "oben")
+                herkunft = f"Bild: eigenes KI-Bild ({bildgen.PRODUKTIV.split('/')[-1]})"
+                if isinstance(e.get("bild_ki"), dict):
+                    b = e["bild_ki"]
+                    herkunft += f" · {b.get('art')} · {b.get('region')} · Aufbau {b.get('aufbau')}"
+                return bild, herkunft
             except (bildgen.BildFehler, bildgen.requests.RequestException, OSError) as ex:
                 grund = str(ex)[:200]
         log(f"KI-Bild nicht moeglich ({pid}): {grund} -> Pool")
@@ -392,9 +405,16 @@ def testentwurf(st: Status) -> str:
         "text": "📻 Wenn du des liest, kommt der Entwurf sauber per Telegram an.",
         "aufforderung": "👉 Drück auf Ja oder Nein – veröffentlicht wird beim Test nix.",
         "bildtext": "Testlauf Automat", "bild": bild,
-        "bildmotiv": "A quiet Bavarian village road at dawn lined with old fruit trees, "
-                     "light mist, a wide calm sky across the upper third of the image.",
-        "bildtext_lage": "oben",
+        "bild_ki": {
+            "art": "sender", "region": "niederbayern", "aufbau": "detail", "lage": "oben",
+            "motiv": "A small modern radio on a wooden kitchen table next to a coffee mug, "
+                     "steam rising, a pair of headphones resting beside it.",
+            "umgebung": "A farmhouse kitchen in a Lower Bavarian village, thick plastered walls, "
+                        "a deep window niche.",
+            "heute": "A smartphone charging on the windowsill, a modern induction hob in the background.",
+            "licht": "Early morning in late autumn, cool daylight from the window mixed with warm lamp light.",
+            "farbwelt": "warm oak brown, cream white, muted teal accents",
+        },
         "quelle": {"name": "Radio Boarisch", "url": "https://radio-boarisch.de"},
         "recherche": "Test, keine Recherche.",
     }

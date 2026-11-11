@@ -188,7 +188,7 @@ Branches fünf Bilder (1080×1350) und `prompts.json` (Motiv, Seed, Prompt).
 
 ### D4. Betrieb (seit 11.11.2026)
 
-Der Automat erzeugt für jeden Entwurf mit `bildmotiv` ein eigenes Bild mit
+Der Automat erzeugt für jeden Entwurf mit `bild_ki` (Bausteine nach `docs/BILDSPRACHE.md`) ein eigenes Bild mit
 `@cf/leonardo/lucid-origin` (1088×1360, 4:5) und setzt den Bildtext darauf. In Telegram steht
 unter dem Bild, woher es kommt („eigenes KI-Bild“ oder „Pool … (KI-Bild nicht möglich: Grund)“).
 Fehlen die Secrets, ist das Tageskontingent leer oder antwortet Cloudflare nicht, nimmt er
