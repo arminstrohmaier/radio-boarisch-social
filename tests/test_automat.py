@@ -498,3 +498,37 @@ def test_programm_startet_als_modul():
                        capture_output=True, text=True, env=env,
                        cwd=Path(__file__).parent.parent)
     assert "TELEGRAM_BOT_TOKEN fehlt" in r.stdout
+
+
+def test_bildgen_4_5_und_antwort(monkeypatch, tmp_path):
+    import base64, io
+    from PIL import Image
+    from automat import bildgen
+
+    buf = io.BytesIO()
+    Image.new("RGB", (1024, 1024), (90, 120, 80)).save(buf, "JPEG")
+    roh = base64.b64encode(buf.getvalue()).decode()
+
+    class Antwort:
+        ok, status_code, headers = True, 200, {"content-type": "application/json"}
+        def json(self):
+            return {"success": True, "result": {"image": roh}}
+
+    gesendet = {}
+    def post(url, json, timeout, headers):
+        gesendet.update(url=url, body=json, auth=headers["Authorization"])
+        return Antwort()
+    monkeypatch.setattr(bildgen.requests, "post", post)
+    ziel = bildgen.erzeugen("A lake.", tmp_path / "x.jpg", seed=1, zugangsdaten=("konto", "tok"))
+    assert Image.open(ziel).size == (1080, 1350)
+    assert gesendet["url"].endswith("/accounts/konto/ai/run/@cf/black-forest-labs/flux-1-schnell")
+    assert gesendet["body"]["steps"] <= 8 and "lettering" in gesendet["body"]["prompt"]
+    assert gesendet["auth"] == "Bearer tok"
+
+
+def test_bildgen_ohne_secrets(monkeypatch):
+    from automat import bildgen
+    monkeypatch.delenv("CLOUDFLARE_ACCOUNT_ID", raising=False)
+    monkeypatch.delenv("CLOUDFLARE_API_TOKEN", raising=False)
+    with pytest.raises(bildgen.BildFehler, match="Secret fehlt"):
+        bildgen.zugang()
