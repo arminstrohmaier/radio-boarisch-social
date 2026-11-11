@@ -93,7 +93,7 @@
       }
     },
     "2026-11-11-drumherum-kunstpreis": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "85517318dd",
       "hash": "2cbf532fe8efd32b0ac95fff2e7ff5c83cf12a5e",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-drumherum-kunstpreis.json",
