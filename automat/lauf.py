@@ -14,6 +14,7 @@ import json
 import random
 import subprocess
 import sys
+import time
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -158,9 +159,10 @@ def senden(st: Status, tg: Telegram, chat_id: str) -> int:
 
 # ---------------------------------------------------------------- Antworten
 
-def antworten(st: Status, tg: Telegram, chat_id: str) -> int:
-    updates = tg.updates(_offset(st))
-    log(f"Telegram: {len(updates)} neue Nachricht(en)/Knopfdrücke")
+def antworten(st: Status, tg: Telegram, chat_id: str, warten: int = 0) -> int:
+    updates = tg.updates(_offset(st), warten)
+    if updates or not warten:
+        log(f"Telegram: {len(updates)} neue Nachricht(en)/Knopfdrücke")
     n = 0
     for u in updates:
         st.daten["telegram_offset"] = u["update_id"] + 1
@@ -373,12 +375,50 @@ def testentwurf(st: Status) -> str:
 
 # ---------------------------------------------------------------- main
 
+def _branches_holen(repo: Path):
+    """Neue Entwuerfe, Themen und Rueckmeldungen von allen Branches holen (fuer Dauerlauf)."""
+    subprocess.run(["git", "-C", str(repo), "fetch", "-q", "--prune", "origin",
+                    "+refs/heads/*:refs/remotes/origin/*"], capture_output=True)
+
+
+def zyklus(st: Status, s: Settings, tg: Telegram, meta, commit, repo: Path,
+           testentwurf_anlegen: bool = False, warten: int = 0):
+    chat = s.telegram_chat_id
+    if chat:
+        if testentwurf_anlegen:
+            log(f"Testentwurf: {testentwurf(st)}")
+        themen.importieren(st, entwuerfe_finden(repo, "themen"), tg, chat, _veraltet)
+        importieren(st, entwuerfe_finden(repo), tg, chat)
+        hinweise.rueckmeldungen(st, entwuerfe_finden(repo, "rueckmeldungen"), tg, chat)
+        st.speichern(); commit("Import")
+        themen.senden(st, tg, chat)
+        senden(st, tg, chat)
+        st.speichern(); commit("Entwuerfe gesendet")
+    else:
+        log("::warning::TELEGRAM_CHAT_ID fehlt – schreib dem Bot /start, er antwortet mit der ID.")
+    antworten(st, tg, chat, warten)
+    st.speichern(); commit("Telegram-Antworten")
+    if not st.daten.get("befehle_gesetzt"):
+        try:
+            tg.befehle([("themen", "Drei neue Themenvorschläge anfordern"),
+                        ("status", "Offene Themen und Entwürfe anzeigen")])
+            st.daten["befehle_gesetzt"] = True
+        except TelegramFehler:
+            pass
+    if chat:
+        tg.updates(_offset(st))  # bestaetigt verarbeitete Updates bei Telegram
+        posten(st, s, tg, meta, commit)
+        st.speichern(); commit("Veroeffentlichung")
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--status", default="redaktion", help="Ordner des Status-Checkouts")
     ap.add_argument("--repo", default=str(config.REPO_ROOT))
     ap.add_argument("--commit", action="store_true", help="Status committen und pushen")
     ap.add_argument("--testentwurf", action="store_true")
+    ap.add_argument("--dauer", type=int, default=0,
+                    help="Minuten, die der Automat auf Telegram lauscht (0 = ein Durchlauf)")
     a = ap.parse_args(argv)
 
     s = Settings.from_env()
@@ -390,40 +430,37 @@ def main(argv=None) -> int:
         return 0
     tg = Telegram(s.telegram_token)
     meta = Meta(s.meta_token, s.meta_api_version) if s.meta_ok else None
-    chat = s.telegram_chat_id
+    repo = Path(a.repo)
 
-    try:
-        if chat:
-            if a.testentwurf:
-                log(f"Testentwurf: {testentwurf(st)}")
-            themen.importieren(st, entwuerfe_finden(Path(a.repo), "themen"), tg, chat, _veraltet)
-            importieren(st, entwuerfe_finden(Path(a.repo)), tg, chat)
-            hinweise.rueckmeldungen(st, entwuerfe_finden(Path(a.repo), "rueckmeldungen"), tg, chat)
-            st.speichern(); commit("Import")
-            themen.senden(st, tg, chat)
-            senden(st, tg, chat)
-            st.speichern(); commit("Entwuerfe gesendet")
-        else:
-            log("::warning::TELEGRAM_CHAT_ID fehlt – schreib dem Bot /start, er antwortet mit der ID.")
-        antworten(st, tg, chat)
-        st.speichern(); commit("Telegram-Antworten")
-        if not st.daten.get("befehle_gesetzt"):
-            try:
-                tg.befehle([("themen", "Drei neue Themenvorschläge anfordern"),
-                            ("status", "Offene Themen und Entwürfe anzeigen")])
-                st.daten["befehle_gesetzt"] = True
-            except TelegramFehler:
-                pass
-        if chat:
-            tg.updates(_offset(st))  # bestaetigt verarbeitete Updates bei Telegram
-            posten(st, s, tg, meta, commit)
-            st.speichern(); commit("Veroeffentlichung")
-    except TelegramFehler as ex:
-        st.speichern(); commit("Zwischenstand nach Telegram-Fehler")
-        log(f"::error::Telegram: {ex}")
-        return 1
+    if a.dauer <= 0:
+        try:
+            zyklus(st, s, tg, meta, commit, repo, a.testentwurf)
+        except TelegramFehler as ex:
+            st.speichern(); commit("Zwischenstand nach Telegram-Fehler")
+            log(f"::error::Telegram: {ex}")
+            return 1
+        return 0
+
+    # Dauerlauf: lauscht per Long-Polling auf Telegram, Klicks werden in Sekunden verarbeitet
+    ende = time.monotonic() + a.dauer * 60
+    log(f"Dauerlauf fuer {a.dauer} Minuten")
+    erster = True
+    fehler = 0
+    while time.monotonic() < ende:
+        rest = int(ende - time.monotonic())
+        try:
+            if not erster:
+                _branches_holen(repo)
+            zyklus(st, s, tg, meta, commit, repo, a.testentwurf and erster,
+                   warten=max(0, min(25, rest - 5)))
+            fehler = 0
+        except TelegramFehler as ex:
+            fehler += 1
+            st.speichern(); commit("Zwischenstand nach Telegram-Fehler")
+            log(f"::warning::Telegram: {ex}")
+            if fehler >= 10:
+                log("::error::Telegram zu oft nicht erreichbar – Abbruch")
+                return 1
+            time.sleep(15)
+        erster = False
     return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

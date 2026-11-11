@@ -76,7 +76,7 @@ class FakeTG:
     def __init__(self):
         self.gesendet, self.queue, self.msg_id, self.entfernt, self.acks = [], [], 100, [], []
 
-    def updates(self, offset):
+    def updates(self, offset, warten=0):
         self.acks.append(offset)
         return [u for u in self.queue if offset is None or u["update_id"] >= offset]
 
@@ -474,3 +474,15 @@ def test_eigenes_foto_fehlt(tmp_path):
 def test_eigenes_foto_ohne_bildtext():
     e = dict(BEISPIEL, bild="eigen:abc", bildtext="")
     assert E.pruefen(e).ok
+
+
+def test_dauerlauf_wiederholt_und_endet(tmp_path, monkeypatch):
+    uhr = iter([0, 0, 10, 10, 20, 20, 70, 70, 9999])
+    monkeypatch.setattr(lauf.time, "monotonic", lambda: next(uhr))
+    aufrufe = []
+    monkeypatch.setattr(lauf, "zyklus", lambda *a, **k: aufrufe.append(k.get("warten")))
+    monkeypatch.setattr(lauf, "_branches_holen", lambda repo: None)
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "42")
+    assert lauf.main(["--status", str(tmp_path), "--dauer", "1"]) == 0
+    assert len(aufrufe) >= 2 and all(w is not None and w <= 25 for w in aufrufe)

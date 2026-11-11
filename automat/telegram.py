@@ -32,11 +32,17 @@ class Telegram:
             raise TelegramFehler(f"{methode}: {daten.get('description', r.status_code)}")
         return daten["result"]
 
-    def updates(self, offset: int | None):
-        p = {"timeout": 0, "allowed_updates": ["message", "callback_query"]}
+    def updates(self, offset: int | None, warten: int = 0):
+        """warten > 0: Long-Polling – Telegram antwortet sofort, sobald etwas kommt."""
+        p = {"timeout": warten, "allowed_updates": ["message", "callback_query"]}
         if offset is not None:
             p["offset"] = offset
-        return self._call("getUpdates", **p)
+        alt = self._timeout
+        self._timeout = max(alt, warten + 15)
+        try:
+            return self._call("getUpdates", **p)
+        finally:
+            self._timeout = alt
 
     def foto(self, chat_id: str, pfad: Path, caption: str = "") -> dict:
         with open(pfad, "rb") as f:

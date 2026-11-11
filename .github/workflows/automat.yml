@@ -14,6 +14,10 @@ on:
         description: "Testentwurf an Telegram schicken (bei Ja wird NICHTS veroeffentlicht)"
         type: boolean
         default: false
+      dauer:
+        description: "Minuten, die der Automat auf Telegram lauscht (0 = ein Durchlauf)"
+        type: number
+        default: 0
       telegramcheck:
         description: "Telegram-Verbindung pruefen (Ergebnis per Telegram)"
         type: boolean
@@ -33,7 +37,7 @@ concurrency:
 jobs:
   lauf:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
         with:
@@ -83,5 +87,5 @@ jobs:
           META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
           META_API_VERSION: ${{ vars.META_API_VERSION }}
         run: |
-          python -m automat.lauf --status redaktion --commit \
+          python -m automat.lauf --status redaktion --commit --dauer "${{ inputs.dauer || 0 }}" \
             ${{ github.event_name == 'workflow_dispatch' && inputs.testentwurf && '--testentwurf' || '' }}
