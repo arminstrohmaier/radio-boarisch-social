@@ -433,6 +433,42 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-11T10:18:58+00:00",
       "entwurf": "2026-11-11-weihnachtsmarkt-wuerzburg"
+    },
+    "2026-11-11-themen-4": {
+      "status": "neu",
+      "key": "e82c9b69b5",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-11-themen-4.json",
+      "importiert": "2026-11-11T20:39:15+00:00",
+      "themen": [
+        {
+          "titel": "Zoll stellt 22 getrocknete Seepferdchen am Flughafen München sicher",
+          "worum": "Bei einer Kofferkontrolle am Wochenende fehlten die artenschutzrechtlichen Papiere – der Zoll hat die Tiere beschlagnahmt. Sachlich, ohne Angaben zur Person, Thema Artenschutz.",
+          "quelle": {
+            "name": "Hauptzollamt München",
+            "url": "https://www.presseportal.de/blaulicht/pm/121256/6388074"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Rund 110 Musikfestivals und -reihen in ganz Bayern gefördert",
+          "worum": "Das Kunstministerium unterstützt heuer rund 110 musikalische Veranstaltungen in allen Regierungsbezirken – von Barock über Klassik bis Jazz, auch im Herbst und Winter.",
+          "quelle": {
+            "name": "Bayerisches Staatsministerium für Wissenschaft und Kunst",
+            "url": "https://www.stmwk.bayern.de/pressemitteilung/13071/nr-97-vom-05-11-2026.html"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Regensburger Christkindlmarkt auf dem Neupfarrplatz ab 23. November",
+          "worum": "Der Markt läuft vom 23. November bis 23. Dezember; die Stadt hat dazu sogar ein eigenes Wimmelbuch.",
+          "quelle": {
+            "name": "Stadt Regensburg",
+            "url": "https://www.regensburg.de/christkindlmarkt"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -465,7 +501,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-11T20:07:11+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-11-themen-4"
     }
   ]
 }
