@@ -129,9 +129,9 @@ def erzeugen(motiv: str, ziel: Path, seed: int | None = None, steps: int = 8,
              zugangsdaten: tuple[str, str] | None = None) -> Path:
     """Erzeugt ein Bild zum Motiv und speichert es als 1080x1350-JPEG."""
     konto, token = zugangsdaten or zugang()
+    # seed nimmt die Workers-AI-Schnittstelle nicht an (HTTP 400, 11.11.2026);
+    # das Argument bleibt nur fuers Protokoll.
     body = {"prompt": prompt(motiv), "steps": steps}
-    if seed is not None:
-        body["seed"] = seed
     r = requests.post(API.format(konto=konto), json=body, timeout=120,
                       headers={"Authorization": f"Bearer {token}"})
     roh = _bild_aus_antwort(r)
