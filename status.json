@@ -157,7 +157,7 @@
       }
     },
     "2026-11-11-weihnachtsmarkt-wuerzburg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "4ba533eb47",
       "hash": "86063eed4c39ddcea27e853bdba12c9a4bab7672",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-weihnachtsmarkt-wuerzburg.json",
