@@ -124,7 +124,7 @@
       }
     },
     "2026-11-11-gruesse-regensburg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "63a50765b3",
       "hash": "eee0e3674c405a405697b8fd17a418ab978262fd",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-gruesse-regensburg.json",
