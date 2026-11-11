@@ -93,7 +93,7 @@
       }
     },
     "2026-11-11-drumherum-kunstpreis": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "85517318dd",
       "hash": "2cbf532fe8efd32b0ac95fff2e7ff5c83cf12a5e",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-drumherum-kunstpreis.json",
@@ -101,7 +101,10 @@
       "bild": "12_text-oben.jpg",
       "thema": "Bayerischer Kunstpreis für das Volksmusikfestival „drumherum“ in Regen",
       "hinweise": [],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-11T06:29:55+00:00",
+      "tg_foto": 38,
+      "tg_msg": 39
     }
   },
   "themen": {
