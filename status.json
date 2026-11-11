@@ -155,6 +155,17 @@
           "zeit": "2026-11-11T06:59:08+00:00"
         }
       }
+    },
+    "2026-11-11-weihnachtsmarkt-wuerzburg": {
+      "status": "neu",
+      "key": "4ba533eb47",
+      "hash": "86063eed4c39ddcea27e853bdba12c9a4bab7672",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-weihnachtsmarkt-wuerzburg.json",
+      "importiert": "2026-11-11T10:39:03+00:00",
+      "bild": "18_text-oben.jpg",
+      "thema": "Würzburger Weihnachtsmarkt ab Freitag, 27. November",
+      "hinweise": [],
+      "fehler": []
     }
   },
   "themen": {
@@ -363,7 +374,7 @@
       "notiz": "Neustart auf Wunsch des Betreibers"
     },
     "2026-11-11-themen-3": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "fa464e44d1",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-11-themen-3.json",
       "importiert": "2026-11-11T09:38:04+00:00",
@@ -400,7 +411,8 @@
       "gesendet": "2026-11-11T09:38:06+00:00",
       "tg_msg": 58,
       "gewaehlt": 1,
-      "entschieden": "2026-11-11T10:18:58+00:00"
+      "entschieden": "2026-11-11T10:18:58+00:00",
+      "entwurf": "2026-11-11-weihnachtsmarkt-wuerzburg"
     }
   },
   "befehle_gesetzt": true,
