@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-11-themen-2",
+  "themen": [
+    {
+      "titel": "Würzburger Weihnachtsmarkt ab 27. November",
+      "worum": "Rund 120 Stände zwischen Falkenhaus und Marienkapelle, bis 23. Dezember; an den Adventswochenenden zusätzlich ein Künstler-Weihnachtsmarkt im Rathaus-Innenhof.",
+      "quelle": {"name": "Stadt Würzburg", "url": "https://www.wuerzburg.de/events-termine?ev%5Bid%5D=1870027"},
+      "ernst": false
+    },
+    {
+      "titel": "Schockanrufe: Polizei lobt Seniorinnen, die richtig reagiert haben",
+      "worum": "Falsche Polizisten riefen am Montag im Raum Augsburg mehrere ältere Frauen an und fragten nach Bargeld und Gold – die Frauen gaben nichts heraus. Blaulicht als Warnung: keine Namen, sachlich, mit dem Hinweis, wie man richtig reagiert.",
+      "quelle": {"name": "Polizeipräsidium Schwaben Nord", "url": "https://www.presseportal.de/blaulicht/pm/169620/6387879"},
+      "ernst": false
+    },
+    {
+      "titel": "Kunstpreis für das Luftmuseum Amberg – Verleihung morgen",
+      "worum": "Wilhelm Koch (Luftmuseum Amberg, EUROPA-TEMPEL in Etsdorf) wird als Kulturbotschafter ausgezeichnet, die Kunstpartner Adlmannstein als Besonderer Ort; verliehen wird am 12. November in München.",
+      "quelle": {"name": "Bayerisches Staatsministerium für Wissenschaft und Kunst", "url": "https://www.stmwk.bayern.de/pressemitteilung/13073/nr-99-vom-06-11-2026.html"},
+      "ernst": false
+    }
+  ]
+}
