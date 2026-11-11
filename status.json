@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760151,
+  "telegram_offset": 972760152,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -18,7 +18,7 @@
       "entschieden": "2026-11-10T12:13:58+00:00"
     },
     "2026-11-10-test-121353": {
-      "status": "gesendet",
+      "status": "verworfen",
       "key": "9f89959898",
       "hash": "8842fd8caa7006ae151a9ec87abb1aba83082156",
       "test": true,
@@ -30,7 +30,8 @@
       "fehler": [],
       "gesendet": "2026-11-10T12:13:56+00:00",
       "tg_foto": 5,
-      "tg_msg": 6
+      "tg_msg": 6,
+      "entschieden": "2026-11-11T06:59:53+00:00"
     },
     "2026-11-10-christkindlesmarkt-nuernberg": {
       "status": "verworfen",
