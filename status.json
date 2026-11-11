@@ -363,7 +363,7 @@
       "notiz": "Neustart auf Wunsch des Betreibers"
     },
     "2026-11-11-themen-3": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "fa464e44d1",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-11-themen-3.json",
       "importiert": "2026-11-11T09:38:04+00:00",
@@ -396,7 +396,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-11T09:38:06+00:00",
+      "tg_msg": 58
     }
   },
   "befehle_gesetzt": true,
