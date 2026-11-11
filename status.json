@@ -105,7 +105,13 @@
       "gesendet": "2026-11-11T06:29:55+00:00",
       "tg_foto": 38,
       "tg_msg": 39,
-      "entschieden": "2026-11-11T06:51:42+00:00"
+      "entschieden": "2026-11-11T06:51:42+00:00",
+      "kanaele": {
+        "instagram": {
+          "status": "laeuft",
+          "versuche": 1
+        }
+      }
     }
   },
   "themen": {
