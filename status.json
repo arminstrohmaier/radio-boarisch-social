@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760141,
+  "telegram_offset": 972760147,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -93,7 +93,7 @@
       }
     },
     "2026-11-11-drumherum-kunstpreis": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "85517318dd",
       "hash": "2cbf532fe8efd32b0ac95fff2e7ff5c83cf12a5e",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-11-drumherum-kunstpreis.json",
@@ -104,7 +104,8 @@
       "fehler": [],
       "gesendet": "2026-11-11T06:29:55+00:00",
       "tg_foto": 38,
-      "tg_msg": 39
+      "tg_msg": 39,
+      "entschieden": "2026-11-11T06:51:42+00:00"
     }
   },
   "themen": {
@@ -191,7 +192,7 @@
       "entwurf": "2026-11-10-christkindlesmarkt-augsburg"
     },
     "2026-11-10-themen-3": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "7e946c2b72",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-10-themen-3.json",
       "importiert": "2026-11-10T21:39:25+00:00",
@@ -226,7 +227,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-10T21:39:27+00:00",
-      "tg_msg": 33
+      "tg_msg": 33,
+      "gewaehlt": 2,
+      "entschieden": "2026-11-11T06:51:42+00:00"
     },
     "2026-11-11-themen": {
       "status": "erledigt",
