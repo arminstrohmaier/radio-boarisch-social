@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760150,
+  "telegram_offset": 972760151,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -48,7 +48,7 @@
       "entschieden": "2026-11-10T14:21:53+00:00"
     },
     "2026-11-10-hundewelpen-grenzkontrolle": {
-      "status": "gesendet",
+      "status": "verworfen",
       "key": "4ee91793ef",
       "hash": "12233e833937dc923a085031b2e18737383b995a",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-10-hundewelpen-grenzkontrolle.json",
@@ -59,7 +59,8 @@
       "fehler": [],
       "gesendet": "2026-11-10T14:39:23+00:00",
       "tg_foto": 16,
-      "tg_msg": 17
+      "tg_msg": 17,
+      "entschieden": "2026-11-11T06:59:38+00:00"
     },
     "2026-11-10-christkindlesmarkt-augsburg": {
       "status": "veroeffentlicht",
