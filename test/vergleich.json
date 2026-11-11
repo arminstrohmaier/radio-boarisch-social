@@ -1,0 +1,22 @@
+{
+  "im_konto": [
+    "@cf/black-forest-labs/flux-1-schnell",
+    "@cf/black-forest-labs/flux-2-dev",
+    "@cf/black-forest-labs/flux-2-klein-4b",
+    "@cf/black-forest-labs/flux-2-klein-9b",
+    "@cf/bytedance/stable-diffusion-xl-lightning",
+    "@cf/leonardo/lucid-origin",
+    "@cf/leonardo/phoenix-1.0",
+    "@cf/lykon/dreamshaper-8-lcm",
+    "@cf/runwayml/stable-diffusion-v1-5-inpainting",
+    "@cf/stabilityai/stable-diffusion-xl-base-1.0"
+  ],
+  "verglichen": {
+    "@cf/black-forest-labs/flux-1-schnell": "5/5 Bilder",
+    "@cf/black-forest-labs/flux-2-klein-4b": "5/5 Bilder",
+    "@cf/black-forest-labs/flux-2-klein-9b": "0/5 Bilder",
+    "@cf/black-forest-labs/flux-2-dev": "5/5 Bilder",
+    "@cf/leonardo/phoenix-1.0": "5/5 Bilder",
+    "@cf/leonardo/lucid-origin": "5/5 Bilder"
+  }
+}
