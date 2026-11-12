@@ -5,31 +5,31 @@
       "datei": "01_landstrasse-herbst_text-oben.jpg",
       "prompt": "An empty two-lane country road in autumn winding between harvested fields and a row of birch trees with yellow leaves, overcast grey sky filling the upper third of the image, wet asphalt, eye level from the roadside. Documentary photograph, photorealistic, natural available light, muted realistic colours, shot on a 35mm lens, slight film grain, unstaged, ordinary everyday scene in rural Bavaria. No people in the frame. Plain surfaces without any lettering, signs, posters, brand names or logos. Not decorated, not picturesque postcard style, no traditional costume.",
       "ok": true,
-      "aufruf": "form:width,height; roh 896x1120"
+      "aufruf": "schon vorhanden"
     },
     {
       "datei": "02_wirtshaus_text-oben.jpg",
       "prompt": "Interior of an empty old village inn dining room in the late afternoon, simple wooden tables and benches, scrubbed wooden floor, a tiled stove in the corner, plain whitewashed wall and ceiling in the upper part of the image, soft window light. Documentary photograph, photorealistic, natural available light, muted realistic colours, shot on a 35mm lens, slight film grain, unstaged, ordinary everyday scene in rural Bavaria. No people in the frame. Plain surfaces without any lettering, signs, posters, brand names or logos. Not decorated, not picturesque postcard style, no traditional costume.",
       "ok": true,
-      "aufruf": "form:width,height; roh 896x1120"
+      "aufruf": "schon vorhanden"
     },
     {
       "datei": "03_dorfplatz_text-oben.jpg",
       "prompt": "A quiet village square in Bavaria on an early morning, cobblestones, a plain baroque church tower and simple plastered houses without signs, a single linden tree, calm pale sky across the upper third of the image, nobody around. Documentary photograph, photorealistic, natural available light, muted realistic colours, shot on a 35mm lens, slight film grain, unstaged, ordinary everyday scene in rural Bavaria. No people in the frame. Plain surfaces without any lettering, signs, posters, brand names or logos. Not decorated, not picturesque postcard style, no traditional costume.",
       "ok": true,
-      "aufruf": "form:width,height; roh 896x1120"
+      "aufruf": "schon vorhanden"
     },
     {
       "datei": "04_see_text-oben.jpg",
       "prompt": "A Bavarian lake on a calm grey morning, a wooden jetty reaching into flat water, reeds in the foreground, a low forested shoreline on the far side, soft mist and a wide empty sky across the upper half of the image. Documentary photograph, photorealistic, natural available light, muted realistic colours, shot on a 35mm lens, slight film grain, unstaged, ordinary everyday scene in rural Bavaria. No people in the frame. Plain surfaces without any lettering, signs, posters, brand names or logos. Not decorated, not picturesque postcard style, no traditional costume.",
       "ok": true,
-      "aufruf": "form:width,height; roh 896x1120"
+      "aufruf": "schon vorhanden"
     },
     {
       "datei": "05_neutral_text-mitte.jpg",
       "prompt": "A wide misty meadow landscape in the foothills of the Alps, gentle hills fading into fog, a few dark spruce trees at the edges, very calm and even tones with a large quiet area in the centre of the image, suitable as a neutral background. Documentary photograph, photorealistic, natural available light, muted realistic colours, shot on a 35mm lens, slight film grain, unstaged, ordinary everyday scene in rural Bavaria. No people in the frame. Plain surfaces without any lettering, signs, posters, brand names or logos. Not decorated, not picturesque postcard style, no traditional costume.",
       "ok": true,
-      "aufruf": "form:width,height; roh 896x1120"
+      "aufruf": "schon vorhanden"
     }
   ]
 }
