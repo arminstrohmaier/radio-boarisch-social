@@ -259,6 +259,20 @@
           "zeit": "2026-11-12T07:41:06+00:00"
         }
       }
+    },
+    "2026-11-12-christbaum-marienplatz": {
+      "status": "neu",
+      "key": "2a11d72c54",
+      "hash": "bf6453e2d223cea2cf695caeaeb88bcfacdd556c",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-christbaum-marienplatz.json",
+      "importiert": "2026-11-12T17:39:06+00:00",
+      "bild": "17_text-mitte.jpg",
+      "thema": "Christbaum für den Münchner Christkindlmarkt kommt aus Sauerlach",
+      "hinweise": [
+        "Gemeinde Sauerlach: kein belegtes Konto – erscheint nur als Name",
+        "Berufsfeuerwehr München: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": []
     }
   },
   "themen": {
@@ -549,7 +563,7 @@
       "entwurf": "2026-11-12-festivalfoerderung-bayern"
     },
     "2026-11-12-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "e01feb4dc2",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-12-themen.json",
       "importiert": "2026-11-12T15:39:13+00:00",
@@ -586,7 +600,8 @@
       "gesendet": "2026-11-12T15:39:15+00:00",
       "tg_msg": 80,
       "gewaehlt": 2,
-      "entschieden": "2026-11-12T16:32:40+00:00"
+      "entschieden": "2026-11-12T16:32:40+00:00",
+      "entwurf": "2026-11-12-christbaum-marienplatz"
     }
   },
   "befehle_gesetzt": true,
