@@ -17,7 +17,7 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
                 "linksunten" (Claude sieht sich das Foto an); bildtext darf dann leer sein
   quelle        {"name": "...", "url": "https://..."}  Primaerquelle
   hashtags      zusaetzliche Hashtags, bis zu 10 (die festen kommen automatisch)
-  erwaehnungen  verlinkte Konten (optional, max. 5), je
+  erwaehnungen  verlinkte Konten (max. 10, so viele passende wie belegbar), je
                 {"name": "Stadt Nürnberg", "instagram": "nuernberg_de", "facebook": "nuernberg.de",
                  "beleg": "https://... (Seite, auf der die Konten offiziell verlinkt sind)"}
                 Instagram: "@konto" in der Caption; Facebook: Name mit klickbarem Link
@@ -63,7 +63,7 @@ ZUSAGEN = [r"\bläuft (bald|demnächst|ab)\b", r"\bin unserer rotation\b",
 IG_CAPTION_MAX = 2200
 IG_HASHTAG_MAX = 30          # harte Grenze von Instagram
 HASHTAGS_EXTRA_MAX = 10      # Betreiberentscheidung 10.11.2026: 2 feste + bis zu 10
-ERWAEHNUNGEN_MAX = 5
+ERWAEHNUNGEN_MAX = 10   # Betreiberentscheidung 12.11.2026; Instagram erlaubt max. 20
 IG_KONTO_RE = re.compile(r"^[A-Za-z0-9._]{1,30}$")
 FB_SEITE_RE = re.compile(r"^[A-Za-z0-9.\-]{3,80}$")
 BILDTEXT_MAX = 70

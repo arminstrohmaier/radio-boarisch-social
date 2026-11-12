@@ -95,9 +95,11 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    passende – Ort, Landkreis/Region (z. B. #Landshut #Niederbayern), Thema, Anlass, ggf. der
    offizielle Hashtag des Veranstalters. Keine Allerwelts-Tags (#love #instagood), keine
    Wiederholungen. Ernste Meldungen: keine.
-   **Verlinken** (`erwaehnungen`, max. 5) – grundsätzlich bei jedem Post (Betreiberentscheidung
-   12.11.2026): die beteiligten Städte, Gemeinden, Landkreise, Veranstalter, Vereine, Behörden,
-   Künstler. Je Eintrag `instagram` (Konto ohne @) und `facebook` (Seitenname aus der URL
+   **Verlinken** (`erwaehnungen`, bis zu 10) – Pflicht bei jedem Post, Ziel Reichweite
+   (Betreiberentscheidung 12.11.2026): **so viele passende Konten wie belegbar**. Aktiv suchen:
+   jede genannte Stadt/Gemeinde, den Landkreis, Veranstalter, Spielstätte, Verein, Behörde,
+   beteiligte Künstler/Ensembles, Tourismusverband der Region. Erst Konten mit Bezug zum Thema,
+   keine Konten nur zum Auffüllen. Je Eintrag `instagram` (Konto ohne @) und `facebook` (Seitenname aus der URL
    facebook.com/…), aber **nur, wenn die Organisation das Konto auf ihrer eigenen Website angibt**
    – diese Seite kommt in `beleg`. Nicht raten. Instagram zeigt `@konto`, Facebook den Namen mit
    klickbarem Link „(facebook.com/…)“. Ohne belegtes Konto nur `name`. Ist die Website nicht

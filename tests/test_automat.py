@@ -510,3 +510,10 @@ def test_facebook_seite_wird_klickbarer_link():
     assert "Mehr bei: @stadt.passau, Trachtenverein X" in E.caption(e, "instagram")
     assert "Mehr bei: Stadt Passau (facebook.com/StadtPassau), Trachtenverein X" in E.caption(e, "facebook")
     assert not E.pruefen(dict(BEISPIEL, erwaehnungen=[{"name": "X", "facebook": "abc"}])).ok  # ohne Beleg
+
+
+def test_bis_zu_zehn_erwaehnungen():
+    zehn = [{"name": f"Ort {i}", "instagram": f"ort{i}", "beleg": "https://x.de"} for i in range(10)]
+    assert E.pruefen(dict(BEISPIEL, erwaehnungen=zehn)).ok
+    elf = zehn + [{"name": "Ort 10", "instagram": "ort10", "beleg": "https://x.de"}]
+    assert not E.pruefen(dict(BEISPIEL, erwaehnungen=elf)).ok
