@@ -230,7 +230,7 @@
       "tg_msg": 73
     },
     "2026-11-12-festivalfoerderung-bayern-v4": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "8c7e3bfc1a",
       "hash": "0209a63fc1b9151e19e41dfa3a08fd83add0f4fb",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-festivalfoerderung-bayern-v4.json",
