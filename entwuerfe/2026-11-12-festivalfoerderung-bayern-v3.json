@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-12-festivalfoerderung-bayern-v3",
+  "thema": "Kunstministerium fördert rund 110 Musikfestivals und Konzertreihen in ganz Bayern (Fassung 3, Städte und Musikrat verlinkt)",
+  "thema_ref": "",
+  "ernst": false,
+  "hook": "🎶 Grias eich – a im Herbst und Winter is in Bayern musikalisch ordentlich wos los!",
+  "text": "💶 Der Freistaat fördert heuer rund 110 Festivals und Konzertreihen mit insgesamt über 4,8 Millionen Euro.\n🗺️ Alle Regierungsbezirke san dabei – von Barock über Klassik und Kirchenmusik bis Jazz.\n🎷 Zum Beispiel: NUEJAZZ in Nürnberg, der Bayreuther Jazz November, die Orff-Tage in München, Young Classic Europe in Passau und die Konzertreihe im Konzerthaus Blaibach.\n🎻 Abgewickelt wird die Förderung vom Bayerischen Musikrat.",
+  "aufforderung": "👉 Welches Festival is euer Favorit? Schreibt's uns in d'Kommentare!",
+  "bildtext": "Musik in ganz Bayern – rund 110 Festivals gefördert",
+  "bild": "20_text-unten.jpg",
+  "quelle": {
+    "name": "Bayerisches Staatsministerium für Wissenschaft und Kunst",
+    "url": "https://www.stmwk.bayern.de/pressemitteilung/13071/nr-97-vom-05-11-2026.html"
+  },
+  "hashtags": [
+    "Musik",
+    "Festival",
+    "Konzert",
+    "Jazz",
+    "Klassik",
+    "Kultur",
+    "Bayern",
+    "Nürnberg",
+    "Bayreuth",
+    "Passau"
+  ],
+  "recherche": "Gewähltes Thema 2 der Vorschläge vom 11.11.2026 (4). Primärquelle: Pressemitteilung Nr. 97 des Bayerischen Staatsministeriums für Wissenschaft und Kunst vom 05.11.2026, gelesen am 12.11.2026. Quellenregister: stmwk.bayern.de, geprüft 11.11.2026 – Nachdruck von Pressemitteilungen mit Quellenangabe gestattet. Zahlen (rund 110, über 4,8 Mio. Euro) und Beispiele direkt aus der Mitteilung; Minister-Zitate weggelassen. Fassung 3: Instagram-Konten der vier Städte auf deren eigenen Websites belegt (12.11.2026); Konto des Bayerischen Musikrats auf bayerischer-musikrat.de belegt (12.11.2026). Festivals nur mit Namen (höchstens 5 Verlinkungen).",
+  "erwaehnungen": [
+    {
+      "name": "Stadt Nürnberg",
+      "instagram": "nuernberg_de",
+      "beleg": "https://www.nuernberg.de/"
+    },
+    {
+      "name": "Stadt Bayreuth",
+      "instagram": "stadtbayreuth",
+      "beleg": "https://www.bayreuth.de/"
+    },
+    {
+      "name": "Stadt Passau",
+      "instagram": "stadt.passau",
+      "beleg": "https://www.passau.de/"
+    },
+    {
+      "name": "Landeshauptstadt München",
+      "instagram": "stadtmuenchen",
+      "beleg": "https://stadt.muenchen.de/"
+    },
+    {
+      "name": "Bayerischer Musikrat",
+      "instagram": "bayerischer.musikrat",
+      "beleg": "https://bayerischer-musikrat.de/"
+    }
+  ]
+}
