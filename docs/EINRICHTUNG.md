@@ -160,7 +160,7 @@ Von Hand: **Run workflow** → bei **dauer** `340` eintragen → **Run workflow*
 
 ## Teil D – Bilderzeugung mit Cloudflare Workers AI (Bildtest, LOP 127 Schritt 1)
 
-Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, Lucid Origin braucht laut Dashboard rund 3.100 pro Bild, also etwa 3 Bilder pro Tag → weit mehr als nötig).
+Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, Lucid Origin braucht laut Dashboard rund 3.100 pro Bild, also etwa 3 Bilder pro Tag – genug für 3 Posts pro Woche, aber nicht für viele Testläufe am selben Tag).
 Modell: `@cf/black-forest-labs/flux-1-schnell`. Code: `automat/bildgen.py`.
 
 ### D1. Konto und Werte holen
