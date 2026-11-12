@@ -498,3 +498,15 @@ def test_programm_startet_als_modul():
                        capture_output=True, text=True, env=env,
                        cwd=Path(__file__).parent.parent)
     assert "TELEGRAM_BOT_TOKEN fehlt" in r.stdout
+
+
+def test_facebook_seite_wird_klickbarer_link():
+    e = dict(BEISPIEL, erwaehnungen=[
+        {"name": "Stadt Passau", "instagram": "stadt.passau", "facebook": "StadtPassau",
+         "beleg": "https://www.passau.de/"},
+        {"name": "Trachtenverein X"}])
+    p = E.pruefen(e)
+    assert p.ok and any("Trachtenverein X" in h for h in p.hinweise)
+    assert "Mehr bei: @stadt.passau, Trachtenverein X" in E.caption(e, "instagram")
+    assert "Mehr bei: Stadt Passau (facebook.com/StadtPassau), Trachtenverein X" in E.caption(e, "facebook")
+    assert not E.pruefen(dict(BEISPIEL, erwaehnungen=[{"name": "X", "facebook": "abc"}])).ok  # ohne Beleg

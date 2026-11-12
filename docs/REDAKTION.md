@@ -95,11 +95,14 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    passende – Ort, Landkreis/Region (z. B. #Landshut #Niederbayern), Thema, Anlass, ggf. der
    offizielle Hashtag des Veranstalters. Keine Allerwelts-Tags (#love #instagood), keine
    Wiederholungen. Ernste Meldungen: keine.
-   **Verlinken** (`erwaehnungen`, max. 5): offizielle Konten von Veranstalter, Verein, Behörde,
-   Künstler, Ort. Nur, wenn das Instagram-Konto **auf der eigenen Website der Organisation**
-   verlinkt ist – diese Seite kommt in `beleg`. Nicht raten. Ohne belegtes Konto nur `name`
-   (erscheint dann auf beiden Kanälen als Text). **Nie Privatpersonen, nie Minderjährige**, bei
-   Blaulicht höchstens die Behörde.
+   **Verlinken** (`erwaehnungen`, max. 5) – grundsätzlich bei jedem Post (Betreiberentscheidung
+   12.11.2026): die beteiligten Städte, Gemeinden, Landkreise, Veranstalter, Vereine, Behörden,
+   Künstler. Je Eintrag `instagram` (Konto ohne @) und `facebook` (Seitenname aus der URL
+   facebook.com/…), aber **nur, wenn die Organisation das Konto auf ihrer eigenen Website angibt**
+   – diese Seite kommt in `beleg`. Nicht raten. Instagram zeigt `@konto`, Facebook den Namen mit
+   klickbarem Link „(facebook.com/…)“. Ohne belegtes Konto nur `name`. Ist die Website nicht
+   freigegeben, den Betreiber um Freigabe bitten (Rückmeldung) statt raten.
+   **Nie Privatpersonen, nie Minderjährige**, bei Blaulicht höchstens die Behörde.
    Hält das Thema der Prüfung nicht stand (Quelle nicht belastbar, Regelverstoß): keinen Entwurf,
    stattdessen kurz begründen – der Betreiber bekommt dann beim nächsten Themenlauf neue Vorschläge.
 3. Prüfen: `python -m automat.pruefen entwuerfe/<id>.json --status /tmp/redaktion` muss **OK** sein.

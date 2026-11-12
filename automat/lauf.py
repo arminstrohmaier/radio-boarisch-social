@@ -127,8 +127,9 @@ def vorschau_text(e: dict, cap: str, hinweise: list[str], test: bool) -> str:
     if e.get("recherche"):
         teile.append(f"🔎 Recherche: {e['recherche']}")
     if e.get("erwaehnungen"):
-        teile.append("🔗 Verlinkt (Instagram mit @, Facebook als Name): " + ", ".join(
-            f"{m['name']}" + (f" = @{m['instagram'].lstrip('@')}" if m.get("instagram") else "")
+        teile.append("🔗 Verlinkt: " + "; ".join(
+            m["name"] + (f" – Instagram @{m['instagram'].lstrip('@')}" if m.get("instagram") else "")
+            + (f" – Facebook facebook.com/{m['facebook'].strip('/')}" if m.get("facebook") else "")
             for m in e["erwaehnungen"]))
     if hinweise:
         teile.append("Hinweise der Prüfung:\n" + "\n".join(f"• {h}" for h in hinweise))
