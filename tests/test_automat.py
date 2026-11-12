@@ -498,3 +498,160 @@ def test_programm_startet_als_modul():
                        capture_output=True, text=True, env=env,
                        cwd=Path(__file__).parent.parent)
     assert "TELEGRAM_BOT_TOKEN fehlt" in r.stdout
+
+
+def test_bildgen_4_5_und_antwort(monkeypatch, tmp_path):
+    import base64, io
+    from PIL import Image
+    from automat import bildgen
+
+    buf = io.BytesIO()
+    Image.new("RGB", (1024, 1024), (90, 120, 80)).save(buf, "JPEG")
+    roh = base64.b64encode(buf.getvalue()).decode()
+
+    class Antwort:
+        ok, status_code, headers = True, 200, {"content-type": "application/json"}
+        def json(self):
+            return {"success": True, "result": {"image": roh}}
+
+    gesendet = {}
+    def post(url, json, timeout, headers):
+        gesendet.update(url=url, body=json, auth=headers["Authorization"])
+        return Antwort()
+    monkeypatch.setattr(bildgen.requests, "post", post)
+    ziel = tmp_path / "x.jpg"
+    bildgen.erzeugen("A lake.", ziel, seed=1, zugangsdaten=("konto", "tok"))
+    assert Image.open(ziel).size == (1080, 1350)
+    assert "seed" not in gesendet["body"]
+    assert gesendet["url"].endswith("/accounts/konto/ai/run/@cf/black-forest-labs/flux-1-schnell")
+    assert gesendet["body"]["steps"] <= 8 and "lettering" in gesendet["body"]["prompt"]
+    assert gesendet["auth"] == "Bearer tok"
+
+
+def test_bildgen_ohne_secrets(monkeypatch):
+    from automat import bildgen
+    monkeypatch.delenv("CLOUDFLARE_ACCOUNT_ID", raising=False)
+    monkeypatch.delenv("CLOUDFLARE_API_TOKEN", raising=False)
+    with pytest.raises(bildgen.BildFehler, match="Secret fehlt"):
+        bildgen.zugang()
+
+
+def test_bildgen_probiert_aufrufformen(monkeypatch, tmp_path):
+    import io
+    from PIL import Image
+    from automat import bildgen
+
+    buf = io.BytesIO()
+    Image.new("RGB", (896, 1120)).save(buf, "JPEG")
+
+    class Antwort:
+        def __init__(self, code, art, inhalt=b""):
+            self.status_code, self.ok, self.content = code, code < 400, inhalt
+            self.headers, self.text = {"content-type": art}, ""
+        def json(self):
+            return {"success": False, "errors": [{"message": "expects multipart"}]}
+
+    aufrufe = []
+    def post(url, timeout, headers, json=None, files=None):
+        aufrufe.append("form" if files else "json")
+        if files:
+            return Antwort(200, "image/jpeg", buf.getvalue())
+        return Antwort(400, "application/json")
+    monkeypatch.setattr(bildgen.requests, "post", post)
+    aufruf = bildgen.erzeugen("A lake.", tmp_path / "y.jpg", modell="@cf/x/flux-2-dev",
+                              zugangsdaten=("k", "t"))
+    assert aufrufe == ["json", "form"] and aufruf.startswith("form:width,height")
+    assert Image.open(tmp_path / "y.jpg").size == (1080, 1350)
+
+
+MOTIV = dict(BEISPIEL, bildmotiv="A Bavarian old town square in winter dusk, wide calm sky above.",
+             bildtext_lage="oben")
+
+
+def test_ki_bild_wird_verwendet(tmp_path, monkeypatch):
+    from PIL import Image
+    from automat import bildgen
+    erzeugt = []
+    def ki_bild(motiv, ziel):
+        erzeugt.append(motiv)
+        Image.new("RGB", (1080, 1350), (10, 20, 30)).save(ziel)
+        return "json"
+    monkeypatch.setattr(bildgen, "konfiguriert", lambda: True)
+    monkeypatch.setattr(bildgen, "ki_bild", ki_bild)
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [MOTIV])
+    p = st.posts[MOTIV["id"]]
+    assert len(erzeugt) == 1 and erzeugt[0].startswith(MOTIV["bildmotiv"])
+    assert "KI-Bild (lucid-origin)" in p["bildherkunft"]
+    assert Image.open(st.bild(MOTIV["id"])).size == (1080, 1350)
+    assert "lucid-origin" in tg.gesendet[0][2]
+    assert E.caption(MOTIV).endswith("Bild: KI-generiert.")
+
+
+def test_ki_bild_faellt_auf_pool_zurueck(tmp_path, monkeypatch):
+    from automat import bildgen
+    def kaputt(motiv, ziel):
+        raise bildgen.BildFehler("HTTP 429: Kontingent")
+    monkeypatch.setattr(bildgen, "konfiguriert", lambda: True)
+    monkeypatch.setattr(bildgen, "ki_bild", kaputt)
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [MOTIV])
+    p = st.posts[MOTIV["id"]]
+    assert p["status"] == "gesendet" and st.bild(MOTIV["id"]).is_file()
+    assert p["bildherkunft"].startswith("Bild: Pool 05_text-oben.jpg") and "429" in p["bildherkunft"]
+
+
+def test_ki_bild_ohne_secrets_pool(tmp_path, monkeypatch):
+    monkeypatch.delenv("CLOUDFLARE_ACCOUNT_ID", raising=False)
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [MOTIV])
+    assert "Cloudflare-Secrets fehlen" in st.posts[MOTIV["id"]]["bildherkunft"]
+
+
+def test_bildmotiv_pruefung():
+    assert E.pruefen(MOTIV).ok
+    assert not E.pruefen(dict(MOTIV, bildtext_lage="")).ok
+    assert not E.pruefen(dict(MOTIV, bildmotiv="kurz")).ok
+    assert not E.pruefen(dict(MOTIV, bild="gibtsnicht.jpg")).ok  # Pool-Rueckfall bleibt Pflicht
+
+
+def test_bildsprache_muster_und_beispiel_gueltig():
+    from automat import bildsprache as B
+    muster = json.loads(Path("docs/bildsprache-muster.json").read_text(encoding="utf-8"))
+    assert {m["bild_ki"]["art"] for m in muster} == set(B.ARTEN)
+    for m in muster:
+        assert B.pruefen(m["bild_ki"]) == ([], []), m["name"]
+        assert len(B.prompt(m["bild_ki"])) <= B.PROMPT_MAX
+
+
+def test_bildsprache_verbote_auch_verneint():
+    from automat import bildsprache as B
+    b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
+    for wort in ["a woman in a dirndl", "without any signs", "blue and white flags",
+                 "smiling faces", "children playing", "picturesque postcard view", "no logos"]:
+        f, _ = B.pruefen(dict(b, motiv=b["motiv"] + " " + wort))
+        assert f, wort
+    assert B.pruefen(dict(b, aufbau="schief"))[0]
+    assert "golden hour" not in B.prompt(b) and B.HAUSSTIL in B.prompt(b)
+
+
+def test_bildsprache_menschenleer_bei_blaulicht():
+    from automat import bildsprache as B
+    b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
+    assert B.MENSCHENLEER in B.prompt(dict(b, art="blaulicht"))
+    assert B.MENSCHEN in B.prompt(b)
+
+
+def test_bildsprache_kein_post_wie_der_vorige(tmp_path):
+    e1 = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))
+    e1["id"] = "2026-11-12-eins"
+    e2 = dict(e1, id="2026-11-12-zwei", bild="06_text-rechts.jpg")
+    st, tg, meta, s = Status(tmp_path), FakeTG(), FakeMeta(), settings()
+    einmal(st, tg, meta, s, [e1])
+    einmal(st, tg, meta, s, [e2])
+    f = st.posts["2026-11-12-zwei"]["fehler"]
+    assert any("aufbau" in x for x in f) and any("farbwelt" in x for x in f)
+    e3 = dict(e2, id="2026-11-12-drei", bild_ki=dict(e1["bild_ki"], aufbau="weite",
+                                                      farbwelt="frost white, slate blue"))
+    einmal(st, tg, meta, s, [e3])
+    assert st.posts["2026-11-12-drei"]["status"] == "gesendet"

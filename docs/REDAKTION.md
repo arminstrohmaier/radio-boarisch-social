@@ -26,8 +26,16 @@ Kurzfassung (Stand V1.2, 28.10.2026, mit Betreiberentscheidungen bis 10.11.2026)
 - **Ton sonst lebendig:** eine Zeile, ein Emoji als Gliederung; bayerische Anrede und Wendungen
   („Servus“, „grias eich“), lesbar, kein künstlicher Dialekt; kurze Aufforderung am Schluss.
   Keine Superlative über das eigene Programm, keine Ausrufezeichenketten.
-- **Keine Musik, keine Fremdbilder.** Bild nur aus `pool/`; Dateiname nennt die freie Textfläche.
-  Bild passend zur Stimmung wählen und **nicht** eines der zuletzt genutzten.
+- **Keine Musik, keine Fremdbilder.** Jeder Beitrag bekommt ein **eigenes KI-Bild**
+  (Betreiberentscheidung 11.11.2026, Leonardo Lucid Origin über Cloudflare).
+  **Vor jedem Entwurf `docs/BILDSPRACHE.md` lesen** – sie ist für das Bild verbindlich.
+  Das Bild wird im Feld `bild_ki` in Bausteinen beschrieben (art, region, aufbau, lage, motiv,
+  umgebung, heute, licht, farbwelt; englisch, konkret, zum Thema wahr, Verbotenes nie nennen,
+  auch nicht verneint). Vorlagen für den Aufbau: `docs/bildsprache-muster.json`.
+  Aufbau und Farbwelt der letzten Posts stehen in `status.json` (`bild_ki`) – nicht wiederholen.
+  **Zusätzlich Pflicht:** `bild` aus `pool/` als Rückfall, falls die Erzeugung scheitert
+  (Dateiname nennt die freie Textfläche; nicht eines der zuletzt genutzten).
+  Bei eigenem Foto des Betreibers kein `bild_ki`.
 - **Takt:** 3 Posts pro Woche. Pro Lauf **genau ein** Entwurf.
 
 ## Ablauf in zwei Stufen (Betreiberentscheidung vom 10.11.2026)
@@ -90,6 +98,7 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    das Feld **`"thema_ref"`** genau so übernehmen, wie `automat.offen` es ausgibt
    (z. B. `"2026-11-11-themen#2"`). `id` mit dem heutigen Datum.
    Quellenzeile, Signatur, feste Hashtags und „Bild: KI-generiert.“ **nicht** selbst schreiben.
+   `bild_ki` nach `docs/BILDSPRACHE.md`, `bild` als Pool-Rückfall (siehe oben).
    Ins Feld `recherche`: Auslöser, Primärquelle mit Datum, Quellenregister-Eintrag.
    **Hashtags** (Betreiberentscheidung 10.11.2026): zusätzlich zu den festen **bis zu 10**, nur
    passende – Ort, Landkreis/Region (z. B. #Landshut #Niederbayern), Thema, Anlass, ggf. der
