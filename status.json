@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760162,
+  "telegram_offset": 972760163,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -230,7 +230,7 @@
       "tg_msg": 73
     },
     "2026-11-12-festivalfoerderung-bayern-v4": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "8c7e3bfc1a",
       "hash": "0209a63fc1b9151e19e41dfa3a08fd83add0f4fb",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-festivalfoerderung-bayern-v4.json",
@@ -241,7 +241,8 @@
       "fehler": [],
       "gesendet": "2026-11-12T07:38:32+00:00",
       "tg_foto": 74,
-      "tg_msg": 75
+      "tg_msg": 75,
+      "entschieden": "2026-11-12T07:40:39+00:00"
     }
   },
   "themen": {
