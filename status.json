@@ -186,6 +186,17 @@
           "zeit": "2026-11-11T10:54:53+00:00"
         }
       }
+    },
+    "2026-11-12-festivalfoerderung-bayern": {
+      "status": "neu",
+      "key": "448b651a30",
+      "hash": "f6562124bfef69541c8d967e95f58aefdfc0dc07",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-festivalfoerderung-bayern.json",
+      "importiert": "2026-11-12T05:39:26+00:00",
+      "bild": "19_text-rechts.jpg",
+      "thema": "Kunstministerium fördert rund 110 Musikfestivals und Konzertreihen in ganz Bayern",
+      "hinweise": [],
+      "fehler": []
     }
   },
   "themen": {
@@ -435,7 +446,7 @@
       "entwurf": "2026-11-11-weihnachtsmarkt-wuerzburg"
     },
     "2026-11-11-themen-4": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "e82c9b69b5",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-11-themen-4.json",
       "importiert": "2026-11-11T20:39:15+00:00",
@@ -472,7 +483,8 @@
       "gesendet": "2026-11-11T20:39:17+00:00",
       "tg_msg": 66,
       "gewaehlt": 2,
-      "entschieden": "2026-11-12T05:25:58+00:00"
+      "entschieden": "2026-11-12T05:25:58+00:00",
+      "entwurf": "2026-11-12-festivalfoerderung-bayern"
     }
   },
   "befehle_gesetzt": true,
