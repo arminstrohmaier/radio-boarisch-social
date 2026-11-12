@@ -101,6 +101,39 @@ Hausstil, Menschenregel und freie Textfläche setzt der Automat selbst dazu
   Maibaum (nur als geschälter Stamm, ohne Bemalung), Sonnenauf-/-untergang, golden hour,
   dramatic, vibrant, glowing.
 
+### Bayerische Dinge genau benennen (Glossar)
+
+Der Generator kennt bayerische Begriffe nicht oder verwechselt sie. Ein „beer garden" wird
+schnell ein amerikanischer Picknicktisch (so geschehen im ersten Test). Darum beschreiben,
+wie das Ding aussieht:
+
+| Gemeint | So beschreiben |
+|---|---|
+| Bierzeltgarnitur | long narrow folding beer tables with separate folding benches, bare wooden tops on metal legs |
+| Biergarten | gravel ground under old chestnut trees, rows of folding beer tables and benches |
+| Wirtshaussaal | the hall of a village inn, wooden floorboards, plastered vaulted or beamed ceiling, small stage at one end |
+| Gaststube | low wood-panelled room, scrubbed wooden tables, corner bench along the wall, tiled stove |
+| Kachelofen | large tiled stove of glazed ceramic tiles with a bench around it |
+| Christkindlmarkt-Bude | small wooden market stall with a pitched roof and folding shutters |
+| Dult / Volksfest | fairground with a Ferris wheel, carousels and food stalls at the edge of town |
+| Blaskapelle (ohne Personen) | tuba, flugelhorn, tenor horn, trumpets and a bass drum resting on chairs |
+| Hopfengarten | rows of tall wooden poles with wires, hop bines climbing up |
+| Stadl | large old timber barn with weathered vertical boards |
+| Zwiebelturm | baroque church tower with an onion-shaped dome |
+| Maibaum | tall peeled spruce trunk, bare pale wood (ohne Bemalung und Schilder) |
+| Marktplatz (Niederbayern) | long street-like market square lined with colourful plastered facades |
+
+### Dinge, die Schrift mitbringen
+
+Manche Gegenstände malt der Generator fast immer mit Kritzelschrift: Tafeln, Speisekarten,
+Bildschirme, Zeitungen, Bücher, Kartons, Schaufenster. Möglichst weglassen; Bildschirme
+„closed" oder „switched off" beschreiben. Die Prüfung gibt dazu einen Hinweis.
+
+### Licht ohne Kitsch
+
+„Low sun", „sun filtered through leaves" oder Gegenlicht erzeugen oft einen orangen
+Lens-Flare (so geschehen im ersten Test). Lieber bedeckt, diffus, Dämmerung, Lampenlicht.
+
 ## 4. Themenarten (`art`)
 
 | `art` | Grundton, den der Automat dazusetzt | Menschen |

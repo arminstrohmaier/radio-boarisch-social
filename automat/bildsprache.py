@@ -23,8 +23,9 @@ HAUSSTIL = (
     "Bavaria as it really looks today. Full-frame camera, 35mm lens, natural "
     "available light, honest true-to-life colours with moderate saturation, fine film grain, "
     "real textures, weathered materials and small everyday imperfections. Unposed, quietly "
-    "observed, calm and warm in feeling, grounded and unpretentious. Plain unmarked surfaces: "
-    "blank walls, bare wood, clean facades."
+    "observed, calm and warm in feeling, grounded and unpretentious. Clean lens, crisp even "
+    "exposure. Plain unmarked surfaces: blank walls, bare wood, clean facades; any screens "
+    "are switched off and dark."
 )
 
 # Betreiberentscheidung 11.11.2026: Menschen erlaubt, nie erkennbar; Blaulicht/Nachruf ohne.
@@ -144,6 +145,10 @@ VORSICHT = {
     r"\bmaypole|\bmaibaum": "Maibaum nur als geschaelter Stamm, ohne Bemalung und Schilder",
     r"\bcastle|\bschloss|\bmonastery|\babbey": "echtes Bauwerk? Nur allgemein beschreiben",
     r"\bcows?\b|\bcattle": "Kuehe (Klischee?)",
+    r"\blaptop|\bscreen|\bmonitor|\btablet|\bsmartphone|\bphone\b": "Bildschirm zeigt oft Kritzelschrift – 'closed' bzw. 'switched off' dazuschreiben",
+    r"\bchalkboard|\bblackboard|\bmenu|\bnewspaper|\bbook\b|\bcardboard|\bcrate|\bshop window|\bstorefront": "Gegenstand bringt oft Schrift mit",
+    r"\bpicnic table": "Picknicktisch ist amerikanisch – 'long narrow folding beer tables with separate folding benches'",
+    r"\blow sun|\bsun filtered|\bsunbeam|\bsunlight through": "Gegenlicht erzeugt oft Lens-Flare (Kitsch?)",
 }
 
 
@@ -181,6 +186,8 @@ def pruefen(b, zuletzt: list[dict] | None = None) -> tuple[list[str], list[str]]
     for name in _treffer(VERBOTEN, alles):
         fehler.append(f"bild_ki: '{name}' nicht beschreiben, auch nicht verneint (Bildregel 10.3)")
     for name in _treffer(VORSICHT, alles):
+        if name.startswith("Bildschirm") and re.search(r"\bclosed|switched off|\bdark\b|upside down", alles.lower()):
+            continue
         hinweise.append(f"bild_ki: {name}")
     for vorher in (zuletzt or [])[:1]:
         if vorher.get("aufbau") == b["aufbau"]:
