@@ -547,6 +547,42 @@
       "gewaehlt": 2,
       "entschieden": "2026-11-12T05:25:58+00:00",
       "entwurf": "2026-11-12-festivalfoerderung-bayern"
+    },
+    "2026-11-12-themen": {
+      "status": "neu",
+      "key": "e01feb4dc2",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-12-themen.json",
+      "importiert": "2026-11-12T15:39:13+00:00",
+      "themen": [
+        {
+          "titel": "Heute Abend: Verleihung des Bayerischen Kunstpreises",
+          "worum": "Am 12. November werden im Bergson Kunstkraftwerk in München die Bayerischen Kunstpreise verliehen – u. a. an das Volksmusikfestival „drumherum“, das Luftmuseum Amberg und die Kunstpartner Adlmannstein; der BR überträgt ab 19 Uhr live im Netz.",
+          "quelle": {
+            "name": "Bayerisches Staatsministerium für Wissenschaft und Kunst",
+            "url": "https://www.stmwk.bayern.de/pressemitteilung/13069/nr-95-vom-29-10-2026.html"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Der Christbaum am Marienplatz kommt heuer aus Sauerlach",
+          "worum": "Für den Münchner Christkindlmarkt hat die Feuerwehr den Baum aus Sauerlach aufgestellt, die Buden stehen, ab 14. November wird eingeräumt – Eröffnung am 20. November.",
+          "quelle": {
+            "name": "Landeshauptstadt München, Referat für Arbeit und Wirtschaft",
+            "url": "https://stadt.muenchen.de/dam/Home/Stadtverwaltung/Referat-fuer-Arbeit-und-Wirtschaft/presse/pm/PR-Meldungen-ChM/01_Auf-Abbau_Christkindlmarkt_2026.pdf"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Zoll stellt 22 getrocknete Seepferdchen am Flughafen München sicher",
+          "worum": "Bei einer Kofferkontrolle fehlten die artenschutzrechtlichen Papiere – sachlich, ohne Angaben zur Person, Thema Artenschutz.",
+          "quelle": {
+            "name": "Hauptzollamt München",
+            "url": "https://www.presseportal.de/blaulicht/pm/121256/6388074"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -585,7 +621,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-12T15:00:27+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-12-themen"
     }
   ]
 }
