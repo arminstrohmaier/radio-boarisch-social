@@ -261,7 +261,7 @@
       }
     },
     "2026-11-12-christbaum-marienplatz": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "2a11d72c54",
       "hash": "bf6453e2d223cea2cf695caeaeb88bcfacdd556c",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-christbaum-marienplatz.json",
