@@ -45,6 +45,8 @@ GROESSE = (896, 1120)
 # direkt in 4:5. Faellt es aus, nimmt der Automat das Pool-Bild aus dem Entwurf.
 PRODUKTIV = "@cf/leonardo/lucid-origin"
 PRODUKTIV_GROESSE = (1088, 1360)
+# Verbrauch laut Cloudflare-Dashboard 11.11.2026: 5 Bilder 896x1120 = 15.620 Neuronen
+# (~3.100 je Bild); bei 1088x1360 grob 4.600 je Bild -> im Free-Tarif 2 Bilder pro Tag.
 ZIEL = (1080, 1350)
 
 # Wird an jedes Motiv angehaengt: die Bildregel in Worten, die FLUX versteht.
@@ -284,6 +286,8 @@ def main(argv=None) -> int:
                     help="die 5 Testmotive mit mehreren Modellen, je Modell ein Unterordner")
     ap.add_argument("--betrieb", type=Path, metavar="ORDNER",
                     help="Probe des Betriebswegs: Beispielentwurf -> KI-Bild -> Bildtext")
+    ap.add_argument("--max-bilder", type=int, default=2,
+                    help="hoechstens so viele neue Bilder pro Lauf (Lucid Origin ~4.600 Neuronen/Bild, frei 10.000/Tag)")
     ap.add_argument("--motiv", help="ein einzelnes Motiv (englisch)")
     ap.add_argument("--ziel", type=Path, help="Zieldatei fuer --motiv")
     a = ap.parse_args(argv)
@@ -297,10 +301,15 @@ def main(argv=None) -> int:
                                 .read_text("utf-8"))
             faelle = [("beispiel", e["bild_ki"], e["bildtext"])] + \
                      [(m["name"], m["bild_ki"], m.get("bildtext", "")) for m in muster]
+            neu = 0
             for name, b, bt in faelle:
                 ziel = a.betrieb / f"{name}.jpg"
                 if ziel.exists():
                     continue
+                if neu >= a.max_bilder:
+                    print(f"Tageslimit {a.max_bilder} Bilder erreicht, Rest beim naechsten Lauf")
+                    break
+                neu += 1
                 roh = a.betrieb / "roh" / f"{name}.jpg"
                 text = bildsprache.prompt(b)
                 (a.betrieb / "roh").mkdir(parents=True, exist_ok=True)
