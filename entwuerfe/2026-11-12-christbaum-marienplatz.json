@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-12-christbaum-marienplatz",
+  "thema": "Christbaum für den Münchner Christkindlmarkt kommt aus Sauerlach",
+  "thema_ref": "2026-11-12-themen#2",
+  "ernst": false,
+  "hook": "🎄 Servus München – da Christbaum am Marienplatz steht scho!",
+  "text": "🌲 Heuer kommt er aus der Gemeinde Sauerlach im Landkreis München.\n🚒 Die Münchner Berufsfeuerwehr hat ihn am Marienplatz aufgestellt, die Buden stehen auch scho.\n📦 Ab 14. November räumen die Standler ihre Waren ein.\n📅 Am 20. November eröffnet Oberbürgermeister Dominik Krause den Christkindlmarkt – bis Heiligabend um 14 Uhr.",
+  "aufforderung": "👉 Wer schaut zur Eröffnung vorbei? Schreibt's uns!",
+  "bildtext": "Christbaum am Marienplatz kommt aus Sauerlach",
+  "bild": "17_text-mitte.jpg",
+  "quelle": {
+    "name": "Landeshauptstadt München, Referat für Arbeit und Wirtschaft",
+    "url": "https://stadt.muenchen.de/dam/Home/Stadtverwaltung/Referat-fuer-Arbeit-und-Wirtschaft/presse/pm/PR-Meldungen-ChM/01_Auf-Abbau_Christkindlmarkt_2026.pdf"
+  },
+  "hashtags": ["München", "Marienplatz", "Christkindlmarkt", "Christbaum", "Sauerlach", "LandkreisMünchen", "Advent", "Weihnachtsmarkt", "Oberbayern"],
+  "erwaehnungen": [
+    {"name": "Landeshauptstadt München", "instagram": "stadtmuenchen", "facebook": "Stadt.Muenchen", "beleg": "https://stadt.muenchen.de/"},
+    {"name": "muenchen.de", "instagram": "muenchen", "facebook": "muenchen", "beleg": "https://www.muenchen.de/"},
+    {"name": "Gemeinde Sauerlach"},
+    {"name": "Berufsfeuerwehr München"}
+  ],
+  "recherche": "Gewähltes Thema 2 vom 12.11.2026. Primärquelle: Presseinformation der Landeshauptstadt München (Referat für Arbeit und Wirtschaft) vom 03.11.2026, gelesen am 12.11.2026. Quellenregister: stadt.muenchen.de, geprüft 10.11.2026 – Pressemitteilungen mit Quellenangabe nachdruckbar. Konten der Stadt (stadt.muenchen.de) und des Portals muenchen.de auf den eigenen Websites belegt. Sauerlach und Feuerwehr München nur mit Namen: deren Websites sind in der Arbeitsumgebung nicht freigegeben (Freigabe beim Betreiber angefragt, noch offen)."
+}
