@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760165,
+  "telegram_offset": 972760166,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -261,7 +261,7 @@
       }
     },
     "2026-11-12-christbaum-marienplatz": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "2a11d72c54",
       "hash": "bf6453e2d223cea2cf695caeaeb88bcfacdd556c",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-christbaum-marienplatz.json",
@@ -275,7 +275,8 @@
       "fehler": [],
       "gesendet": "2026-11-12T17:39:12+00:00",
       "tg_foto": 82,
-      "tg_msg": 83
+      "tg_msg": 83,
+      "entschieden": "2026-11-12T17:39:50+00:00"
     }
   },
   "themen": {
