@@ -160,7 +160,7 @@ Von Hand: **Run workflow** → bei **dauer** `340` eintragen → **Run workflow*
 
 ## Teil D – Bilderzeugung mit Cloudflare Workers AI (Bildtest, LOP 127 Schritt 1)
 
-Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, FLUX.1 schnell braucht grob 100 pro Bild, die besseren Modelle deutlich mehr → weit mehr als nötig).
+Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, Lucid Origin braucht laut Dashboard rund 3.100 pro Bild, also etwa 3 Bilder pro Tag → weit mehr als nötig).
 Modell: `@cf/black-forest-labs/flux-1-schnell`. Code: `automat/bildgen.py`.
 
 ### D1. Konto und Werte holen
@@ -189,7 +189,7 @@ Branches fünf Bilder (1080×1350) und `prompts.json` (Motiv, Seed, Prompt).
 ### D4. Betrieb (seit 11.11.2026)
 
 Der Automat erzeugt für jeden Entwurf mit `bild_ki` (Bausteine nach `docs/BILDSPRACHE.md`) ein eigenes Bild mit
-`@cf/leonardo/lucid-origin` (1088×1360, 4:5) und setzt den Bildtext darauf. In Telegram steht
+`@cf/leonardo/lucid-origin` (896×1120, 4:5, auf 1080×1350 hochgerechnet) und setzt den Bildtext darauf. In Telegram steht
 unter dem Bild, woher es kommt („eigenes KI-Bild“ oder „Pool … (KI-Bild nicht möglich: Grund)“).
 Fehlen die Secrets, ist das Tageskontingent leer oder antwortet Cloudflare nicht, nimmt er
 automatisch das Pool-Bild aus dem Entwurf. Kosten entstehen im Free-Tarif nie.

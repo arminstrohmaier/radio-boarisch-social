@@ -44,9 +44,10 @@ GROESSE = (896, 1120)
 # Betrieb (Betreiberentscheidung 11.11.2026 nach Modellvergleich): Leonardo Lucid Origin,
 # direkt in 4:5. Faellt es aus, nimmt der Automat das Pool-Bild aus dem Entwurf.
 PRODUKTIV = "@cf/leonardo/lucid-origin"
-PRODUKTIV_GROESSE = (1088, 1360)
 # Verbrauch laut Cloudflare-Dashboard 11.11.2026: 5 Bilder 896x1120 = 15.620 Neuronen
-# (~3.100 je Bild); bei 1088x1360 grob 4.600 je Bild -> im Free-Tarif 2 Bilder pro Tag.
+# (~3.100 je Bild); 1088x1360 waere grob 4.600 je Bild. Frei sind 10.000 pro Tag, daher die
+# im Vergleich gesehene Groesse (3 Bilder/Tag) und Hochskalieren auf 1080x1350.
+PRODUKTIV_GROESSE = (896, 1120)
 ZIEL = (1080, 1350)
 
 # Wird an jedes Motiv angehaengt: die Bildregel in Worten, die FLUX versteht.
@@ -286,8 +287,8 @@ def main(argv=None) -> int:
                     help="die 5 Testmotive mit mehreren Modellen, je Modell ein Unterordner")
     ap.add_argument("--betrieb", type=Path, metavar="ORDNER",
                     help="Probe des Betriebswegs: Beispielentwurf -> KI-Bild -> Bildtext")
-    ap.add_argument("--max-bilder", type=int, default=2,
-                    help="hoechstens so viele neue Bilder pro Lauf (Lucid Origin ~4.600 Neuronen/Bild, frei 10.000/Tag)")
+    ap.add_argument("--max-bilder", type=int, default=3,
+                    help="hoechstens so viele neue Bilder pro Lauf (Lucid Origin ~3.100 Neuronen/Bild, frei 10.000/Tag)")
     ap.add_argument("--motiv", help="ein einzelnes Motiv (englisch)")
     ap.add_argument("--ziel", type=Path, help="Zieldatei fuer --motiv")
     a = ap.parse_args(argv)
