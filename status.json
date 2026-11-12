@@ -549,7 +549,7 @@
       "entwurf": "2026-11-12-festivalfoerderung-bayern"
     },
     "2026-11-12-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "e01feb4dc2",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-12-themen.json",
       "importiert": "2026-11-12T15:39:13+00:00",
@@ -582,7 +582,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-12T15:39:15+00:00",
+      "tg_msg": 80
     }
   },
   "befehle_gesetzt": true,
