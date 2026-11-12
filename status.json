@@ -202,7 +202,7 @@
       "tg_msg": 69
     },
     "2026-11-12-festivalfoerderung-bayern-v2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "5117f0e9bc",
       "hash": "6d5050382eca8d83cf567ee9b2fb4d40354ea407",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-festivalfoerderung-bayern-v2.json",
@@ -210,7 +210,10 @@
       "bild": "11_text-linksunten.jpg",
       "thema": "Kunstministerium fördert rund 110 Musikfestivals und Konzertreihen in ganz Bayern (Fassung 2, mit verlinkten Städten)",
       "hinweise": [],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-12T06:12:59+00:00",
+      "tg_foto": 70,
+      "tg_msg": 71
     }
   },
   "themen": {
