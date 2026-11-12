@@ -261,7 +261,7 @@
       }
     },
     "2026-11-12-christbaum-marienplatz": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "2a11d72c54",
       "hash": "bf6453e2d223cea2cf695caeaeb88bcfacdd556c",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-12-christbaum-marienplatz.json",
@@ -272,7 +272,10 @@
         "Gemeinde Sauerlach: kein belegtes Konto – erscheint nur als Name",
         "Berufsfeuerwehr München: kein belegtes Konto – erscheint nur als Name"
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-12T17:39:12+00:00",
+      "tg_foto": 82,
+      "tg_msg": 83
     }
   },
   "themen": {
