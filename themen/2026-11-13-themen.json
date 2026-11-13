@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-13-themen",
+  "themen": [
+    {
+      "titel": "Bayreuther Christkindlesmarkt öffnet am 23. November",
+      "worum": "Das neue Christkind eröffnet am Montag, 23. November, den Bayreuther Christkindlesmarkt. Heute Abend wird der große Weihnachtsbaum aufgestellt, in der Innenstadt hängt die nach Angaben der Stadt längste Lichterkette Frankens mit rund 16.000 LED.",
+      "quelle": {"name": "Stadt Bayreuth", "url": "https://www.bayreuth.de/vorbereitungen-fuer-christkindlesmarkt-auf-der-zielgeraden/"},
+      "ernst": false
+    },
+    {
+      "titel": "Kunsteisbahn am Königssee wieder in Betrieb",
+      "worum": "Nach dem Unwetter 2021 ist die Rodel- und Bobbahn am Königssee wieder eröffnet – die weltweit erste künstlich vereiste Bahn. Rodlerinnen und Rodler müssen zum Training nicht mehr nach Innsbruck ausweichen; der Herrenrodelstart fehlt noch.",
+      "quelle": {"name": "Bayerisches Staatsministerium des Innern, für Sport und Integration", "url": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/herrmann-bei-der-wieder-eroeffnung-der-kunsteisbahn-am-koenigssee-22661/"},
+      "ernst": false
+    },
+    {
+      "titel": "Fünf Jahre Notruf-App „nora“",
+      "worum": "Mit der App „nora“ lassen sich Polizei, Feuerwehr und Rettungsdienst barrierefrei per Text rufen – etwa für Menschen mit Hör- oder Sprachbeeinträchtigung. In Bayern gingen bis Ende Oktober mehr als 1.180 Notrufe darüber ein.",
+      "quelle": {"name": "Bayerisches Staatsministerium des Innern, für Sport und Integration", "url": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/herrmann:-5-jahre-notruf-app-nora-22663/"},
+      "ernst": false
+    }
+  ]
+}
