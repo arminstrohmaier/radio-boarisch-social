@@ -29,6 +29,9 @@ def main(argv=None) -> int:
             print(f"Bild: {a.bild}")
     if zuletzt:
         print("Zuletzt genutzte Bilder:", ", ".join(zuletzt))
+    if not (e.get("thema_ref") or e.get("hinweis_ref")):
+        print("WARNUNG: weder thema_ref noch hinweis_ref – gehoert der Entwurf zu einem gewaehlten "
+              "Thema oder Hinweis, MUSS die Kennung aus automat.offen hinein.")
     for h in p.hinweise:
         print("HINWEIS:", h)
     for f in p.fehler:

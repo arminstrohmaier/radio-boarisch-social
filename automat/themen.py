@@ -152,14 +152,18 @@ def entwurf_verknuepfen(st, entwurf: dict, pid: str):
         t.update(status="erledigt", entwurf=pid)
 
 
-def offen(st, veraltet) -> list[dict]:
+def offen(st, veraltet, erledigt=frozenset()) -> list[dict]:
     """Was Claude jetzt tun muss: angeforderte Themenlaeufe (/themen) und
-    gewaehlte Themen, zu denen noch kein Entwurf existiert."""
+    gewaehlte Themen, zu denen noch kein Entwurf existiert.
+
+    erledigt: thema_ref/hinweis_ref-Werte, zu denen im Arbeitsbranch schon ein
+    Entwurf oder eine Rueckmeldung liegt (auch wenn der Automat sie noch nicht
+    abgeholt hat) – verhindert doppelte Arbeit."""
     anf = [a for a in st.daten.get("anforderungen", []) if a.get("status") == "offen"]
     aus = [{"art": "themenlauf", "angefordert": a["zeit"]}
            for a in anf if a.get("art") == "themenlauf"][:1]
     for a in anf:
-        if a.get("art") == "hinweis":
+        if a.get("art") == "hinweis" and a["id"] not in erledigt:
             h = {"art": "hinweis", "hinweis_ref": a["id"], "text": a["text"], "angefordert": a["zeit"]}
             if a.get("bild"):
                 h["eigenes_foto"] = str(st.ordner / a["bild"])
@@ -168,5 +172,7 @@ def offen(st, veraltet) -> list[dict]:
     for tid, t in st.themen.items():
         if t.get("status") == "gewaehlt" and not veraltet(tid):
             n = t["gewaehlt"]
+            if f"{tid}#{n}" in erledigt:
+                continue
             aus.append({"art": "entwurf", "thema_ref": f"{tid}#{n}", **t["themen"][n - 1]})
     return aus

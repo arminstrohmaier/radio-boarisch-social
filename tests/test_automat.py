@@ -517,3 +517,18 @@ def test_bis_zu_zehn_erwaehnungen():
     assert E.pruefen(dict(BEISPIEL, erwaehnungen=zehn)).ok
     elf = zehn + [{"name": "Ort 10", "instagram": "ort10", "beleg": "https://x.de"}]
     assert not E.pruefen(dict(BEISPIEL, erwaehnungen=elf)).ok
+
+
+def test_offen_entwurf_im_branch_gilt_als_erledigt(tmp_path):
+    from automat import offen as O, themen
+    st = Status(tmp_path / "r")
+    st.themen["2026-11-13-themen"] = {"status": "gewaehlt", "gewaehlt": 2,
+                                       "themen": [{"titel": "a"}, {"titel": "b"}]}
+    assert len(themen.offen(st, lambda _: False)) == 1
+    ent = tmp_path / "entwuerfe"
+    ent.mkdir()
+    (ent / "x.json").write_text(json.dumps({"id": "x", "thema_ref": "2026-11-13-themen#2"}))
+    (ent / "kaputt.json").write_text("{")
+    refs = O.erledigte_refs(ent, tmp_path / "fehlt")
+    assert refs == {"2026-11-13-themen#2"}
+    assert themen.offen(st, lambda _: False, refs) == []

@@ -88,7 +88,8 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    Fakten dort prüfen, Entwurf nach Raster.
 2. `entwuerfe/<JJJJ-MM-TT>-<stichwort>.json` anlegen (Format: `docs/beispiel-entwurf.json`) und
    das Feld **`"thema_ref"`** genau so übernehmen, wie `automat.offen` es ausgibt
-   (z. B. `"2026-11-11-themen#2"`). `id` mit dem heutigen Datum.
+   (z. B. `"2026-11-11-themen#2"`). **Pflicht** – ohne das Feld gilt das Thema weiter als offen
+   (`automat.pruefen` warnt). `id` mit dem heutigen Datum.
    Quellenzeile, Signatur, feste Hashtags und „Bild: KI-generiert.“ **nicht** selbst schreiben.
    Ins Feld `recherche`: Auslöser, Primärquelle mit Datum, Quellenregister-Eintrag.
    **Hashtags** (Betreiberentscheidung 10.11.2026): zusätzlich zu den festen **bis zu 10**, nur
