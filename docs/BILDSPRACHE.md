@@ -90,6 +90,9 @@ Hausstil, Menschenregel und freie Textfläche setzt der Automat selbst dazu
 - **Menschen nur, wenn sie das Bild brauchen** – klein, von hinten, Gesicht abgewandt,
   Alltagskleidung, nur Erwachsene. Bei `blaulicht` und `nachruf` setzt der Automat das Bild
   menschenleer (Betreiberentscheidung vom 11.11.2026).
+- **Bei Nahaufnahmen (`detail`) nur Hände und Unterarme** – sonst malt der Generator das
+  Gesicht halb mit ins Bild (so geschehen im Christkindlmarkt-Test). Der Automat setzt das
+  beim Aufbau `detail` selbst dazu.
 - **Den Moment am Rand wählen:** Aufbau, Vorbereitung, kurz vor Beginn, danach. Das wirkt
   echt und vermeidet Gedränge mit Gesichtern.
 - **Nicht nennen, auch nicht verneint:** Dirndl, Lederhosen, Tracht/costume, Edelweiß,
@@ -121,6 +124,7 @@ wie das Ding aussieht:
 | Stadl | large old timber barn with weathered vertical boards |
 | Zwiebelturm | baroque church tower with an onion-shaped dome |
 | Maibaum | tall peeled spruce trunk, bare pale wood (ohne Bemalung und Schilder) |
+| Sandsteinmauer (Franken) | walls of large rough-cut blocks of red sandstone masonry |
 | Marktplatz (Niederbayern) | long street-like market square lined with colourful plastered facades |
 
 ### Dinge, die Schrift mitbringen

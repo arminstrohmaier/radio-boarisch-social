@@ -92,7 +92,8 @@ REGIONEN = {
 AUFBAU = {
     "weite": "Wide establishing shot, the main subject small within a large space.",
     "mittel": "Medium shot at eye level, the main subject in the lower half of the frame.",
-    "detail": "Close-up detail shot with shallow depth of field, background softly blurred.",
+    "detail": ("Close-up detail shot with shallow depth of field, background softly blurred; "
+               "people only as hands and forearms entering the frame, cropped at the elbow."),
     "rahmen": "Framed through a foreground element such as a doorway, window or branches.",
     "diagonale": "A strong diagonal line leads from a lower corner deep into the image.",
     "zentral": "Symmetrical one-point perspective with a centred vanishing point.",
