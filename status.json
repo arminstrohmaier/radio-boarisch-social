@@ -693,6 +693,42 @@
       "tg_msg": 85,
       "gewaehlt": 2,
       "entschieden": "2026-11-13T07:23:58+00:00"
+    },
+    "2026-11-13-themen-2": {
+      "status": "neu",
+      "key": "6a5683a366",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-13-themen-2.json",
+      "importiert": "2026-11-13T12:39:52+00:00",
+      "themen": [
+        {
+          "titel": "Kostenlos von Regensburg zum Weihnachtsmarkt nach Pilsen",
+          "worum": "Die Stadt Regensburg lädt ihre Bürgerinnen und Bürger am 5. und 12. Dezember zu einer kostenlosen Busfahrt in die Partnerstadt Pilsen ein – mit Stadtführung und Weihnachtsmarkt. Anmeldung ab Montag, 16. November, nur online.",
+          "quelle": {
+            "name": "Stadt Regensburg",
+            "url": "https://www.regensburg.de/aktuelles/pressemitteilungen/159998/621796/"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "„Kunst für die Kunst“: Benefizauktion in Augsburg",
+          "worum": "Rund 100 gestiftete Originale kommen am 27. November in der Neuen Galerie im Höhmannhaus unter den Hammer, viele Gebote starten bei 10 Euro. Der Erlös geht in die Restaurierung von Gemälden der Kunstsammlungen & Museen Augsburg; Vorbesichtigung ab 20. November.",
+          "quelle": {
+            "name": "Stadt Augsburg",
+            "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/kunst-unterm-hammer-benefizauktion-zugunsten-der-kunstsammlungen-museen-augsburg"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "„Nachts im Schloss“: Mit der Taschenlampe durchs Neue Schloss Bayreuth",
+          "worum": "Am 4. Dezember dürfen Kinder von sieben bis zehn Jahren abends mit Taschenlampen das Neue Schloss in Bayreuth erkunden und Fackellaternen basteln. Anmeldung ab Samstag, 14. November, an der Museumskasse; fünf Euro pro Kind, Plätze begrenzt.",
+          "quelle": {
+            "name": "Stadt Bayreuth",
+            "url": "https://www.bayreuth.de/erlebnisangebot-fuer-kinder-nachts-im-schloss/"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -737,7 +773,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-13T12:01:24+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-13-themen-2"
     }
   ]
 }
