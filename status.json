@@ -326,7 +326,7 @@
       }
     },
     "2026-11-13-nachts-im-schloss-bayreuth": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "d4072c20a7",
       "hash": "e41bc65b4802a2db771f40084588683e7178477b",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-13-nachts-im-schloss-bayreuth.json",
