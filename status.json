@@ -293,6 +293,17 @@
           "zeit": "2026-11-12T17:40:26+00:00"
         }
       }
+    },
+    "2026-11-13-kunsteisbahn-koenigssee": {
+      "status": "neu",
+      "key": "492d9343f7",
+      "hash": "8c55c7e306062c8a12ce1f30508db3aa4fc22276",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-13-kunsteisbahn-koenigssee.json",
+      "importiert": "2026-11-13T08:38:57+00:00",
+      "bild": "18_text-oben.jpg",
+      "thema": "Kunsteisbahn am Königssee nach dem Unwetter 2021 wieder in Betrieb",
+      "hinweise": [],
+      "fehler": []
     }
   },
   "themen": {
