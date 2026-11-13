@@ -695,7 +695,7 @@
       "entschieden": "2026-11-13T07:23:58+00:00"
     },
     "2026-11-13-themen-2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "6a5683a366",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-13-themen-2.json",
       "importiert": "2026-11-13T12:39:52+00:00",
@@ -728,7 +728,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-13T12:39:54+00:00",
+      "tg_msg": 92
     }
   },
   "befehle_gesetzt": true,
