@@ -2,6 +2,7 @@
   "id": "2026-11-13-kunsteisbahn-koenigssee",
   "thema": "Kunsteisbahn am Königssee nach dem Unwetter 2021 wieder in Betrieb",
   "ernst": false,
+  "thema_ref": "2026-11-13-themen#2",
   "hook": "🛷 Servus Berchtesgadener Land – am Königssee wird wieder grodelt!",
   "text": "❄️ Die Kunsteisbahn am Königssee ist wieder in Betrieb. Vor knapp 60 Jahren war sie die erste künstlich vereiste Rodel- und Bobbahn der Welt – 2021 hat das Unwetter sie schwer beschädigt.\n🏗️ Wiederaufgebaut hat sie der Landkreis – mit mehr als 60 Millionen Euro, samt Schutz vor künftigen Unwettern am Wildbach.\n⏳ Ganz fertig ist sie noch nicht: Der Herrenrodelstart fehlt noch. Aber Training gibt's wieder dahoam statt in Innsbruck.",
   "aufforderung": "👉 Wart's scho moi am Königssee bei an Rennen? Schreibt's uns in d'Kommentare!",
@@ -11,7 +12,17 @@
     "name": "Bayerisches Staatsministerium des Innern, für Sport und Integration",
     "url": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/herrmann-bei-der-wieder-eroeffnung-der-kunsteisbahn-am-koenigssee-22661/"
   },
-  "hashtags": ["Königssee", "SchönauAmKönigssee", "BerchtesgadenerLand", "Oberbayern", "Rodeln", "Bobsport", "Wintersport", "Kunsteisbahn", "Kufensport"],
+  "hashtags": [
+    "Königssee",
+    "SchönauAmKönigssee",
+    "BerchtesgadenerLand",
+    "Oberbayern",
+    "Rodeln",
+    "Bobsport",
+    "Wintersport",
+    "Kunsteisbahn",
+    "Kufensport"
+  ],
   "erwaehnungen": [
     {
       "name": "Bayerisches Innen- und Sportministerium",

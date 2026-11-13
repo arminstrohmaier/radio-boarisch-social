@@ -777,3 +777,18 @@ def test_bildtext_haupt_und_zusatzzeile():
     assert render.teilen("Neues Album · ab Freitag") == ("Neues Album", "ab Freitag")
     assert render.teilen("Grüße aus Regensburg") == ("Grüße aus Regensburg", "")
     assert render.teilen("Rock-Festival in Passau") == ("Rock-Festival in Passau", "")
+
+
+def test_offen_entwurf_im_branch_gilt_als_erledigt(tmp_path):
+    from automat import offen as O, themen
+    st = Status(tmp_path / "r")
+    st.themen["2026-11-13-themen"] = {"status": "gewaehlt", "gewaehlt": 2,
+                                       "themen": [{"titel": "a"}, {"titel": "b"}]}
+    assert len(themen.offen(st, lambda _: False)) == 1
+    ent = tmp_path / "entwuerfe"
+    ent.mkdir()
+    (ent / "x.json").write_text(json.dumps({"id": "x", "thema_ref": "2026-11-13-themen#2"}))
+    (ent / "kaputt.json").write_text("{")
+    refs = O.erledigte_refs(ent, tmp_path / "fehlt")
+    assert refs == {"2026-11-13-themen#2"}
+    assert themen.offen(st, lambda _: False, refs) == []
