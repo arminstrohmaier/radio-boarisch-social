@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760168,
+  "telegram_offset": 972760169,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -733,6 +733,11 @@
       "zeit": "2026-11-12T15:00:27+00:00",
       "status": "erledigt",
       "themen": "2026-11-12-themen"
+    },
+    {
+      "art": "themenlauf",
+      "zeit": "2026-11-13T12:01:24+00:00",
+      "status": "offen"
     }
   ]
 }
