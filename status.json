@@ -295,7 +295,7 @@
       }
     },
     "2026-11-13-kunsteisbahn-koenigssee": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "492d9343f7",
       "hash": "8c55c7e306062c8a12ce1f30508db3aa4fc22276",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-13-kunsteisbahn-koenigssee.json",
