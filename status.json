@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760167,
+  "telegram_offset": 972760168,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -295,7 +295,7 @@
       }
     },
     "2026-11-13-kunsteisbahn-koenigssee": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "492d9343f7",
       "hash": "8c55c7e306062c8a12ce1f30508db3aa4fc22276",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-13-kunsteisbahn-koenigssee.json",
@@ -306,7 +306,8 @@
       "fehler": [],
       "gesendet": "2026-11-13T08:39:00+00:00",
       "tg_foto": 87,
-      "tg_msg": 88
+      "tg_msg": 88,
+      "entschieden": "2026-11-13T09:00:57+00:00"
     }
   },
   "themen": {
