@@ -624,7 +624,7 @@
       "entwurf": "2026-11-12-christbaum-marienplatz"
     },
     "2026-11-13-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "7b2306fe29",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-13-themen.json",
       "importiert": "2026-11-13T06:20:37+00:00",
@@ -657,7 +657,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-13T06:20:39+00:00",
+      "tg_msg": 85
     }
   },
   "befehle_gesetzt": true,
