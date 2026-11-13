@@ -324,6 +324,19 @@
           "zeit": "2026-11-13T09:01:22+00:00"
         }
       }
+    },
+    "2026-11-13-nachts-im-schloss-bayreuth": {
+      "status": "neu",
+      "key": "d4072c20a7",
+      "hash": "e41bc65b4802a2db771f40084588683e7178477b",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-13-nachts-im-schloss-bayreuth.json",
+      "importiert": "2026-11-13T15:31:15+00:00",
+      "bild": "09_text-oben.jpg",
+      "thema": "„Nachts im Schloss“: Kinder erkunden am 4. Dezember das Neue Schloss Bayreuth mit der Taschenlampe",
+      "hinweise": [
+        "Bayerische Schlösserverwaltung: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": []
     }
   },
   "themen": {
@@ -695,7 +708,7 @@
       "entschieden": "2026-11-13T07:23:58+00:00"
     },
     "2026-11-13-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "6a5683a366",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-13-themen-2.json",
       "importiert": "2026-11-13T12:39:52+00:00",
@@ -732,7 +745,8 @@
       "gesendet": "2026-11-13T12:39:54+00:00",
       "tg_msg": 92,
       "gewaehlt": 3,
-      "entschieden": "2026-11-13T14:47:15+00:00"
+      "entschieden": "2026-11-13T14:47:15+00:00",
+      "entwurf": "2026-11-13-nachts-im-schloss-bayreuth"
     }
   },
   "befehle_gesetzt": true,
