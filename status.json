@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760170,
+  "telegram_offset": 972760171,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -326,7 +326,7 @@
       }
     },
     "2026-11-13-nachts-im-schloss-bayreuth": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "d4072c20a7",
       "hash": "e41bc65b4802a2db771f40084588683e7178477b",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-13-nachts-im-schloss-bayreuth.json",
@@ -339,7 +339,8 @@
       "fehler": [],
       "gesendet": "2026-11-13T15:31:18+00:00",
       "tg_foto": 94,
-      "tg_msg": 95
+      "tg_msg": 95,
+      "entschieden": "2026-11-13T15:31:35+00:00"
     }
   },
   "themen": {
