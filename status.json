@@ -359,7 +359,7 @@
       }
     },
     "2026-11-14-christbaum-augsburg": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "bee2d4cf96",
       "hash": "e55292f84a799a9c1554779d94b3672622a6ca78",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-14-christbaum-augsburg.json",
@@ -367,7 +367,10 @@
       "bild": "10_text-mitte.jpg",
       "thema": "Augsburgs „Christbaum für alle“ steht auf dem Rathausplatz – und wird 2027 zum Narrenbaum",
       "hinweise": [],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-14T08:38:43+00:00",
+      "tg_foto": 102,
+      "tg_msg": 103
     }
   },
   "themen": {
