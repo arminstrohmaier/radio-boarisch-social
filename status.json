@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760173,
+  "telegram_offset": 972760174,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -359,7 +359,7 @@
       }
     },
     "2026-11-14-christbaum-augsburg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "bee2d4cf96",
       "hash": "e55292f84a799a9c1554779d94b3672622a6ca78",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-14-christbaum-augsburg.json",
@@ -370,7 +370,8 @@
       "fehler": [],
       "gesendet": "2026-11-14T08:38:43+00:00",
       "tg_foto": 102,
-      "tg_msg": 103
+      "tg_msg": 103,
+      "entschieden": "2026-11-14T08:39:04+00:00"
     }
   },
   "themen": {
