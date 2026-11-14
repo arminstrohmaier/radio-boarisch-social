@@ -357,6 +357,17 @@
           "zeit": "2026-11-13T15:31:55+00:00"
         }
       }
+    },
+    "2026-11-14-christbaum-augsburg": {
+      "status": "neu",
+      "key": "bee2d4cf96",
+      "hash": "e55292f84a799a9c1554779d94b3672622a6ca78",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-14-christbaum-augsburg.json",
+      "importiert": "2026-11-14T08:38:40+00:00",
+      "bild": "10_text-mitte.jpg",
+      "thema": "Augsburgs „Christbaum für alle“ steht auf dem Rathausplatz – und wird 2027 zum Narrenbaum",
+      "hinweise": [],
+      "fehler": []
     }
   },
   "themen": {
@@ -769,7 +780,7 @@
       "entwurf": "2026-11-13-nachts-im-schloss-bayreuth"
     },
     "2026-11-14-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "3cc3affe16",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-14-themen.json",
       "importiert": "2026-11-14T07:39:07+00:00",
@@ -806,7 +817,8 @@
       "gesendet": "2026-11-14T07:39:09+00:00",
       "tg_msg": 100,
       "gewaehlt": 1,
-      "entschieden": "2026-11-14T07:39:29+00:00"
+      "entschieden": "2026-11-14T07:39:29+00:00",
+      "entwurf": "2026-11-14-christbaum-augsburg"
     }
   },
   "befehle_gesetzt": true,
