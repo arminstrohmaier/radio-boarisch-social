@@ -120,7 +120,7 @@ wie das Ding aussieht:
 | Christkindlmarkt-Bude | small wooden market stall with a pitched roof and folding shutters |
 | Dult / Volksfest | fairground with a Ferris wheel, carousels and food stalls at the edge of town |
 | Blaskapelle (ohne Personen) | tuba, flugelhorn, tenor horn, trumpets and a bass drum resting on chairs |
-| Hopfengarten | rows of tall wooden poles with wires, hop bines climbing up |
+| Hopfengarten | very tall wooden poles about seven metres high, three times the height of a tractor, carrying a high grid of wires overhead; hop bines climbing up on strings (nach der Ernte: bare poles and slack strings) |
 | Stadl | large old timber barn with weathered vertical boards |
 | Zwiebelturm | baroque church tower with an onion-shaped dome |
 | Maibaum | tall peeled spruce trunk, bare pale wood (ohne Bemalung und Schilder) |
@@ -132,6 +132,12 @@ wie das Ding aussieht:
 Manche Gegenstände malt der Generator fast immer mit Kritzelschrift: Tafeln, Speisekarten,
 Bildschirme, Zeitungen, Bücher, Kartons, Schaufenster. Möglichst weglassen; Bildschirme
 „closed" oder „switched off" beschreiben. Die Prüfung gibt dazu einen Hinweis.
+
+### Straßen bringen Verkehrszeichen mit
+
+Bei Straßenmotiven malt der Generator oft Verkehrsschilder dazu (so geschehen im
+Blaulicht-Test, unleserlich). Lieber Feldweg, Nebenstraße, Brücke oder Ortsrand wählen und
+„narrow country lane" statt „road" schreiben.
 
 ### Licht ohne Kitsch
 
