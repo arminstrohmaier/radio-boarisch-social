@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-14-themen",
+  "themen": [
+    {
+      "titel": "Augsburgs „Christbaum für alle“ steht – und wird später zum Narrenbaum",
+      "worum": "Die 17 Meter hohe Tanne aus der Gögginger Schafweidsiedlung steht auf dem Rathausplatz und bekommt rund 300 goldene Sterne und 1000 LED. Nach dem Christkindlesmarkt (ab 23. November) bleibt sie stehen und wird zum Narrenbaum 2027.",
+      "quelle": {"name": "Stadt Augsburg", "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/der-christbaum-fuer-alle-steht"},
+      "ernst": false
+    },
+    {
+      "titel": "Regensburg sucht Müllpaten",
+      "worum": "Mit den neuen Müllpatenschaften können Einzelne, Familien, Schulen, Kitas und Vereine ein selbst gewähltes Revier sauber halten – ohne feste Zeiten. Die Stadt stellt Handschuhe, Greifzangen und Aufkleber für die Müllsäcke kostenlos.",
+      "quelle": {"name": "Stadt Regensburg", "url": "https://www.regensburg.de/aktuelles/pressemitteilungen/159998/621809/"},
+      "ernst": false
+    },
+    {
+      "titel": "Vorlesetag am 20. November: Würzburg liest Kindern vor",
+      "worum": "Zum bundesweiten Vorlesetag lesen in Würzburg im Falkenhaus und in den Stadtteilbüchereien u. a. Oberbürgermeister, eine Kinderbuchautorin, ein Kinderarzt und die Polizei Unterfranken vor – heuer zum Thema Kinderrechte.",
+      "quelle": {"name": "Stadt Würzburg", "url": "https://www.wuerzburg.de/rathaus/presse/aktuelle-pressemitteilungen/550656.Geschichten-staerken-Kinder.html"},
+      "ernst": false
+    }
+  ]
+}
