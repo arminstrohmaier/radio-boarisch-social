@@ -374,8 +374,11 @@
       "entschieden": "2026-11-14T08:39:04+00:00",
       "kanaele": {
         "instagram": {
-          "status": "laeuft",
-          "versuche": 1
+          "status": "ok",
+          "versuche": 1,
+          "id": "17961866859259013",
+          "link": "https://www.instagram.com/p/Dfty-cimBWj/",
+          "zeit": "2026-11-14T08:39:23+00:00"
         }
       }
     }
