@@ -769,7 +769,7 @@
       "entwurf": "2026-11-13-nachts-im-schloss-bayreuth"
     },
     "2026-11-14-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "3cc3affe16",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-14-themen.json",
       "importiert": "2026-11-14T07:39:07+00:00",
@@ -802,7 +802,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-14T07:39:09+00:00",
+      "tg_msg": 100
     }
   },
   "befehle_gesetzt": true,
