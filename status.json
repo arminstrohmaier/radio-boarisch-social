@@ -359,7 +359,7 @@
       }
     },
     "2026-11-14-christbaum-augsburg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "bee2d4cf96",
       "hash": "e55292f84a799a9c1554779d94b3672622a6ca78",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-14-christbaum-augsburg.json",
