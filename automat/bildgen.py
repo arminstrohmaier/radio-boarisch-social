@@ -302,6 +302,13 @@ def main(argv=None) -> int:
                                 .read_text("utf-8"))
             faelle = [("beispiel", e["bild_ki"], e["bildtext"])] + \
                      [(m["name"], m["bild_ki"], m.get("bildtext", "")) for m in muster]
+            # Optional test/betrieb/auftrag.json: {"max": 1, "zuerst": ["name", ...]} steuert
+            # einen Re-run (Workflow-Argumente lassen sich beim Re-run nicht aendern).
+            auftrag_datei = a.betrieb / "auftrag.json"
+            auftrag = json.loads(auftrag_datei.read_text("utf-8")) if auftrag_datei.is_file() else {}
+            zuerst = auftrag.get("zuerst", [])
+            faelle.sort(key=lambda f: zuerst.index(f[0]) if f[0] in zuerst else len(zuerst))
+            a.max_bilder = int(auftrag.get("max", a.max_bilder))
             neu = 0
             for name, b, bt in faelle:
                 ziel = a.betrieb / f"{name}.jpg"
