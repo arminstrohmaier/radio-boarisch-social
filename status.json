@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760176,
+  "telegram_offset": 972760177,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -390,7 +390,7 @@
       }
     },
     "2026-11-15-abpflastern-bayreuth": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "9856c6e6dc",
       "hash": "5883a45c4681168b47e82fc56216d7f2bfc4ddef",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-15-abpflastern-bayreuth.json",
@@ -404,7 +404,8 @@
       "fehler": [],
       "gesendet": "2026-11-15T07:38:44+00:00",
       "tg_foto": 110,
-      "tg_msg": 111
+      "tg_msg": 111,
+      "entschieden": "2026-11-15T07:40:05+00:00"
     }
   },
   "themen": {
