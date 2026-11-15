@@ -29,7 +29,7 @@ Kurzfassung (Stand V1.2, 28.10.2026, mit Betreiberentscheidungen bis 10.11.2026)
 - **Keine Musik, keine Fremdbilder.** Jeder Beitrag bekommt ein **eigenes KI-Bild**
   (Betreiberentscheidung 11.11.2026, Leonardo Lucid Origin über Cloudflare).
   **Vor jedem Entwurf `docs/BILDSPRACHE.md` lesen** – sie ist für das Bild verbindlich.
-  Das Bild wird im Feld `bild_ki` in Bausteinen beschrieben (art, region, aufbau, lage, motiv,
+  Das Bild wird im Feld `bild_ki` in Bausteinen beschrieben (art, region, menschen, aufbau, lage, motiv,
   umgebung, heute, licht, farbwelt; englisch, konkret, zum Thema wahr, Verbotenes nie nennen,
   auch nicht verneint). Vorlagen für den Aufbau: `docs/bildsprache-muster.json`.
   Aufbau und Farbwelt der letzten Posts stehen in `status.json` (`bild_ki`) – nicht wiederholen.

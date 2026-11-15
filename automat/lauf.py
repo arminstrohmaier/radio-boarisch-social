@@ -406,7 +406,7 @@ def testentwurf(st: Status) -> str:
         "aufforderung": "👉 Drück auf Ja oder Nein – veröffentlicht wird beim Test nix.",
         "bildtext": "Testlauf Automat", "bild": bild,
         "bild_ki": {
-            "art": "sender", "region": "niederbayern", "aufbau": "detail", "lage": "oben",
+            "art": "sender", "region": "niederbayern", "menschen": "keine", "aufbau": "detail", "lage": "oben",
             "motiv": "A small modern radio on a wooden kitchen table next to a coffee mug, "
                      "steam rising, a pair of headphones resting beside it.",
             "umgebung": "A farmhouse kitchen in a Lower Bavarian village, thick plastered walls, "

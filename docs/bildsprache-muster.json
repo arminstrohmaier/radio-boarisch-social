@@ -6,6 +6,7 @@
     "bild_ki": {
       "art": "musik",
       "region": "niederbayern",
+      "menschen": "wenige",
       "aufbau": "rahmen",
       "lage": "oben",
       "motiv": "A tuba and a trumpet resting on two wooden chairs at the side of a small stage, a guitar case open on the floor, cables coiled beside a monitor speaker.",
@@ -22,12 +23,13 @@
     "bild_ki": {
       "art": "veranstaltung",
       "region": "oberpfalz",
-      "aufbau": "diagonale",
+      "menschen": "belebt",
+      "aufbau": "mittel",
       "lage": "oben",
-      "motiv": "Long rows of narrow folding beer tables with separate folding benches, bare wooden tops on metal legs, standing under old chestnut trees, one table already set with glasses turned upside down.",
+      "motiv": "Friends and families at long narrow folding beer tables with separate folding benches under chestnut trees, raising glasses, two children seen from behind running towards the Ferris wheel.",
       "umgebung": "A fairground at the edge of an Upper Palatinate town, gravel ground, a Ferris wheel half visible behind the trees.",
       "heute": "Strings of modern LED festoon lights, a mobile cash register stand, bicycles and an e-bike parked at the fence.",
-      "licht": "Overcast late afternoon in early autumn shortly before opening, soft even light, damp gravel.",
+      "licht": "Early evening in late summer, overcast sky turning to dusk, warm festoon lights just switched on.",
       "farbwelt": "chestnut green, warm ochre gravel, pale gold light"
     }
   },
@@ -38,9 +40,10 @@
     "bild_ki": {
       "art": "brauchtum",
       "region": "schwaben",
-      "aufbau": "detail",
+      "menschen": "belebt",
+      "aufbau": "mittel",
       "lage": "oben",
-      "motiv": "Hands in fingerless gloves arranging small hand-carved wooden figures and beeswax candles on the counter of a simple wooden market stall.",
+      "motiv": "People strolling between simple wooden market stalls with pitched roofs, a woman in profile buying beeswax candles, friends holding steaming mugs, a father with a child on his shoulders seen from behind.",
       "umgebung": "A Christmas market on a town square in Bavarian Swabia, plastered houses with stepped gables in the soft background.",
       "heute": "A card payment terminal on the counter, a modern camping heater beside the stall.",
       "licht": "Blue hour in December, light snow, warm tungsten bulbs inside the stall.",
@@ -54,6 +57,7 @@
     "bild_ki": {
       "art": "kultur",
       "region": "mittelfranken",
+      "menschen": "wenige",
       "aufbau": "zentral",
       "lage": "oben",
       "motiv": "An empty small theatre stage with a single wooden table and two chairs, a coat hanging over one chair, a work light on a stand in the middle.",
@@ -70,6 +74,7 @@
     "bild_ki": {
       "art": "meldung",
       "region": "niederbayern",
+      "menschen": "wenige",
       "aufbau": "weite",
       "lage": "oben",
       "motiv": "A harvested hop garden: very tall bare wooden poles about seven metres high in long straight rows, a high grid of wires overhead, slack strings hanging down, a single tractor small between the rows.",
@@ -86,6 +91,7 @@
     "bild_ki": {
       "art": "sender",
       "region": "oberbayern",
+      "menschen": "keine",
       "aufbau": "untersicht",
       "lage": "oben",
       "motiv": "A studio microphone on a boom arm in the foreground, a pair of closed-back headphones hanging from it, a small mixing console below.",
@@ -102,6 +108,7 @@
     "bild_ki": {
       "art": "blaulicht",
       "region": "oberfranken",
+      "menschen": "keine",
       "aufbau": "zentral",
       "lage": "oben",
       "motiv": "An empty narrow country lane leading into a wooded valley, wet asphalt, grass verges, a wooden fence along one side.",
@@ -118,6 +125,7 @@
     "bild_ki": {
       "art": "nachruf",
       "region": "bayern",
+      "menschen": "keine",
       "aufbau": "gegenlicht",
       "lage": "oben",
       "motiv": "A diatonic button accordion resting closed on an old wooden chair beside a window.",

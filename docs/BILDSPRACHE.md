@@ -26,7 +26,7 @@ Die Leitfragen des North Star gelten auch fürs Bild:
 | bayerisch durch Ort, Bauweise, Landschaft, Licht | folkloristisch: Tracht, Dirndl, Lederhosen, Rauten, Blau-Weiß, Edelweiß, Enzian |
 | Alltag, Vorbereitung, Ränder eines Ereignisses | touristisches Klischee: Neuschwanstein, Oktoberfest, Maßkrug-Prost |
 | natürliches, ehrliches Licht, auch grau und nass | Kitsch: Sonnenuntergang, Alpenglühen, Märchenstimmung, Hochglanz |
-| Menschen klein, von hinten, im Schatten | erkennbare Gesichter, Portraits, Kinder |
+| Menschen mittendrin, nah, im Profil oder in Bewegung | frontale, erkennbare Gesichter, Portraits, Blick in die Kamera |
 
 ## 2. Warum wir so genau beschreiben müssen
 
@@ -51,6 +51,7 @@ Origin** (unser Modell über Cloudflare) tut das nicht:
 "bild_ki": {
   "art": "brauchtum",
   "region": "niederbayern",
+  "menschen": "belebt",
   "aufbau": "aufsicht",
   "lage": "oben",
   "motiv": "…",
@@ -65,6 +66,7 @@ Origin** (unser Modell über Cloudflare) tut das nicht:
 |---|---|---|
 | `art` | Themenart, wählt den passenden Grundton (Liste in 4.) | Schlüssel |
 | `region` | Regierungsbezirk des Themas, sonst `bayern` (Liste in 5.) | Schlüssel |
+| `menschen` | `keine`, `wenige` oder `belebt` – je nach Situation (siehe „Menschen im Bild“) | Schlüssel |
 | `aufbau` | Bildaufbau aus dem Katalog (6.) – **nie derselbe wie im letzten Post** | Schlüssel |
 | `lage` | wo der Bildtext hinkommt: `oben`, `unten`, `mitte`, `links`, `rechts`, z. B. `linksunten` | Schlüssel |
 | `motiv` | **Das eine Hauptmotiv**, konkret und gegenständlich: was, wie viele, in welchem Zustand | 25–400 |
@@ -85,24 +87,46 @@ Hausstil, Menschenregel und freie Textfläche setzt der Automat selbst dazu
   Sandstein. Ein Thema in der Oberpfalz bekommt keine Alpen.
 - **Echte Orte nur andeuten.** Nicht „Landshuter Martinskirche", sondern „a tall Gothic brick
   church tower at the end of a long market square". Kein erkennbares Wahrzeichen nachbauen.
-- **Echte Personen nie.** Bei Künstlern zeigen wir Instrument, Bühne, Proberaum – nicht die
-  Person. Musiker höchstens als Silhouette von hinten.
-- **Menschen nur, wenn sie das Bild brauchen** – klein, von hinten, Gesicht abgewandt,
-  Alltagskleidung, nur Erwachsene. Bei `blaulicht` und `nachruf` setzt der Automat das Bild
-  menschenleer (Betreiberentscheidung vom 11.11.2026).
+- **Echte Personen nie.** Bei Künstlern zeigen wir Instrument, Bühne, Proberaum, Publikum –
+  nie ein erfundenes Bild des echten Künstlers. Musiker nur von der Seite oder von hinten.
 - **Bei Nahaufnahmen (`detail`) nur Hände und Unterarme** – sonst malt der Generator das
   Gesicht halb mit ins Bild (so geschehen im Christkindlmarkt-Test). Der Automat setzt das
   beim Aufbau `detail` selbst dazu.
-- **Den Moment am Rand wählen:** Aufbau, Vorbereitung, kurz vor Beginn, danach. Das wirkt
-  echt und vermeidet Gedränge mit Gesichtern.
+- **Den Moment wählen, der zum Thema passt:** mittendrin, wenn es lebendig sein soll;
+  Aufbau, Vorbereitung oder danach, wenn es ruhig sein soll.
 - **Nicht nennen, auch nicht verneint:** Dirndl, Lederhosen, Tracht/costume, Edelweiß,
   Enzian, Blau-Weiß, Rauten, Fahnen/Banner, Logos/Marken, Schrift/Schilder/Plakate/Etiketten,
-  Kennzeichen, Gesichter/Portrait/Lächeln, Kinder, Neuschwanstein, Oktoberfest, postcard,
+  Kennzeichen, Portrait/Blick in die Kamera/frontal/posierend, Babys/Kleinkinder, Neuschwanstein, Oktoberfest, postcard,
   picturesque, idyllic, romantic, fairytale – und keine Wörter wie *no, not, without*.
   Die Prüfung lehnt solche Entwürfe ab.
 - **Vorsicht (Hinweis an den Betreiber):** Maßkrug, Brezn, Kühe, Schloss/Kloster,
   Maibaum (nur als geschälter Stamm, ohne Bemalung), Sonnenauf-/-untergang, golden hour,
   dramatic, vibrant, glowing.
+
+### Menschen im Bild (Betreiberentscheidung vom 15.11.2026)
+
+Menschen machen die Bilder nahbarer und geben den Followern Zugang. Darum entscheidet
+jedes Bild bewusst über `menschen`:
+
+| `menschen` | Wann | Was der Automat in den Prompt schreibt |
+|---|---|---|
+| `keine` | ruhige Meldung, Landschaft, Gegenstand; **immer** bei `blaulicht` und `nachruf` | menschenleer, still |
+| `wenige` | Alltag, Vorbereitung, Werkstatt, Probe | ein paar Menschen in natürlichem Abstand |
+| `belebt` | Volksfest, Markt, Konzert, Brauchtum mit vielen Leuten | lebendig, nah an der Kamera, mittendrin, Erwachsene und Familien |
+
+Für alle Menschen gilt (der Automat setzt es selbst dazu):
+
+- **nah dran erlaubt, aber nie frontal erkennbar:** Gesichter im Profil, abgewandt, vom
+  Bildrand angeschnitten, im Schatten oder durch Bewegung unscharf; niemand schaut in die
+  Kamera, niemand posiert;
+- **Alltagskleidung von heute** (Jeans, Regenjacke, Steppjacke, Strick, Sneaker) – keine Tracht;
+- **Kinder nur von hinten**, keine Babys oder Kleinkinder;
+- **nie ein echter Mensch**, auch kein erfundenes Bild eines genannten Künstlers.
+
+Im Motiv dürfen Menschen beschrieben werden, was sie tun („friends raising glasses",
+„a woman in profile buying candles"). Gesichter nur mit Einschränkung („in profile",
+„turned aside"), Kinder nur mit „seen from behind" – sonst lehnt die Prüfung ab.
+Bei Nahaufnahmen (`detail`) bleiben es Hände und Unterarme.
 
 ### Bayerische Dinge genau benennen (Glossar)
 
@@ -148,14 +172,14 @@ Lens-Flare (so geschehen im ersten Test). Lieber bedeckt, diffus, Dämmerung, La
 
 | `art` | Grundton, den der Automat dazusetzt | Menschen |
 |---|---|---|
-| `musik` | echte Bühne oder Proberaum, Instrumente als Gegenstände, Kabel, Bühnenlicht | Silhouetten, von hinten |
-| `veranstaltung` | das Ereignis an seinen Rändern: Aufbau, leere Bänke, Licht geht an | klein, von hinten |
-| `brauchtum` | gelebter Brauch heute, erzählt über Hände, Material, Werkzeug, Vorbereitung | Alltagskleidung, von hinten |
-| `kultur` | echter Spielort, Werkstatt, Ausstellung, zeitgemäß und benutzt | klein, von hinten |
-| `meldung` | ruhige, neutrale, erkennbar bayerische Szene zum Thema | klein, von hinten |
-| `sender` | Radio heute: kleines Studio, Küchentisch mit Radio, Kopfhörer, Mikrofon | – |
-| `blaulicht` | ruhiger, neutraler Ort der Region, gewöhnlicher Tag, keine Einsatzszene | **keine** |
-| `nachruf` | still, würdig: ein bedeutungsvoller Gegenstand oder ein vertrauter leerer Ort, gedämpfte Farben | **keine** |
+| `musik` | echte Bühne oder Proberaum, Instrumente, Kabel, Bühnenlicht | Musiker von der Seite/hinten, Publikum |
+| `veranstaltung` | das Ereignis, wie es passiert, von innen gesehen | oft `belebt` |
+| `brauchtum` | gelebter Brauch heute: Hände, Material, Werkzeug, die Leute und der Ort | `wenige` oder `belebt` |
+| `kultur` | echter Spielort, Werkstatt, Ausstellung, zeitgemäß und benutzt | je nach Thema |
+| `meldung` | ruhige, neutrale, erkennbar bayerische Szene zum Thema | meist `keine` oder `wenige` |
+| `sender` | Radio heute: kleines Studio, Küchentisch mit Radio, Kopfhörer, Mikrofon | je nach Thema |
+| `blaulicht` | ruhiger, neutraler Ort der Region, gewöhnlicher Tag, keine Einsatzszene | **immer `keine`** |
+| `nachruf` | still, würdig: ein bedeutungsvoller Gegenstand oder ein vertrauter leerer Ort, gedämpfte Farben | **immer `keine`** |
 
 ## 5. Regionen (`region`)
 

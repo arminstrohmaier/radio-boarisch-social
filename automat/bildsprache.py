@@ -28,12 +28,22 @@ HAUSSTIL = (
     "are switched off and dark."
 )
 
-# Betreiberentscheidung 11.11.2026: Menschen erlaubt, nie erkennbar; Blaulicht/Nachruf ohne.
-MENSCHEN = (
-    "People, if any, appear small in the middle distance or seen from behind, faces turned "
-    "away or hidden in shadow, adults in ordinary present-day clothes such as jeans, rain "
-    "jackets, knitwear and sneakers."
-)
+# Menschen im Bild (Betreiberentscheidungen 11.11. und 15.11.2026): Menschen machen die Bilder
+# nahbarer. Je nach Situation keine, wenige oder belebt; nah dran erlaubt, aber nie frontal
+# erkennbar (Profil, abgewandt, angeschnitten, unscharf, Bewegung); Kinder nur von hinten;
+# Blaulicht und Nachruf immer menschenleer.
+KLEIDUNG = ("ordinary present-day clothes such as jeans, rain jackets, puffer jackets, "
+            "knitwear and sneakers")
+GESICHTER = ("faces shown only in profile, turned aside, partially cropped by the frame, in "
+             "shadow or softly blurred by movement, everyone absorbed in what they are doing")
+MENSCHEN_STUFEN = {
+    "wenige": (f"A few people are part of the scene at a natural distance, going about their "
+               f"day; {GESICHTER}; {KLEIDUNG}; children only seen from behind."),
+    "belebt": (f"The scene is lively and full of people close to the camera and in the middle "
+               f"of the action, adults and families sharing a candid, natural moment, movement "
+               f"and interaction; {GESICHTER}; {KLEIDUNG}; children only seen from behind."),
+}
+MENSCHEN = MENSCHEN_STUFEN["wenige"]
 MENSCHENLEER = "The place is deserted, quiet and still."
 
 # ---------------------------------------------------------------- Themenarten (§10.2)
@@ -42,16 +52,14 @@ ARTEN = {
     "musik": (
         "Live music as it happens in Bavaria today: a real stage or rehearsal room, warm "
         "stage light, cables, monitor speakers, microphone stands, brass and acoustic "
-        "instruments as honest objects. Musicians only as distant silhouettes or from behind, "
-        "faces in shadow.", True),
+        "instruments as honest objects. Musicians seen from the side or from behind, faces "
+        "turned to their instruments or in shadow.", True),
     "veranstaltung": (
-        "A real event in present-day Bavaria, observed calmly at its edges, in the moments "
-        "before it starts or after it ends: set-up, empty benches, lights coming on, "
-        "packed-away gear.", True),
+        "A real event in present-day Bavaria as it happens, observed from within by someone "
+        "who belongs there: the setting, small details, the atmosphere of the moment.", True),
     "brauchtum": (
         "A living custom as it is practised today, told through honest details: hands at "
-        "work, materials, tools, preparation, the place where it happens. Participants in "
-        "ordinary present-day clothes.", True),
+        "work, materials, tools, preparation, the people and the place where it happens.", True),
     "kultur": (
         "Culture in Bavaria today: a real venue, workshop, studio or exhibition space, "
         "contemporary and lived-in, with quiet light and visible craft.", True),
@@ -110,7 +118,8 @@ FLAECHE = {
     "rechts": "The right third of the frame is calm and uncluttered.",
 }
 
-FELDER = ["art", "region", "motiv", "umgebung", "heute", "licht", "farbwelt", "aufbau", "lage"]
+FELDER = ["art", "region", "menschen", "motiv", "umgebung", "heute", "licht", "farbwelt", "aufbau", "lage"]
+MENSCHEN_WERTE = ["keine", "wenige", "belebt"]
 TEXTFELDER = ["motiv", "umgebung", "heute", "licht", "farbwelt"]
 LAENGE = {"motiv": (25, 400), "umgebung": (20, 300), "heute": (15, 250),
           "licht": (10, 200), "farbwelt": (10, 160)}
@@ -131,9 +140,9 @@ VERBOTEN = {
     r"\blogos?\b|\bbrand(ed|s)?\b|\btrademark": "Logos/Marken",
     r"\btext\b|\bletter(s|ing)\b|\bwords?\b|\bwriting\b|\btypograph|\bcaption|\bsigns?\b|"
     r"\bsignage\b|\bposters?\b|\blabels?\b|\bnumber plate|\blicen[cs]e plate": "Schrift/Schilder",
-    r"\bportrait|\bfaces?\b|\bclose-up of (a )?(man|woman|person)|\blooking at the camera|"
-    r"\bselfie|\bsmiling": "Gesichter/Portraet",
-    r"\bchild|\bchildren\b|\bkids?\b|\bbab(y|ies)\b|\bgirls?\b|\bboys?\b|\bteen": "Kinder/Minderjaehrige",
+    r"\bportrait|\bclose-up of (a )?(man|woman|person|face)|\blooking (at|into) the camera|"
+    r"\bselfie|\bfacing the camera|\bfrontal|\bposing|\bposed\b": "frontales Gesicht/Portraet",
+    r"\bbab(y|ies)\b|\btoddler|\binfant": "Kleinkinder",
     r"\bpostcard|\bpicturesque|\bidyllic|\bfairy ?tale|\bkitsch|\bmagical|\bdreamy|\bromantic": "Kitsch",
     r"\bneuschwanstein|\boktoberfest|\bwiesn\b": "touristisches Bayern-Klischee",
     r"\bno\b|\bnot\b|\bwithout\b|\bnever\b|\bavoid": "Verneinung (Generator ignoriert sie, das Wort wird gemalt)",
@@ -172,6 +181,10 @@ def pruefen(b, zuletzt: list[dict] | None = None) -> tuple[list[str], list[str]]
         fehler.append(f"bild_ki.art: eines von {', '.join(ARTEN)}")
     if b["region"] not in REGIONEN:
         fehler.append(f"bild_ki.region: eines von {', '.join(REGIONEN)}")
+    if b["menschen"] not in MENSCHEN_WERTE:
+        fehler.append(f"bild_ki.menschen: eines von {', '.join(MENSCHEN_WERTE)}")
+    elif not ARTEN.get(b["art"], ("", True))[1] and b["menschen"] != "keine":
+        fehler.append(f"bild_ki.menschen: bei {b['art']} immer 'keine' (06 §10.4)")
     if b["aufbau"] not in AUFBAU:
         fehler.append(f"bild_ki.aufbau: eines von {', '.join(AUFBAU)}")
     if not re.fullmatch(r"(oben|unten|mitte|links|rechts)(oben|unten|links|rechts|mitte)?", b["lage"]):
@@ -186,6 +199,13 @@ def pruefen(b, zuletzt: list[dict] | None = None) -> tuple[list[str], list[str]]
     alles = " ".join(str(b[f]) for f in TEXTFELDER)
     for name in _treffer(VERBOTEN, alles):
         fehler.append(f"bild_ki: '{name}' nicht beschreiben, auch nicht verneint (Bildregel 10.3)")
+    low = alles.lower()
+    if re.search(r"\bchild|\bchildren\b|\bkids?\b|\bgirls?\b|\bboys?\b|\bteen", low) \
+            and not re.search(r"from behind|from the back|back view", low):
+        fehler.append("bild_ki: Kinder nur von hinten – 'seen from behind' dazuschreiben")
+    if re.search(r"\bfaces?\b", low) and not re.search(
+            r"profile|turned (away|aside)|cropped|shadow|blurred|from behind|out of focus", low):
+        fehler.append("bild_ki: Gesichter nur im Profil, abgewandt, angeschnitten oder unscharf beschreiben")
     for name in _treffer(VORSICHT, alles):
         if name.startswith("Bildschirm") and re.search(r"\bclosed|switched off|\bdark\b|upside down", alles.lower()):
             continue
@@ -206,12 +226,15 @@ def pruefen(b, zuletzt: list[dict] | None = None) -> tuple[list[str], list[str]]
 def prompt(b: dict) -> str:
     """Setzt den Prompt aus den Bausteinen zusammen (wichtigstes zuerst)."""
     art_text, menschen_erlaubt = ARTEN[b["art"]]
+    stufe = b.get("menschen", "wenige") if menschen_erlaubt else "keine"
+    menschen = MENSCHENLEER if stufe == "keine" else MENSCHEN_STUFEN[stufe]
     lage = b["lage"]
     flaeche = FLAECHE.get(lage) or " ".join(FLAECHE[t] for t in ("oben", "unten", "mitte", "links", "rechts")
                                             if t in lage)
     teile = [
         AUFBAU[b["aufbau"]],
         b["motiv"].strip(),
+        menschen if stufe == "belebt" else "",
         b["umgebung"].strip(),
         b["heute"].strip(),
         b["licht"].strip(),
@@ -219,7 +242,7 @@ def prompt(b: dict) -> str:
         REGIONEN[b["region"]],
         art_text,
         HAUSSTIL,
-        MENSCHEN if menschen_erlaubt else MENSCHENLEER,
+        menschen if stufe != "belebt" else "",
         flaeche,
     ]
     return " ".join(t if t.endswith(".") else t + "." for t in teile if t)

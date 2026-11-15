@@ -628,7 +628,7 @@ def test_bildsprache_verbote_auch_verneint():
     from automat import bildsprache as B
     b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
     for wort in ["a woman in a dirndl", "without any signs", "blue and white flags",
-                 "smiling faces", "children playing", "picturesque postcard view", "no logos"]:
+                 "people looking into the camera", "children playing", "a portrait of a woman", "picturesque postcard view", "no logos"]:
         f, _ = B.pruefen(dict(b, motiv=b["motiv"] + " " + wort))
         assert f, wort
     assert B.pruefen(dict(b, aufbau="schief"))[0]
@@ -639,7 +639,21 @@ def test_bildsprache_menschenleer_bei_blaulicht():
     from automat import bildsprache as B
     b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
     assert B.MENSCHENLEER in B.prompt(dict(b, art="blaulicht"))
-    assert B.MENSCHEN in B.prompt(b)
+    assert B.MENSCHEN_STUFEN["belebt"] in B.prompt(b)
+    assert B.MENSCHEN_STUFEN["wenige"] in B.prompt(dict(b, menschen="wenige"))
+    assert B.MENSCHENLEER in B.prompt(dict(b, menschen="keine"))
+    assert B.pruefen(dict(b, art="nachruf", menschen="wenige"))[0]  # ernst: immer menschenleer
+
+
+def test_bildsprache_gesichter_und_kinder():
+    from automat import bildsprache as B
+    b = json.loads(Path("docs/beispiel-entwurf.json").read_text(encoding="utf-8"))["bild_ki"]
+    b = dict(b, motiv="Vendors hanging fir branches over the counters of wooden market stalls.")
+    assert B.pruefen(dict(b, motiv=b["motiv"] + " Happy faces everywhere."))[0]
+    assert not B.pruefen(dict(b, motiv=b["motiv"] + " Faces in profile."))[0]
+    assert B.pruefen(dict(b, motiv=b["motiv"] + " Children with balloons."))[0]
+    assert not B.pruefen(dict(b, motiv=b["motiv"] + " Two children seen from behind."))[0]
+    assert B.pruefen(dict(b, menschen="viele"))[0]
 
 
 def test_bildsprache_kein_post_wie_der_vorige(tmp_path):
