@@ -424,7 +424,7 @@
       }
     },
     "2026-11-15-einbruch-goldhaendler-bayreuth": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "856d0954c3",
       "hash": "8674d0f1f6bc36342bf5557239cd75daaec99473",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-15-einbruch-goldhaendler-bayreuth.json",
