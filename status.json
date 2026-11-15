@@ -839,6 +839,42 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-14T07:39:29+00:00",
       "entwurf": "2026-11-14-christbaum-augsburg"
+    },
+    "2026-11-15-themen": {
+      "status": "neu",
+      "key": "e4d02ce69d",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-15-themen.json",
+      "importiert": "2026-11-15T06:39:18+00:00",
+      "themen": [
+        {
+          "titel": "Bayreuth gewinnt bundesweiten „abpflastern“-Wettbewerb",
+          "worum": "Rund 20.000 Quadratmeter haben Stadt und Bürger in Bayreuth heuer entsiegelt – etwa eine Million Pflastersteine. Damit holt Bayreuth Platz 1 bei den mittelgroßen Städten.",
+          "quelle": {
+            "name": "Stadt Bayreuth",
+            "url": "https://www.bayreuth.de/bayreuth-holt-den-ersten-platz-im-abpflastern-wettbewerb-2026/"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "„Living Library“ in Augsburg: Menschen als lebende Bücher",
+          "worum": "Am Donnerstag, 19. November, erzählen ab 19 Uhr in der Stadtbücherei sieben Menschen mit ganz verschiedenen Lebenswegen in kleinen Gesprächsrunden ihre Geschichte. Eintritt frei.",
+          "quelle": {
+            "name": "Stadt Augsburg",
+            "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/vielfaeltige-lebensgeschichten-in-der-living-library"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Regensburger Herbstsymposion: Historismus trifft Moderne",
+          "worum": "Am 20. und 21. November geht es im Runtingersaal um Regensburg und sein Umland zwischen Historismus und Modernisierung – mit Vorträgen, Festakt mit Musik im Thon-Dittmer-Palais.",
+          "quelle": {
+            "name": "Stadt Regensburg",
+            "url": "https://www.regensburg.de/aktuelles/pressemitteilungen/159998/621760/"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -895,7 +931,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-15T06:25:12+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-15-themen"
     }
   ]
 }
