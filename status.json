@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760178,
+  "telegram_offset": 972760179,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -424,7 +424,7 @@
       }
     },
     "2026-11-15-einbruch-goldhaendler-bayreuth": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "856d0954c3",
       "hash": "8674d0f1f6bc36342bf5557239cd75daaec99473",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-15-einbruch-goldhaendler-bayreuth.json",
@@ -437,7 +437,8 @@
       "fehler": [],
       "gesendet": "2026-11-15T09:39:40+00:00",
       "tg_foto": 116,
-      "tg_msg": 117
+      "tg_msg": 117,
+      "entschieden": "2026-11-15T11:29:44+00:00"
     }
   },
   "themen": {
