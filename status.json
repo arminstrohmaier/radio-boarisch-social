@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760177,
+  "telegram_offset": 972760178,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -972,6 +972,13 @@
       "zeit": "2026-11-15T06:25:12+00:00",
       "status": "erledigt",
       "themen": "2026-11-15-themen"
+    },
+    {
+      "art": "hinweis",
+      "id": "b6527538a6",
+      "text": "https://www.infranken.de/lk/bayreuth/blaulicht/polizeieinsatz-fahndung-nach-einbruch-juwelier-bayreuth-weidensees-art-6411347",
+      "zeit": "2026-11-15T09:03:39+00:00",
+      "status": "offen"
     }
   ]
 }
