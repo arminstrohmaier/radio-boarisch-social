@@ -841,7 +841,7 @@
       "entwurf": "2026-11-14-christbaum-augsburg"
     },
     "2026-11-15-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "e4d02ce69d",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-15-themen.json",
       "importiert": "2026-11-15T06:39:18+00:00",
@@ -874,7 +874,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-15T06:39:20+00:00",
+      "tg_msg": 108
     }
   },
   "befehle_gesetzt": true,
