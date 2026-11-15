@@ -123,6 +123,10 @@ Für alle Menschen gilt (der Automat setzt es selbst dazu):
 - **Kinder nur von hinten**, keine Babys oder Kleinkinder;
 - **nie ein echter Mensch**, auch kein erfundenes Bild eines genannten Künstlers.
 
+**Bei `belebt` immer ein Blickziel nennen**, dem alle zugewandt sind („all turned towards
+the stage / the Ferris wheel / the stalls“). Der Automat stellt die Kamera hinter die Leute.
+Ohne Blickziel malte der Generator im ersten Test frontale Gesichter in den Mittelgrund.
+
 Im Motiv dürfen Menschen beschrieben werden, was sie tun („friends raising glasses",
 „a woman in profile buying candles"). Gesichter nur mit Einschränkung („in profile",
 „turned aside"), Kinder nur mit „seen from behind" – sonst lehnt die Prüfung ab.

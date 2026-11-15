@@ -19,29 +19,31 @@ import re
 # ---------------------------------------------------------------- Hausstil
 
 HAUSSTIL = (
-    "Contemporary documentary photograph for a regional Bavarian magazine, present-day "
-    "Bavaria as it really looks today. Full-frame camera, 35mm lens, natural "
-    "available light, honest true-to-life colours with moderate saturation, fine film grain, "
-    "real textures, weathered materials and small everyday imperfections. Unposed, quietly "
-    "observed, calm and warm in feeling, grounded and unpretentious. Clean lens, crisp even "
-    "exposure. Plain unmarked surfaces: blank walls, bare wood, clean facades; any screens "
-    "are switched off and dark."
+    "Contemporary documentary photograph of present-day Bavaria for a regional magazine. "
+    "35mm lens, natural light, true-to-life colours, fine film grain, real textures and "
+    "everyday imperfections. Unposed, calm, warm and unpretentious. Clean lens, even "
+    "exposure. Plain unmarked surfaces: blank walls, bare wood, clean facades; screens "
+    "switched off."
 )
 
 # Menschen im Bild (Betreiberentscheidungen 11.11. und 15.11.2026): Menschen machen die Bilder
 # nahbarer. Je nach Situation keine, wenige oder belebt; nah dran erlaubt, aber nie frontal
 # erkennbar (Profil, abgewandt, angeschnitten, unscharf, Bewegung); Kinder nur von hinten;
 # Blaulicht und Nachruf immer menschenleer.
-KLEIDUNG = ("ordinary present-day clothes such as jeans, rain jackets, puffer jackets, "
-            "knitwear and sneakers")
-GESICHTER = ("faces shown only in profile, turned aside, partially cropped by the frame, in "
-             "shadow or softly blurred by movement, everyone absorbed in what they are doing")
+KLEIDUNG = "everyday clothes of today: jeans, rain and puffer jackets, knitwear, sneakers"
+GESICHTER = ("faces only in profile, turned aside, cropped by the frame, in shadow or "
+             "blurred by movement, everyone absorbed in what they are doing")
 MENSCHEN_STUFEN = {
     "wenige": (f"A few people are part of the scene at a natural distance, going about their "
                f"day; {GESICHTER}; {KLEIDUNG}; children only seen from behind."),
-    "belebt": (f"The scene is lively and full of people close to the camera and in the middle "
-               f"of the action, adults and families sharing a candid, natural moment, movement "
-               f"and interaction; {GESICHTER}; {KLEIDUNG}; children only seen from behind."),
+    # Erster Test 15.11.2026: In Menschenmengen malte der Generator trotz "in profile" frontale
+    # Gesichter im Mittelgrund. Darum steht die Kamera hinter den Leuten, und alle schauen auf
+    # ein gemeinsames Ziel in der Szene (Buehne, Riesenrad, Staende).
+    "belebt": (f"The scene is lively and full of people in the middle of the action, adults and "
+               f"families sharing a candid, natural moment. The camera stands behind and among "
+               f"them, so almost everyone is seen from behind or from the side, all turned away "
+               f"from the camera towards the centre of the action; {GESICHTER}; {KLEIDUNG}; "
+               f"children only seen from behind."),
 }
 MENSCHEN = MENSCHEN_STUFEN["wenige"]
 MENSCHENLEER = "The place is deserted, quiet and still."
@@ -206,6 +208,9 @@ def pruefen(b, zuletzt: list[dict] | None = None) -> tuple[list[str], list[str]]
     if re.search(r"\bfaces?\b", low) and not re.search(
             r"profile|turned (away|aside)|cropped|shadow|blurred|from behind|out of focus", low):
         fehler.append("bild_ki: Gesichter nur im Profil, abgewandt, angeschnitten oder unscharf beschreiben")
+    if b["menschen"] == "belebt" and not re.search(r"\btowards?\b|\bfacing\b", low):
+        hinweise.append("bild_ki.menschen belebt: im Motiv ein Blickziel nennen, dem alle zugewandt "
+                        "sind (z. B. 'facing the stage', 'towards the stalls') – sonst frontale Gesichter")
     for name in _treffer(VORSICHT, alles):
         if name.startswith("Bildschirm") and re.search(r"\bclosed|switched off|\bdark\b|upside down", alles.lower()):
             continue
