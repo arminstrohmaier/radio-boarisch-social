@@ -390,7 +390,7 @@
       }
     },
     "2026-11-15-abpflastern-bayreuth": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "9856c6e6dc",
       "hash": "5883a45c4681168b47e82fc56216d7f2bfc4ddef",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-15-abpflastern-bayreuth.json",
