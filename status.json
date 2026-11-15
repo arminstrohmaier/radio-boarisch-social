@@ -422,6 +422,19 @@
           "zeit": "2026-11-15T07:40:29+00:00"
         }
       }
+    },
+    "2026-11-15-einbruch-goldhaendler-bayreuth": {
+      "status": "neu",
+      "key": "856d0954c3",
+      "hash": "8674d0f1f6bc36342bf5557239cd75daaec99473",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-15-einbruch-goldhaendler-bayreuth.json",
+      "importiert": "2026-11-15T09:39:27+00:00",
+      "bild": "16_text-oben.jpg",
+      "thema": "Einbruch bei Goldhändler in Bayreuth – Polizei fahndet bei Weidensees und bittet um Hinweise",
+      "hinweise": [
+        "Polizei Oberfranken: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": []
     }
   },
   "themen": {
@@ -978,7 +991,8 @@
       "id": "b6527538a6",
       "text": "https://www.infranken.de/lk/bayreuth/blaulicht/polizeieinsatz-fahndung-nach-einbruch-juwelier-bayreuth-weidensees-art-6411347",
       "zeit": "2026-11-15T09:03:39+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "entwurf": "2026-11-15-einbruch-goldhaendler-bayreuth"
     }
   ]
 }
