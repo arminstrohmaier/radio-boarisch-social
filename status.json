@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760180,
+  "telegram_offset": 972760181,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -457,7 +457,7 @@
       }
     },
     "2026-11-16-spider-murphy-gang-ehrenpreis": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "e6f6646fe7",
       "hash": "e3a6042d34660d341d749d987615937e2e2fd13f",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-16-spider-murphy-gang-ehrenpreis.json",
@@ -470,7 +470,8 @@
       "fehler": [],
       "gesendet": "2026-11-16T08:39:26+00:00",
       "tg_foto": 122,
-      "tg_msg": 123
+      "tg_msg": 123,
+      "entschieden": "2026-11-16T09:05:44+00:00"
     }
   },
   "themen": {
