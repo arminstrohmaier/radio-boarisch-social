@@ -123,9 +123,13 @@ Für alle Menschen gilt (der Automat setzt es selbst dazu):
 - **Kinder nur von hinten**, keine Babys oder Kleinkinder;
 - **nie ein echter Mensch**, auch kein erfundenes Bild eines genannten Künstlers.
 
-**Bei `belebt` immer ein Blickziel nennen**, dem alle zugewandt sind („all turned towards
-the stage / the Ferris wheel / the stalls“). Der Automat stellt die Kamera hinter die Leute.
-Ohne Blickziel malte der Generator im ersten Test frontale Gesichter in den Mittelgrund.
+**Bei `belebt` immer ein Ziel nennen, auf das sich alle von der Kamera weg zubewegen**
+(„walking towards the stage / the Ferris wheel / the stalls“). Der Automat lässt die Kamera
+den Leuten folgen und den Hintergrund unscharf werden. Erfahrung aus den Tests (15./16.11.):
+Wo Leute an Tischreihen sitzen oder in einer Gasse entgegenkommen, malt der Generator
+frontale Gesichter – auch Kinder von vorn. Gut ging es nur, wenn alle in dieselbe Richtung
+von der Kamera weggingen und der Hintergrund weich verschwamm. Darum: keine Sitzreihen,
+kein Gegenverkehr; Fahrzeuge meiden (bringen Aufschriften mit).
 
 Im Motiv dürfen Menschen beschrieben werden, was sie tun („friends raising glasses",
 „a woman in profile buying candles"). Gesichter nur mit Einschränkung („in profile",

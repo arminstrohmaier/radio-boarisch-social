@@ -39,11 +39,16 @@ MENSCHEN_STUFEN = {
     # Erster Test 15.11.2026: In Menschenmengen malte der Generator trotz "in profile" frontale
     # Gesichter im Mittelgrund. Darum steht die Kamera hinter den Leuten, und alle schauen auf
     # ein gemeinsames Ziel in der Szene (Buehne, Riesenrad, Staende).
+    # Test 16.11.2026: Gesichter blieben nur dort weg, wo alle in dieselbe Richtung von der
+    # Kamera weggingen und der Hintergrund unscharf war (Christkindlmarkt-Stand). In Gassen
+    # und an Tischreihen kamen Leute frontal entgegen. Darum: alle bewegen sich von der Kamera
+    # weg, offene Blende, alles hinter der vordersten Gruppe verschwimmt.
     "belebt": (f"The scene is lively and full of people in the middle of the action, adults and "
-               f"families sharing a candid, natural moment. The camera stands behind and among "
-               f"them, so almost everyone is seen from behind or from the side, all turned away "
-               f"from the camera towards the centre of the action; {GESICHTER}; {KLEIDUNG}; "
-               f"children only seen from behind."),
+               f"families sharing a candid, natural moment. The camera follows them from behind: "
+               f"everyone walks or looks away from the camera, deeper into the scene, towards "
+               f"the centre of the action. Wide aperture, shallow depth of field: the nearest "
+               f"people are sharp, everything beyond them dissolves into soft blur and bokeh; "
+               f"{GESICHTER}; {KLEIDUNG}; children only seen from behind."),
 }
 MENSCHEN = MENSCHEN_STUFEN["wenige"]
 MENSCHENLEER = "The place is deserted, quiet and still."
