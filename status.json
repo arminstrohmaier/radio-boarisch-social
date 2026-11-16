@@ -949,7 +949,7 @@
       "entwurf": "2026-11-15-abpflastern-bayreuth"
     },
     "2026-11-16-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "835568b07c",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-16-themen.json",
       "importiert": "2026-11-16T06:18:48+00:00",
@@ -982,7 +982,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-16T06:18:50+00:00",
+      "tg_msg": 120
     }
   },
   "befehle_gesetzt": true,
