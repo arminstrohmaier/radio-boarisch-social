@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-16-themen",
+  "themen": [
+    {
+      "titel": "Ehrenpreis für die Spider Murphy Gang",
+      "worum": "Beim Bayerischen Kunstpreis 2026 im Bergson Kunstkraftwerk München hat die Spider Murphy Gang („Skandal im Sperrbezirk“, „Schickeria“) den Ehrenpreis des Ministerpräsidenten bekommen. Insgesamt wurden acht Preisträger ausgezeichnet.",
+      "quelle": {"name": "Bayerisches Staatsministerium für Wissenschaft und Kunst", "url": "https://www.stmwk.bayern.de/pressemitteilung/13074/nr-100-vom-13-11-2026.html"},
+      "ernst": false
+    },
+    {
+      "titel": "17 Kunstförderpreise für junge Talente aus Bayern",
+      "worum": "16 Nachwuchskünstlerinnen und -künstler und ein Ensemble haben im Bergson Kunstkraftwerk den Bayerischen Kunstförderpreis 2026 erhalten – als Auftakt zum Abend des Bayerischen Kunstpreises.",
+      "quelle": {"name": "Bayerisches Staatsministerium für Wissenschaft und Kunst", "url": "https://www.stmwk.bayern.de/pressemitteilung/13075/nr-101-vom-13-11-2026.html"},
+      "ernst": false
+    },
+    {
+      "titel": "Führerschein von 2002 bis 2004? Umtausch bis 19. Januar",
+      "worum": "Wer den Führerschein zwischen 2002 und 2004 bekommen hat, muss ihn bis 19. Januar 2027 in einen EU-Führerschein umtauschen (Ausnahme: vor 1953 Geborene). Kosten rund 25 bis 30 Euro; vor dem Stichtag wird es erfahrungsgemäß eng bei den Terminen.",
+      "quelle": {"name": "Stadt Augsburg", "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/fuehrerscheine-von-2002-bis-2004-jetzt-umtauschen"},
+      "ernst": false
+    }
+  ]
+}
