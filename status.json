@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760185,
+  "telegram_offset": 972760186,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1100,7 +1100,7 @@
       "entwurf": "2026-11-17-nachtrag-einbruch-bayreuth"
     },
     "2026-11-17-themen-2": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "3bbe5b38ee",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-17-themen-2.json",
       "importiert": "2026-11-17T15:40:19+00:00",
@@ -1135,7 +1135,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-17T15:40:21+00:00",
-      "tg_msg": 136
+      "tg_msg": 136,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-17T15:50:53+00:00"
     }
   },
   "befehle_gesetzt": true,
