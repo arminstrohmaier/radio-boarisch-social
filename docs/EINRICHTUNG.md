@@ -155,3 +155,42 @@ seinen Nachfolger. Ein externer Taktgeber (cron-job.org) wird nicht gebraucht.
 Kontrolle: **Actions** → **Automat** – dort sollte immer ein Lauf „in progress“ sein.
 Reißt die Kette ab (z. B. nach einem Fehler), startet die stündliche Claude-Runde sie neu.
 Von Hand: **Run workflow** → bei **dauer** `340` eintragen → **Run workflow**.
+
+---
+
+## Teil D – Bilderzeugung mit Cloudflare Workers AI (Bildtest, LOP 127 Schritt 1)
+
+Kostenlos (Workers AI Free: 10.000 „Neurons“ pro Tag, Lucid Origin braucht laut Dashboard rund 3.100 pro Bild, also etwa 3 Bilder pro Tag – genug für 3 Posts pro Woche, aber nicht für viele Testläufe am selben Tag).
+Modell: `@cf/black-forest-labs/flux-1-schnell`. Code: `automat/bildgen.py`.
+
+### D1. Konto und Werte holen
+
+1. https://dash.cloudflare.com → **Sign up** (kostenlos, keine Zahlungsdaten nötig) bzw. anmelden.
+2. Links im Menü **AI** → **Workers AI** (je nach Menü auch unter **Build** → **AI**).
+3. Kachel/Knopf **Use REST API** (REST-API verwenden) anklicken.
+4. Dort steht die **Account ID** mit Kopier-Symbol → kopieren.
+5. Auf derselben Seite **Create a Workers AI API Token** → die Berechtigung
+   **Workers AI – Edit** (Read & Edit) ist schon eingetragen → **Create API Token** →
+   Token kopieren (wird nur einmal angezeigt).
+
+### D2. In GitHub eintragen (wie oben: Settings → Secrets and variables → Actions → New repository secret)
+
+| Name | Wert |
+|---|---|
+| `CLOUDFLARE_ACCOUNT_ID` | Account ID aus D1.4 |
+| `CLOUDFLARE_API_TOKEN` | Token aus D1.5 |
+
+### D3. Bildtest starten
+
+**Actions** → links **Bildtest** → den (rot markierten, weil vorher Secrets fehlten) Lauf öffnen →
+oben rechts **Re-run jobs** → **Re-run all jobs**. Nach 1–2 Minuten liegen im Ordner `test/` des
+Branches fünf Bilder (1080×1350) und `prompts.json` (Motiv, Seed, Prompt).
+
+### D4. Betrieb (seit 11.11.2026)
+
+Der Automat erzeugt für jeden Entwurf mit `bild_ki` (Bausteine nach `docs/BILDSPRACHE.md`) ein eigenes Bild mit
+`@cf/leonardo/lucid-origin` (896×1120, 4:5, auf 1080×1350 hochgerechnet) und setzt den Bildtext darauf. In Telegram steht
+unter dem Bild, woher es kommt („eigenes KI-Bild“ oder „Pool … (KI-Bild nicht möglich: Grund)“).
+Fehlen die Secrets, ist das Tageskontingent leer oder antwortet Cloudflare nicht, nimmt er
+automatisch das Pool-Bild aus dem Entwurf. Kosten entstehen im Free-Tarif nie.
+Das Modell steht in `automat/bildgen.py` (`PRODUKTIV`).

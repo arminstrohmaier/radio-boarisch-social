@@ -69,6 +69,17 @@ class Status:
         kandidaten.sort(reverse=True)
         return [b for _, b in kandidaten[:anzahl] if b]
 
+    def zuletzt_bildsprache(self, ausser: str | None = None, anzahl: int = 3) -> list[dict]:
+        """Aufbau und Farbwelt der letzten KI-Bilder, neuestes zuerst."""
+        kandidaten = [
+            (p.get("importiert", ""), p["bild_ki"])
+            for pid, p in self.posts.items()
+            if pid != ausser and not p.get("test") and p.get("bild_ki")
+            and p.get("status") not in ("verworfen", "ungueltig", "veraltet")
+        ]
+        kandidaten.sort(key=lambda k: k[0], reverse=True)
+        return [b for _, b in kandidaten[:anzahl]]
+
     def speichern(self):
         self.ordner.mkdir(parents=True, exist_ok=True)
         tmp = self.datei.with_suffix(".tmp")
