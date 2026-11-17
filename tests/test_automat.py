@@ -669,3 +669,22 @@ def test_bildsprache_kein_post_wie_der_vorige(tmp_path):
                                                       farbwelt="frost white, slate blue"))
     einmal(st, tg, meta, s, [e3])
     assert st.posts["2026-11-12-drei"]["status"] == "gesendet"
+
+
+def test_facebook_seite_wird_klickbarer_link():
+    e = dict(BEISPIEL, erwaehnungen=[
+        {"name": "Stadt Passau", "instagram": "stadt.passau", "facebook": "StadtPassau",
+         "beleg": "https://www.passau.de/"},
+        {"name": "Trachtenverein X"}])
+    p = E.pruefen(e)
+    assert p.ok and any("Trachtenverein X" in h for h in p.hinweise)
+    assert "Mehr bei: @stadt.passau, Trachtenverein X" in E.caption(e, "instagram")
+    assert "Mehr bei: Stadt Passau (facebook.com/StadtPassau), Trachtenverein X" in E.caption(e, "facebook")
+    assert not E.pruefen(dict(BEISPIEL, erwaehnungen=[{"name": "X", "facebook": "abc"}])).ok  # ohne Beleg
+
+
+def test_bis_zu_zehn_erwaehnungen():
+    zehn = [{"name": f"Ort {i}", "instagram": f"ort{i}", "beleg": "https://x.de"} for i in range(10)]
+    assert E.pruefen(dict(BEISPIEL, erwaehnungen=zehn)).ok
+    elf = zehn + [{"name": "Ort 10", "instagram": "ort10", "beleg": "https://x.de"}]
+    assert not E.pruefen(dict(BEISPIEL, erwaehnungen=elf)).ok

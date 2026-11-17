@@ -26,10 +26,11 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
                 "mitte", "linksunten"; bei eigenem Foto darf bildtext leer sein
   quelle        {"name": "...", "url": "https://..."}  Primaerquelle
   hashtags      zusaetzliche Hashtags, bis zu 10 (die festen kommen automatisch)
-  erwaehnungen  verlinkte Konten (optional, max. 5), je
-                {"name": "Stadt Nürnberg", "instagram": "stadtnuernberg",
-                 "beleg": "https://... (Seite, auf der das Konto offiziell verlinkt ist)"}
-                Instagram: "@konto" in der Caption; Facebook: der Name als Text.
+  erwaehnungen  verlinkte Konten (max. 10, so viele passende wie belegbar), je
+                {"name": "Stadt Nürnberg", "instagram": "nuernberg_de", "facebook": "nuernberg.de",
+                 "beleg": "https://... (Seite, auf der die Konten offiziell verlinkt sind)"}
+                Instagram: "@konto" in der Caption; Facebook: Name mit klickbarem Link
+                "(facebook.com/seite)" – ein @ zu fremden Seiten erlaubt die Schnittstelle nicht.
                 Nur Organisationen, Vereine, Veranstalter, Behoerden, Kuenstler –
                 nie Privatpersonen, nie Minderjaehrige.
   recherche     Notiz fuer den Betreiber: Ausloeser, Primaerquelle,
@@ -71,8 +72,9 @@ ZUSAGEN = [r"\bläuft (bald|demnächst|ab)\b", r"\bin unserer rotation\b",
 IG_CAPTION_MAX = 2200
 IG_HASHTAG_MAX = 30          # harte Grenze von Instagram
 HASHTAGS_EXTRA_MAX = 10      # Betreiberentscheidung 10.11.2026: 2 feste + bis zu 10
-ERWAEHNUNGEN_MAX = 5
+ERWAEHNUNGEN_MAX = 10   # Betreiberentscheidung 12.11.2026; Instagram erlaubt max. 20
 IG_KONTO_RE = re.compile(r"^[A-Za-z0-9._]{1,30}$")
+FB_SEITE_RE = re.compile(r"^[A-Za-z0-9.\-]{3,80}$")
 BILDTEXT_MAX = 70
 BILDMOTIV_MAX = 800
 
@@ -111,7 +113,13 @@ def erwaehnungszeile(e: dict, kanal: str) -> str:
     namen = []
     for m in e.get("erwaehnungen") or []:
         konto = (m.get("instagram") or "").lstrip("@").strip()
-        namen.append(f"@{konto}" if kanal == "instagram" and konto else m["name"].strip())
+        seite = (m.get("facebook") or "").strip().strip("/")
+        if kanal == "instagram" and konto:
+            namen.append(f"@{konto}")
+        elif kanal == "facebook" and seite:
+            namen.append(f"{m['name'].strip()} (facebook.com/{seite})")
+        else:
+            namen.append(m["name"].strip())
     return ("Mehr bei: " + ", ".join(namen)) if namen else ""
 
 
@@ -248,10 +256,15 @@ def pruefen(e: dict, zuletzt_genutzte_bilder: list[str] | None = None,
         konto = (m.get("instagram") or "").lstrip("@")
         if konto and not IG_KONTO_RE.match(konto):
             p.fehler.append(f"ungueltiges Instagram-Konto: {m.get('instagram')}")
+        seite = (m.get("facebook") or "").strip("/")
+        if seite and not FB_SEITE_RE.match(seite):
+            p.fehler.append(f"ungueltige Facebook-Seite: {m.get('facebook')}")
         b = urlparse(m.get("beleg") or "")
-        if konto and (b.scheme not in ("http", "https") or not b.netloc):
-            p.fehler.append(f"Erwaehnung {m['name']}: 'beleg' fehlt (Seite, auf der @{konto} "
-                            "offiziell verlinkt ist)")
+        if (konto or seite) and (b.scheme not in ("http", "https") or not b.netloc):
+            p.fehler.append(f"Erwaehnung {m['name']}: 'beleg' fehlt (Seite, auf der die Konten "
+                            "offiziell verlinkt sind)")
+        if not konto and not seite:
+            p.hinweise.append(f"{m['name']}: kein belegtes Konto – erscheint nur als Name")
     if len(caption(e, "facebook")) > IG_CAPTION_MAX:
         p.fehler.append("Facebook-Caption zu lang")
 
