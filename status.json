@@ -526,7 +526,7 @@
       }
     },
     "2026-11-17-christkindlmarkt-regensburg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "ed24f95ad2",
       "hash": "750b19860ce1d4e1ad571b0761fe8772658cc2b4",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-17-christkindlmarkt-regensburg.json",
