@@ -769,3 +769,11 @@ def test_gedankenstrich_nicht_allein():
     from automat import render
     assert render._woerter("230 Jahre Christkindlmarkt – ab 23. November") == [
         "230", "Jahre", "Christkindlmarkt\u00a0–", "ab", "23.\u00a0November"]
+
+
+def test_bildtext_haupt_und_zusatzzeile():
+    from automat import render
+    assert render.teilen("230 Jahre Christkindlmarkt – ab 23. November") == ("230 Jahre Christkindlmarkt", "ab 23. November")
+    assert render.teilen("Neues Album · ab Freitag") == ("Neues Album", "ab Freitag")
+    assert render.teilen("Grüße aus Regensburg") == ("Grüße aus Regensburg", "")
+    assert render.teilen("Rock-Festival in Passau") == ("Rock-Festival in Passau", "")

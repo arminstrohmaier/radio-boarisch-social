@@ -44,6 +44,40 @@ def _woerter(text: str) -> list[str]:
     return woerter
 
 
+def teilen(bildtext: str) -> tuple[str, str]:
+    """Hauptzeile und Zusatzzeile: getrennt am ersten " – ", " · " oder " | "."""
+    teile = re.split(r"\s+[–·|]\s+", bildtext.strip(), maxsplit=1)
+    return teile[0].strip(), (teile[1].strip() if len(teile) > 1 else "")
+
+
+@lru_cache(maxsize=64)
+def _font_cache(pfad: str, groesse: int):
+    return ImageFont.truetype(pfad, groesse)
+
+
+def _font(pfad: Path, groesse: int):
+    if not Path(pfad).is_file():
+        pfad = config.FONT_PATH
+    return _font_cache(str(pfad), groesse)
+
+
+def _zeilenhoehe(font) -> int:
+    auf, ab = font.getmetrics()
+    return int((auf + ab) * 0.92)
+
+
+def _schwung(x: float, y: float, breite: int, staerke: int) -> list[tuple[float, float]]:
+    """Leicht geschwungener, nach rechts ansteigender Pinselstrich (wie in den manuellen Posts)."""
+    hub = max(4, staerke * 1.2)
+    pts = []
+    for i in range(41):
+        t = i / 40
+        # quadratische Kurve: links tiefer, Mitte durchhaengend, rechts etwas hoeher
+        py = y + (1 - t) * hub * 0.6 - 4 * t * (1 - t) * hub * -0.5 - t * hub * 0.6
+        pts.append((x + t * breite, py))
+    return pts
+
+
 def _umbrechen(draw, text, font, breite):
     zeilen, aktuell = [], ""
     for wort in _woerter(text):
@@ -124,21 +158,30 @@ def rendern(bild: str, bildtext: str, ziel: Path, quelle: Path | None = None,
         return ziel
 
     spalte = hz != "mitte"
-    max_breite = int(W * 0.60) if spalte else W - 2 * RAND
-    max_zeilen = 6 if spalte else 4
+    max_breite = int(W * 0.62) if spalte else W - 2 * RAND
+    haupt_text, unter_text = teilen(bildtext)
 
     draw = ImageDraw.Draw(img)
-    groesse = 92 if spalte else 96
+    groesse = 104 if spalte else 118
     while True:
-        font = ImageFont.truetype(str(config.FONT_PATH), groesse)
-        zeilen = _umbrechen(draw, bildtext.strip(), font, max_breite)
-        breitest = max(draw.textlength(z, font=font) for z in zeilen)
-        if (len(zeilen) <= max_zeilen and breitest <= max_breite) or groesse <= 44:
+        fh = _font(config.FONT_HAUPT, groesse)
+        fu = _font(config.FONT_UNTER, max(32, round(groesse * 0.5)))
+        haupt = _umbrechen(draw, haupt_text, fh, max_breite)
+        unter = _umbrechen(draw, unter_text, fu, max_breite) if unter_text else []
+        breitest = max(draw.textlength(z, font=f) for z, f in
+                       [(z, fh) for z in haupt] + [(z, fu) for z in unter])
+        passt = (len(haupt) <= (5 if spalte else 3) and len(unter) <= 2
+                 and breitest <= max_breite)
+        if passt or groesse <= 52:
             break
         groesse -= 4
-    zeilenhoehe = int(groesse * 1.18)
-    block_h = zeilenhoehe * len(zeilen)
+
+    zh_h = _zeilenhoehe(fh)
+    zh_u = _zeilenhoehe(fu)
+    strich = max(8, round(groesse * 0.12))
+    abstand = round(groesse * 0.22)
     block_w = int(breitest)
+    block_h = zh_h * len(haupt) + abstand + strich + (abstand + zh_u * len(unter) if unter else 0)
 
     if hz == "links":
         x0 = RAND
@@ -147,7 +190,7 @@ def rendern(bild: str, bildtext: str, ziel: Path, quelle: Path | None = None,
     else:
         x0 = (W - block_w) // 2
     if v == "oben":
-        y0 = int(H * 0.08)
+        y0 = int(H * 0.07)
     elif v == "unten":
         y0 = H - int(H * 0.08) - block_h
     else:
@@ -156,7 +199,7 @@ def rendern(bild: str, bildtext: str, ziel: Path, quelle: Path | None = None,
     # weicher dunkler Schleier hinter dem Text fuer Lesbarkeit
     schleier = Image.new("L", ZIEL, 0)
     sd = ImageDraw.Draw(schleier)
-    pad = int(groesse * 0.9)
+    pad = int(groesse * 0.8)
     sd.rounded_rectangle(
         (x0 - pad, y0 - pad, x0 + block_w + pad, y0 + block_h + pad),
         radius=pad, fill=140,
@@ -164,21 +207,36 @@ def rendern(bild: str, bildtext: str, ziel: Path, quelle: Path | None = None,
     schleier = schleier.filter(ImageFilter.GaussianBlur(pad * 0.8))
     img = Image.composite(Image.new("RGB", ZIEL, (0, 0, 0)), img, schleier)
 
-    # Text mit leichtem Schatten
+    # Text und goldener Schwung mit leichtem Schatten
     schatten = Image.new("RGBA", ZIEL, (0, 0, 0, 0))
     text = Image.new("RGBA", ZIEL, (0, 0, 0, 0))
     sdraw, tdraw = ImageDraw.Draw(schatten), ImageDraw.Draw(text)
-    for i, z in enumerate(zeilen):
-        zw = draw.textlength(z, font=font)
+
+    def ausrichten(breite):
         if hz == "links":
-            x = x0
-        elif hz == "rechts":
-            x = x0 + block_w - zw
-        else:
-            x = x0 + (block_w - zw) / 2
-        y = y0 + i * zeilenhoehe
-        sdraw.text((x + 3, y + 3), z, font=font, fill=(0, 0, 0, 180))
-        tdraw.text((x, y), z, font=font, fill=(255, 255, 255, 255))
+            return x0
+        if hz == "rechts":
+            return x0 + block_w - breite
+        return x0 + (block_w - breite) / 2
+
+    y = y0
+    for z in haupt:
+        x = ausrichten(draw.textlength(z, font=fh))
+        sdraw.text((x + 3, y + 4), z, font=fh, fill=(0, 0, 0, 190))
+        tdraw.text((x, y), z, font=fh, fill=(255, 255, 255, 255))
+        y += zh_h
+    y += abstand
+    sw = min(block_w, int(max(draw.textlength(z, font=fh) for z in haupt) * 0.82))
+    sx = ausrichten(sw)
+    punkte = _schwung(sx, y + strich, sw, strich)
+    sdraw.line([(px + 3, py + 4) for px, py in punkte], fill=(0, 0, 0, 160), width=strich, joint="curve")
+    tdraw.line(punkte, fill=config.GOLD + (255,), width=strich, joint="curve")
+    y += strich + abstand
+    for z in unter:
+        x = ausrichten(draw.textlength(z, font=fu))
+        sdraw.text((x + 2, y + 3), z, font=fu, fill=(0, 0, 0, 190))
+        tdraw.text((x, y), z, font=fu, fill=(255, 255, 255, 255))
+        y += zh_u
     schatten = schatten.filter(ImageFilter.GaussianBlur(4))
     img = Image.alpha_composite(Image.alpha_composite(img.convert("RGBA"), schatten), text)
 
