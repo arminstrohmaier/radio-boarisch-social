@@ -1098,6 +1098,42 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-17T13:37:42+00:00",
       "entwurf": "2026-11-17-nachtrag-einbruch-bayreuth"
+    },
+    "2026-11-17-themen-2": {
+      "status": "neu",
+      "key": "3bbe5b38ee",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-17-themen-2.json",
+      "importiert": "2026-11-17T15:40:19+00:00",
+      "themen": [
+        {
+          "titel": "230 Jahre Regensburger Christkindlmarkt – Eröffnung mit den Domspatzen",
+          "worum": "Der Christkindlmarkt auf dem Neupfarrplatz ist heuer 230 Jahre alt. Eröffnet wird er am Montag, 23. November, um 18 Uhr vor der Alten Wache – mit den Regensburger Domspatzen und den Posaunenchören. Geöffnet bis 23. Dezember.",
+          "quelle": {
+            "name": "Stadt Regensburg",
+            "url": "https://www.regensburg.de/aktuelles/pressemitteilungen/159998/621620/"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "„pflanz mit!“: Augsburg prämiert grüne Ideen von Bürgern",
+          "worum": "44 Begrünungs- und Entsiegelungsprojekte auf privaten Flächen wurden beim Wettbewerb „pflanz mit!“ eingereicht. Am 30. November um 18 Uhr werden in der Stadtbücherei die Preise verliehen – mit Anmeldung.",
+          "quelle": {
+            "name": "Stadt Augsburg",
+            "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/wettbewerb-pflanz-mit-preisverleihung-am-30-november"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Würzburg: Umzug ummelden geht jetzt komplett vom Sofa aus",
+          "worum": "In Würzburg lässt sich der Hauptwohnsitz jetzt vollständig digital anmelden – samt neuer Adresse auf dem Chip des Personalausweises, per Smartphone. Voraussetzung ist ein Ausweis mit aktiver Online-Ausweisfunktion.",
+          "quelle": {
+            "name": "Stadt Würzburg",
+            "url": "https://www.wuerzburg.de/rathaus/presse/aktuelle-pressemitteilungen/550707.Neuer-Service-bei-der-Stadt-Wuerzburg.html"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -1174,7 +1210,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-17T15:04:37+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-17-themen-2"
     }
   ]
 }
