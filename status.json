@@ -1021,6 +1021,42 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-16T06:40:27+00:00",
       "entwurf": "2026-11-16-spider-murphy-gang-ehrenpreis"
+    },
+    "2026-11-17-themen": {
+      "status": "neu",
+      "key": "6f8a997764",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-17-themen.json",
+      "importiert": "2026-11-17T12:39:36+00:00",
+      "themen": [
+        {
+          "titel": "Nachtrag Bayreuth: Alle drei Tatverdächtigen gefasst",
+          "worum": "Nach dem Einbruch bei einem Goldhändler in Bayreuth am Sonntag hat die Polizei alle drei Tatverdächtigen festgenommen – zwei noch am Vormittag im Landkreis Bayreuth, den dritten wenige Stunden später. Erbeutet wurden laut Ministerium Schmuck und Silbermünzen im Wert von etwa 10.000 Euro.",
+          "quelle": {
+            "name": "Bayerisches Staatsministerium des Innern, für Sport und Integration",
+            "url": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/herrmann-lobt-bayerische-polizei-fuer-schnellen-fahndungserfolg-nach-einbruch-in-bayreuth-alle-drei-tatverdaechtigen-festgenommen-22700/"
+          },
+          "ernst": true
+        },
+        {
+          "titel": "Bürgerfest Bayreuth 2027: Bands und Vereine gesucht",
+          "worum": "Für das Bürgerfest vom 2. bis 4. Juli 2027 können sich ab sofort Bands, Tanz- und Showgruppen, Vereine, Gastronomen und Stände online bewerben.",
+          "quelle": {
+            "name": "Stadt Bayreuth",
+            "url": "https://www.bayreuth.de/buergerfest-2027-jetzt-bewerben-und-mitgestalten/"
+          },
+          "ernst": false
+        },
+        {
+          "titel": "Göggingen: Neues Bürgerbüro und Bücherei im alten Milchhof",
+          "worum": "In Augsburg-Göggingen eröffnet heute im ehemaligen Milchhof (Klausenberg 8a) ein Servicezentrum mit dem sechsten Bürgerbüro der Stadt und der Stadtteilbücherei. Ausleihen geht ab sofort, das Bürgerbüro startet am Mittwoch.",
+          "quelle": {
+            "name": "Stadt Augsburg",
+            "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/goeggingen-buergerbuero-und-buecherei-oeffnen"
+          },
+          "ernst": false
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
@@ -1091,7 +1127,8 @@
     {
       "art": "themenlauf",
       "zeit": "2026-11-17T11:51:44+00:00",
-      "status": "offen"
+      "status": "erledigt",
+      "themen": "2026-11-17-themen"
     }
   ]
 }
