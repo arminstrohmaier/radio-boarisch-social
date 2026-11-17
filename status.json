@@ -524,6 +524,23 @@
           "zeit": "2026-11-17T13:40:39+00:00"
         }
       }
+    },
+    "2026-11-17-christkindlmarkt-regensburg": {
+      "status": "neu",
+      "key": "ed24f95ad2",
+      "hash": "750b19860ce1d4e1ad571b0761fe8772658cc2b4",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-17-christkindlmarkt-regensburg.json",
+      "importiert": "2026-11-17T16:39:04+00:00",
+      "bild": "03_text-oben.jpg",
+      "thema": "230 Jahre Regensburger Christkindlmarkt auf dem Neupfarrplatz – Eröffnung am 23. November mit den Domspatzen",
+      "hinweise": [
+        "Regensburger Domspatzen: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "aufsicht",
+        "farbwelt": "Evening blue, warm amber, fir green."
+      }
     }
   },
   "themen": {
@@ -1100,7 +1117,7 @@
       "entwurf": "2026-11-17-nachtrag-einbruch-bayreuth"
     },
     "2026-11-17-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "3bbe5b38ee",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-17-themen-2.json",
       "importiert": "2026-11-17T15:40:19+00:00",
@@ -1137,7 +1154,8 @@
       "gesendet": "2026-11-17T15:40:21+00:00",
       "tg_msg": 136,
       "gewaehlt": 1,
-      "entschieden": "2026-11-17T15:50:53+00:00"
+      "entschieden": "2026-11-17T15:50:53+00:00",
+      "entwurf": "2026-11-17-christkindlmarkt-regensburg"
     }
   },
   "befehle_gesetzt": true,
