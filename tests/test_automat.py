@@ -750,3 +750,22 @@ def test_naechster_themenlauf():
     assert n(datetime(2026, 11, 18, 13, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"
     assert n(datetime(2026, 11, 21, 13, 0, tzinfo=BERLIN)) == "Mo 4:30 Uhr"        # Sa nach 12 -> Mo
     assert n(datetime(2026, 11, 22, 10, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"    # So
+
+
+def test_dauerlauf_endet_bei_neuem_code_auf_main(tmp_path, monkeypatch):
+    monkeypatch.setattr(lauf.time, "monotonic", lambda: 0)
+    stand = iter(["aaa", "aaa", "bbb"])
+    monkeypatch.setattr(lauf, "_main_stand", lambda repo: next(stand))
+    monkeypatch.setattr(lauf, "_branches_holen", lambda repo: None)
+    aufrufe = []
+    monkeypatch.setattr(lauf, "zyklus", lambda *a, **k: aufrufe.append(1))
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "x")
+    monkeypatch.setenv("TELEGRAM_CHAT_ID", "42")
+    assert lauf.main(["--status", str(tmp_path), "--dauer", "300"]) == 0
+    assert len(aufrufe) == 2   # zweiter Zyklus mit altem Stand, dann Ende
+
+
+def test_gedankenstrich_nicht_allein():
+    from automat import render
+    assert render._woerter("230 Jahre Christkindlmarkt – ab 23. November") == [
+        "230", "Jahre", "Christkindlmarkt\u00a0–", "ab", "23.\u00a0November"]

@@ -432,6 +432,13 @@ def testentwurf(st: Status) -> str:
 
 # ---------------------------------------------------------------- main
 
+def _main_stand(repo: Path) -> str:
+    """Commit von origin/main nach dem letzten fetch ('' wenn unbekannt)."""
+    r = subprocess.run(["git", "-C", str(repo), "rev-parse", "refs/remotes/origin/main"],
+                       capture_output=True, text=True)
+    return r.stdout.strip() if r.returncode == 0 else ""
+
+
 def _branches_holen(repo: Path):
     """Neue Entwuerfe, Themen und Rueckmeldungen von allen Branches holen (fuer Dauerlauf)."""
     subprocess.run(["git", "-C", str(repo), "fetch", "-q", "--prune", "origin",
@@ -503,11 +510,19 @@ def main(argv=None) -> int:
     log(f"Dauerlauf fuer {a.dauer} Minuten")
     erster = True
     fehler = 0
+    # Ein Dauerlauf arbeitet mit dem Code, mit dem er gestartet wurde (bis knapp 6 Stunden).
+    # Kommt neuer Code nach main, endet er vorzeitig; der Nachfolger startet mit dem neuen
+    # Stand (17.11.2026: Logo fehlte auf einem Bild, weil der Lauf noch den alten Code hatte).
+    start_stand = _main_stand(repo)
     while time.monotonic() < ende:
         rest = int(ende - time.monotonic())
         try:
             if not erster:
                 _branches_holen(repo)
+                neu = _main_stand(repo)
+                if start_stand and neu and neu != start_stand:
+                    log(f"Neuer Code auf main ({neu[:7]}) – Dauerlauf endet, Nachfolger startet damit")
+                    return 0
             zyklus(st, s, tg, meta, commit, repo, a.testentwurf and erster,
                    warten=max(0, min(25, rest - 5)))
             fehler = 0
