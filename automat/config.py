@@ -7,6 +7,9 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POOL_DIR = REPO_ROOT / "pool"
 FONT_PATH = REPO_ROOT / "assets" / "fonts" / "DejaVuSans-Bold.ttf"
+# Logo (vom Betreiber hochgeladen 17.11.2026): weisse Schrift fuer dunkle, farbig fuer helle Ecken.
+LOGO_HELL = REPO_ROOT / "assets" / "2026-07-30_Radio Boarisch_Wort- & Bildmarke_Weiß auf Transparent.png"
+LOGO_DUNKEL = REPO_ROOT / "assets" / "2026-07-30_Radio Boarisch_Wort- & Bildmarke_Farbe auf Transparent.png"
 
 SIGNATUR = "Radio Boarisch · Klingt nach Dahoam."
 FESTE_HASHTAGS = ["#RadioBoarisch", "#KlingtNachDahoam"]
