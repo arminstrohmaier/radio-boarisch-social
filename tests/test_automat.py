@@ -740,3 +740,13 @@ def test_logo_in_ecke_gegenueber_bildtext(tmp_path, monkeypatch):
     ohne = render.rendern("", "Test", tmp_path / "ohne.jpg", quelle=quelle, lage="oben")
     px = Image.open(ohne).getpixel(ecke)
     assert all(abs(a - 90) <= 3 for a in px)
+
+
+def test_naechster_themenlauf():
+    from datetime import datetime
+    from automat.themen import BERLIN, naechster_themenlauf as n
+    assert n(datetime(2026, 11, 18, 3, 0, tzinfo=BERLIN)) == "heute 4:30 Uhr"      # Mi
+    assert n(datetime(2026, 11, 18, 4, 30, tzinfo=BERLIN)) == "heute 12:00 Uhr"
+    assert n(datetime(2026, 11, 18, 13, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"
+    assert n(datetime(2026, 11, 21, 13, 0, tzinfo=BERLIN)) == "Mo 4:30 Uhr"        # Sa nach 12 -> Mo
+    assert n(datetime(2026, 11, 22, 10, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"    # So

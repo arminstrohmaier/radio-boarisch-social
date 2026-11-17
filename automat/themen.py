@@ -17,12 +17,39 @@ Format:
 """
 from __future__ import annotations
 
+from datetime import datetime, timedelta
 from urllib.parse import urlparse
+from zoneinfo import ZoneInfo
 
 from . import entwurf as E
 from .status import jetzt, schluessel
 
 NUMMERN = ["1️⃣", "2️⃣", "3️⃣"]
+
+# Geplante Themenlaeufe (Betreiberentscheidung 17.11.2026): Mo-Sa 4:30 und 12:00 Uhr.
+# Muss zum Zeitplan der Routine "Radio Boarisch – Themenlauf" passen.
+TERMINE = [(4, 30), (12, 0)]
+WERKTAGE = range(0, 6)   # Mo=0 .. Sa=5
+BERLIN = ZoneInfo("Europe/Berlin")
+WOCHENTAG = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+
+
+def naechster_themenlauf(jetzt_: datetime | None = None) -> str:
+    """z. B. 'heute 12:00 Uhr', 'morgen 4:30 Uhr', 'Mo 4:30 Uhr'."""
+    jetzt_ = (jetzt_ or datetime.now(BERLIN)).astimezone(BERLIN)
+    for tage in range(8):
+        tag = (jetzt_ + timedelta(days=tage)).date()
+        if tag.weekday() not in WERKTAGE:
+            continue
+        for h, m in TERMINE:
+            t = datetime(tag.year, tag.month, tag.day, h, m, tzinfo=BERLIN)
+            if t > jetzt_:
+                wann = "heute" if tage == 0 else "morgen" if tage == 1 else WOCHENTAG[tag.weekday()]
+                return f"{wann} {h}:{m:02d} Uhr"
+    return "demnächst"
+
+
+ZEITPLAN = "Mo–Sa um 4:30 und 12:00 Uhr"
 
 
 def pruefen(t: dict) -> list[str]:
@@ -53,10 +80,12 @@ def anfordern(st) -> str:
     offen = [a for a in st.daten.setdefault("anforderungen", [])
              if a.get("status") == "offen" and a.get("art") == "themenlauf"]
     if offen:
-        return "⏳ Ist schon angefordert – die Vorschläge kommen mit der nächsten stündlichen Runde (zur Minute :37)."
+        return ("⏳ Ist schon angefordert – die Vorschläge kommen mit der nächsten stündlichen Runde "
+                "(zur Minute :37, zwischen 6 und 22 Uhr).")
     st.daten["anforderungen"].append({"art": "themenlauf", "zeit": jetzt(), "status": "offen"})
-    return ("👍 Angefordert. Drei neue Themenvorschläge kommen mit der nächsten stündlichen Runde "
-            "(zur Minute :37, zwischen 6 und 22 Uhr), meist innerhalb einer guten Stunde.")
+    return ("👍 Angefordert. Drei zusätzliche Themenvorschläge kommen mit der nächsten stündlichen "
+            "Runde (zur Minute :37, zwischen 6 und 22 Uhr), meist innerhalb einer guten Stunde.\n"
+            f"Die regulären Vorschläge kommen {ZEITPLAN}, der nächste {naechster_themenlauf()}.")
 
 
 def importieren(st, kandidaten, tg, chat_id, veraltet) -> int:
@@ -152,7 +181,8 @@ def knopf(st, tg, chat_id, cq, key_nr: str) -> int:
     if n == 0:
         t.update(status="verworfen", entschieden=jetzt())
         tg.callback_antwort(cq["id"], "Keins – verworfen.")
-        tg.text(chat_id, "❌ Keins davon. Nächste Vorschläge kommen zum nächsten Termin.",
+        tg.text(chat_id, f"❌ Keins davon. Die nächsten Vorschläge kommen {naechster_themenlauf()} "
+                "(oder sofort mit /themen).",
                 antwort_auf=msg_id)
         return 1
     if not 1 <= n <= len(t["themen"]):
