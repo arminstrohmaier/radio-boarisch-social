@@ -746,10 +746,12 @@ def test_naechster_themenlauf():
     from datetime import datetime
     from automat.themen import BERLIN, naechster_themenlauf as n
     assert n(datetime(2026, 11, 18, 3, 0, tzinfo=BERLIN)) == "heute 4:30 Uhr"      # Mi
-    assert n(datetime(2026, 11, 18, 4, 30, tzinfo=BERLIN)) == "heute 12:00 Uhr"
-    assert n(datetime(2026, 11, 18, 13, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"
-    assert n(datetime(2026, 11, 21, 13, 0, tzinfo=BERLIN)) == "Mo 4:30 Uhr"        # Sa nach 12 -> Mo
-    assert n(datetime(2026, 11, 22, 10, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"    # So
+    assert n(datetime(2026, 11, 18, 4, 30, tzinfo=BERLIN)) == "heute 10:00 Uhr"
+    assert n(datetime(2026, 11, 18, 13, 0, tzinfo=BERLIN)) == "heute 17:00 Uhr"
+    assert n(datetime(2026, 11, 18, 18, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"
+    assert n(datetime(2026, 11, 21, 18, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"    # Sa abends -> So
+    assert n(datetime(2026, 11, 22, 11, 0, tzinfo=BERLIN)) == "heute 17:00 Uhr"    # So
+
 
 
 def test_dauerlauf_endet_bei_neuem_code_auf_main(tmp_path, monkeypatch):

@@ -1,5 +1,5 @@
 """Stufe 1: Themenvorschlaege. Claude legt themen/<JJJJ-MM-TT>-themen[-N].json mit
-bis zu drei Themen an (geplant Mo-Sa 4:30 und 12:00 Uhr, dazu /themen); der Betreiber waehlt per Telegram 1, 2, 3 oder keins.
+bis zu drei Themen an (geplant taeglich 4:30, 10:00 und 17:00 Uhr, dazu /themen); der Betreiber waehlt per Telegram 1, 2, 3 oder keins.
 Erst danach schreibt Claude den vollstaendigen Entwurf (Stufe 2, entwuerfe/),
 der wie bisher mit Ja/Nein freigegeben wird.
 
@@ -26,16 +26,16 @@ from .status import jetzt, schluessel
 
 NUMMERN = ["1️⃣", "2️⃣", "3️⃣"]
 
-# Geplante Themenlaeufe (Betreiberentscheidung 17.11.2026): Mo-Sa 4:30 und 12:00 Uhr.
-# Muss zum Zeitplan der Routine "Radio Boarisch – Themenlauf" passen.
-TERMINE = [(4, 30), (12, 0)]
-WERKTAGE = range(0, 6)   # Mo=0 .. Sa=5
+# Geplante Themenlaeufe (Betreiberentscheidung 17.11.2026, abends geaendert): taeglich
+# 4:30, 10:00 und 17:00 Uhr. Muss zu den Routinen "Radio Boarisch – Themenlauf ..." passen.
+TERMINE = [(4, 30), (10, 0), (17, 0)]
+WERKTAGE = range(0, 7)   # Mo=0 .. So=6 – jeden Tag
 BERLIN = ZoneInfo("Europe/Berlin")
 WOCHENTAG = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 
 
 def naechster_themenlauf(jetzt_: datetime | None = None) -> str:
-    """z. B. 'heute 12:00 Uhr', 'morgen 4:30 Uhr', 'Mo 4:30 Uhr'."""
+    """z. B. 'heute 10:00 Uhr', 'morgen 4:30 Uhr', 'Mo 4:30 Uhr'."""
     jetzt_ = (jetzt_ or datetime.now(BERLIN)).astimezone(BERLIN)
     for tage in range(8):
         tag = (jetzt_ + timedelta(days=tage)).date()
@@ -49,7 +49,7 @@ def naechster_themenlauf(jetzt_: datetime | None = None) -> str:
     return "demnächst"
 
 
-ZEITPLAN = "Mo–Sa um 4:30 und 12:00 Uhr"
+ZEITPLAN = "täglich um 4:30, 10:00 und 17:00 Uhr"
 
 
 def pruefen(t: dict) -> list[str]:
