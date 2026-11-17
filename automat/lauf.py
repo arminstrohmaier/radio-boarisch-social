@@ -315,7 +315,9 @@ def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
                   if t.get("status") in ("neu", "gesendet", "gewaehlt")]
         offen += [f"• Hinweis „{a['text'][:60]}“: in Arbeit" for a in st.daten.get("anforderungen", [])
                   if a.get("art") == "hinweis" and a.get("status") == "offen"]
-        tg.text(chat_id, "Offen:\n" + ("\n".join(offen) if offen else "nichts"))
+        tg.text(chat_id, "Offen:\n" + ("\n".join(offen) if offen else "nichts")
+                + f"\n\n🗓️ Themenvorschläge kommen {themen.ZEITPLAN}, der nächste "
+                f"{themen.naechster_themenlauf()}.")
     elif text.startswith("/themen"):
         tg.text(chat_id, themen.anfordern(st))
     elif text and not text.startswith("/"):
