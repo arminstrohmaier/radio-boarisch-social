@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760186,
+  "telegram_offset": 972760187,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -526,7 +526,7 @@
       }
     },
     "2026-11-17-christkindlmarkt-regensburg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "ed24f95ad2",
       "hash": "750b19860ce1d4e1ad571b0761fe8772658cc2b4",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-17-christkindlmarkt-regensburg.json",
@@ -544,7 +544,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · oberpfalz · Aufbau aufsicht",
       "gesendet": "2026-11-17T16:39:59+00:00",
       "tg_foto": 139,
-      "tg_msg": 140
+      "tg_msg": 140,
+      "entschieden": "2026-11-17T18:51:20+00:00"
     }
   },
   "themen": {
