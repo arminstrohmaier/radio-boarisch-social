@@ -7,6 +7,11 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POOL_DIR = REPO_ROOT / "pool"
 FONT_PATH = REPO_ROOT / "assets" / "fonts" / "DejaVuSans-Bold.ttf"
+# Bildtext im Stil der ersten manuellen Posts (Betreiberwunsch 17.11.2026): Hauptzeile in
+# Schreibschrift, Zusatzzeile (nach " – " oder " · ") kraeftig kursiv. Schriften: SIL OFL.
+FONT_HAUPT = REPO_ROOT / "assets" / "fonts" / "KaushanScript-Regular.ttf"   # Wahl des Betreibers 17.11.2026
+FONT_UNTER = REPO_ROOT / "assets" / "fonts" / "FiraSans-BoldItalic.ttf"
+GOLD = (233, 172, 52)   # Gold aus dem Logo, fuer den Schwung unter der Hauptzeile
 # Logo (vom Betreiber hochgeladen 17.11.2026): weisse Schrift fuer dunkle, farbig fuer helle Ecken.
 LOGO_HELL = REPO_ROOT / "assets" / "2026-07-30_Radio Boarisch_Wort- & Bildmarke_Weiß auf Transparent.png"
 LOGO_DUNKEL = REPO_ROOT / "assets" / "2026-07-30_Radio Boarisch_Wort- & Bildmarke_Farbe auf Transparent.png"

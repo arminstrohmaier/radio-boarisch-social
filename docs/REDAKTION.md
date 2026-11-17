@@ -104,6 +104,10 @@ sofort beenden** (keine Recherche, kein Commit, keine lange Antwort). Sonst je E
    (z. B. `"2026-11-11-themen#2"`). `id` mit dem heutigen Datum.
    Quellenzeile, Signatur, feste Hashtags und „Bild: KI-generiert.“ **nicht** selbst schreiben.
    `bild_ki` nach `docs/BILDSPRACHE.md`, `bild` als Pool-Rückfall (siehe oben).
+   **Bildtext** (max. 70 Zeichen): kurze Hauptzeile, optional mit Zusatz nach „ – “ oder „ · “,
+   z. B. „230 Jahre Christkindlmarkt – ab 23. November“. Der Automat setzt die Hauptzeile in
+   Schreibschrift (Kaushan Script) mit goldenem Schwung darunter und den Zusatz kleiner und
+   kursiv (Betreiberentscheidung 17.11.2026). Hauptzeile möglichst kurz (2–4 Wörter).
    Ins Feld `recherche`: Auslöser, Primärquelle mit Datum, Quellenregister-Eintrag.
    **Hashtags** (Betreiberentscheidung 10.11.2026): zusätzlich zu den festen **bis zu 10**, nur
    passende – Ort, Landkreis/Region (z. B. #Landshut #Niederbayern), Thema, Anlass, ggf. der

@@ -222,7 +222,7 @@ Jeder Post sieht anders aus als der vorige (06 §10.3). Darum wechselt der Aufba
 
 ## 7. Freie Fläche für den Bildtext (`lage`)
 
-Der Bildtext kommt erst danach vom Automaten aufs Bild. Damit er lesbar ist, braucht das Bild
+Der Bildtext kommt erst danach vom Automaten aufs Bild – Hauptzeile in Schreibschrift (Kaushan Script) mit goldenem Schwung, ein Zusatz nach „ – “ oder „ · “ kleiner und kursiv darunter. Damit er lesbar ist, braucht das Bild
 an dieser Stelle **Ruhe**: Himmel, Wand, Wasser, Wiese, Unschärfe. Das Motiv steht dann im
 anderen Teil des Bildes. Der Automat schreibt die Fläche selbst in den Prompt.
 
