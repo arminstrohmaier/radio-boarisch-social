@@ -16,7 +16,7 @@ from . import config
 
 ZIEL = (1080, 1350)
 RAND = 72
-LOGO_BREITE = 500      # px bei 1080 Breite (das Logo ist ein breites Querformat, ca. 3:1)
+LOGO_BREITE = 750      # px bei 1080 Breite (das Logo ist ein breites Querformat, ca. 3:1)
 LOGO_RAND = 40
 LOGO_DECKKRAFT = 0.92
 
