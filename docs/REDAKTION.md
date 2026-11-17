@@ -1,6 +1,6 @@
 # Redaktionsauftrag für Claude (R9, Instagram/Facebook)
 
-Diese Anweisung liest die geplante Claude-Sitzung, die dreimal pro Woche einen Entwurf anlegt.
+Diese Anweisung lesen die geplanten Claude-Läufe: Themenlauf Mo–Sa um 4:30 und 12:00 Uhr, dazu die stündliche Runde.
 
 ## Verbindliche Regeln
 
@@ -36,7 +36,9 @@ Kurzfassung (Stand V1.2, 28.10.2026, mit Betreiberentscheidungen bis 10.11.2026)
   **Zusätzlich Pflicht:** `bild` aus `pool/` als Rückfall, falls die Erzeugung scheitert
   (Dateiname nennt die freie Textfläche; nicht eines der zuletzt genutzten).
   Bei eigenem Foto des Betreibers kein `bild_ki`.
-- **Takt:** 3 Posts pro Woche. Pro Lauf **genau ein** Entwurf.
+- **Takt** (Betreiberentscheidung 17.11.2026): Themenvorschläge Mo–Sa um 4:30 und 12:00 Uhr,
+  sonntags keine. Keine feste Obergrenze für Posts: Jedes gewählte Thema wird ein Entwurf.
+  Pro gewähltem Thema **genau ein** Entwurf.
 
 ## Ablauf in zwei Stufen (Betreiberentscheidung vom 10.11.2026)
 
@@ -47,10 +49,13 @@ Gemeinsam für beide Stufen:
 - Committen und pushen auf den Arbeitsbranch (der Automat holt Dateien von allen Branches).
   Keine anderen Dateien ändern, nie nach main, nie selbst veröffentlichen.
 
-### Stufe 1 – Themenlauf (Mo/Mi/Fr früh, außerdem auf Anforderung per /themen)
+### Stufe 1 – Themenlauf (Mo–Sa 4:30 und 12:00 Uhr, außerdem auf Anforderung per /themen)
 
 1. **Drei** verschiedene, aktuelle Themen aus Bayern nach §10.2 suchen. Nicht dieselben wie in
-   den letzten Posts oder Themenvorschlägen (`status.json`).
+   den letzten Posts oder in beantworteten Themenvorschlägen (`status.json`). Vorschläge mit
+   Status `ersetzt` (unbeantwortet, durch einen neueren abgelöst) dürfen wieder auftauchen,
+   wenn sie noch aktuell sind. Bei zwei Läufen am Tag: der Mittagslauf bringt möglichst
+   andere Themen als der Morgenlauf.
 2. Für jedes Thema eine **Primärquelle** finden und kurz öffnen, um zu sehen, dass es sie gibt
    und dass das Thema dort steht. Noch **nicht** ausrecherchieren oder formulieren.
    Ohne Primärquelle fällt ein Thema weg. Findest du weniger als drei, schick weniger; findest du

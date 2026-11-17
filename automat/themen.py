@@ -1,5 +1,5 @@
-"""Stufe 1: Themenvorschlaege. Claude legt themen/<JJJJ-MM-TT>-themen.json mit
-bis zu drei Themen an; der Betreiber waehlt per Telegram 1, 2, 3 oder keins.
+"""Stufe 1: Themenvorschlaege. Claude legt themen/<JJJJ-MM-TT>-themen[-N].json mit
+bis zu drei Themen an (geplant Mo-Sa 4:30 und 12:00 Uhr, dazu /themen); der Betreiber waehlt per Telegram 1, 2, 3 oder keins.
 Erst danach schreibt Claude den vollstaendigen Entwurf (Stufe 2, entwuerfe/),
 der wie bisher mit Ja/Nein freigegeben wird.
 
@@ -64,7 +64,14 @@ def importieren(st, kandidaten, tg, chat_id, veraltet) -> int:
     for herkunft, pfad, t in kandidaten:
         tid = t.get("id") or pfad
         if tid in st.themen:
-            continue
+            # Zwei Laeufe am Tag: hat ein Lauf die Tagesdatei mit gleicher id neu beschrieben
+            # statt -2 anzulegen, gelten neue Themen trotzdem als neuer Vorschlag.
+            if t.get("_kaputt") or any(x.get("themen") == t.get("themen") for x in st.themen.values()):
+                continue
+            k = 2
+            while f"{tid}-{k}" in st.themen:
+                k += 1
+            tid = f"{tid}-{k}"
         if t.get("_kaputt"):
             fehler = ["Datei ist kein gueltiges JSON"]
         else:
@@ -88,11 +95,25 @@ def importieren(st, kandidaten, tg, chat_id, veraltet) -> int:
     return neu
 
 
+def ersetzen(st, tg, chat_id, neuer_tid: str) -> int:
+    """Neuer Vorschlag ersetzt aeltere unbeantwortete (Betreiberentscheidung 17.11.2026):
+    deren Knoepfe verschwinden, ihre Themen duerfen in spaeteren Laeufen wieder auftauchen."""
+    n = 0
+    for tid, t in st.themen.items():
+        if tid != neuer_tid and t.get("status") == "gesendet":
+            t.update(status="ersetzt", entschieden=jetzt(), ersetzt_durch=neuer_tid)
+            if t.get("tg_msg"):
+                tg.knoepfe_weg(chat_id, t["tg_msg"])
+            n += 1
+    return n
+
+
 def senden(st, tg, chat_id) -> int:
     n = 0
     for tid, t in st.themen.items():
         if t.get("status") != "neu":
             continue
+        ersetzen(st, tg, chat_id, tid)
         zeilen = [f"🗂️ Themen für den nächsten Post ({tid[8:10]}.{tid[5:7]}.)",
                   "Wähl eins aus – dann schreib ich den Entwurf und schick ihn dir zum Freigeben."]
         for i, th in enumerate(t["themen"]):
@@ -119,7 +140,8 @@ def knopf(st, tg, chat_id, cq, key_nr: str) -> int:
     t = st.themen[tid]
     if t.get("status") != "gesendet":
         print(f"  -> {tid} schon entschieden ({t.get('status')})", flush=True)
-        tg.callback_antwort(cq["id"], f"Schon entschieden: {t.get('status')}")
+        tg.callback_antwort(cq["id"], "Durch neuere Vorschläge ersetzt." if t.get("status") == "ersetzt"
+                            else f"Schon entschieden: {t.get('status')}")
         tg.knoepfe_weg(chat_id, msg_id)
         return 0
     try:
