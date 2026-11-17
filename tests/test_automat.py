@@ -289,6 +289,41 @@ def test_themen_wahl_und_entwurf(tmp_path):
     assert themen.offen(st, lambda _: False) == []
 
 
+def test_neuer_themenvorschlag_ersetzt_alten(tmp_path):
+    from automat import themen
+    st, tg = Status(tmp_path), FakeTG()
+    themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
+    themen.senden(st, tg, "42")
+    alt = st.themen[THEMEN["id"]]
+    zweiter = dict(THEMEN, id="2026-11-12-themen-2")
+    themen.importieren(st, [("b", "themen/y.json", zweiter)], tg, "42", lambda _: False)
+    themen.senden(st, tg, "42")
+    assert alt["status"] == "ersetzt" and alt["tg_msg"] in tg.entfernt
+    assert st.themen["2026-11-12-themen-2"]["status"] == "gesendet"
+    tg.klick(1, f"t:{alt['key']}:1", msg=alt["tg_msg"])  # Klick auf alten Vorschlag
+    lauf.antworten(st, tg, "42")
+    assert alt["status"] == "ersetzt" and themen.offen(st, lambda _: False) == []
+    # ein schon gewaehltes Thema wird nicht ersetzt
+    neu = st.themen["2026-11-12-themen-2"]
+    tg.klick(2, f"t:{neu['key']}:3", msg=neu["tg_msg"])
+    lauf.antworten(st, tg, "42")
+    themen.importieren(st, [("b", "themen/z.json", dict(THEMEN, id="2026-11-12-themen-3"))], tg, "42",
+                       lambda _: False)
+    themen.senden(st, tg, "42")
+    assert neu["status"] == "gewaehlt"
+
+
+def test_tagesdatei_ueberschrieben_gilt_als_neuer_vorschlag(tmp_path):
+    from automat import themen
+    st, tg = Status(tmp_path), FakeTG()
+    themen.importieren(st, [("b", "themen/x.json", THEMEN)], tg, "42", lambda _: False)
+    anders = dict(THEMEN, themen=[dict(THEMEN["themen"][0], titel="Ganz neues Thema")])
+    assert themen.importieren(st, [("b", "themen/x.json", anders)], tg, "42", lambda _: False) == 1
+    assert st.themen[THEMEN["id"] + "-2"]["themen"][0]["titel"] == "Ganz neues Thema"
+    # gleicher Inhalt erneut: kein dritter Vorschlag
+    assert themen.importieren(st, [("b", "themen/x.json", anders)], tg, "42", lambda _: False) == 0
+
+
 def test_themen_keins_und_fremd(tmp_path):
     from automat import themen
     st, tg = Status(tmp_path), FakeTG()
