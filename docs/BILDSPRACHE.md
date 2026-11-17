@@ -233,7 +233,15 @@ anderen Teil des Bildes. Der Automat schreibt die Fläche selbst in den Prompt.
 Nachruf). Sie sind Vorlagen für den Aufbau eines Motivs, **nicht zum Kopieren**: Jedes Thema
 bekommt sein eigenes, wahres Motiv.
 
-## 9. Was der Betreiber sieht
+## 9. Logo
+
+Der Automat setzt auf jedes Bild (KI-Bild, Pool-Bild, eigenes Foto) dezent das Logo von
+Radio Boarisch (`assets/`, Betreiberentscheidung vom 17.11.2026): rund 250 px breit, in einer
+unteren Ecke gegenüber dem Bildtext (liegt der Text unten: oben rechts). In dunklen Ecken das
+Logo mit weißer Schrift, in hellen Ecken das farbige, jeweils mit weichem Schatten. Das Logo
+wird **nie** im Prompt beschrieben – der Generator würde es falsch nachmalen.
+
+## 10. Was der Betreiber sieht
 
 In Telegram steht unter dem Bild: „Bild: eigenes KI-Bild (lucid-origin) · Themenart · Region ·
 Aufbau". Gefällt das Bild nicht, **Nein** drücken – dann kommt kein Post. Scheitert die

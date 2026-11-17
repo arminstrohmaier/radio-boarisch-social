@@ -723,3 +723,20 @@ def test_bis_zu_zehn_erwaehnungen():
     assert E.pruefen(dict(BEISPIEL, erwaehnungen=zehn)).ok
     elf = zehn + [{"name": "Ort 10", "instagram": "ort10", "beleg": "https://x.de"}]
     assert not E.pruefen(dict(BEISPIEL, erwaehnungen=elf)).ok
+
+
+def test_logo_in_ecke_gegenueber_bildtext(tmp_path, monkeypatch):
+    from PIL import Image
+    from automat import config, render
+    assert render.logo_ecke("oben", "mitte") == ("unten", "rechts")
+    assert render.logo_ecke("unten", "mitte") == ("oben", "rechts")
+    assert render.logo_ecke("mitte", "rechts") == ("unten", "links")
+    quelle = tmp_path / "grau.jpg"
+    Image.new("RGB", (1080, 1350), (90, 90, 90)).save(quelle)
+    mit = render.rendern("", "Test", tmp_path / "mit.jpg", quelle=quelle, lage="oben")
+    ecke = (1080 - 140, 1350 - 70)
+    assert Image.open(mit).getpixel(ecke) != (90, 90, 90)
+    monkeypatch.setattr(config, "LOGO_HELL", tmp_path / "fehlt.png")
+    ohne = render.rendern("", "Test", tmp_path / "ohne.jpg", quelle=quelle, lage="oben")
+    px = Image.open(ohne).getpixel(ecke)
+    assert all(abs(a - 90) <= 3 for a in px)
