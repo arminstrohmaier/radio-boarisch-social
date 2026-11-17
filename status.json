@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760181,
+  "telegram_offset": 972760182,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1087,6 +1087,11 @@
       "zeit": "2026-11-15T09:03:39+00:00",
       "status": "erledigt",
       "entwurf": "2026-11-15-einbruch-goldhaendler-bayreuth"
+    },
+    {
+      "art": "themenlauf",
+      "zeit": "2026-11-17T11:51:44+00:00",
+      "status": "offen"
     }
   ]
 }
