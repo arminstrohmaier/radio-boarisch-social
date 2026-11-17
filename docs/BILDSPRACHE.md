@@ -236,7 +236,7 @@ bekommt sein eigenes, wahres Motiv.
 ## 9. Logo
 
 Der Automat setzt auf jedes Bild (KI-Bild, Pool-Bild, eigenes Foto) dezent das Logo von
-Radio Boarisch (`assets/`, Betreiberentscheidung vom 17.11.2026): rund 250 px breit, in einer
+Radio Boarisch (`assets/`, Betreiberentscheidung vom 17.11.2026): rund 500 px breit (knapp die halbe Bildbreite), in einer
 unteren Ecke gegenüber dem Bildtext (liegt der Text unten: oben rechts). In dunklen Ecken das
 Logo mit weißer Schrift, in hellen Ecken das farbige, jeweils mit weichem Schatten. Das Logo
 wird **nie** im Prompt beschrieben – der Generator würde es falsch nachmalen.
