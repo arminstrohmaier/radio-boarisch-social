@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760183,
+  "telegram_offset": 972760184,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -490,7 +490,7 @@
       }
     },
     "2026-11-17-nachtrag-einbruch-bayreuth": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "79fd954a93",
       "hash": "36eed4a298d5126e237da46f7e75f12555387392",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-17-nachtrag-einbruch-bayreuth.json",
@@ -506,7 +506,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · blaulicht · oberfranken · Aufbau weite",
       "gesendet": "2026-11-17T13:39:13+00:00",
       "tg_foto": 130,
-      "tg_msg": 131
+      "tg_msg": 131,
+      "entschieden": "2026-11-17T13:40:08+00:00"
     }
   },
   "themen": {
