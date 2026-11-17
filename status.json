@@ -490,7 +490,7 @@
       }
     },
     "2026-11-17-nachtrag-einbruch-bayreuth": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "79fd954a93",
       "hash": "36eed4a298d5126e237da46f7e75f12555387392",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-17-nachtrag-einbruch-bayreuth.json",
