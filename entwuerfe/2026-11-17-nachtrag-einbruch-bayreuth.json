@@ -1,0 +1,37 @@
+{
+  "id": "2026-11-17-nachtrag-einbruch-bayreuth",
+  "thema": "Nachtrag: Nach dem Einbruch bei einem Goldhändler in Bayreuth sind alle drei Tatverdächtigen festgenommen",
+  "ernst": true,
+  "thema_ref": "2026-11-17-themen#1",
+  "hook": "Nachtrag zum Einbruch in Bayreuth: Alle drei Tatverdächtigen festgenommen",
+  "text": "Nach dem Einbruch bei einem Goldhändler in Bayreuth am frühen Sonntagmorgen hat die Polizei alle drei Tatverdächtigen festgenommen. Zwei wurden noch am Vormittag im Landkreis Bayreuth gestellt, der dritte wenige Stunden später.\nErbeutet worden waren nach Angaben des Innenministeriums Schmuck und Silbermünzen im Wert von etwa 10.000 Euro. Das mutmaßliche Diebesgut wurde bei der Festnahme sichergestellt.\nAn der Fahndung beteiligt waren die Polizeipräsidien Oberfranken, Mittelfranken und Oberpfalz sowie das Landeskriminalamt.\nEs gilt die Unschuldsvermutung.",
+  "aufforderung": "",
+  "bildtext": "Alle drei Tatverdächtigen gefasst",
+  "bild": "01_text-unten.jpg",
+  "bild_ki": {
+    "art": "blaulicht",
+    "region": "oberfranken",
+    "menschen": "keine",
+    "aufbau": "weite",
+    "lage": "oben",
+    "motiv": "A quiet edge of a spruce and pine forest in late autumn, a narrow gravel forest track leading in between the trees, damp fallen needles and brown leaves on the ground.",
+    "umgebung": "Gently rolling Upper Franconian countryside with wooded hills, a few pale limestone rocks at the forest edge and harvested fields in the distance.",
+    "heute": "A small modern wooden bench with a slim steel frame at the side of the track and a solar panel on a distant barn roof.",
+    "licht": "Overcast November morning, soft diffuse grey light, light mist hanging between the trees.",
+    "farbwelt": "Dark spruce green, wet brown, pale grey and muted ochre."
+  },
+  "quelle": {
+    "name": "Bayerisches Staatsministerium des Innern, für Sport und Integration",
+    "url": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/herrmann-lobt-bayerische-polizei-fuer-schnellen-fahndungserfolg-nach-einbruch-in-bayreuth-alle-drei-tatverdaechtigen-festgenommen-22700/"
+  },
+  "hashtags": [],
+  "erwaehnungen": [
+    {
+      "name": "Bayerisches Innenministerium",
+      "instagram": "baystmi",
+      "facebook": "BayStMI",
+      "beleg": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/herrmann-bei-der-wieder-eroeffnung-der-kunsteisbahn-am-koenigssee-22661/"
+    }
+  ],
+  "recherche": "Gewähltes Thema 1 der Vorschläge vom 17.11.2026 – Nachtrag zu unserem Post vom 15.11. (Stand damals: Täter auf der Flucht). Primärquelle: Pressemitteilung StMI vom 15.11.2026 („Herrmann lobt Bayerische Polizei … alle drei Tatverdächtigen festgenommen“), gelesen am 17.11.2026. Quellenregister: Behörde, Standard. Blaulicht-Regeln: keine Namen, kein Geschäftsname, keine Herkunftsangaben, Unschuldsvermutung genannt, keine Spekulation; Ministerzitat nicht übernommen. Ernst: kein Emoji, kein Dialekt, keine Hashtags. Bild: ruhiger, menschenleerer Waldrand in Oberfranken (keine Einsatzszene). Verlinkung: nur Behörde (StMI, Konten auf stmi.bayern.de verlinkt)."
+}
