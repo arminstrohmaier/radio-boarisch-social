@@ -37,6 +37,8 @@ def _woerter(text: str) -> list[str]:
     for w in re.split(r"[ \t\n]+", text.strip()):
         if woerter and re.fullmatch(r"\d{1,2}\.", woerter[-1]):
             woerter[-1] += "\u00a0" + w
+        elif woerter and w in ("–", "-", "—"):
+            woerter[-1] += "\u00a0" + w   # Gedankenstrich nie allein am Zeilenanfang
         elif w:
             woerter.append(w)
     return woerter
