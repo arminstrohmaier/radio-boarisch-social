@@ -1,0 +1,23 @@
+{
+  "id": "2026-11-18-themen",
+  "themen": [
+    {
+      "titel": "Weihnachtssterne aus dem Augsburger Christbaum vom letzten Jahr",
+      "worum": "Die Berufsfeuerwehr hat aus dem Stamm des „Christbaums für alle“ 2025 Holzsterne gesägt. In der Bürgerinfo gibt es sie für 3 bis 25 Euro – der Erlös geht an die „Region der Lebensretter“, die per App Ersthelfer zu Notfällen ruft.",
+      "quelle": {"name": "Stadt Augsburg", "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/weihnachtssterne-aus-dem-christbaum-fuer-alle-2025"},
+      "ernst": false
+    },
+    {
+      "titel": "Polizei Bayern startet die Onlinewache",
+      "worum": "Die Bayerische Polizei führt die Onlinewache ein: Künftig lassen sich deutlich mehr Delikte digital anzeigen, ohne auf eine Dienststelle zu gehen. Vorgestellt wird das am Donnerstag, 19. November.",
+      "quelle": {"name": "Bayerisches Staatsministerium des Innern, für Sport und Integration", "url": "https://www.stmi.bayern.de/presse-und-medien/pressemitteilungen/detail/einladung-herrmann-stellt-die-einfuehrung-der-onlinewache-bei-der-bayerischen-polizei-vor-22657/"},
+      "ernst": false
+    },
+    {
+      "titel": "Bio-Pausenbrot für 2.500 Augsburger Grundschulkinder",
+      "worum": "An 34 Augsburger Grundschulen läuft bis 3. Dezember wieder die Bio-Pausenbrot-Aktion: Rund 2.500 Kinder bekommen eine gefüllte Brotdose mit Vollkornbrot und Gemüse aus der Region und lernen etwas über gesunde Ernährung.",
+      "quelle": {"name": "Stadt Augsburg", "url": "https://www.augsburg.de/aktuelles-aus-der-stadt/detail/gesundes-bio-pausenbrot-fuer-grundschulkinder"},
+      "ernst": false
+    }
+  ]
+}
