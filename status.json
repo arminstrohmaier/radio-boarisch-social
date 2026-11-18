@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760187,
+  "telegram_offset": 972760188,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1179,7 +1179,7 @@
       "entwurf": "2026-11-17-christkindlmarkt-regensburg"
     },
     "2026-11-18-themen": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "56254e8fef",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-18-themen.json",
       "importiert": "2026-11-18T03:39:42+00:00",
@@ -1214,7 +1214,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-18T03:39:44+00:00",
-      "tg_msg": 143
+      "tg_msg": 143,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-18T04:42:50+00:00"
     }
   },
   "befehle_gesetzt": true,
