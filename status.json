@@ -587,7 +587,7 @@
       "entschieden": "2026-11-18T05:40:12+00:00"
     },
     "2026-11-18-reiterlesmarkt-rothenburg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "f4f986fcfa",
       "hash": "6078932c83fb7c7521d4b4c97abcc22878d02b57",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-18-reiterlesmarkt-rothenburg.json",
