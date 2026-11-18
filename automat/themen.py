@@ -10,6 +10,7 @@ Format:
       {"titel": "Nürnberger Christkindlesmarkt öffnet",
        "worum": "ein bis zwei Sätze, worum es geht",
        "quelle": {"name": "Stadt Nürnberg", "url": "https://..."},
+       "region": "mittelfranken", "ort": "Nürnberg",
        "ernst": false},
       ...
     ]
@@ -52,6 +53,17 @@ def naechster_themenlauf(jetzt_: datetime | None = None) -> str:
 ZEITPLAN = "täglich um 4:30, 10:00 und 17:00 Uhr"
 
 
+# Streuung (Betreiberentscheidung 18.11.2026): Themen aus ganz Bayern, nicht nur aus den
+# grossen Staedten. region = Regierungsbezirk des Themas, "bayern" fuer landesweite Themen.
+REGIONEN = ["oberbayern", "niederbayern", "oberpfalz", "oberfranken", "mittelfranken",
+            "unterfranken", "schwaben", "bayern"]
+REGION_NAME = {"oberbayern": "Oberbayern", "niederbayern": "Niederbayern", "oberpfalz": "Oberpfalz",
+               "oberfranken": "Oberfranken", "mittelfranken": "Mittelfranken",
+               "unterfranken": "Unterfranken", "schwaben": "Schwaben", "bayern": "ganz Bayern"}
+GROSSSTAEDTE = {"münchen", "nürnberg", "augsburg", "regensburg", "würzburg", "ingolstadt",
+                "fürth", "erlangen", "bayreuth"}
+
+
 def pruefen(t: dict) -> list[str]:
     fehler = []
     if not t.get("id") or not E.ID_RE.match(t["id"]):
@@ -72,6 +84,19 @@ def pruefen(t: dict) -> list[str]:
         host = u.netloc.lower().split(":")[0]
         if any(host == d or host.endswith("." + d) for d in E.AUSLOESER_DOMAINS):
             fehler.append(f"Thema {i}: {host} ist nur Ausloeser, nie Quelle")
+        if th.get("region") not in REGIONEN:
+            fehler.append(f"Thema {i}: region muss einer von {', '.join(REGIONEN)} sein")
+        if not (th.get("ort") or "").strip():
+            fehler.append(f"Thema {i}: ort fehlt (Gemeinde/Stadt, bei landesweiten Themen 'Bayern')")
+    if fehler:
+        return fehler
+    bezirke = {th["region"] for th in liste if th["region"] != "bayern"}
+    if len(liste) == 3 and len(bezirke) < 2:
+        fehler.append("Streuung: drei Themen brauchen mindestens zwei Regierungsbezirke")
+    gross = [th for th in liste if th["ort"].strip().lower() in GROSSSTAEDTE]
+    if len(liste) == 3 and len(gross) > 1:
+        fehler.append("Streuung: hoechstens ein Thema aus einer Grossstadt ("
+                      + ", ".join(th["ort"] for th in gross) + ")")
     return fehler
 
 
@@ -147,7 +172,8 @@ def senden(st, tg, chat_id) -> int:
                   "Wähl eins aus – dann schreib ich den Entwurf und schick ihn dir zum Freigeben."]
         for i, th in enumerate(t["themen"]):
             ernst = " (ernste Meldung)" if th.get("ernst") else ""
-            zeilen.append(f"{NUMMERN[i]} {th['titel']}{ernst}\n{th['worum']}\n"
+            wo = f"📍 {th['ort']} · {REGION_NAME.get(th.get('region'), '')}\n" if th.get("ort") else ""
+            zeilen.append(f"{NUMMERN[i]} {th['titel']}{ernst}\n{wo}{th['worum']}\n"
                           f"Quelle: {th['quelle']['name']}, {th['quelle']['url']}")
         knoepfe = [[{"text": NUMMERN[i], "callback_data": f"t:{t['key']}:{i + 1}"}
                     for i in range(len(t["themen"]))],

@@ -253,11 +253,14 @@ THEMEN = {
     "id": "2026-11-12-themen",
     "themen": [
         {"titel": "Christkindlmarkt Landshut", "worum": "Start am Donnerstag.",
-         "quelle": {"name": "Stadt Landshut", "url": "https://www.landshut.de/pm"}},
+         "quelle": {"name": "Stadt Landshut", "url": "https://www.landshut.de/pm"},
+         "region": "niederbayern", "ort": "Landshut"},
         {"titel": "Volksmusiktag", "worum": "Programm steht.",
-         "quelle": {"name": "Veranstalter", "url": "https://example.org/pm"}},
+         "quelle": {"name": "Veranstalter", "url": "https://example.org/pm"},
+         "region": "oberpfalz", "ort": "Neunburg vorm Wald"},
         {"titel": "Feuerwehr-Jubiläum", "worum": "150 Jahre.",
-         "quelle": {"name": "Feuerwehr", "url": "https://example.org/ff"}},
+         "quelle": {"name": "Feuerwehr", "url": "https://example.org/ff"},
+         "region": "unterfranken", "ort": "Hammelburg"},
     ],
 }
 
@@ -794,3 +797,20 @@ def test_offen_entwurf_im_branch_gilt_als_erledigt(tmp_path):
     refs = O.erledigte_refs(ent, tmp_path / "fehlt")
     assert refs == {"2026-11-13-themen#2"}
     assert themen.offen(st, lambda _: False, refs) == []
+
+
+def test_themen_streuung():
+    from automat import themen
+    import copy
+    assert themen.pruefen(THEMEN) == []
+    ohne = copy.deepcopy(THEMEN); del ohne["themen"][0]["region"]
+    assert any("region" in f for f in themen.pruefen(ohne))
+    gleich = copy.deepcopy(THEMEN)
+    for th in gleich["themen"]:
+        th["region"] = "schwaben"
+    assert any("zwei Regierungsbezirke" in f for f in themen.pruefen(gleich))
+    gross = copy.deepcopy(THEMEN)
+    gross["themen"][0]["ort"] = "München"; gross["themen"][1]["ort"] = "Augsburg"
+    assert any("Grossstadt" in f for f in themen.pruefen(gross))
+    landesweit = copy.deepcopy(THEMEN); landesweit["themen"][2].update(region="bayern", ort="Bayern")
+    assert themen.pruefen(landesweit) == []
