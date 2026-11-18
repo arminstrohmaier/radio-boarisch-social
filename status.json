@@ -1241,6 +1241,48 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-18T04:42:50+00:00",
       "entwurf": "2026-11-18-weihnachtssterne-augsburg"
+    },
+    "2026-11-18-themen-2": {
+      "status": "neu",
+      "key": "9d3d93526a",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-18-themen-2.json",
+      "importiert": "2026-11-18T09:06:09+00:00",
+      "themen": [
+        {
+          "titel": "Landshuter Christkindlmarkt startet morgen",
+          "worum": "Am Donnerstag, 19. November, öffnet der Christkindlmarkt auf der Ringelstecherwiese (17 bis 20 Uhr) – mit rund 50 Ständen, Kunststoffeisbahn, Weihnachtsrad und kostenloser Bockerlbahn aus der Altstadt. Am Totensonntag bleibt er zu.",
+          "quelle": {
+            "name": "Stadt Landshut",
+            "url": "https://www.landshut.de/kultur-sport/dulten-maerkte-messen"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Landshut"
+        },
+        {
+          "titel": "Reiterlesmarkt in Rothenburg ob der Tauber öffnet am Freitag",
+          "worum": "Der Reiterlesmarkt rund um Marktplatz, Grünen Markt und Kirchplatz beginnt am Freitag, 20. November, um 17 Uhr; das Reiterle selbst eröffnet ihn eine Woche später. Die Tasse 2026 zeigt ein Aquarell des Marktplatzes von Alfons Berse.",
+          "quelle": {
+            "name": "Rothenburg Tourismus Service",
+            "url": "https://www.rothenburg-tourismus.de/reiterlesmarkt"
+          },
+          "ernst": false,
+          "region": "mittelfranken",
+          "ort": "Rothenburg ob der Tauber"
+        },
+        {
+          "titel": "Werkstattbrand in Egling – Feuerwehr rettet zwei Bewohner",
+          "worum": "Ein Werkstattgebäude im Eglinger Gewerbering ist am Montagabend fast komplett ausgebrannt. 183 Einsatzkräfte aus acht Feuerwehren retteten zwei Bewohner und verhinderten, dass das Feuer auf ein Wohnhaus übergreift; die Ursache ist noch unklar.",
+          "quelle": {
+            "name": "Polizeipräsidium Oberbayern Süd",
+            "url": "https://www.polizei.bayern.de/aktuelles/pressemitteilungen/111598/index.html"
+          },
+          "ernst": true,
+          "region": "oberbayern",
+          "ort": "Egling"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
