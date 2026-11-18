@@ -587,7 +587,7 @@
       "entschieden": "2026-11-18T05:40:12+00:00"
     },
     "2026-11-18-reiterlesmarkt-rothenburg": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "f4f986fcfa",
       "hash": "6078932c83fb7c7521d4b4c97abcc22878d02b57",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-18-reiterlesmarkt-rothenburg.json",
@@ -599,7 +599,11 @@
       "bild_ki": {
         "aufbau": "weite",
         "farbwelt": "Deep evening blue, warm amber light, dark red timber framing"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · mittelfranken · Aufbau weite",
+      "gesendet": "2026-11-18T09:39:23+00:00",
+      "tg_foto": 150,
+      "tg_msg": 151
     }
   },
   "themen": {
