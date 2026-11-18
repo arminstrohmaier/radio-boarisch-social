@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760190,
+  "telegram_offset": 972760191,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -587,7 +587,7 @@
       "entschieden": "2026-11-18T05:40:12+00:00"
     },
     "2026-11-18-reiterlesmarkt-rothenburg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "f4f986fcfa",
       "hash": "6078932c83fb7c7521d4b4c97abcc22878d02b57",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-18-reiterlesmarkt-rothenburg.json",
@@ -603,7 +603,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · mittelfranken · Aufbau weite",
       "gesendet": "2026-11-18T09:39:23+00:00",
       "tg_foto": 150,
-      "tg_msg": 151
+      "tg_msg": 151,
+      "entschieden": "2026-11-18T10:18:41+00:00"
     }
   },
   "themen": {
