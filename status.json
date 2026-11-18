@@ -562,6 +562,24 @@
           "zeit": "2026-11-17T18:51:45+00:00"
         }
       }
+    },
+    "2026-11-18-weihnachtssterne-augsburg": {
+      "status": "neu",
+      "key": "66cbe1daea",
+      "hash": "f1c84e5bdb9aa92f5031dddd26c0234e97016000",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-18-weihnachtssterne-augsburg.json",
+      "importiert": "2026-11-18T05:38:47+00:00",
+      "bild": "05_text-oben.jpg",
+      "thema": "Weihnachtssterne aus dem Stamm des Augsburger „Christbaums für alle“ 2025 – Erlös für die Region der Lebensretter",
+      "hinweise": [
+        "Berufsfeuerwehr Augsburg: kein belegtes Konto – erscheint nur als Name",
+        "Region der Lebensretter: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "detail",
+        "farbwelt": "Pale spruce wood, muted fire red, off-white."
+      }
     }
   },
   "themen": {
@@ -1179,7 +1197,7 @@
       "entwurf": "2026-11-17-christkindlmarkt-regensburg"
     },
     "2026-11-18-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "56254e8fef",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-18-themen.json",
       "importiert": "2026-11-18T03:39:42+00:00",
@@ -1216,7 +1234,8 @@
       "gesendet": "2026-11-18T03:39:44+00:00",
       "tg_msg": 143,
       "gewaehlt": 1,
-      "entschieden": "2026-11-18T04:42:50+00:00"
+      "entschieden": "2026-11-18T04:42:50+00:00",
+      "entwurf": "2026-11-18-weihnachtssterne-augsburg"
     }
   },
   "befehle_gesetzt": true,
