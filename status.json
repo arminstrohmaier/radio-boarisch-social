@@ -1179,7 +1179,7 @@
       "entwurf": "2026-11-17-christkindlmarkt-regensburg"
     },
     "2026-11-18-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "56254e8fef",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-18-themen.json",
       "importiert": "2026-11-18T03:39:42+00:00",
@@ -1212,7 +1212,9 @@
           "ernst": false
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-18T03:39:44+00:00",
+      "tg_msg": 143
     }
   },
   "befehle_gesetzt": true,
