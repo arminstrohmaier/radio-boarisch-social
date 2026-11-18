@@ -54,15 +54,35 @@ Gemeinsam für beide Stufen:
 1. **Drei** verschiedene, aktuelle Themen aus Bayern nach §10.2 suchen. Nicht dieselben wie in
    den letzten Posts oder in beantworteten Themenvorschlägen (`status.json`). Vorschläge mit
    Status `ersetzt` (unbeantwortet, durch einen neueren abgelöst) dürfen wieder auftauchen,
-   wenn sie noch aktuell sind. Bei zwei Läufen am Tag: der Mittagslauf bringt möglichst
-   andere Themen als der Morgenlauf.
+   wenn sie noch aktuell sind. Mehrere Läufe am Tag: jeder spätere Lauf bringt möglichst
+   andere Themen als die früheren.
+   **Ganz Bayern, nicht nur die Großstädte** (Betreiberentscheidung 18.11.2026):
+   - die drei Themen aus **mindestens zwei Regierungsbezirken**;
+   - **höchstens eines** aus München, Nürnberg, Augsburg, Regensburg, Würzburg, Ingolstadt,
+     Fürth, Erlangen oder Bayreuth; **möglichst eines aus dem ländlichen Raum**
+     (Markt, Gemeinde, Kleinstadt);
+   - Vorrang für Bezirke, die in den letzten Vorschlägen selten waren (`status.json`, Feld
+     `region` der Themen). Bisher unterrepräsentiert: Niederbayern, Mittelfranken,
+     Unterfranken, Oberfranken außerhalb Bayreuths.
+   - Gute Primärquellen auf dem Land: Gemeinde- und Landratsamts-Seiten, Bezirke
+     (Heimatpflege, Volksmusik), Vereine, Veranstalter, Kulturämter, Tourismusverbände.
+   **Was zählt:** Musik, Brauchtum, Veranstaltungen, Kultur, Blaulicht (§10.2) und
+   **Gemeinschaft und Mitmachen** – Aktionen, bei denen Menschen vor Ort etwas tun oder
+   bekommen (z. B. Bio-Pausenbrot für Grundschulkinder, „pflanz mit!“, Müllpaten,
+   Christbaum für alle). **Nicht** vorschlagen: **reine Verwaltungsmeldungen** ohne solchen
+   Bezug – Fristen, Formulare, Online-Dienste, Gebühren, Öffnungszeiten von Ämtern
+   (z. B. Führerscheinumtausch, digitale Ummeldung, Onlinewache).
 2. Für jedes Thema eine **Primärquelle** finden und kurz öffnen, um zu sehen, dass es sie gibt
    und dass das Thema dort steht. Noch **nicht** ausrecherchieren oder formulieren.
    Ohne Primärquelle fällt ein Thema weg. Findest du weniger als drei, schick weniger; findest du
    keins, lege nichts an und begründe kurz.
 3. `themen/<JJJJ-MM-TT>-themen.json` anlegen (gibt es die Datei für heute schon:
    `…-themen-2.json`, `…-themen-3.json` usw., `id` entsprechend) (Format: Kopf von `automat/themen.py`):
-   je Thema `titel` (kurz), `worum` (ein bis zwei Sätze), `quelle` {name, url}, `ernst` (true/false).
+   je Thema `titel` (kurz), `worum` (ein bis zwei Sätze), `quelle` {name, url}, `ernst` (true/false),
+   `region` (Regierungsbezirk: oberbayern, niederbayern, oberpfalz, oberfranken, mittelfranken,
+   unterfranken, schwaben – oder `bayern` bei landesweiten Themen) und `ort` (Gemeinde/Stadt,
+   bei landesweiten Themen „Bayern“). Der Automat lehnt Vorschläge ab, die gegen die Streuung
+   verstoßen (alle drei aus einem Bezirk, mehr als eines aus den Großstädten).
 4. Committen („Themen: <Datum>“) und pushen. Der Automat schickt die Themen per Telegram mit den
    Knöpfen 1 / 2 / 3 / Keins.
 
