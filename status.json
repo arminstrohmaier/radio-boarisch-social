@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760189,
+  "telegram_offset": 972760190,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1243,7 +1243,7 @@
       "entwurf": "2026-11-18-weihnachtssterne-augsburg"
     },
     "2026-11-18-themen-2": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "9d3d93526a",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-18-themen-2.json",
       "importiert": "2026-11-18T09:06:09+00:00",
@@ -1284,7 +1284,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-18T09:06:11+00:00",
-      "tg_msg": 148
+      "tg_msg": 148,
+      "gewaehlt": 2,
+      "entschieden": "2026-11-18T09:06:55+00:00"
     }
   },
   "befehle_gesetzt": true,
