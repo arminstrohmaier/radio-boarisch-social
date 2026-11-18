@@ -585,6 +585,21 @@
       "tg_foto": 145,
       "tg_msg": 146,
       "entschieden": "2026-11-18T05:40:12+00:00"
+    },
+    "2026-11-18-reiterlesmarkt-rothenburg": {
+      "status": "neu",
+      "key": "f4f986fcfa",
+      "hash": "6078932c83fb7c7521d4b4c97abcc22878d02b57",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-18-reiterlesmarkt-rothenburg.json",
+      "importiert": "2026-11-18T09:39:15+00:00",
+      "bild": "07_text-oben.jpg",
+      "thema": "Reiterlesmarkt in Rothenburg ob der Tauber öffnet am Freitag, 20. November",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "weite",
+        "farbwelt": "Deep evening blue, warm amber light, dark red timber framing"
+      }
     }
   },
   "themen": {
@@ -1243,7 +1258,7 @@
       "entwurf": "2026-11-18-weihnachtssterne-augsburg"
     },
     "2026-11-18-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "9d3d93526a",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-18-themen-2.json",
       "importiert": "2026-11-18T09:06:09+00:00",
@@ -1286,7 +1301,8 @@
       "gesendet": "2026-11-18T09:06:11+00:00",
       "tg_msg": 148,
       "gewaehlt": 2,
-      "entschieden": "2026-11-18T09:06:55+00:00"
+      "entschieden": "2026-11-18T09:06:55+00:00",
+      "entwurf": "2026-11-18-reiterlesmarkt-rothenburg"
     }
   },
   "befehle_gesetzt": true,
