@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760193,
+  "telegram_offset": 972760194,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1409,7 +1409,7 @@
       "entwurf": "2026-11-20-dekotausch-weiden"
     },
     "2026-11-20-themen-2": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "ac7713c88e",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen-2.json",
       "importiert": "2026-11-20T09:15:17+00:00",
@@ -1450,7 +1450,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-20T09:15:20+00:00",
-      "tg_msg": 160
+      "tg_msg": 160,
+      "gewaehlt": 2,
+      "entschieden": "2026-11-20T10:07:41+00:00"
     }
   },
   "befehle_gesetzt": true,
