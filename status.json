@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760194,
+  "telegram_offset": 972760195,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -659,7 +659,7 @@
       }
     },
     "2026-11-20-wunschbaum-landsberg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "3214bf2be7",
       "hash": "be1cc847a2e25e22a0074a7f5c0c202bbaf3786c",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-wunschbaum-landsberg.json",
@@ -675,7 +675,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · brauchtum · oberbayern · Aufbau mittel",
       "gesendet": "2026-11-20T10:39:16+00:00",
       "tg_foto": 162,
-      "tg_msg": 163
+      "tg_msg": 163,
+      "entschieden": "2026-11-20T10:39:58+00:00"
     }
   },
   "themen": {
