@@ -1324,6 +1324,48 @@
       "gewaehlt": 2,
       "entschieden": "2026-11-18T09:06:55+00:00",
       "entwurf": "2026-11-18-reiterlesmarkt-rothenburg"
+    },
+    "2026-11-20-themen": {
+      "status": "neu",
+      "key": "157dbd2bfb",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen.json",
+      "importiert": "2026-11-20T03:39:44+00:00",
+      "themen": [
+        {
+          "titel": "Passauer Christkindlmarkt am Dom startet am Dienstag",
+          "worum": "Vom 24. November bis 22. Dezember steht der Christkindlmarkt wieder vor dem Stephansdom – mit Kunsthandwerk, regionalen Spezialitäten und einem Krippenweg. Veranstalter ist die Stadt Passau.",
+          "quelle": {
+            "name": "Stadt Passau – Passauer Christkindlmarkt am Dom",
+            "url": "https://passauer-christkindlmarkt.de/"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Passau"
+        },
+        {
+          "titel": "Schüler erklären Erwachsenen Handy und Tablet – in Eußenheim",
+          "worum": "Bei der Smartphone- und Tablet-Hilfe des Landkreises Main-Spessart zeigen Jugendliche Erwachsenen, wie Apps und Einstellungen funktionieren: am 9. Dezember in der Mittelschule Eußenheim, kostenlos, mit Kaffee und Kuchen. Anmeldung bis 7. Dezember.",
+          "quelle": {
+            "name": "Landratsamt Main-Spessart",
+            "url": "https://www.main-spessart.de/aktuelles/pressemitteilungen/11476.Jugendliche-helfen-Erwachsenen-beim-Umgang-mit-Smartphone-und-Tablet.html"
+          },
+          "ernst": false,
+          "region": "unterfranken",
+          "ort": "Eußenheim"
+        },
+        {
+          "titel": "Weihnachtsdeko tauschen in der Regionalbibliothek Weiden",
+          "worum": "Noch bis Samstag, 21. November, kann man in der Regionalbibliothek Weiden nicht mehr gebrauchte Weihnachtsdeko auf den Tauschtisch legen – oder sich selbst etwas Neues fürs Zuhause mitnehmen.",
+          "quelle": {
+            "name": "Stadt Weiden i.d.OPf.",
+            "url": "https://www.weiden.de/kultur/veranstaltungen/veranstaltungskalender/details/weihnachtsdeko-tauschboerse"
+          },
+          "ernst": false,
+          "region": "oberpfalz",
+          "ort": "Weiden in der Oberpfalz"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
