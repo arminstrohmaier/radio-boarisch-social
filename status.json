@@ -657,6 +657,21 @@
           "zeit": "2026-11-20T06:48:27+00:00"
         }
       }
+    },
+    "2026-11-20-wunschbaum-landsberg": {
+      "status": "neu",
+      "key": "3214bf2be7",
+      "hash": "be1cc847a2e25e22a0074a7f5c0c202bbaf3786c",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-wunschbaum-landsberg.json",
+      "importiert": "2026-11-20T10:39:00+00:00",
+      "bild": "14_text-oben.jpg",
+      "thema": "Wunschbaumaktion der Stadt Landsberg am Lech – Weihnachtswünsche erfüllen bis 11. Dezember",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "mittel",
+        "farbwelt": "Paper red, dark fir green, warm white, pale stone"
+      }
     }
   },
   "themen": {
@@ -1409,7 +1424,7 @@
       "entwurf": "2026-11-20-dekotausch-weiden"
     },
     "2026-11-20-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "ac7713c88e",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen-2.json",
       "importiert": "2026-11-20T09:15:17+00:00",
@@ -1452,7 +1467,8 @@
       "gesendet": "2026-11-20T09:15:20+00:00",
       "tg_msg": 160,
       "gewaehlt": 2,
-      "entschieden": "2026-11-20T10:07:41+00:00"
+      "entschieden": "2026-11-20T10:07:41+00:00",
+      "entwurf": "2026-11-20-wunschbaum-landsberg"
     }
   },
   "befehle_gesetzt": true,
