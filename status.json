@@ -659,7 +659,7 @@
       }
     },
     "2026-11-20-wunschbaum-landsberg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "3214bf2be7",
       "hash": "be1cc847a2e25e22a0074a7f5c0c202bbaf3786c",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-wunschbaum-landsberg.json",
