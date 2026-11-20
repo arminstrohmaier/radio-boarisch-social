@@ -1,0 +1,42 @@
+{
+  "id": "2026-11-20-dekotausch-weiden",
+  "thema": "Weihnachtsdeko-Tauschbörse in der Regionalbibliothek Weiden – noch bis Samstag, 21. November",
+  "ernst": false,
+  "thema_ref": "2026-11-20-themen#3",
+  "hook": "🎄 Servus Weiden – auf'm Speicher liegt no a Kistn Christbaamschmuck?",
+  "text": "🔁 In da Regionalbibliothek Weiden steht de Woch a Tauschtisch für Weihnachtsdeko.\n📦 Wos ihr nimmer braucht's, legt's hi – und wenn eich wos gfallt, nehmt's es einfach mit.\n🕙 Nur no bis Samstag, 21. November: Freitag von 10 bis 18 Uhr, Samstag von 9 bis 13 Uhr, in da Scheibenstraße 7.",
+  "aufforderung": "👉 Wos is eier liabstes Stückl Weihnachtsdeko? Schreibt's uns!",
+  "bildtext": "Deko tauschen – bis Samstag",
+  "bild": "09_text-oben.jpg",
+  "bild_ki": {
+    "art": "kultur",
+    "region": "oberpfalz",
+    "menschen": "wenige",
+    "aufbau": "detail",
+    "lage": "oben",
+    "motiv": "Close-up of a wooden table covered with second-hand Christmas decorations: glass baubles, straw stars, a small wooden nutcracker, tangled gold tinsel, a hand placing a red bauble among them.",
+    "umgebung": "A bright public library foyer in an Upper Palatinate town, bookshelves softly blurred in the background.",
+    "heute": "A cloth tote bag resting at the edge of the table.",
+    "licht": "Soft grey November daylight from tall windows, mixed with warm lamp light.",
+    "farbwelt": "Deep red, muted gold, natural straw, light birch wood"
+  },
+  "quelle": {
+    "name": "Stadt Weiden i.d.OPf.",
+    "url": "https://www.weiden.de/kultur/veranstaltungen/veranstaltungskalender/details/weihnachtsdeko-tauschboerse"
+  },
+  "hashtags": ["Weiden", "WeidenInDerOberpfalz", "Oberpfalz", "Regionalbibliothek", "Tauschbörse", "Weihnachtsdeko", "Advent", "Nachhaltigkeit"],
+  "erwaehnungen": [
+    {
+      "name": "Regionalbibliothek Weiden",
+      "facebook": "Regionalbibliothek-Weiden-115369018473448",
+      "beleg": "https://www.regionalbibliothek-weiden.de/"
+    },
+    {
+      "name": "Stadt Weiden in der Oberpfalz",
+      "instagram": "weiden.de",
+      "facebook": "weiden.de",
+      "beleg": "https://www.weiden.de/kultur/veranstaltungen/veranstaltungskalender/details/weihnachtsdeko-tauschboerse"
+    }
+  ],
+  "recherche": "Gewähltes Thema 3 der Vorschläge vom 20.11.2026. Primärquelle: Veranstaltungskalender der Stadt Weiden „Weihnachtsdeko-Tauschbörse“ (17.–21.11.2026, Regionalbibliothek), gelesen am 20.11.2026; ergänzt durch die Website der Regionalbibliothek (Tauschbörse 17.–21.11.2026, Öffnungszeiten Fr 10–18, Sa 9–13 Uhr, Scheibenstr. 7). Quellenregister: Kommune/Einrichtung, Standard. Verlinkung: Stadt Weiden Instagram und Facebook (auf weiden.de verlinkt), Regionalbibliothek nur Facebook (auf eigener Website verlinkt). Bild: KI, Detail Tauschtisch."
+}
