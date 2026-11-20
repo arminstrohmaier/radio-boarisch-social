@@ -695,7 +695,7 @@
       }
     },
     "2026-11-20-raetselrallye-forchheim": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "9247f09418",
       "hash": "c205986f769d45ff0f86d26eefb17af682d7c0b2",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-raetselrallye-forchheim.json",
@@ -710,7 +710,11 @@
       "bild_ki": {
         "aufbau": "diagonale",
         "farbwelt": "Warm amber, dark timber brown, fir green, soft grey sky"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · oberfranken · Aufbau diagonale",
+      "gesendet": "2026-11-20T17:39:18+00:00",
+      "tg_foto": 168,
+      "tg_msg": 169
     }
   },
   "themen": {
