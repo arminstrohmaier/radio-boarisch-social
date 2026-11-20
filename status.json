@@ -623,7 +623,7 @@
       }
     },
     "2026-11-20-dekotausch-weiden": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "79cf288780",
       "hash": "b6c57252c970178532b8a79797023c60783bee6a",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-dekotausch-weiden.json",
