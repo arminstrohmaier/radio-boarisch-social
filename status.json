@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760195,
+  "telegram_offset": 972760196,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1492,7 +1492,7 @@
       "entwurf": "2026-11-20-wunschbaum-landsberg"
     },
     "2026-11-20-themen-3": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "9ea6bcff2e",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen-3.json",
       "importiert": "2026-11-20T16:16:38+00:00",
@@ -1533,7 +1533,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-20T16:16:40+00:00",
-      "tg_msg": 166
+      "tg_msg": 166,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-20T16:43:59+00:00"
     }
   },
   "befehle_gesetzt": true,
