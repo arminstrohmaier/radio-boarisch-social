@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760191,
+  "telegram_offset": 972760192,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1326,7 +1326,7 @@
       "entwurf": "2026-11-18-reiterlesmarkt-rothenburg"
     },
     "2026-11-20-themen": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "157dbd2bfb",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen.json",
       "importiert": "2026-11-20T03:39:44+00:00",
@@ -1367,7 +1367,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-20T03:39:46+00:00",
-      "tg_msg": 154
+      "tg_msg": 154,
+      "gewaehlt": 3,
+      "entschieden": "2026-11-20T06:05:56+00:00"
     }
   },
   "befehle_gesetzt": true,
