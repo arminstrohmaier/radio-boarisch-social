@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760192,
+  "telegram_offset": 972760193,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -623,7 +623,7 @@
       }
     },
     "2026-11-20-dekotausch-weiden": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "79cf288780",
       "hash": "b6c57252c970178532b8a79797023c60783bee6a",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-dekotausch-weiden.json",
@@ -639,7 +639,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · kultur · oberpfalz · Aufbau detail",
       "gesendet": "2026-11-20T06:39:39+00:00",
       "tg_foto": 156,
-      "tg_msg": 157
+      "tg_msg": 157,
+      "entschieden": "2026-11-20T06:48:03+00:00"
     }
   },
   "themen": {
