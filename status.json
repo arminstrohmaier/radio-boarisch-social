@@ -693,6 +693,24 @@
           "zeit": "2026-11-20T10:40:28+00:00"
         }
       }
+    },
+    "2026-11-20-raetselrallye-forchheim": {
+      "status": "neu",
+      "key": "9247f09418",
+      "hash": "c205986f769d45ff0f86d26eefb17af682d7c0b2",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-20-raetselrallye-forchheim.json",
+      "importiert": "2026-11-20T17:39:09+00:00",
+      "bild": "16_text-oben.jpg",
+      "thema": "Weihnachts-Rätsel-Rallye durch 16 Forchheimer Geschäfte am verkaufsoffenen Sonntag, 29. November",
+      "hinweise": [
+        "bild_ki: Gegenstand bringt oft Schrift mit",
+        "bild_ki: Kitschlicht?"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "diagonale",
+        "farbwelt": "Warm amber, dark timber brown, fir green, soft grey sky"
+      }
     }
   },
   "themen": {
@@ -1492,7 +1510,7 @@
       "entwurf": "2026-11-20-wunschbaum-landsberg"
     },
     "2026-11-20-themen-3": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "9ea6bcff2e",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen-3.json",
       "importiert": "2026-11-20T16:16:38+00:00",
@@ -1535,7 +1553,8 @@
       "gesendet": "2026-11-20T16:16:40+00:00",
       "tg_msg": 166,
       "gewaehlt": 1,
-      "entschieden": "2026-11-20T16:43:59+00:00"
+      "entschieden": "2026-11-20T16:43:59+00:00",
+      "entwurf": "2026-11-20-raetselrallye-forchheim"
     }
   },
   "befehle_gesetzt": true,
