@@ -1,0 +1,29 @@
+{
+  "id": "2026-11-20-themen",
+  "themen": [
+    {
+      "titel": "Passauer Christkindlmarkt am Dom startet am Dienstag",
+      "worum": "Vom 24. November bis 22. Dezember steht der Christkindlmarkt wieder vor dem Stephansdom – mit Kunsthandwerk, regionalen Spezialitäten und einem Krippenweg. Veranstalter ist die Stadt Passau.",
+      "quelle": {"name": "Stadt Passau – Passauer Christkindlmarkt am Dom", "url": "https://passauer-christkindlmarkt.de/"},
+      "ernst": false,
+      "region": "niederbayern",
+      "ort": "Passau"
+    },
+    {
+      "titel": "Schüler erklären Erwachsenen Handy und Tablet – in Eußenheim",
+      "worum": "Bei der Smartphone- und Tablet-Hilfe des Landkreises Main-Spessart zeigen Jugendliche Erwachsenen, wie Apps und Einstellungen funktionieren: am 9. Dezember in der Mittelschule Eußenheim, kostenlos, mit Kaffee und Kuchen. Anmeldung bis 7. Dezember.",
+      "quelle": {"name": "Landratsamt Main-Spessart", "url": "https://www.main-spessart.de/aktuelles/pressemitteilungen/11476.Jugendliche-helfen-Erwachsenen-beim-Umgang-mit-Smartphone-und-Tablet.html"},
+      "ernst": false,
+      "region": "unterfranken",
+      "ort": "Eußenheim"
+    },
+    {
+      "titel": "Weihnachtsdeko tauschen in der Regionalbibliothek Weiden",
+      "worum": "Noch bis Samstag, 21. November, kann man in der Regionalbibliothek Weiden nicht mehr gebrauchte Weihnachtsdeko auf den Tauschtisch legen – oder sich selbst etwas Neues fürs Zuhause mitnehmen.",
+      "quelle": {"name": "Stadt Weiden i.d.OPf.", "url": "https://www.weiden.de/kultur/veranstaltungen/veranstaltungskalender/details/weihnachtsdeko-tauschboerse"},
+      "ernst": false,
+      "region": "oberpfalz",
+      "ort": "Weiden in der Oberpfalz"
+    }
+  ]
+}
