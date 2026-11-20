@@ -1,0 +1,29 @@
+{
+  "id": "2026-11-20-themen-3",
+  "themen": [
+    {
+      "titel": "Weihnachts-Rätsel-Rallye durch Forchheims Geschäfte",
+      "worum": "Am Sonntag, 29. November, heißt es in der Forchheimer Altstadt „Forchheim kuschelt“: verkaufsoffener Sonntag mit Jahrmarkt und Weihnachtsmarkt – und in 16 Geschäften haben „Weihnachtswichtel“ Rätsel versteckt, mit Preisen zu gewinnen.",
+      "quelle": {"name": "Stadt Forchheim", "url": "https://www.forchheim.de/news/verkaufsoffener-sonntag-mit-jahrmarkt-1-1264"},
+      "ernst": false,
+      "region": "oberfranken",
+      "ort": "Forchheim"
+    },
+    {
+      "titel": "Memminger Christkindlesmarkt mit Himmelsstube und Madlener-Weihnachtswelt",
+      "worum": "Vom 27. November bis 20. Dezember auf dem Marktplatz: Eröffnung mit Christkind und Bläserchor um 17:30 Uhr, täglich Geschichten in der Himmelsstube und lebensgroße Figuren von Josef Madlener im Antonierhaus.",
+      "quelle": {"name": "Stadt Memmingen", "url": "https://www.memmingen.de/aktuelles/singlenews-aktuelles/news/detail/News/memminger-christkindlesmarkt-oeffnet.html"},
+      "ernst": false,
+      "region": "schwaben",
+      "ort": "Memmingen"
+    },
+    {
+      "titel": "Ansbacher Weihnachtsmarkt mit lebender Krippe",
+      "worum": "Ab 26. November auf Martin-Luther- und Montgelasplatz, dazu wieder die Kinderweihnacht „An die Riviera“ mit lebender Krippe – und eine Handwerkerkrippe sowie Konzerte in den Innenstadtkirchen.",
+      "quelle": {"name": "Stadt Ansbach", "url": "https://www.ansbach.de/index.php?object=tx,2595.6&ModID=7&FID=2595.21629.1"},
+      "ernst": false,
+      "region": "mittelfranken",
+      "ort": "Ansbach"
+    }
+  ]
+}
