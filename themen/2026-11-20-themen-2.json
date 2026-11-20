@@ -1,0 +1,29 @@
+{
+  "id": "2026-11-20-themen-2",
+  "themen": [
+    {
+      "titel": "Krippen aus alter und neuer Heimat im Isergebirgs-Museum Neugablonz",
+      "worum": "Ab heute zeigt das Isergebirgs-Museum in Kaufbeuren-Neugablonz Krippen, die Heimatvertriebene aus Böhmen und Mähren mitgebracht haben, zusammen mit Kaufbeurer Krippen – bis 2. Februar, Eintritt bis 5 Euro.",
+      "quelle": {"name": "Stadt Kaufbeuren", "url": "https://www.kaufbeuren.de/sys_verwaltung/tabid-1986.aspx/idnr-50424/"},
+      "ernst": false,
+      "region": "schwaben",
+      "ort": "Kaufbeuren"
+    },
+    {
+      "titel": "Wunschbaumaktion in Landsberg am Lech",
+      "worum": "Zum fünften Mal sammelt die Stadt Landsberg Weihnachtswünsche von Kindern, Familien und Senioren aus finanziell schwächeren Haushalten auf Wunsch-Herzen – Bürgerinnen und Bürger können sie erfüllen.",
+      "quelle": {"name": "Stadt Landsberg am Lech", "url": "https://www.landsberg.de/rathaus/aktuelles/pressemitteilungen/wunschbaumaktion-der-stadt-landsberg/"},
+      "ernst": false,
+      "region": "oberbayern",
+      "ort": "Landsberg am Lech"
+    },
+    {
+      "titel": "Weihnachtsmarkt mit Märchenwald in Lichtenfels",
+      "worum": "Vom 27. November bis 23. Dezember gibt es in Lichtenfels Weihnachtsmarkt und Märchenwald mit Märchenlesungen im Hexenhaus, Konzerten am Pavillon und Adventsfenstern am Rathaus, die Kindergärten öffnen.",
+      "quelle": {"name": "Stadt Lichtenfels", "url": "https://www.lichtenfels.de/rathaus-und-service/aktuelles/weihnachtsmarkt-und-maerchenwald"},
+      "ernst": false,
+      "region": "oberfranken",
+      "ort": "Lichtenfels"
+    }
+  ]
+}
