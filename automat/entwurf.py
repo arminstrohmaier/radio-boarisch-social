@@ -10,7 +10,7 @@ Ein Entwurf ist eine JSON-Datei entwuerfe/<id>.json mit diesen Feldern:
   hook          erste Zeile, traegt das Thema
   text          Tatsachen in eigenen Worten (Kern der Caption)
   aufforderung  kurze Aufforderung am Schluss (bei ernst leer lassen)
-  bildtext      kurz, kommt auf das Bild; optional "Hauptzeile – Zusatz" (Schreibschrift + Zusatzzeile)
+  bildtext      echte Schlagzeile (vollstaendige Aussage), kommt auf das Bild; optional "Hauptzeile – Zusatz" (Schreibschrift + Zusatzzeile)
   bild          Dateiname aus pool/, z. B. "03_text-oben.jpg" – oder bei einem Foto,
                 das der Betreiber per Telegram geschickt hat: "eigen:<hinweis-kennung>".
                 Bei bildmotiv ist das Pool-Bild der Rueckfall, falls die Erzeugung scheitert.
