@@ -643,8 +643,11 @@
       "entschieden": "2026-11-20T06:48:03+00:00",
       "kanaele": {
         "instagram": {
-          "status": "laeuft",
-          "versuche": 1
+          "status": "ok",
+          "versuche": 1,
+          "id": "18233980792330501",
+          "link": "https://www.instagram.com/p/Df9DCk_id8_/",
+          "zeit": "2026-11-20T06:48:19+00:00"
         }
       }
     }
