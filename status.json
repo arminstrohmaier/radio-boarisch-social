@@ -1409,7 +1409,7 @@
       "entwurf": "2026-11-20-dekotausch-weiden"
     },
     "2026-11-20-themen-2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "ac7713c88e",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-20-themen-2.json",
       "importiert": "2026-11-20T09:15:17+00:00",
@@ -1448,7 +1448,9 @@
           "ort": "Lichtenfels"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-20T09:15:20+00:00",
+      "tg_msg": 160
     }
   },
   "befehle_gesetzt": true,
