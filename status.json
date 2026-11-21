@@ -806,6 +806,24 @@
           "zeit": "2026-11-21T13:39:38+00:00"
         }
       }
+    },
+    "2026-11-21-bayerische-weihnacht-deggendorf": {
+      "status": "neu",
+      "key": "74d6dfb1e0",
+      "hash": "ded1dad7c659b0a0bb814e4fb10342a29a4d847d",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-bayerische-weihnacht-deggendorf.json",
+      "importiert": "2026-11-21T17:38:57+00:00",
+      "bild": "05_text-oben.jpg",
+      "thema": "Konzert „Bayerische Weihnacht“ mit Monika Drasch und Martin Danes am 26. November im Kapuzinerstadl Deggendorf",
+      "hinweise": [
+        "Monika Drasch: kein belegtes Konto – erscheint nur als Name",
+        "Martin Danes: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "detail",
+        "farbwelt": "Honey wood, deep fir green, warm white, dark brown beams"
+      }
     }
   },
   "themen": {
@@ -1746,7 +1764,7 @@
       "entwurf": "2026-11-21-adventskraenze-lindau"
     },
     "2026-11-21-themen-3": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "9c5184ee81",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen-3.json",
       "importiert": "2026-11-21T16:14:50+00:00",
@@ -1789,7 +1807,8 @@
       "gesendet": "2026-11-21T16:14:52+00:00",
       "tg_msg": 184,
       "gewaehlt": 1,
-      "entschieden": "2026-11-21T16:47:23+00:00"
+      "entschieden": "2026-11-21T16:47:23+00:00",
+      "entwurf": "2026-11-21-bayerische-weihnacht-deggendorf"
     }
   },
   "befehle_gesetzt": true,
