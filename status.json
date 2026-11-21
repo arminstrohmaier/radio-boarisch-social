@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760201,
+  "telegram_offset": 972760202,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1746,7 +1746,7 @@
       "entwurf": "2026-11-21-adventskraenze-lindau"
     },
     "2026-11-21-themen-3": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "9c5184ee81",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen-3.json",
       "importiert": "2026-11-21T16:14:50+00:00",
@@ -1787,7 +1787,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-21T16:14:52+00:00",
-      "tg_msg": 184
+      "tg_msg": 184,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-21T16:47:23+00:00"
     }
   },
   "befehle_gesetzt": true,
