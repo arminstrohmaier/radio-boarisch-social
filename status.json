@@ -772,7 +772,7 @@
       }
     },
     "2026-11-21-adventskraenze-lindau": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "cd721ddc01",
       "hash": "eef4f5353d65d3d7dcdf47c11227dba8add758dd",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-adventskraenze-lindau.json",
