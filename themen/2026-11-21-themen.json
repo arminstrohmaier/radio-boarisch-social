@@ -1,0 +1,29 @@
+{
+  "id": "2026-11-21-themen",
+  "themen": [
+    {
+      "titel": "Straubinger Rathaus wieder offen – Festkonzert der Niederbayerischen Philharmonie",
+      "worum": "Zehn Jahre nach dem Brand von 2016 feiert Straubing die Wiedereröffnung seines Rathauses: am 5. Dezember um 19:30 Uhr mit einem Festkonzert der Niederbayerischen Philharmonie im Rathaussaal, von Salonmusik der 1920er bis zur Filmmusik „Il Gattopardo“.",
+      "quelle": {"name": "Stadt Straubing", "url": "https://www.straubing.de/aktuelle-meldungen/5746.Klaenge-des-Aufbruchs.html"},
+      "ernst": false,
+      "region": "niederbayern",
+      "ort": "Straubing"
+    },
+    {
+      "titel": "Neue Erlebnisführung in Kulmbach: die „unehrlichen“ Berufe im Mittelalter",
+      "worum": "Färber, Gerber und anderes „Gelichter“: Eine neue Führung des Kulmbacher Tourismusservice geht ins Quartier der ausgegrenzten Berufe abseits des Marktplatzes. Premiere am Freitag, 11. Dezember, um 18 Uhr.",
+      "quelle": {"name": "Stadt Kulmbach", "url": "https://www.kulmbach.de/news/2630/1311549/kategorie/von-faerbern-gerbern-und-anderem-gelichter-neue-erlebnisfuehrung-in-kulmbach-am-11.-dezember-2026.html"},
+      "ernst": false,
+      "region": "oberfranken",
+      "ort": "Kulmbach"
+    },
+    {
+      "titel": "Amberger Stadtradler spenden ihr Preisgeld ans Kinderpalliativteam",
+      "worum": "66 Radlerinnen und Radler der Amberger Stadtverwaltung fuhren beim Stadtradeln 14.129 Kilometer und gewannen 300 Euro – die gehen jetzt an das Kinderpalliativteam Ostbayern am Klinikum St. Marien.",
+      "quelle": {"name": "Stadt Amberg", "url": "https://www.amberg.de/news/newsdetail/stadt-amberg-team-spendet-stadtradeln-preisgeld"},
+      "ernst": false,
+      "region": "oberpfalz",
+      "ort": "Amberg"
+    }
+  ]
+}
