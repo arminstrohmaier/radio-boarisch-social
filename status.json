@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760200,
+  "telegram_offset": 972760201,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -772,7 +772,7 @@
       }
     },
     "2026-11-21-adventskraenze-lindau": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "cd721ddc01",
       "hash": "eef4f5353d65d3d7dcdf47c11227dba8add758dd",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-adventskraenze-lindau.json",
@@ -788,7 +788,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · brauchtum · schwaben · Aufbau zentral",
       "gesendet": "2026-11-21T13:38:52+00:00",
       "tg_foto": 180,
-      "tg_msg": 181
+      "tg_msg": 181,
+      "entschieden": "2026-11-21T13:39:16+00:00"
     }
   },
   "themen": {
