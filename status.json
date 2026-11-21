@@ -1663,7 +1663,7 @@
       "entwurf": "2026-11-21-stadtradeln-amberg"
     },
     "2026-11-21-themen-2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "3413e90b32",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen-2.json",
       "importiert": "2026-11-21T09:16:15+00:00",
@@ -1702,7 +1702,9 @@
           "ort": "Freising"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-21T09:16:17+00:00",
+      "tg_msg": 178
     }
   },
   "befehle_gesetzt": true,
