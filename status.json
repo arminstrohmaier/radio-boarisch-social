@@ -772,7 +772,7 @@
       }
     },
     "2026-11-21-adventskraenze-lindau": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "cd721ddc01",
       "hash": "eef4f5353d65d3d7dcdf47c11227dba8add758dd",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-adventskraenze-lindau.json",
@@ -784,7 +784,11 @@
       "bild_ki": {
         "aufbau": "zentral",
         "farbwelt": "Fir green, warm stone beige, dusk blue, a touch of orange"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · brauchtum · schwaben · Aufbau zentral",
+      "gesendet": "2026-11-21T13:38:52+00:00",
+      "tg_foto": 180,
+      "tg_msg": 181
     }
   },
   "themen": {
