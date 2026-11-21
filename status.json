@@ -808,7 +808,7 @@
       }
     },
     "2026-11-21-bayerische-weihnacht-deggendorf": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "74d6dfb1e0",
       "hash": "ded1dad7c659b0a0bb814e4fb10342a29a4d847d",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-bayerische-weihnacht-deggendorf.json",
@@ -823,7 +823,11 @@
       "bild_ki": {
         "aufbau": "detail",
         "farbwelt": "Honey wood, deep fir green, warm white, dark brown beams"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · musik · niederbayern · Aufbau detail",
+      "gesendet": "2026-11-21T17:39:05+00:00",
+      "tg_foto": 186,
+      "tg_msg": 187
     }
   },
   "themen": {
