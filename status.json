@@ -1744,6 +1744,48 @@
       "gewaehlt": 2,
       "entschieden": "2026-11-21T13:21:31+00:00",
       "entwurf": "2026-11-21-adventskraenze-lindau"
+    },
+    "2026-11-21-themen-3": {
+      "status": "neu",
+      "key": "9c5184ee81",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen-3.json",
+      "importiert": "2026-11-21T16:14:50+00:00",
+      "themen": [
+        {
+          "titel": "Bayerische Weihnacht mit Monika Drasch im Deggendorfer Kapuzinerstadl",
+          "worum": "Am 26. November um 19:30 Uhr: nieder- und oberbayerische Weihnachtslieder, Volksmusik und zweistimmige Weihnachtsjodler zum Mitsingen mit Monika Drasch und Martin Danes, dazu Geschichten über bayerische Weihnachtsbräuche. Karten 36 Euro.",
+          "quelle": {
+            "name": "Stadt Deggendorf",
+            "url": "https://www.deggendorf.de/veranstaltungen/event/bayerische-weihnacht-mit-monika-drasch-martin-danes-und-prof-klaus-wolf-alexandra-herzinger-"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Deggendorf"
+        },
+        {
+          "titel": "Neue Ausstellung „Die gute Nachbarschaft“ im Chamer Cordonhaus",
+          "worum": "Ab Sonntag, 22. November, zeigt die Städtische Galerie Cordonhaus in Cham erstmals gemeinsam Werke von Gerhard Ribka und Michael Hirschfeld – bis 17. Januar, Eintritt frei.",
+          "quelle": {
+            "name": "Stadt Cham",
+            "url": "https://www.cham.de/die-stadt/aktuelle-meldungen/eroeffnung-der-ausstellung-die-gute-nachbarschaft"
+          },
+          "ernst": false,
+          "region": "oberpfalz",
+          "ort": "Cham"
+        },
+        {
+          "titel": "Günzburger Altstadtweihnacht und Nikolausmarkt",
+          "worum": "Eröffnung am Mittwoch, 2. Dezember, um 17 Uhr mit dem „Tag der Schulen und Kindergärten“; am 5. Dezember lädt der Seniorenbeirat alle über 60 zu einem Heißgetränk ein.",
+          "quelle": {
+            "name": "Stadt Günzburg",
+            "url": "https://www.guenzburg.de/kultur-feste/altstadtweihnacht/"
+          },
+          "ernst": false,
+          "region": "schwaben",
+          "ort": "Günzburg"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
