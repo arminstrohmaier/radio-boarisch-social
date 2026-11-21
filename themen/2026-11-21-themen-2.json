@@ -1,0 +1,29 @@
+{
+  "id": "2026-11-21-themen-2",
+  "themen": [
+    {
+      "titel": "Miltenberger Weihnachtsmarkt an drei Adventswochenenden",
+      "worum": "Die Stadt Miltenberg öffnet ihren Weihnachtsmarkt in der Altstadt am Main an drei Wochenenden: 4. bis 6., 11. bis 13. und 18. bis 20. Dezember, freitags 14 bis 20 Uhr, am Wochenende 12 bis 20 Uhr.",
+      "quelle": {"name": "Stadt Miltenberg", "url": "https://www.miltenberg.de/miltenberg/aktuelle-infos/der-miltenberger-weihnachtsmarkt-4/"},
+      "ernst": false,
+      "region": "unterfranken",
+      "ort": "Miltenberg"
+    },
+    {
+      "titel": "Adventskränze binden im Lindauer Pulverturm",
+      "worum": "Lindau Tourismus lädt am 27. November um 17 Uhr in den historischen Pulverturm: Adventskränze selbst binden, dazu Lebkuchen und Punsch.",
+      "quelle": {"name": "Lindau Tourismus", "url": "https://www.lindau.de/erlebnisse/adventskraenze-im-pulverturm/"},
+      "ernst": false,
+      "region": "schwaben",
+      "ort": "Lindau (Bodensee)"
+    },
+    {
+      "titel": "Freising hat wieder eigene Christbaumkugeln",
+      "worum": "Zum fünften Mal verkauft die Touristinformation Freising im Asam Christbaumkugeln mit der Stadtsilhouette – heuer in Rot und Gold, rund acht Zentimeter groß, je 8 Euro.",
+      "quelle": {"name": "Stadt Freising", "url": "https://www.freising.de/rathaus/aktuelles/details/weihnachtsglanz-aus-freising"},
+      "ernst": false,
+      "region": "oberbayern",
+      "ort": "Freising"
+    }
+  ]
+}
