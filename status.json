@@ -1578,7 +1578,7 @@
       "entwurf": "2026-11-20-raetselrallye-forchheim"
     },
     "2026-11-21-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "c8b4727bc2",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen.json",
       "importiert": "2026-11-21T03:37:00+00:00",
@@ -1617,7 +1617,9 @@
           "ort": "Amberg"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-21T03:37:01+00:00",
+      "tg_msg": 172
     }
   },
   "befehle_gesetzt": true,
