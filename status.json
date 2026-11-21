@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760202,
+  "telegram_offset": 972760203,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -808,7 +808,7 @@
       }
     },
     "2026-11-21-bayerische-weihnacht-deggendorf": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "74d6dfb1e0",
       "hash": "ded1dad7c659b0a0bb814e4fb10342a29a4d847d",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-bayerische-weihnacht-deggendorf.json",
@@ -827,7 +827,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · musik · niederbayern · Aufbau detail",
       "gesendet": "2026-11-21T17:39:05+00:00",
       "tg_foto": 186,
-      "tg_msg": 187
+      "tg_msg": 187,
+      "entschieden": "2026-11-21T17:39:25+00:00"
     }
   },
   "themen": {
