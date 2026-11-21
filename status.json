@@ -789,7 +789,13 @@
       "gesendet": "2026-11-21T13:38:52+00:00",
       "tg_foto": 180,
       "tg_msg": 181,
-      "entschieden": "2026-11-21T13:39:16+00:00"
+      "entschieden": "2026-11-21T13:39:16+00:00",
+      "kanaele": {
+        "instagram": {
+          "status": "laeuft",
+          "versuche": 1
+        }
+      }
     }
   },
   "themen": {
