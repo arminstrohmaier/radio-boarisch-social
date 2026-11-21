@@ -770,6 +770,21 @@
           "zeit": "2026-11-21T07:59:06+00:00"
         }
       }
+    },
+    "2026-11-21-adventskraenze-lindau": {
+      "status": "neu",
+      "key": "cd721ddc01",
+      "hash": "eef4f5353d65d3d7dcdf47c11227dba8add758dd",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-adventskraenze-lindau.json",
+      "importiert": "2026-11-21T13:38:39+00:00",
+      "bild": "12_text-oben.jpg",
+      "thema": "Adventskränze binden im historischen Pulverturm in Lindau am 27. November",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "zentral",
+        "farbwelt": "Fir green, warm stone beige, dusk blue, a touch of orange"
+      }
     }
   },
   "themen": {
@@ -1663,7 +1678,7 @@
       "entwurf": "2026-11-21-stadtradeln-amberg"
     },
     "2026-11-21-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "3413e90b32",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen-2.json",
       "importiert": "2026-11-21T09:16:15+00:00",
@@ -1706,7 +1721,8 @@
       "gesendet": "2026-11-21T09:16:17+00:00",
       "tg_msg": 178,
       "gewaehlt": 2,
-      "entschieden": "2026-11-21T13:21:31+00:00"
+      "entschieden": "2026-11-21T13:21:31+00:00",
+      "entwurf": "2026-11-21-adventskraenze-lindau"
     }
   },
   "befehle_gesetzt": true,
