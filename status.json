@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760199,
+  "telegram_offset": 972760200,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1663,7 +1663,7 @@
       "entwurf": "2026-11-21-stadtradeln-amberg"
     },
     "2026-11-21-themen-2": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "3413e90b32",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen-2.json",
       "importiert": "2026-11-21T09:16:15+00:00",
@@ -1704,7 +1704,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-21T09:16:17+00:00",
-      "tg_msg": 178
+      "tg_msg": 178,
+      "gewaehlt": 2,
+      "entschieden": "2026-11-21T13:21:31+00:00"
     }
   },
   "befehle_gesetzt": true,
