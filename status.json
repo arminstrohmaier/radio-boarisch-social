@@ -808,7 +808,7 @@
       }
     },
     "2026-11-21-bayerische-weihnacht-deggendorf": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "74d6dfb1e0",
       "hash": "ded1dad7c659b0a0bb814e4fb10342a29a4d847d",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-bayerische-weihnacht-deggendorf.json",
