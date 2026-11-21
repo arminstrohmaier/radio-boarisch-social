@@ -732,6 +732,23 @@
           "zeit": "2026-11-20T18:04:44+00:00"
         }
       }
+    },
+    "2026-11-21-stadtradeln-amberg": {
+      "status": "neu",
+      "key": "6a20c53d5e",
+      "hash": "c80f3c931b54c2f4027f18088dfedda286cc55d6",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-stadtradeln-amberg.json",
+      "importiert": "2026-11-21T07:38:43+00:00",
+      "bild": "18_text-oben.jpg",
+      "thema": "Team der Amberger Stadtverwaltung spendet Stadtradeln-Preisgeld an das Kinderpalliativteam Ostbayern",
+      "hinweise": [
+        "Kinderpalliativteam Ostbayern: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "rahmen",
+        "farbwelt": "Warm sandstone, ochre plaster, fresh green, clear blue"
+      }
     }
   },
   "themen": {
@@ -1578,7 +1595,7 @@
       "entwurf": "2026-11-20-raetselrallye-forchheim"
     },
     "2026-11-21-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "c8b4727bc2",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-21-themen.json",
       "importiert": "2026-11-21T03:37:00+00:00",
@@ -1621,7 +1638,8 @@
       "gesendet": "2026-11-21T03:37:01+00:00",
       "tg_msg": 172,
       "gewaehlt": 3,
-      "entschieden": "2026-11-21T06:43:43+00:00"
+      "entschieden": "2026-11-21T06:43:43+00:00",
+      "entwurf": "2026-11-21-stadtradeln-amberg"
     }
   },
   "befehle_gesetzt": true,
