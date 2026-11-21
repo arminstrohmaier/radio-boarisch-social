@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760198,
+  "telegram_offset": 972760199,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -734,7 +734,7 @@
       }
     },
     "2026-11-21-stadtradeln-amberg": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "6a20c53d5e",
       "hash": "c80f3c931b54c2f4027f18088dfedda286cc55d6",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-stadtradeln-amberg.json",
@@ -752,7 +752,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · meldung · oberpfalz · Aufbau rahmen",
       "gesendet": "2026-11-21T07:38:50+00:00",
       "tg_foto": 174,
-      "tg_msg": 175
+      "tg_msg": 175,
+      "entschieden": "2026-11-21T07:58:41+00:00"
     }
   },
   "themen": {
