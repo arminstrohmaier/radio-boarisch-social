@@ -734,7 +734,7 @@
       }
     },
     "2026-11-21-stadtradeln-amberg": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "6a20c53d5e",
       "hash": "c80f3c931b54c2f4027f18088dfedda286cc55d6",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-stadtradeln-amberg.json",
