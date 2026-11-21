@@ -734,7 +734,7 @@
       }
     },
     "2026-11-21-stadtradeln-amberg": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "6a20c53d5e",
       "hash": "c80f3c931b54c2f4027f18088dfedda286cc55d6",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-21-stadtradeln-amberg.json",
@@ -748,7 +748,11 @@
       "bild_ki": {
         "aufbau": "rahmen",
         "farbwelt": "Warm sandstone, ochre plaster, fresh green, clear blue"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · meldung · oberpfalz · Aufbau rahmen",
+      "gesendet": "2026-11-21T07:38:50+00:00",
+      "tg_foto": 174,
+      "tg_msg": 175
     }
   },
   "themen": {
