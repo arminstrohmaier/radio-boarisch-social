@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760206,
+  "telegram_offset": 972760207,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -847,7 +847,7 @@
       }
     },
     "2026-11-22-christkindlmarkt-bad-toelz": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "5b12eca183",
       "hash": "1b436a21f98e9c1033374e7aae499998868e3247",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-22-christkindlmarkt-bad-toelz.json",
@@ -863,7 +863,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · oberbayern · Aufbau weite",
       "gesendet": "2026-11-22T16:38:50+00:00",
       "tg_foto": 196,
-      "tg_msg": 197
+      "tg_msg": 197,
+      "entschieden": "2026-11-22T19:29:07+00:00"
     }
   },
   "themen": {
