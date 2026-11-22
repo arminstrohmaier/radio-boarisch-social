@@ -1,0 +1,29 @@
+{
+  "id": "2026-11-22-themen",
+  "themen": [
+    {
+      "titel": "Kelheimer Christkindlmarkt mit eigener „bieriger“ Spezialität",
+      "worum": "Vom 4. bis 13. Dezember auf dem Ludwigsplatz: über 30 Stände, Künstler- und Vereinsbuden, Eröffnung am 4. Dezember um 16 Uhr – und neu eine Bude des Weissen Bräuhauses mit einer eigens für Kelheim entwickelten Spezialität.",
+      "quelle": {"name": "Stadt Kelheim", "url": "https://www.kelheim.de/aktuelles/kelheimer-christkindlmarkt-zehn-tage-adventsstimmung-am-ludwigsplatz/"},
+      "ernst": false,
+      "region": "niederbayern",
+      "ort": "Kelheim"
+    },
+    {
+      "titel": "Skandinavisches Weihnachtskonzert in der Schwandorfer Spitalkirche",
+      "worum": "Am 10. Dezember um 19 Uhr nimmt die finnische Sängerin Tuija Komi mit ihrem Quartett das Publikum mit auf eine musikalische „Schlittenfahrt“ unter Polarlichtern – Karten ab 22 Euro.",
+      "quelle": {"name": "Stadt Schwandorf", "url": "https://www.schwandorf.de/index.php?&object=tx,3655.4&ModID=11&FID=3655.6377.1&kuo=1&ort=0&vo=0&va=0&call=0&bn=0&sfodddrt=0&sfvort=0&sfreg=0&sfort=0&k_sub=0&La=1"},
+      "ernst": false,
+      "region": "oberpfalz",
+      "ort": "Schwandorf"
+    },
+    {
+      "titel": "Vorweihnachtliche Spendenaktion auf dem Lohrer Marktplatz",
+      "worum": "Am 15. Dezember von 12 bis 18 Uhr lädt die Patenkompanie aus Veitshöchheim auf den Lohrer Marktplatz ein: Bratwürste, Kinderpunsch, Glühwein und der Nikolaus – der Erlös geht an den Verein „Hoffnung schenken“ in Neustadt a. Main.",
+      "quelle": {"name": "Stadt Lohr a.Main", "url": "https://www.lohr.de/aktuelles/weihnachtliche-stimmung-auf-dem-lohrer-marktplatz"},
+      "ernst": false,
+      "region": "unterfranken",
+      "ort": "Lohr a.Main"
+    }
+  ]
+}
