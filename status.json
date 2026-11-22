@@ -847,7 +847,7 @@
       }
     },
     "2026-11-22-christkindlmarkt-bad-toelz": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "5b12eca183",
       "hash": "1b436a21f98e9c1033374e7aae499998868e3247",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-22-christkindlmarkt-bad-toelz.json",
