@@ -1922,7 +1922,7 @@
       "entschieden": "2026-11-22T10:53:11+00:00"
     },
     "2026-11-22-themen-3": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "a12dfe82db",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-22-themen-3.json",
       "importiert": "2026-11-22T16:15:14+00:00",
@@ -1961,7 +1961,9 @@
           "ort": "Selb"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-22T16:15:16+00:00",
+      "tg_msg": 194
     }
   },
   "befehle_gesetzt": true,
