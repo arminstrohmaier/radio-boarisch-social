@@ -1875,6 +1875,48 @@
       "gesendet": "2026-11-22T03:36:02+00:00",
       "tg_msg": 190,
       "entschieden": "2026-11-22T07:22:18+00:00"
+    },
+    "2026-11-22-themen-2": {
+      "status": "neu",
+      "key": "8ada970f95",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-22-themen-2.json",
+      "importiert": "2026-11-22T09:15:49+00:00",
+      "themen": [
+        {
+          "titel": "Gunzenhausen sucht alten Christbaumschmuck für eine Weihnachtsausstellung",
+          "worum": "Das Stadtarchiv bittet die Gunzenhäuser, in ihren Weihnachtsschätzen zu stöbern: Gesucht sind mindestens 50 Jahre alter Christbaumschmuck, alte Fotos mit Christbaum und Spielzeug aus der Kinderzeit – Abgabe bis Ende November, Ausstellung ab 1. Dezember in der Stadtbücherei.",
+          "quelle": {
+            "name": "Stadt Gunzenhausen",
+            "url": "https://www.gunzenhausen.de/meldungen-details/stadtarchiv-sucht-nostalgischen-weihnachtsschmuck-fotos-usw-f%C3%BCr-weihnachtsausstellung.html"
+          },
+          "ernst": false,
+          "region": "mittelfranken",
+          "ort": "Gunzenhausen"
+        },
+        {
+          "titel": "Neue Krippe mit historischen Figuren für den Wasserburger Stadler Garten",
+          "worum": "Zum 25-jährigen Bestehen der Wohnanlage Stadler Garten entsteht eine Krippe mit historischen Figuren der Stifterfamilie. Die Krippenfreunde Wasserburg zeigen sie am ersten Adventswochenende zusammen mit vielen weiteren Krippen.",
+          "quelle": {
+            "name": "Stadt Wasserburg am Inn",
+            "url": "https://www.wasserburg.de/index.php?id=328&no_cache=1&publish%5Bid%5D=1655109&publish%5Bstart%5D="
+          },
+          "ernst": false,
+          "region": "oberbayern",
+          "ort": "Wasserburg am Inn"
+        },
+        {
+          "titel": "Marktredwitzer Adventszauber mit Eisbahn und Krampussen",
+          "worum": "Ab 26. November in der Glasschleif: Eröffnung mit dem Christkind um 17 Uhr, jedes Adventswochenende Musik auf der Weihnachtsbühne, am 12. Dezember die Krampusse aus Vils – und eine große Eisbahn bei freiem Eintritt bis 5. Januar.",
+          "quelle": {
+            "name": "Stadt Marktredwitz",
+            "url": "https://www.marktredwitz.de/rathaus/aktuelles/neuigkeiten/marktredwitzer-adventszauber-2026"
+          },
+          "ernst": false,
+          "region": "oberfranken",
+          "ort": "Marktredwitz"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
