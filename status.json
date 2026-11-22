@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760203,
+  "telegram_offset": 972760204,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -1832,7 +1832,7 @@
       "entwurf": "2026-11-21-bayerische-weihnacht-deggendorf"
     },
     "2026-11-22-themen": {
-      "status": "gesendet",
+      "status": "verworfen",
       "key": "e3c0911b06",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-22-themen.json",
       "importiert": "2026-11-22T03:36:00+00:00",
@@ -1873,7 +1873,8 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-22T03:36:02+00:00",
-      "tg_msg": 190
+      "tg_msg": 190,
+      "entschieden": "2026-11-22T07:22:18+00:00"
     }
   },
   "befehle_gesetzt": true,
