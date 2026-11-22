@@ -845,6 +845,21 @@
           "zeit": "2026-11-21T17:39:59+00:00"
         }
       }
+    },
+    "2026-11-22-christkindlmarkt-bad-toelz": {
+      "status": "neu",
+      "key": "5b12eca183",
+      "hash": "1b436a21f98e9c1033374e7aae499998868e3247",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-22-christkindlmarkt-bad-toelz.json",
+      "importiert": "2026-11-22T16:38:41+00:00",
+      "bild": "07_text-oben.jpg",
+      "thema": "Tölzer Christkindlmarkt in der Marktstraße vom 27. November bis 24. Dezember, Eröffnung am 28. November",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "weite",
+        "farbwelt": "Warm amber light, pastel facades, deep dusk blue"
+      }
     }
   },
   "themen": {
@@ -1922,7 +1937,7 @@
       "entschieden": "2026-11-22T10:53:11+00:00"
     },
     "2026-11-22-themen-3": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "a12dfe82db",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-22-themen-3.json",
       "importiert": "2026-11-22T16:15:14+00:00",
@@ -1965,7 +1980,8 @@
       "gesendet": "2026-11-22T16:15:16+00:00",
       "tg_msg": 194,
       "gewaehlt": 1,
-      "entschieden": "2026-11-22T16:22:09+00:00"
+      "entschieden": "2026-11-22T16:22:09+00:00",
+      "entwurf": "2026-11-22-christkindlmarkt-bad-toelz"
     }
   },
   "befehle_gesetzt": true,
