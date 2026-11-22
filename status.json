@@ -1920,6 +1920,48 @@
       "gesendet": "2026-11-22T09:15:51+00:00",
       "tg_msg": 192,
       "entschieden": "2026-11-22T10:53:11+00:00"
+    },
+    "2026-11-22-themen-3": {
+      "status": "neu",
+      "key": "a12dfe82db",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-22-themen-3.json",
+      "importiert": "2026-11-22T16:15:14+00:00",
+      "themen": [
+        {
+          "titel": "Tölzer Christkindlmarkt mit Krampuslauf, Kutschfahrten und Krippenweg",
+          "worum": "Vom 27. November bis Heiligabend stehen rund 40 Holzbuden in der historischen Marktstraße von Bad Tölz; dazu Musik aus dem Isarwinkel, mittwochs Pferdekutschfahrten, ein Krampuslauf und der Tölzer Krippenweg. Feierliche Eröffnung am 28. November.",
+          "quelle": {
+            "name": "Stadt Bad Tölz",
+            "url": "https://www.bad-toelz.de/de/genuss-und-kulinarik/maerkte/christkindlmarkt.html"
+          },
+          "ernst": false,
+          "region": "oberbayern",
+          "ort": "Bad Tölz"
+        },
+        {
+          "titel": "Feuchtwanger Weihnachtsmarkt zwischen Stiftskirche und Johanniskirche",
+          "worum": "Vom 27. November bis 20. Dezember verwandelt sich der Kirchplatz der Kreuzgangstadt in einen Weihnachtsmarkt, getragen von heimischen Vereinen und dem Gewerbeverein. Eröffnung am 27. November um 18:10 Uhr.",
+          "quelle": {
+            "name": "Stadt Feuchtwangen",
+            "url": "https://www.feuchtwangen.de/aktuelles/weihnachtsmarkt-feuchtwangen-2026/"
+          },
+          "ernst": false,
+          "region": "mittelfranken",
+          "ort": "Feuchtwangen"
+        },
+        {
+          "titel": "Bilderbuchkino in der Selber Stadtbücherei",
+          "worum": "Am 3. Dezember um 14:30 und 15:30 Uhr zeigt die Stadtbücherei Selb „In der Weihnachtshöhle ist noch Platz“ auf großer Leinwand mit Vorlesen und Basteln danach – für Kinder ab vier, Eintritt frei, Anmeldung erbeten.",
+          "quelle": {
+            "name": "Stadt Selb",
+            "url": "https://www.selb.de/aktuelles-events/detailansicht/bilderbuchkino-in-der-weihnachtshoehle-ist-noch-platz"
+          },
+          "ernst": false,
+          "region": "oberfranken",
+          "ort": "Selb"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
