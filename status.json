@@ -2048,6 +2048,48 @@
       "gesendet": "2026-11-23T03:37:32+00:00",
       "tg_msg": 200,
       "entschieden": "2026-11-23T06:25:07+00:00"
+    },
+    "2026-11-23-themen-2": {
+      "status": "neu",
+      "key": "52f7981b99",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen-2.json",
+      "importiert": "2026-11-23T09:15:44+00:00",
+      "themen": [
+        {
+          "titel": "Der Waldsassener Weihnachtsmarkt wird 50",
+          "worum": "Der Weihnachtsmarkt in Waldsassen feiert heuer sein 50-jähriges Jubiläum. Zum Anlass verlost die Stadt auf Instagram und Facebook Weihnachtsmarkt-Gutscheine – mitmachen kann man bis Dienstag, 24. November, 23:59 Uhr.",
+          "quelle": {
+            "name": "Stadt Waldsassen",
+            "url": "https://www.waldsassen.de/news-detailseite/news/gewinnspiel-zum-50-waldsassener-weihnachtsmarkt"
+          },
+          "ernst": false,
+          "region": "oberpfalz",
+          "ort": "Waldsassen"
+        },
+        {
+          "titel": "Krippen und Schnitzkunst der vhs-Schnitzer in Pfaffenhofen",
+          "worum": "In der Städtischen Galerie am Hauptplatz zeigen die Schnitzer der Volkshochschule Werke aus über 30 Jahren: Krippen, Heiligenfiguren, Masken und moderne Arbeiten – geöffnet an mehreren Tagen bis Ende November.",
+          "quelle": {
+            "name": "Stadt Pfaffenhofen a.d.Ilm",
+            "url": "https://www.pfaffenhofen.de/paf-und-du/veranstaltungen/krippen-und-schnitzausstellung-werke-aus-ueber-30-jahren-der-vhs-schnitzer/"
+          },
+          "ernst": false,
+          "region": "oberbayern",
+          "ort": "Pfaffenhofen a.d.Ilm"
+        },
+        {
+          "titel": "Alzenauer Weihnachtsmarkt zum ersten Advent",
+          "worum": "Vom 27. bis 29. November lädt die Stadt Alzenau, nordwestlichste Stadt Bayerns, zum Weihnachtsmarkt mit Kunsthandwerk, Musik, Kulinarik und Kinderprogramm.",
+          "quelle": {
+            "name": "Stadt Alzenau",
+            "url": "https://www.alzenau.de/Quicknavigation/Startseite/Weihnachtsmarkt-Alzenau.php?object=tx,2413.4&ModID=7&FID=2413.7407.1&NavID=2413.44"
+          },
+          "ernst": false,
+          "region": "unterfranken",
+          "ort": "Alzenau"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
