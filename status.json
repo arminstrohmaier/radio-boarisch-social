@@ -883,7 +883,7 @@
       }
     },
     "2026-11-23-gute-nachbarschaft-cham": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "2f4f1422d8",
       "hash": "156df34687ebd380ff125c25d7bab7b1114a6172",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-23-gute-nachbarschaft-cham.json",
