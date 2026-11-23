@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760210,
+  "telegram_offset": 972760211,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -883,7 +883,7 @@
       }
     },
     "2026-11-23-gute-nachbarschaft-cham": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "2f4f1422d8",
       "hash": "156df34687ebd380ff125c25d7bab7b1114a6172",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-23-gute-nachbarschaft-cham.json",
@@ -899,7 +899,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · kultur · oberpfalz · Aufbau rahmen",
       "gesendet": "2026-11-23T16:38:54+00:00",
       "tg_foto": 206,
-      "tg_msg": 207
+      "tg_msg": 207,
+      "entschieden": "2026-11-23T16:39:12+00:00"
     }
   },
   "themen": {
