@@ -2093,6 +2093,48 @@
       "gesendet": "2026-11-23T09:15:46+00:00",
       "tg_msg": 202,
       "entschieden": "2026-11-23T09:42:19+00:00"
+    },
+    "2026-11-23-themen-3": {
+      "status": "neu",
+      "key": "68f1777504",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen-3.json",
+      "importiert": "2026-11-23T16:15:56+00:00",
+      "themen": [
+        {
+          "titel": "Straubinger Rathaus wieder offen – Festkonzert der Niederbayerischen Philharmonie",
+          "worum": "Zehn Jahre nach dem Brand von 2016 feiert Straubing die Wiedereröffnung seines Rathauses: am 5. Dezember um 19:30 Uhr mit einem Festkonzert der Niederbayerischen Philharmonie im Rathaussaal, von Salonmusik der 1920er bis zur Filmmusik „Il Gattopardo“.",
+          "quelle": {
+            "name": "Stadt Straubing",
+            "url": "https://www.straubing.de/aktuelle-meldungen/5746.Klaenge-des-Aufbruchs.html"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Straubing"
+        },
+        {
+          "titel": "Ausstellung „Die gute Nachbarschaft“ im Chamer Cordonhaus",
+          "worum": "Die Städtische Galerie Cordonhaus in Cham zeigt erstmals gemeinsam Werke von Gerhard Ribka und Michael Hirschfeld – bis 17. Januar, Mittwoch bis Sonntag, Eintritt frei.",
+          "quelle": {
+            "name": "Stadt Cham",
+            "url": "https://www.cham.de/die-stadt/aktuelle-meldungen/eroeffnung-der-ausstellung-die-gute-nachbarschaft"
+          },
+          "ernst": false,
+          "region": "oberpfalz",
+          "ort": "Cham"
+        },
+        {
+          "titel": "Pegnitzer Adventsdorf öffnet am Donnerstag",
+          "worum": "Vom 26. November bis 20. Dezember lädt der Arbeitskreis „Unser Pegnitz“ jeden Abend ab 17 Uhr ins Pegnitzer Adventsdorf, Eintritt frei.",
+          "quelle": {
+            "name": "Stadt Pegnitz",
+            "url": "https://www.pegnitz.de/aktuelles/veranstaltungskalender/2026/pegnitzer-adventsdorf-2026.html"
+          },
+          "ernst": false,
+          "region": "oberfranken",
+          "ort": "Pegnitz"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
