@@ -2095,7 +2095,7 @@
       "entschieden": "2026-11-23T09:42:19+00:00"
     },
     "2026-11-23-themen-3": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "68f1777504",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen-3.json",
       "importiert": "2026-11-23T16:15:56+00:00",
@@ -2134,7 +2134,9 @@
           "ort": "Pegnitz"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-23T16:15:58+00:00",
+      "tg_msg": 204
     }
   },
   "befehle_gesetzt": true,
