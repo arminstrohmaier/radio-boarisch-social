@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760207,
+  "telegram_offset": 972760208,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -2005,7 +2005,7 @@
       "entwurf": "2026-11-22-christkindlmarkt-bad-toelz"
     },
     "2026-11-23-themen": {
-      "status": "gesendet",
+      "status": "verworfen",
       "key": "787c8dfc81",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen.json",
       "importiert": "2026-11-23T03:37:30+00:00",
@@ -2046,7 +2046,8 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-23T03:37:32+00:00",
-      "tg_msg": 200
+      "tg_msg": 200,
+      "entschieden": "2026-11-23T06:25:07+00:00"
     }
   },
   "befehle_gesetzt": true,
