@@ -66,6 +66,12 @@ Gemeinsam für beide Stufen:
      Unterfranken, Oberfranken außerhalb Bayreuths.
    - Gute Primärquellen auf dem Land: Gemeinde- und Landratsamts-Seiten, Bezirke
      (Heimatpflege, Volksmusik), Vereine, Veranstalter, Kulturämter, Tourismusverbände.
+   **Abwechslung** (Betreiberentscheidung 23.11.2026): **höchstens ein** Weihnachts- oder
+   Adventsthema pro Vorschlag (Weihnachtsmärkte, Krippen, Christbäume, Nikolaus, Krampus,
+   Advent …). Die anderen Themen kommen aus dem übrigen Leben in Bayern: Konzerte,
+   Künstler, neue Platten, Musikvereine, Theater, Ausstellungen, Brauchtum außerhalb der
+   Weihnachtszeit, Vereine, Sport mit Bayernbezug, Gemeinschaftsaktionen, Blaulicht.
+   Der Automat lehnt Vorschläge mit zwei oder mehr Weihnachtsthemen ab.
    **Was zählt:** Musik, Brauchtum, Veranstaltungen, Kultur, Blaulicht (§10.2) und
    **Gemeinschaft und Mitmachen** – Aktionen, bei denen Menschen vor Ort etwas tun oder
    bekommen (z. B. Bio-Pausenbrot für Grundschulkinder, „pflanz mit!“, Müllpaten,
