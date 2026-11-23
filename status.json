@@ -883,7 +883,7 @@
       }
     },
     "2026-11-23-gute-nachbarschaft-cham": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "2f4f1422d8",
       "hash": "156df34687ebd380ff125c25d7bab7b1114a6172",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-23-gute-nachbarschaft-cham.json",
@@ -895,7 +895,11 @@
       "bild_ki": {
         "aufbau": "rahmen",
         "farbwelt": "Off-white, warm wood, muted ochre and slate blue"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · kultur · oberpfalz · Aufbau rahmen",
+      "gesendet": "2026-11-23T16:38:54+00:00",
+      "tg_foto": 206,
+      "tg_msg": 207
     }
   },
   "themen": {
