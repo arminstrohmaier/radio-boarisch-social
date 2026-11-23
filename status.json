@@ -881,6 +881,21 @@
           "zeit": "2026-11-22T19:29:28+00:00"
         }
       }
+    },
+    "2026-11-23-gute-nachbarschaft-cham": {
+      "status": "neu",
+      "key": "2f4f1422d8",
+      "hash": "156df34687ebd380ff125c25d7bab7b1114a6172",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-23-gute-nachbarschaft-cham.json",
+      "importiert": "2026-11-23T16:38:47+00:00",
+      "bild": "09_text-oben.jpg",
+      "thema": "Ausstellung „Die gute Nachbarschaft“ mit Gerhard Ribka und Michael Hirschfeld in der Städtischen Galerie Cordonhaus Cham",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "rahmen",
+        "farbwelt": "Off-white, warm wood, muted ochre and slate blue"
+      }
     }
   },
   "themen": {
@@ -2095,7 +2110,7 @@
       "entschieden": "2026-11-23T09:42:19+00:00"
     },
     "2026-11-23-themen-3": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "68f1777504",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen-3.json",
       "importiert": "2026-11-23T16:15:56+00:00",
@@ -2138,7 +2153,8 @@
       "gesendet": "2026-11-23T16:15:58+00:00",
       "tg_msg": 204,
       "gewaehlt": 2,
-      "entschieden": "2026-11-23T16:35:15+00:00"
+      "entschieden": "2026-11-23T16:35:15+00:00",
+      "entwurf": "2026-11-23-gute-nachbarschaft-cham"
     }
   },
   "befehle_gesetzt": true,
