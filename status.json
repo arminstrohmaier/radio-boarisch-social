@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760209,
+  "telegram_offset": 972760210,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -2095,7 +2095,7 @@
       "entschieden": "2026-11-23T09:42:19+00:00"
     },
     "2026-11-23-themen-3": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "68f1777504",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen-3.json",
       "importiert": "2026-11-23T16:15:56+00:00",
@@ -2136,7 +2136,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-23T16:15:58+00:00",
-      "tg_msg": 204
+      "tg_msg": 204,
+      "gewaehlt": 2,
+      "entschieden": "2026-11-23T16:35:15+00:00"
     }
   },
   "befehle_gesetzt": true,
