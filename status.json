@@ -2005,7 +2005,7 @@
       "entwurf": "2026-11-22-christkindlmarkt-bad-toelz"
     },
     "2026-11-23-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "787c8dfc81",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-23-themen.json",
       "importiert": "2026-11-23T03:37:30+00:00",
@@ -2044,7 +2044,9 @@
           "ort": "Hersbruck"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-23T03:37:32+00:00",
+      "tg_msg": 200
     }
   },
   "befehle_gesetzt": true,
