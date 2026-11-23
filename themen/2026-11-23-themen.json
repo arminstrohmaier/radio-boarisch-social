@@ -1,0 +1,38 @@
+{
+  "id": "2026-11-23-themen",
+  "themen": [
+    {
+      "titel": "Große Krippenausstellung in der Dingolfinger Herzogsburg",
+      "worum": "Das Museum Dingolfing zeigt im Saal der Herzogsburg wieder eine große Krippenausstellung – von bäuerlichen und neapolitanischen Krippen bis zu Design-Krippen, dazu Krippen aus der „Wischauer Sprachinsel“ in Südmähren. Offene Führung am 1. Advent, 29. November.",
+      "quelle": {
+        "name": "Stadt Dingolfing",
+        "url": "https://www.dingolfing.de/detail?offene-fuehrung-krippen-schauen-im-museum-13457&lang=de"
+      },
+      "ernst": false,
+      "region": "niederbayern",
+      "ort": "Dingolfing"
+    },
+    {
+      "titel": "Weihnachtsdeko-Tauschbörse in der Stadtbibliothek Nördlingen",
+      "worum": "Ab Dienstag, 24. November, kann man in der Stadtbibliothek gut erhaltene Weihnachtsdeko abgeben und sich zu den Öffnungszeiten Neues mitnehmen – Engel, Christbaumkugeln oder kleine Rentiere bekommen so eine zweite Chance.",
+      "quelle": {
+        "name": "Stadt Nördlingen",
+        "url": "https://www.noerdlingen.de/news?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=8873&cHash=70b94c44fe2ef974211b20646"
+      },
+      "ernst": false,
+      "region": "schwaben",
+      "ort": "Nördlingen"
+    },
+    {
+      "titel": "Hersbrucker Weihnachtsmarkt öffnet am Donnerstag",
+      "worum": "Der Hersbrucker Weihnachtsmarkt kehrt zu seinen Wurzeln zurück und findet heuer wieder komplett auf dem Unteren Markt in der Altstadt statt – ab Donnerstag, 26. November, veranstaltet von Wirtschaftsforum und Stadt.",
+      "quelle": {
+        "name": "Stadt Hersbruck",
+        "url": "https://www.hersbruck.de/tourismus/veranstaltungen/veranstaltungen/veranstaltung/weihnachtsmarkt-in-hersbruck-2611-23122026/2026-11-26?cHash=252c4c72b26b96b0aef7ede942989935"
+      },
+      "ernst": false,
+      "region": "mittelfranken",
+      "ort": "Hersbruck"
+    }
+  ]
+}
