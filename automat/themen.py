@@ -18,6 +18,7 @@ Format:
 """
 from __future__ import annotations
 
+import re
 from datetime import datetime, timedelta
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
@@ -60,6 +61,18 @@ REGIONEN = ["oberbayern", "niederbayern", "oberpfalz", "oberfranken", "mittelfra
 REGION_NAME = {"oberbayern": "Oberbayern", "niederbayern": "Niederbayern", "oberpfalz": "Oberpfalz",
                "oberfranken": "Oberfranken", "mittelfranken": "Mittelfranken",
                "unterfranken": "Unterfranken", "schwaben": "Schwaben", "bayern": "ganz Bayern"}
+# Abwechslung (Betreiberentscheidung 23.11.2026): hoechstens ein Weihnachts-/Adventsthema
+# pro Vorschlag. Vom 18. bis 23.11. waren 30 von 39 Themen weihnachtlich.
+WEIHNACHTLICH = re.compile(
+    r"weihnacht|christkind|advent|nikolaus|krippe|glühwein|lebkuchen|christbaum|"
+    r"krampus|\bstern(e|en)?\b|rorate|plätzchen|bescherung|heilig(er|e) abend", re.I)
+WEIHNACHT_MAX = 1
+
+
+def ist_weihnachtlich(th: dict) -> bool:
+    return bool(WEIHNACHTLICH.search(f"{th.get('titel', '')} {th.get('worum', '')}"))
+
+
 GROSSSTAEDTE = {"münchen", "nürnberg", "augsburg", "regensburg", "würzburg", "ingolstadt",
                 "fürth", "erlangen", "bayreuth"}
 
@@ -90,6 +103,10 @@ def pruefen(t: dict) -> list[str]:
             fehler.append(f"Thema {i}: ort fehlt (Gemeinde/Stadt, bei landesweiten Themen 'Bayern')")
     if fehler:
         return fehler
+    weihnacht = [th["titel"] for th in liste if ist_weihnachtlich(th)]
+    if len(weihnacht) > WEIHNACHT_MAX:
+        fehler.append(f"Abwechslung: hoechstens {WEIHNACHT_MAX} Weihnachts-/Adventsthema pro Vorschlag ("
+                      + "; ".join(weihnacht) + ")")
     bezirke = {th["region"] for th in liste if th["region"] != "bayern"}
     if len(liste) == 3 and len(bezirke) < 2:
         fehler.append("Streuung: drei Themen brauchen mindestens zwei Regierungsbezirke")

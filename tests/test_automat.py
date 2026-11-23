@@ -814,3 +814,16 @@ def test_themen_streuung():
     assert any("Grossstadt" in f for f in themen.pruefen(gross))
     landesweit = copy.deepcopy(THEMEN); landesweit["themen"][2].update(region="bayern", ort="Bayern")
     assert themen.pruefen(landesweit) == []
+
+
+def test_hoechstens_ein_weihnachtsthema():
+    from automat import themen
+    import copy
+    eins = copy.deepcopy(THEMEN)
+    eins["themen"][0]["titel"] = "Landshuter Christkindlmarkt startet"
+    assert themen.pruefen(eins) == []
+    zwei = copy.deepcopy(eins)
+    zwei["themen"][1].update(titel="Krippenausstellung in Dingolfing")
+    assert any("Weihnachts" in f for f in themen.pruefen(zwei))
+    assert not themen.ist_weihnachtlich({"titel": "Westernstadt öffnet", "worum": "Sternstunde?"})
+    assert themen.ist_weihnachtlich({"titel": "Weihnachtssterne aus dem Christbaum", "worum": ""})
