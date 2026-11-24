@@ -2259,6 +2259,70 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-24T06:22:17+00:00",
       "entwurf": "2026-11-24-friedensbaum-dingolfing"
+    },
+    "2026-11-24-themen-2": {
+      "status": "neu",
+      "key": "0589089c51",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen-2.json",
+      "importiert": "2026-11-24T09:13:40+00:00",
+      "themen": [
+        {
+          "titel": "Brettspiele aus 200 Jahren im Museum Oberschönenfeld",
+          "worum": "Die Sonderausstellung „Spieltrieb“ zeigt bis 31. Januar 2027 Spielgeschichte vom Gänsespiel bis zum Spiel des Jahres 2026 – mit eigenem Spielraum, Mitspielen ausdrücklich erwünscht.",
+          "quelle": {
+            "name": "Bezirk Schwaben",
+            "url": "https://www.bezirk-schwaben.de/bezirk/neuigkeiten-aus-dem-bezirk/sonderausstellung-rund-ums-spielbrett-wie-das-museum-oberschoenenfeld-ab-15-november-den-spieltrieb-weckt"
+          },
+          "ernst": false,
+          "region": "schwaben",
+          "ort": "Gessertshausen"
+        },
+        {
+          "titel": "„Sound of Schwaben“: Aleyna und Marisa im Parktheater Göggingen",
+          "worum": "Zwei Augsburger Songwriterinnen spielen am Samstag, 28. November, nacheinander im Parktheater im Kurhaus Göggingen – zwischen Pop, Trap, Soul, Indie und Jazz.",
+          "quelle": {
+            "name": "Bezirk Schwaben",
+            "url": "https://www.bezirk-schwaben.de/bezirk/neuigkeiten-aus-dem-bezirk/konzertreihe-sound-of-schwaben-aleyna-und-marisa-praesentieren-im-parktheater-in-goeggingen-zwei-persoenliche-klangwelten"
+          },
+          "ernst": false,
+          "region": "schwaben",
+          "ort": "Augsburg"
+        },
+        {
+          "titel": "Knetzgauer Dorfgemeinschaftshaus „Schwarzer Adler“ ausgezeichnet",
+          "worum": "Der ehemalige Brauereigasthof in Knetzgau-Westheim, heute ökumenisches Dorfgemeinschaftshaus, bekam den mit 25.000 Euro dotierten Denkmal-Förderpreis der Unterfränkischen Kulturstiftung.",
+          "quelle": {
+            "name": "Bezirk Unterfranken",
+            "url": "https://www.bezirk-unterfranken.de/presseresort/25590.Foerderpreis-zur-Erhaltung-historischer-Bausubstanz-19.-November-2026.html"
+          },
+          "ernst": false,
+          "region": "unterfranken",
+          "ort": "Knetzgau"
+        },
+        {
+          "titel": "Freyunger Weihnachtsmarkt: Vereine betreiben die Stände",
+          "worum": "Vom 27. November bis 20. Dezember stehen auf dem Kirchplatz acht Buden, die größtenteils heimische Vereine betreiben, dazu ein Riesen-Adventskalender, Musik und Mitmachaktionen.",
+          "quelle": {
+            "name": "Stadt Freyung",
+            "url": "https://www.freyung.de/de/kultur-und-kulinarik/feste/weihnachtsmarkt-mit-riesen-adventskalender.html"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Freyung"
+        },
+        {
+          "titel": "Junge Kunst in Traunstein: Rundgang mit den Künstlern zum Ausstellungsende",
+          "worum": "Die Städtische Galerie zeigt in „Was ist los?“ sechs junge Künstlerinnen und Künstler; zum Ende am Sonntag, 29. November, führen sie um 16 Uhr selbst durchs Kulturforum Klosterkirche.",
+          "quelle": {
+            "name": "Stadt Traunstein",
+            "url": "https://www.traunstein.de/stadt-buerger/aktuelles/nachrichten-aus-der-stadt-traunstein/jung-frisch-und-engagiert/"
+          },
+          "ernst": false,
+          "region": "oberbayern",
+          "ort": "Traunstein"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
