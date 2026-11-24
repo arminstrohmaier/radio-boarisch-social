@@ -1,6 +1,6 @@
 # Redaktionsauftrag für Claude (R9, Instagram/Facebook)
 
-Diese Anweisung lesen die geplanten Claude-Läufe: Themenlauf täglich um 4:30, 10:00 und 17:00 Uhr, dazu die stündliche Runde.
+Diese Anweisung lesen die geplanten Claude-Läufe: Themenlauf täglich um 10:00 Uhr, dazu die stündliche Runde.
 
 ## Verbindliche Regeln
 
@@ -36,8 +36,8 @@ Kurzfassung (Stand V1.2, 28.10.2026, mit Betreiberentscheidungen bis 10.11.2026)
   **Zusätzlich Pflicht:** `bild` aus `pool/` als Rückfall, falls die Erzeugung scheitert
   (Dateiname nennt die freie Textfläche; nicht eines der zuletzt genutzten).
   Bei eigenem Foto des Betreibers kein `bild_ki`.
-- **Takt** (Betreiberentscheidung 17.11.2026): Themenvorschläge täglich (Mo–So) um 4:30, 10:00
-  und 17:00 Uhr (geändert am Abend des 17.11.2026). Keine feste Obergrenze für Posts: Jedes gewählte Thema wird ein Entwurf.
+- **Takt** (Betreiberentscheidung 24.11.2026): Themenvorschläge **einmal täglich (Mo–So) um
+  10:00 Uhr, dafür fünf Themen** (vorher dreimal täglich je drei). Keine feste Obergrenze für Posts: Jedes gewählte Thema wird ein Entwurf.
   Pro gewähltem Thema **genau ein** Entwurf.
 
 ## Ablauf in zwei Stufen (Betreiberentscheidung vom 10.11.2026)
@@ -49,16 +49,16 @@ Gemeinsam für beide Stufen:
 - Committen und pushen auf den Arbeitsbranch (der Automat holt Dateien von allen Branches).
   Keine anderen Dateien ändern, nie nach main, nie selbst veröffentlichen.
 
-### Stufe 1 – Themenlauf (täglich 4:30, 10:00 und 17:00 Uhr, außerdem auf Anforderung per /themen)
+### Stufe 1 – Themenlauf (täglich 10:00 Uhr, außerdem auf Anforderung per /themen)
 
-1. **Drei** verschiedene, aktuelle Themen aus Bayern nach §10.2 suchen. Nicht dieselben wie in
+1. **Fünf** verschiedene, aktuelle Themen aus Bayern nach §10.2 suchen. Nicht dieselben wie in
    den letzten Posts oder in beantworteten Themenvorschlägen (`status.json`). Vorschläge mit
    Status `ersetzt` (unbeantwortet, durch einen neueren abgelöst) dürfen wieder auftauchen,
    wenn sie noch aktuell sind. Mehrere Läufe am Tag: jeder spätere Lauf bringt möglichst
    andere Themen als die früheren.
    **Ganz Bayern, nicht nur die Großstädte** (Betreiberentscheidung 18.11.2026):
-   - die drei Themen aus **mindestens zwei Regierungsbezirken**;
-   - **höchstens eines** aus München, Nürnberg, Augsburg, Regensburg, Würzburg, Ingolstadt,
+   - die fünf Themen aus **mindestens drei Regierungsbezirken**;
+   - **höchstens zwei** aus München, Nürnberg, Augsburg, Regensburg, Würzburg, Ingolstadt,
      Fürth, Erlangen oder Bayreuth; **möglichst eines aus dem ländlichen Raum**
      (Markt, Gemeinde, Kleinstadt);
    - Vorrang für Bezirke, die in den letzten Vorschlägen selten waren (`status.json`, Feld
@@ -80,7 +80,7 @@ Gemeinsam für beide Stufen:
    (z. B. Führerscheinumtausch, digitale Ummeldung, Onlinewache).
 2. Für jedes Thema eine **Primärquelle** finden und kurz öffnen, um zu sehen, dass es sie gibt
    und dass das Thema dort steht. Noch **nicht** ausrecherchieren oder formulieren.
-   Ohne Primärquelle fällt ein Thema weg. Findest du weniger als drei, schick weniger; findest du
+   Ohne Primärquelle fällt ein Thema weg. Findest du weniger als fünf, schick weniger; findest du
    keins, lege nichts an und begründe kurz.
 3. `themen/<JJJJ-MM-TT>-themen.json` anlegen (gibt es die Datei für heute schon:
    `…-themen-2.json`, `…-themen-3.json` usw., `id` entsprechend) (Format: Kopf von `automat/themen.py`):
@@ -88,9 +88,10 @@ Gemeinsam für beide Stufen:
    `region` (Regierungsbezirk: oberbayern, niederbayern, oberpfalz, oberfranken, mittelfranken,
    unterfranken, schwaben – oder `bayern` bei landesweiten Themen) und `ort` (Gemeinde/Stadt,
    bei landesweiten Themen „Bayern“). Der Automat lehnt Vorschläge ab, die gegen die Streuung
-   verstoßen (alle drei aus einem Bezirk, mehr als eines aus den Großstädten).
+   verstoßen (bei fünf Themen weniger als drei Bezirke oder mehr als zwei aus den Großstädten;
+   bei drei Themen weniger als zwei Bezirke oder mehr als eines aus den Großstädten).
 4. Committen („Themen: <Datum>“) und pushen. Der Automat schickt die Themen per Telegram mit den
-   Knöpfen 1 / 2 / 3 / Keins.
+   Knöpfen 1 bis 5 / Keins.
 
 ### Stündliche Runde (6:37–22:37 Uhr)
 

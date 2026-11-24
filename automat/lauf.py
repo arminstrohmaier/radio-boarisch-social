@@ -324,7 +324,7 @@ def _nachricht(st: Status, tg: Telegram, chat_id: str, m: dict):
         hinweise.aufnehmen(st, tg, chat_id, m.get("text") or "", m.get("message_id"))
     elif text.startswith("/start") or text.startswith("/id") or text.startswith("/hilfe"):
         tg.text(chat_id, "Servus! Der Automat ist eingerichtet.\n\n"
-                         "/themen – drei neue Themenvorschläge außer der Reihe anfordern\n"
+                         "/themen – neue Themenvorschläge außer der Reihe anfordern\n"
                          "Stichwörter oder ein Link (einfach als Nachricht) – ich mach einen Entwurf draus\n"
                          "/status – offene Themen und Entwürfe anzeigen")
 
@@ -464,7 +464,7 @@ def zyklus(st: Status, s: Settings, tg: Telegram, meta, commit, repo: Path,
     st.speichern(); commit("Telegram-Antworten")
     if not st.daten.get("befehle_gesetzt"):
         try:
-            tg.befehle([("themen", "Drei neue Themenvorschläge anfordern"),
+            tg.befehle([("themen", "Neue Themenvorschläge anfordern"),
                         ("status", "Offene Themen und Entwürfe anzeigen")])
             st.daten["befehle_gesetzt"] = True
         except TelegramFehler:
