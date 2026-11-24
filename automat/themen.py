@@ -1,5 +1,5 @@
 """Stufe 1: Themenvorschlaege. Claude legt themen/<JJJJ-MM-TT>-themen[-N].json mit
-bis zu drei Themen an (geplant taeglich 4:30, 10:00 und 17:00 Uhr, dazu /themen); der Betreiber waehlt per Telegram 1, 2, 3 oder keins.
+bis zu fuenf Themen an (geplant taeglich 10:00 Uhr, dazu /themen); der Betreiber waehlt per Telegram 1 bis 5 oder keins.
 Erst danach schreibt Claude den vollstaendigen Entwurf (Stufe 2, entwuerfe/),
 der wie bisher mit Ja/Nein freigegeben wird.
 
@@ -26,11 +26,12 @@ from zoneinfo import ZoneInfo
 from . import entwurf as E
 from .status import jetzt, schluessel
 
-NUMMERN = ["1️⃣", "2️⃣", "3️⃣"]
+NUMMERN = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+MAX_THEMEN = 5   # Betreiberentscheidung 24.11.2026: einmal taeglich fuenf Vorschlaege
 
 # Geplante Themenlaeufe (Betreiberentscheidung 17.11.2026, abends geaendert): taeglich
 # 4:30, 10:00 und 17:00 Uhr. Muss zu den Routinen "Radio Boarisch – Themenlauf ..." passen.
-TERMINE = [(4, 30), (10, 0), (17, 0)]
+TERMINE = [(10, 0)]
 WERKTAGE = range(0, 7)   # Mo=0 .. So=6 – jeden Tag
 BERLIN = ZoneInfo("Europe/Berlin")
 WOCHENTAG = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
@@ -51,7 +52,7 @@ def naechster_themenlauf(jetzt_: datetime | None = None) -> str:
     return "demnächst"
 
 
-ZEITPLAN = "täglich um 4:30, 10:00 und 17:00 Uhr"
+ZEITPLAN = "täglich um 10:00 Uhr"
 
 
 # Streuung (Betreiberentscheidung 18.11.2026): Themen aus ganz Bayern, nicht nur aus den
@@ -82,8 +83,8 @@ def pruefen(t: dict) -> list[str]:
     if not t.get("id") or not E.ID_RE.match(t["id"]):
         fehler.append("id muss 'JJJJ-MM-TT-themen' o. ae. sein")
     liste = t.get("themen")
-    if not isinstance(liste, list) or not 1 <= len(liste) <= 3:
-        fehler.append("themen: ein bis drei Eintraege")
+    if not isinstance(liste, list) or not 1 <= len(liste) <= MAX_THEMEN:
+        fehler.append(f"themen: ein bis {MAX_THEMEN} Eintraege")
         return fehler
     for i, th in enumerate(liste, 1):
         if not (th.get("titel") or "").strip():
@@ -108,11 +109,13 @@ def pruefen(t: dict) -> list[str]:
         fehler.append(f"Abwechslung: hoechstens {WEIHNACHT_MAX} Weihnachts-/Adventsthema pro Vorschlag ("
                       + "; ".join(weihnacht) + ")")
     bezirke = {th["region"] for th in liste if th["region"] != "bayern"}
-    if len(liste) == 3 and len(bezirke) < 2:
-        fehler.append("Streuung: drei Themen brauchen mindestens zwei Regierungsbezirke")
+    min_bezirke = 3 if len(liste) >= 5 else 2 if len(liste) >= 3 else 1
+    if len(bezirke) < min_bezirke and len(liste) >= 3:
+        fehler.append(f"Streuung: {len(liste)} Themen brauchen mindestens {min_bezirke} Regierungsbezirke")
     gross = [th for th in liste if th["ort"].strip().lower() in GROSSSTAEDTE]
-    if len(liste) == 3 and len(gross) > 1:
-        fehler.append("Streuung: hoechstens ein Thema aus einer Grossstadt ("
+    max_gross = 1 if len(liste) <= 3 else 2
+    if len(liste) >= 3 and len(gross) > max_gross:
+        fehler.append(f"Streuung: hoechstens {max_gross} Thema/Themen aus einer Grossstadt ("
                       + ", ".join(th["ort"] for th in gross) + ")")
     return fehler
 
@@ -125,7 +128,7 @@ def anfordern(st) -> str:
         return ("⏳ Ist schon angefordert – die Vorschläge kommen mit der nächsten stündlichen Runde "
                 "(zur Minute :37, zwischen 6 und 22 Uhr).")
     st.daten["anforderungen"].append({"art": "themenlauf", "zeit": jetzt(), "status": "offen"})
-    return ("👍 Angefordert. Drei zusätzliche Themenvorschläge kommen mit der nächsten stündlichen "
+    return ("👍 Angefordert. Zusätzliche Themenvorschläge kommen mit der nächsten stündlichen "
             "Runde (zur Minute :37, zwischen 6 und 22 Uhr), meist innerhalb einer guten Stunde.\n"
             f"Die regulären Vorschläge kommen {ZEITPLAN}, der nächste {naechster_themenlauf()}.")
 

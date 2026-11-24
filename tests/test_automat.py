@@ -748,13 +748,9 @@ def test_logo_in_ecke_gegenueber_bildtext(tmp_path, monkeypatch):
 def test_naechster_themenlauf():
     from datetime import datetime
     from automat.themen import BERLIN, naechster_themenlauf as n
-    assert n(datetime(2026, 11, 18, 3, 0, tzinfo=BERLIN)) == "heute 4:30 Uhr"      # Mi
-    assert n(datetime(2026, 11, 18, 4, 30, tzinfo=BERLIN)) == "heute 10:00 Uhr"
-    assert n(datetime(2026, 11, 18, 13, 0, tzinfo=BERLIN)) == "heute 17:00 Uhr"
-    assert n(datetime(2026, 11, 18, 18, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"
-    assert n(datetime(2026, 11, 21, 18, 0, tzinfo=BERLIN)) == "morgen 4:30 Uhr"    # Sa abends -> So
-    assert n(datetime(2026, 11, 22, 11, 0, tzinfo=BERLIN)) == "heute 17:00 Uhr"    # So
-
+    assert n(datetime(2026, 11, 24, 3, 0, tzinfo=BERLIN)) == "heute 10:00 Uhr"
+    assert n(datetime(2026, 11, 24, 10, 0, tzinfo=BERLIN)) == "morgen 10:00 Uhr"
+    assert n(datetime(2026, 11, 28, 18, 0, tzinfo=BERLIN)) == "morgen 10:00 Uhr"    # Sa abends -> So
 
 
 def test_dauerlauf_endet_bei_neuem_code_auf_main(tmp_path, monkeypatch):
@@ -808,7 +804,7 @@ def test_themen_streuung():
     gleich = copy.deepcopy(THEMEN)
     for th in gleich["themen"]:
         th["region"] = "schwaben"
-    assert any("zwei Regierungsbezirke" in f for f in themen.pruefen(gleich))
+    assert any("mindestens 2 Regierungsbezirke" in f for f in themen.pruefen(gleich))
     gross = copy.deepcopy(THEMEN)
     gross["themen"][0]["ort"] = "München"; gross["themen"][1]["ort"] = "Augsburg"
     assert any("Grossstadt" in f for f in themen.pruefen(gross))
@@ -827,3 +823,33 @@ def test_hoechstens_ein_weihnachtsthema():
     assert any("Weihnachts" in f for f in themen.pruefen(zwei))
     assert not themen.ist_weihnachtlich({"titel": "Westernstadt öffnet", "worum": "Sternstunde?"})
     assert themen.ist_weihnachtlich({"titel": "Weihnachtssterne aus dem Christbaum", "worum": ""})
+
+
+def test_fuenf_themenvorschlaege(tmp_path):
+    from automat import themen
+    import copy
+    fuenf = copy.deepcopy(THEMEN)
+    fuenf["themen"] += [
+        {"titel": "Blasmusik-Wertungsspiel", "worum": "x.", "quelle": {"name": "Verband", "url": "https://example.org/a"},
+         "region": "schwaben", "ort": "Kempten"},
+        {"titel": "Theaterpremiere", "worum": "y.", "quelle": {"name": "Theater", "url": "https://example.org/b"},
+         "region": "mittelfranken", "ort": "Nürnberg"}]
+    assert themen.pruefen(fuenf) == []
+    sechs = copy.deepcopy(fuenf); sechs["themen"].append(copy.deepcopy(fuenf["themen"][0]))
+    assert any("ein bis 5" in f for f in themen.pruefen(sechs))
+    zwei_bezirke = copy.deepcopy(fuenf)
+    for k, th in enumerate(zwei_bezirke["themen"]):
+        th["region"] = "schwaben" if k % 2 else "oberbayern"
+    assert any("mindestens 3 Regierungsbezirke" in f for f in themen.pruefen(zwei_bezirke))
+    drei_gross = copy.deepcopy(fuenf)
+    for k, ort in enumerate(["München", "Augsburg", "Würzburg"]):
+        drei_gross["themen"][k]["ort"] = ort
+    assert any("Grossstadt" in f for f in themen.pruefen(drei_gross))
+    st, tg = Status(tmp_path), FakeTG()
+    themen.importieren(st, [("b", "themen/x.json", fuenf)], tg, "42", lambda _: False)
+    themen.senden(st, tg, "42")
+    knoepfe = tg.gesendet[-1][3]
+    assert len(knoepfe[0]) == 5 and knoepfe[0][4]["text"] == "5️⃣"
+    tg.klick(1, f"t:{st.themen[fuenf['id']]['key']}:5")
+    lauf.antworten(st, tg, "42")
+    assert st.themen[fuenf["id"]]["gewaehlt"] == 5

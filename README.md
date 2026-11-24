@@ -4,7 +4,7 @@ Redaktionsautomat fuer Instagram und Facebook von Radio Boarisch (Klingt nach Da
 ## Halbautomatik (D-083, LOP 127)
 
 ```
-Claude (tägl. 4:30/10:00/17:00)          GitHub Actions "Automat" (alle 10 Min.)          Betreiber
+Claude (täglich 10:00 Uhr)               GitHub Actions "Automat" (alle 10 Min.)          Betreiber
   recherchiert nach 06 §10        ──►  Entwurf pruefen, KI-Bild (Pool als Rueckfall)  ──►  Telegram:
   entwuerfe/<id>.json pushen            rendern, per Telegram schicken                    ✅ Ja / ❌ Nein
                                         Ja   ──► Meta Graph API: Instagram + Facebook  ◄──┘
