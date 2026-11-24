@@ -917,6 +917,21 @@
           "zeit": "2026-11-23T16:39:40+00:00"
         }
       }
+    },
+    "2026-11-24-friedensbaum-dingolfing": {
+      "status": "neu",
+      "key": "550f16b816",
+      "hash": "c1823c525b920c926e5265a523e4f9738a0ba81e",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-friedensbaum-dingolfing.json",
+      "importiert": "2026-11-24T06:38:24+00:00",
+      "bild": "14_text-oben.jpg",
+      "thema": "Dingolfing schließt sein Jubiläumsjahr „775 Jahre“ mit einem Friedensbaum – 775 Bäume und 8.750 Euro Spenden",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "detail",
+        "farbwelt": "Fresh soil brown, muted lawn green, stone grey, pale sky"
+      }
     }
   },
   "themen": {
@@ -2178,7 +2193,7 @@
       "entwurf": "2026-11-23-gute-nachbarschaft-cham"
     },
     "2026-11-24-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "24ea84cae6",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen.json",
       "importiert": "2026-11-24T03:36:13+00:00",
@@ -2221,7 +2236,8 @@
       "gesendet": "2026-11-24T03:36:15+00:00",
       "tg_msg": 210,
       "gewaehlt": 1,
-      "entschieden": "2026-11-24T06:22:17+00:00"
+      "entschieden": "2026-11-24T06:22:17+00:00",
+      "entwurf": "2026-11-24-friedensbaum-dingolfing"
     }
   },
   "befehle_gesetzt": true,
