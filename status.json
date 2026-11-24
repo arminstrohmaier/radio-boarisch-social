@@ -2178,7 +2178,7 @@
       "entwurf": "2026-11-23-gute-nachbarschaft-cham"
     },
     "2026-11-24-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "24ea84cae6",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen.json",
       "importiert": "2026-11-24T03:36:13+00:00",
@@ -2217,7 +2217,9 @@
           "ort": "Burglengenfeld"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-24T03:36:15+00:00",
+      "tg_msg": 210
     }
   },
   "befehle_gesetzt": true,
