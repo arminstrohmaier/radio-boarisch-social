@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760214,
+  "telegram_offset": 972760215,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -955,7 +955,7 @@
       }
     },
     "2026-11-24-sound-of-schwaben-goeggingen": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "f92230f6dd",
       "hash": "9350ff52cbce3a852c81f08eb3e44f80716f0812",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-sound-of-schwaben-goeggingen.json",
@@ -971,7 +971,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · musik · schwaben · Aufbau zentral",
       "gesendet": "2026-11-24T11:39:49+00:00",
       "tg_foto": 218,
-      "tg_msg": 219
+      "tg_msg": 219,
+      "entschieden": "2026-11-24T12:19:38+00:00"
     }
   },
   "themen": {
