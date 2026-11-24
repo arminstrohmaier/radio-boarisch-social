@@ -2261,7 +2261,7 @@
       "entwurf": "2026-11-24-friedensbaum-dingolfing"
     },
     "2026-11-24-themen-2": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "0589089c51",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen-2.json",
       "importiert": "2026-11-24T09:13:40+00:00",
@@ -2322,7 +2322,9 @@
           "ort": "Traunstein"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-24T09:13:42+00:00",
+      "tg_msg": 216
     }
   },
   "befehle_gesetzt": true,
