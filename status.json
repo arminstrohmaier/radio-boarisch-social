@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760211,
+  "telegram_offset": 972760212,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -2178,7 +2178,7 @@
       "entwurf": "2026-11-23-gute-nachbarschaft-cham"
     },
     "2026-11-24-themen": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "24ea84cae6",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen.json",
       "importiert": "2026-11-24T03:36:13+00:00",
@@ -2219,7 +2219,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-24T03:36:15+00:00",
-      "tg_msg": 210
+      "tg_msg": 210,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-24T06:22:17+00:00"
     }
   },
   "befehle_gesetzt": true,
