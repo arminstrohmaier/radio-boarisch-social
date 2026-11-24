@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760212,
+  "telegram_offset": 972760213,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -919,7 +919,7 @@
       }
     },
     "2026-11-24-friedensbaum-dingolfing": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "550f16b816",
       "hash": "c1823c525b920c926e5265a523e4f9738a0ba81e",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-friedensbaum-dingolfing.json",
@@ -935,7 +935,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · meldung · niederbayern · Aufbau detail",
       "gesendet": "2026-11-24T06:38:32+00:00",
       "tg_foto": 212,
-      "tg_msg": 213
+      "tg_msg": 213,
+      "entschieden": "2026-11-24T06:40:14+00:00"
     }
   },
   "themen": {
