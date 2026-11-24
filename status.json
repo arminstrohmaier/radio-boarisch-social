@@ -919,7 +919,7 @@
       }
     },
     "2026-11-24-friedensbaum-dingolfing": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "550f16b816",
       "hash": "c1823c525b920c926e5265a523e4f9738a0ba81e",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-friedensbaum-dingolfing.json",
