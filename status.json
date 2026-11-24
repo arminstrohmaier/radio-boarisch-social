@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760213,
+  "telegram_offset": 972760214,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -2261,7 +2261,7 @@
       "entwurf": "2026-11-24-friedensbaum-dingolfing"
     },
     "2026-11-24-themen-2": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "0589089c51",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen-2.json",
       "importiert": "2026-11-24T09:13:40+00:00",
@@ -2324,7 +2324,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-24T09:13:42+00:00",
-      "tg_msg": 216
+      "tg_msg": 216,
+      "gewaehlt": 2,
+      "entschieden": "2026-11-24T11:20:08+00:00"
     }
   },
   "befehle_gesetzt": true,
