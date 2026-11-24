@@ -919,7 +919,7 @@
       }
     },
     "2026-11-24-friedensbaum-dingolfing": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "550f16b816",
       "hash": "c1823c525b920c926e5265a523e4f9738a0ba81e",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-friedensbaum-dingolfing.json",
@@ -931,7 +931,11 @@
       "bild_ki": {
         "aufbau": "detail",
         "farbwelt": "Fresh soil brown, muted lawn green, stone grey, pale sky"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · meldung · niederbayern · Aufbau detail",
+      "gesendet": "2026-11-24T06:38:32+00:00",
+      "tg_foto": 212,
+      "tg_msg": 213
     }
   },
   "themen": {
