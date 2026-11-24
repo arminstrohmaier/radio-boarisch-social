@@ -953,6 +953,21 @@
           "zeit": "2026-11-24T06:40:38+00:00"
         }
       }
+    },
+    "2026-11-24-sound-of-schwaben-goeggingen": {
+      "status": "neu",
+      "key": "f92230f6dd",
+      "hash": "9350ff52cbce3a852c81f08eb3e44f80716f0812",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-sound-of-schwaben-goeggingen.json",
+      "importiert": "2026-11-24T11:39:41+00:00",
+      "bild": "05_text-oben.jpg",
+      "thema": "Konzertreihe „Sound of Schwaben“: Aleyna und Marisa am 28. November im Parktheater im Kurhaus Göggingen, Eintritt frei",
+      "hinweise": [],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "zentral",
+        "farbwelt": "Cream white, dark piano black, warm parquet brown, deep evening blue"
+      }
     }
   },
   "themen": {
@@ -2261,7 +2276,7 @@
       "entwurf": "2026-11-24-friedensbaum-dingolfing"
     },
     "2026-11-24-themen-2": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "0589089c51",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen-2.json",
       "importiert": "2026-11-24T09:13:40+00:00",
@@ -2326,7 +2341,8 @@
       "gesendet": "2026-11-24T09:13:42+00:00",
       "tg_msg": 216,
       "gewaehlt": 2,
-      "entschieden": "2026-11-24T11:20:08+00:00"
+      "entschieden": "2026-11-24T11:20:08+00:00",
+      "entwurf": "2026-11-24-sound-of-schwaben-goeggingen"
     }
   },
   "befehle_gesetzt": true,
