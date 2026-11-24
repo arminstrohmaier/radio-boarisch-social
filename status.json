@@ -2176,6 +2176,48 @@
       "gewaehlt": 2,
       "entschieden": "2026-11-23T16:35:15+00:00",
       "entwurf": "2026-11-23-gute-nachbarschaft-cham"
+    },
+    "2026-11-24-themen": {
+      "status": "neu",
+      "key": "24ea84cae6",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-24-themen.json",
+      "importiert": "2026-11-24T03:36:13+00:00",
+      "themen": [
+        {
+          "titel": "Dingolfing beendet sein Jubiläumsjahr mit einem Friedensbaum",
+          "worum": "Zum Ende von „775 Jahre Dingolfing“ wurde an der Stadtbibliothek ein Friedensbaum gepflanzt. Bilanz des Jahres: 775 neue Bäume, viele kleine Feste statt einer großen Feier und 8.750 Euro für fünf soziale Einrichtungen.",
+          "quelle": {
+            "name": "Stadt Dingolfing",
+            "url": "https://www.dingolfing.de/aktuelles/neuigkeiten/baumpflanzung-zum-ende-des-jubilaeumsjahres"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Dingolfing"
+        },
+        {
+          "titel": "Neue Erlebnisführung in Kulmbach: die „unehrlichen“ Berufe im Mittelalter",
+          "worum": "Färber, Gerber und anderes „Gelichter“: Eine neue Führung des Kulmbacher Tourismusservice geht ins Quartier der ausgegrenzten Berufe abseits des Marktplatzes. Premiere am Freitag, 11. Dezember, um 18 Uhr.",
+          "quelle": {
+            "name": "Stadt Kulmbach",
+            "url": "https://www.kulmbach.de/news/2630/1311549/kategorie/von-faerbern-gerbern-und-anderem-gelichter-neue-erlebnisfuehrung-in-kulmbach-am-11.-dezember-2026.html"
+          },
+          "ernst": false,
+          "region": "oberfranken",
+          "ort": "Kulmbach"
+        },
+        {
+          "titel": "Adventsmarkt in der Burglengenfelder Altstadt",
+          "worum": "Vom 27. bis 29. November gibt es auf dem unteren und oberen Marktplatz ein Budendorf, einen neuen Foto-Platz mit Stadtsilhouette am Rathaus und im Rathaussaal erstmals das Christkindlpostamt von Stadtbibliothek und Bürgertreff.",
+          "quelle": {
+            "name": "Stadt Burglengenfeld",
+            "url": "https://www.burglengenfeld.de/nachrichten/artikel/adventsmarkt-in-burglengenfeld-vom-27-bis-29-november"
+          },
+          "ernst": false,
+          "region": "oberpfalz",
+          "ort": "Burglengenfeld"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
