@@ -955,7 +955,7 @@
       }
     },
     "2026-11-24-sound-of-schwaben-goeggingen": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "f92230f6dd",
       "hash": "9350ff52cbce3a852c81f08eb3e44f80716f0812",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-24-sound-of-schwaben-goeggingen.json",
