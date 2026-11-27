@@ -991,7 +991,7 @@
       }
     },
     "2026-11-27-charity-run-gunzenhausen": {
-      "status": "freigegeben",
+      "status": "veroeffentlicht",
       "key": "213ccaa181",
       "hash": "f7e61cb6aac221dc423ebfe59a97550344719291",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-27-charity-run-gunzenhausen.json",
