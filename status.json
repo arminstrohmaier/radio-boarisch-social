@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760216,
+  "telegram_offset": 972760217,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -991,7 +991,7 @@
       }
     },
     "2026-11-27-charity-run-gunzenhausen": {
-      "status": "gesendet",
+      "status": "freigegeben",
       "key": "213ccaa181",
       "hash": "f7e61cb6aac221dc423ebfe59a97550344719291",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-27-charity-run-gunzenhausen.json",
@@ -1012,7 +1012,8 @@
       "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · mittelfranken · Aufbau diagonale",
       "gesendet": "2026-11-27T11:40:05+00:00",
       "tg_foto": 224,
-      "tg_msg": 225
+      "tg_msg": 225,
+      "entschieden": "2026-11-27T11:48:23+00:00"
     }
   },
   "themen": {
