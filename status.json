@@ -989,6 +989,26 @@
           "zeit": "2026-11-24T12:20:17+00:00"
         }
       }
+    },
+    "2026-11-27-charity-run-gunzenhausen": {
+      "status": "neu",
+      "key": "213ccaa181",
+      "hash": "f7e61cb6aac221dc423ebfe59a97550344719291",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-27-charity-run-gunzenhausen.json",
+      "importiert": "2026-11-27T11:39:57+00:00",
+      "bild": "16_text-oben.jpg",
+      "thema": "Gunzenhäuser Charity-Run: Über 1.200 Schülerinnen und Schüler erlaufen 22.000 Euro für die Alzheimer Gesellschaft und Kinderschicksale Mittelfranken",
+      "hinweise": [
+        "bild_ki.menschen belebt: im Motiv ein Blickziel nennen, dem alle zugewandt sind (z. B. 'facing the stage', 'towards the stalls') – sonst frontale Gesichter",
+        "Stadt Gunzenhausen: kein belegtes Konto – erscheint nur als Name",
+        "Alzheimer Gesellschaft Gunzenhausen und Umgebung: kein belegtes Konto – erscheint nur als Name",
+        "Kinderschicksale Mittelfranken: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "diagonale",
+        "farbwelt": "Autumn orange, river green, warm sandstone beige, bright sport colours"
+      }
     }
   },
   "themen": {
@@ -2366,7 +2386,7 @@
       "entwurf": "2026-11-24-sound-of-schwaben-goeggingen"
     },
     "2026-11-27-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "8f49a05641",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-27-themen.json",
       "importiert": "2026-11-27T10:41:11+00:00",
@@ -2431,7 +2451,8 @@
       "gesendet": "2026-11-27T10:41:13+00:00",
       "tg_msg": 222,
       "gewaehlt": 1,
-      "entschieden": "2026-11-27T10:42:10+00:00"
+      "entschieden": "2026-11-27T10:42:10+00:00",
+      "entwurf": "2026-11-27-charity-run-gunzenhausen"
     }
   },
   "befehle_gesetzt": true,
