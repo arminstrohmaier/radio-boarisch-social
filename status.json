@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760215,
+  "telegram_offset": 972760216,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -2366,7 +2366,7 @@
       "entwurf": "2026-11-24-sound-of-schwaben-goeggingen"
     },
     "2026-11-27-themen": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "8f49a05641",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-27-themen.json",
       "importiert": "2026-11-27T10:41:11+00:00",
@@ -2429,7 +2429,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-27T10:41:13+00:00",
-      "tg_msg": 222
+      "tg_msg": 222,
+      "gewaehlt": 1,
+      "entschieden": "2026-11-27T10:42:10+00:00"
     }
   },
   "befehle_gesetzt": true,
