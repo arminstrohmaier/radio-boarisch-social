@@ -991,7 +991,7 @@
       }
     },
     "2026-11-27-charity-run-gunzenhausen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "213ccaa181",
       "hash": "f7e61cb6aac221dc423ebfe59a97550344719291",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-27-charity-run-gunzenhausen.json",
@@ -1008,7 +1008,11 @@
       "bild_ki": {
         "aufbau": "diagonale",
         "farbwelt": "Autumn orange, river green, warm sandstone beige, bright sport colours"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · veranstaltung · mittelfranken · Aufbau diagonale",
+      "gesendet": "2026-11-27T11:40:05+00:00",
+      "tg_foto": 224,
+      "tg_msg": 225
     }
   },
   "themen": {
