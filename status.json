@@ -2366,7 +2366,7 @@
       "entwurf": "2026-11-24-sound-of-schwaben-goeggingen"
     },
     "2026-11-27-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "8f49a05641",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-27-themen.json",
       "importiert": "2026-11-27T10:41:11+00:00",
@@ -2427,7 +2427,9 @@
           "ort": "Neumarkt in der Oberpfalz"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-27T10:41:13+00:00",
+      "tg_msg": 222
     }
   },
   "befehle_gesetzt": true,
