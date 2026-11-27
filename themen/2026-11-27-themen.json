@@ -1,0 +1,60 @@
+{
+  "id": "2026-11-27-themen",
+  "themen": [
+    {
+      "titel": "Gunzenhäuser Schüler erlaufen 22.000 Euro für zwei Vereine",
+      "worum": "Beim Charity-Run im Oktober drehten mehr als 1.200 Schülerinnen und Schüler aus acht Schulen ihre Runden über Marktplatz und Altmühlpromenade; je 11.000 Euro gehen jetzt an die Alzheimer Gesellschaft und an Kinderschicksale Mittelfranken.",
+      "quelle": {
+        "name": "Stadt Gunzenhausen",
+        "url": "https://www.gunzenhausen.de/meldungen-details/gunzenh%C3%A4user-charity-run-22-000-euro-f%C3%BCr-zwei-gemeinn%C3%BCtzige-vereine.html"
+      },
+      "ernst": false,
+      "region": "mittelfranken",
+      "ort": "Gunzenhausen"
+    },
+    {
+      "titel": "Schweinfurter Stadtarchiv zeigt vergessene jüdische Weingeschichte",
+      "worum": "Eine Ausstellung mit neu aufgetauchten Briefen, Rezepten und alten Flaschen erinnert an jüdische Wein- und Spirituosenhändler, die im 19. Jahrhundert Hoflieferanten wurden; Eintritt frei, Mo–Fr 8–18 Uhr.",
+      "quelle": {
+        "name": "Stadt Schweinfurt",
+        "url": "https://www.schweinfurt.de/kultur-freizeit/events?ev%5Bid%5D=259140"
+      },
+      "ernst": false,
+      "region": "unterfranken",
+      "ort": "Schweinfurt"
+    },
+    {
+      "titel": "Kronacher Kunstverein zeigt seine Jahresausstellung zum Thema „Wald“",
+      "worum": "Die Galerie in der Siechenangerstraße hat bis in den Dezember donnerstags bis sonntags von 15 bis 18 Uhr geöffnet, der Eintritt ist frei.",
+      "quelle": {
+        "name": "Stadt Kronach",
+        "url": "https://www.kronach.de/tourismus-kultur/veranstaltungen/index.html?ev%5Bid%5D=15734"
+      },
+      "ernst": false,
+      "region": "oberfranken",
+      "ort": "Kronach"
+    },
+    {
+      "titel": "Polizeiorchester Bayern und Domspatzen singen in Straubing für den guten Zweck",
+      "worum": "Am 10. Dezember spielen beide in der Fraunhofer-Halle ihr Weihnachtskonzert „Christmas Voices“; der Erlös geht an Rotary-Projekte und den Kinderschutzbund Straubing.",
+      "quelle": {
+        "name": "Stadt Straubing",
+        "url": "https://www.straubing.de/aktuelle-meldungen/5749.Benefizkonzert-10.-Dezember-2026.html"
+      },
+      "ernst": false,
+      "region": "niederbayern",
+      "ort": "Straubing"
+    },
+    {
+      "titel": "Neumarkt sucht Musik- und Tanzgruppen für das 35. Altstadtfest",
+      "worum": "Für das Fest vom 11. bis 13. Juni 2027 können sich Musik- und Tanzgruppen noch bis 6. Dezember bewerben, Stände bis 24. Januar.",
+      "quelle": {
+        "name": "Stadt Neumarkt i.d.OPf.",
+        "url": "https://www.neumarkt.de/rathaus-buergerservice/aktuelles/aktuelles-aus-neumarkt/anmeldung-zum-altstadtfest-2027-fuer-musik-und-tanzgruppen-endet-bald-standplaetze-haben-noch-bis-januar-zeit-1126/"
+      },
+      "ernst": false,
+      "region": "oberpfalz",
+      "ort": "Neumarkt in der Oberpfalz"
+    }
+  ]
+}
