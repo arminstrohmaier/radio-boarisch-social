@@ -1,5 +1,5 @@
 {
-  "telegram_offset": 972760217,
+  "telegram_offset": 972760218,
   "posts": {
     "2026-11-10-test-121220": {
       "status": "test_ok",
@@ -2476,7 +2476,7 @@
       "entwurf": "2026-11-27-charity-run-gunzenhausen"
     },
     "2026-11-28-themen": {
-      "status": "gesendet",
+      "status": "gewaehlt",
       "key": "6b606cc4ad",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-28-themen.json",
       "importiert": "2026-11-28T09:17:12+00:00",
@@ -2539,7 +2539,9 @@
       ],
       "fehler": [],
       "gesendet": "2026-11-28T09:17:14+00:00",
-      "tg_msg": 228
+      "tg_msg": 228,
+      "gewaehlt": 3,
+      "entschieden": "2026-11-28T09:18:00+00:00"
     }
   },
   "befehle_gesetzt": true,
