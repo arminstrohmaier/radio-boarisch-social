@@ -1030,6 +1030,23 @@
           "zeit": "2026-11-27T11:48:55+00:00"
         }
       }
+    },
+    "2026-11-28-potz-blitz-hof": {
+      "status": "neu",
+      "key": "4cc1ae2a43",
+      "hash": "2ff6b599a8ea394c14f6c2aca59c31bfea42a4e2",
+      "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-28-potz-blitz-hof.json",
+      "importiert": "2026-11-28T09:38:44+00:00",
+      "bild": "03_text-oben.jpg",
+      "thema": "Sonderausstellung „Potz! Blitz! Vom Fluch des Pharao bis zur Hate Speech“ im Museum Bayerisches Vogtland in Hof",
+      "hinweise": [
+        "Museum Bayerisches Vogtland: kein belegtes Konto – erscheint nur als Name"
+      ],
+      "fehler": [],
+      "bild_ki": {
+        "aufbau": "mittel",
+        "farbwelt": "Signal red, warm wood brown, chalk white, slate grey"
+      }
     }
   },
   "themen": {
@@ -2476,7 +2493,7 @@
       "entwurf": "2026-11-27-charity-run-gunzenhausen"
     },
     "2026-11-28-themen": {
-      "status": "gewaehlt",
+      "status": "erledigt",
       "key": "6b606cc4ad",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-28-themen.json",
       "importiert": "2026-11-28T09:17:12+00:00",
@@ -2541,7 +2558,8 @@
       "gesendet": "2026-11-28T09:17:14+00:00",
       "tg_msg": 228,
       "gewaehlt": 3,
-      "entschieden": "2026-11-28T09:18:00+00:00"
+      "entschieden": "2026-11-28T09:18:00+00:00",
+      "entwurf": "2026-11-28-potz-blitz-hof"
     }
   },
   "befehle_gesetzt": true,
