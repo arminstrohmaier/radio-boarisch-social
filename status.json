@@ -2474,6 +2474,70 @@
       "gewaehlt": 1,
       "entschieden": "2026-11-27T10:42:10+00:00",
       "entwurf": "2026-11-27-charity-run-gunzenhausen"
+    },
+    "2026-11-28-themen": {
+      "status": "neu",
+      "key": "6b606cc4ad",
+      "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-28-themen.json",
+      "importiert": "2026-11-28T09:17:12+00:00",
+      "themen": [
+        {
+          "titel": "Sanierung des Landsberger Stadtmuseums gewinnt den German Design Award",
+          "worum": "Das ehemalige Jesuitengymnasium aus dem 17. Jahrhundert ist nach sechs Jahren Sanierung seit Juli wieder offen; die Verbindung von alter Bausubstanz und moderner Architektur wurde jetzt international ausgezeichnet.",
+          "quelle": {
+            "name": "Stadt Landsberg am Lech",
+            "url": "https://www.landsberg.de/rathaus/aktuelles/pressemitteilungen/sanierung-des-stadtmuseums-mit-german-design-award-ausgezeichnet/"
+          },
+          "ernst": false,
+          "region": "oberbayern",
+          "ort": "Landsberg am Lech"
+        },
+        {
+          "titel": "„Bilder zum Anfassen“: Kunst zum Ertasten in der Nördlinger Stadtbibliothek",
+          "worum": "Die Künstlerin Hannelore Hippler zeigt Bilder, die man mit den Händen entdecken kann – gedacht auch für Menschen mit Sehbehinderung; zu sehen zu den Öffnungszeiten der Bibliothek.",
+          "quelle": {
+            "name": "Stadt Nördlingen",
+            "url": "https://www.noerdlingen.de/news?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=8897&cHash=220a04dc8160ec3800b85b8985acff0c"
+          },
+          "ernst": false,
+          "region": "schwaben",
+          "ort": "Nördlingen"
+        },
+        {
+          "titel": "„Potz! Blitz!“ – Hofer Museum zeigt die Geschichte des Fluchens",
+          "worum": "Das Museum Bayerisches Vogtland zeigt mit interaktiven Stationen, wie Menschen vom Fluch des Pharao bis heute schimpfen und fluchen – und welche Macht Worte haben; mit Vorträgen und Kinderprogramm bis ins Frühjahr.",
+          "quelle": {
+            "name": "Stadt Hof",
+            "url": "https://www.hof.de/leben-erleben/museum-bayerisches-vogtland/sonderausstellung/potzblitz-vom-fluch-des-pharao-bis-zur-hate-speech"
+          },
+          "ernst": false,
+          "region": "oberfranken",
+          "ort": "Hof"
+        },
+        {
+          "titel": "Abensberg ehrt 37 Ehrenamtliche",
+          "worum": "Beim traditionellen Ehrenamtsabend im Berufsbildungswerk dankte die Stadt Menschen, die sich in ihrer Freizeit für die Gemeinschaft einsetzen; mit der EhrenamtCARD gibt es dafür sogar Rabatte.",
+          "quelle": {
+            "name": "Stadt Abensberg",
+            "url": "https://www.abensberg.de/aktuelles/ehrenamtsabend-der-stadt-im-bbw-aktuelles-21484"
+          },
+          "ernst": false,
+          "region": "niederbayern",
+          "ort": "Abensberg"
+        },
+        {
+          "titel": "Krippen aus aller Welt und Puppenstuben im Schrobenhausener Pflegschloss",
+          "worum": "Gleich drei neue Sonderausstellungen öffnen zum ersten Adventswochenende: Krippen aus aller Welt, Puppenstuben und Kaufläden sowie eine Gemeinschaftsschau regionaler Künstler.",
+          "quelle": {
+            "name": "Stadt Schrobenhausen",
+            "url": "https://www.schrobenhausen.de/de/Aktuelles/Stadtnachrichten/Stadtnachricht?view=publish&item=article&id=2044"
+          },
+          "ernst": false,
+          "region": "oberbayern",
+          "ort": "Schrobenhausen"
+        }
+      ],
+      "fehler": []
     }
   },
   "befehle_gesetzt": true,
