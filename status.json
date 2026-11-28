@@ -1032,7 +1032,7 @@
       }
     },
     "2026-11-28-potz-blitz-hof": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "4cc1ae2a43",
       "hash": "2ff6b599a8ea394c14f6c2aca59c31bfea42a4e2",
       "herkunft": "claude/fervent-knuth-cflq9j:entwuerfe/2026-11-28-potz-blitz-hof.json",
@@ -1046,7 +1046,11 @@
       "bild_ki": {
         "aufbau": "mittel",
         "farbwelt": "Signal red, warm wood brown, chalk white, slate grey"
-      }
+      },
+      "bildherkunft": "Bild: eigenes KI-Bild (lucid-origin) · kultur · oberfranken · Aufbau mittel",
+      "gesendet": "2026-11-28T09:38:51+00:00",
+      "tg_foto": 230,
+      "tg_msg": 231
     }
   },
   "themen": {
