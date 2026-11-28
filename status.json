@@ -2476,7 +2476,7 @@
       "entwurf": "2026-11-27-charity-run-gunzenhausen"
     },
     "2026-11-28-themen": {
-      "status": "neu",
+      "status": "gesendet",
       "key": "6b606cc4ad",
       "herkunft": "claude/fervent-knuth-cflq9j:themen/2026-11-28-themen.json",
       "importiert": "2026-11-28T09:17:12+00:00",
@@ -2537,7 +2537,9 @@
           "ort": "Schrobenhausen"
         }
       ],
-      "fehler": []
+      "fehler": [],
+      "gesendet": "2026-11-28T09:17:14+00:00",
+      "tg_msg": 228
     }
   },
   "befehle_gesetzt": true,
